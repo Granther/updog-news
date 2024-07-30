@@ -1,0 +1,31 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    background-color: #4759a6;
+}
+
+.banner {
+    color: black; /* Text color */
+    padding: 20px 30px; /* Padding inside the banner */
+    display: flex; /* Use Flexbox for layout */
+    justify-content: space-between; /* Space out items */
+    align-items: center; /* Center items vertically */
+    width: 100%;
+}
+
+.banner-items {
+    color: black;
+    align-items: right;
+    display: flex; /* Use Flexbox for horizontal layout */
+    gap: 20px; /* Space between items */
+}
+
+.banner-items a {
+    color: white; /* Link color */
+    text-decoration: none; /* Remove underline */
+}
+
+.banner h1 {
+    margin: 0;
+    font-size: 2em; /* Adjust font size */
+}

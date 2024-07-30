@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The UP Dawg</title>
+    <link rel="stylesheet" href="static/styles.css">
+</head>
+<body>
+    <div class="banner">
+        <h1>The UP (you - pee) Dawg</h1>
+        <a href="{{ url_for('about') }}" class="about-link">About</a>
+    </div>
+
+    <div class="news">
+        <h1>Whats UP Today Dawg?</h1>
+        <ul>
+            {% for link in links %}
+                <li><a href="{{ link.url }}">{{ link.name }}</a></li>
+            {% endfor %}
+        </ul>  
+    </div>
+</body>
+</html>
