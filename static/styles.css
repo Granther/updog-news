@@ -1,6 +1,12 @@
 body, html {
     margin: 0;
     padding: 0;
+    background-image: linear-gradient(to right, rgb(171, 221, 124), rgb(42, 170, 117));
+}
+
+.gen_w {
+    color: black; /* Link color */
+    text-decoration: none;
 }
 
 .news {

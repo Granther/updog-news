@@ -8,15 +8,15 @@
 </head>
 <body>
     <div class="banner">
-        <h1>The UP (you - pee) Dawg</h1>
+        <h1>The UP Da<a href="{{ url_for('gen_news')}}" class="gen_w">w</a>g</h1>
         <a href="{{ url_for('about') }}" class="about-link">About</a>
     </div>
 
     <div class="news">
         <h1>Whats UP Today Dawg?</h1>
         <ul>
-            {% for link in links %}
-                <li><a href="{{ link.url }}">{{ link.name }}</a></li>
+            {% for story in stories %}
+                <li><a href="{{ url_for('story', idx=story.idx)}}">{{ story.title }}</a></li>
             {% endfor %}
         </ul>  
     </div>
