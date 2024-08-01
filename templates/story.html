@@ -10,7 +10,13 @@
     <header>
         <div class="container">
             <h1>{{ title }}</h1>
-            <p class="meta">by {{ author }} | Posted {{ days }}</p>
+            {% if days == "0" %}
+                <p class="meta">by {{ author }} | Posted today</p>
+            {% elif days == "1" %}
+                <p class="meta">by {{ author }} | Posted yesterday</p>
+            {% else %}
+                <p class="meta">by {{ author }} | Posted {{ days }} days ago</p>
+            {% endif %}
         </div>
     </header>
     <main class="container">

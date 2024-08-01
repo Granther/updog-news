@@ -24,7 +24,13 @@
             <article>
                 <div class="content">
                     <h2><a href="{{ url_for('story', uuid=story.uuid)}}">{{ story.title }}</a></h2>
-                    <p class="meta">by {{ story.author }} | Posted {{ story.days }}</p>
+                    {% if story.days == "0" %}
+                        <p class="meta">by {{ story.author }} | Posted today</p>
+                    {% elif story.days == "1" %}
+                        <p class="meta">by {{ story.author }} | Posted yesterday</p>
+                    {% else %}
+                        <p class="meta">by {{ story.author }} | Posted {{ story.days }} days ago</p>
+                    {% endif %}
                     <p>{{ story.short }}</p>
                     <a class="read-more" href="{{ url_for('story', uuid=story.uuid)}}">Read More</a>
                 </div>
