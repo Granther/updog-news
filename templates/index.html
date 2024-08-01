@@ -16,7 +16,10 @@
         <h1>Whats UP Today Dawg?</h1>
         <ul>
             {% for story in stories %}
-                <li><a href="{{ url_for('story', idx=story.idx)}}">{{ story.title }}</a></li>
+                <li>
+                    <h2><a href="{{ url_for('story', uuid=story.uuid)}}">{{ story.title }}</a></h2>
+                    <p>Posted {{ story.days }} days ago</p>
+                </li>
             {% endfor %}
         </ul>  
     </div>

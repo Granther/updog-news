@@ -4,6 +4,15 @@ body, html {
     background-image: linear-gradient(to right, rgb(171, 221, 124), rgb(42, 170, 117));
 }
 
+.story {
+    text-align: center;
+    background-image: linear-gradient(to right, rgb(171, 221, 124), rgb(42, 170, 117));
+}
+
+.story h1 {
+    text-align: center;
+}
+
 .gen_w {
     color: black; /* Link color */
     text-decoration: none;
@@ -19,10 +28,10 @@ body, html {
     margin: 0;
 }
 
-.news li {
+/* .news li {
     font-size: 30px;
-    margin-bottom: 15px;
-}
+    margin-bottom: 15px; 
+}  */
 
 .about-link {
     color: white; /* Link color */
