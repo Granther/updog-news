@@ -34,6 +34,9 @@ def parse_news():
                     length=root[2].text, content=root[3].text, 
                     days=root[4].text, uuid=root[5].text, 
                     author=root[6].text, tag=root[7].text, short=(root[3].text)[0:150])
+            
+            int(doc['days'])
+
             news.append(doc)
         except:
             os.rename(file_path, os.path.join(trash_path,file))
