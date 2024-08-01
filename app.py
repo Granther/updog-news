@@ -6,6 +6,7 @@ import os
 
 load_dotenv()
 os.environ["GROQ_API_KEY"] = os.getenv("GROQ_API_KEY")
+os.environ["FEATHERLESS_API_KEY"] = os.getenv("FEATHERLESS_API_KEY")
 
 app = Flask(__name__)
 
@@ -18,12 +19,12 @@ def index():
 
 @app.route('/read_form', methods=['POST'])
 def read_form():
-    data = request.form 
+    data = request.form
 
     story = generate_news(title=data['title'])
-    create_story(title=data['title'], content=story, days=data['days'])
+    create_story(title=data['title'], content=story, days=data['days'], author=data['author'], tag=data['tag'])
 
-    return redirect(url_for('index'))
+    return redirect(url_for('index'))   
 
 @app.route('/about')
 def about():
@@ -35,6 +36,7 @@ def gen_news():
 
 @app.route(f"/story/<uuid>")
 def story(uuid):
+    stories = parse_news()
     rend_story = dict()
 
     for story in stories:

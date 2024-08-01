@@ -17,15 +17,16 @@ def parse_news():
         tree = ET.parse(f"documents/{file}")
         root = tree.getroot()
 
-        doc = dict(title=root[0].text, prompt=root[1].text, length=root[2].text, content=root[3].text, days=root[4].text, uuid=root[5].text)
+        doc = dict(title=root[0].text, prompt=root[1].text, 
+                   length=root[2].text, content=root[3].text, 
+                   days=root[4].text, uuid=root[5].text, 
+                   author=root[6].text, tag=root[7].text, short=(root[3].text)[0:150])
         news.append(doc)
 
     news = sorted(news, key=lambda story:int(story['days']))
-    print(news)
-
     return news
 
-def create_story(title: str, content: str, prompt: str="none", length: str="none", days: str="0"):
+def create_story(title: str, content: str, prompt: str="none", length: str="none", days: str="0", author: str="Julia Herald", tag: str="Technology"):
     root = ET.Element("document")
     tit = ET.SubElement(root, "title") 
     tit.text = title
@@ -44,6 +45,12 @@ def create_story(title: str, content: str, prompt: str="none", length: str="none
 
     ui = ET.SubElement(root, "uuid") 
     ui.text = shortuuid.uuid()
+
+    auth = ET.SubElement(root, "author") 
+    auth.text = author
+
+    t = ET.SubElement(root, "tag") 
+    t.text = tag
 
     tree = ET.ElementTree(root) 
 
