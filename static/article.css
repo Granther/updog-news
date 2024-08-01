@@ -16,6 +16,11 @@ body {
     padding: 20px;
 }
 
+.container a {
+    color: white;
+    text-decoration: none;
+}
+
 header {
     background: #333;
     color: #fff;
@@ -77,3 +82,4 @@ footer a {
 footer a:hover {
     text-decoration: underline;
 }
+
