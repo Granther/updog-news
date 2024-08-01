@@ -3,23 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='gen.css') }}">
     <title>Generate AI News</title>
 </head>
 <body>
-    <form action="{{ url_for('read_form')}}" method="post"> 
-        <label>Title</label> 
-        <input name="title" id="title" size="70"> 
-        <br>
-        <label>Author Name</label> 
-        <input name="author" id="authoe" size="30"> 
-        <br>
-        <label>Tag</label> 
-        <input name="tag" id="tag" size="30"> 
-        <br>
-        <label>Days Old</label> 
-        <input name="days" id="days" size="10">
-        <br><br> 
-        <button type="submit">Submit</button>  
+    <form action="{{ url_for('read_form')}}" method="post" class="gen_form"> 
+        <fieldset class>
+            <label>Title</label> 
+            <input name="title" id="title" size="50" placeholder="Dr Disrespect licked a minor"> 
+            <br><br>
+            <label>Author Name</label> 
+            <input name="author" id="author" size="30" placeholder="Daniel Ballsmile"> 
+            <br><br>
+            <label>Tag</label> 
+            <input name="tag" id="tag" size="30" placeholder="Technology"> 
+            <br><br>
+            <label>Days Old</label> 
+            <input name="days" id="days" size="10" placeholder="0">
+            <div class="gen_form">
+                <p class="gen_form">0 for today</p>
+                <p class="gen_form">1 for yesterday and so on</p>
+            </div>
+            <br><br> 
+            <button type="submit">Submit</button>  
+        </fieldset>
     </form>
+    <p>{{ msg }}</p>
+    <h1>{{ status }}</h1>
 </body>
 </html>
