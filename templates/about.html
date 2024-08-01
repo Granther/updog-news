@@ -3,16 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>What Up-Bout it?</title>
-    <link rel="stylesheet" href="static/styles.css">
+    <title>What IS UP Dawg?</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='about.css') }}">
 </head>
 <body>
-    <div class="banner">
-        <h1>What Up-Bout Us?</h1>
-    </div>
-
-    <h4 style="text-align: center;">
-        We are a small news group trying to make it in a biased and monopolized world 
-    </h4>
+    <header>
+        <div class="container">
+            <h1><a href="{{ url_for('index') }}">What UP-Bout Us?</a></h1>
+            <p>Simple & Unbiased since 2005</p>
+        </div>
+    </header>
+    <main class="container">
+        <p>
+            <strong>Welcome to the UP Dawg</strong> 
+            <br>
+            
+            At the UP Dawg, we are dedicated to delivering a platform where news is presented with integrity and impartiality. Our mission is to provide a space where individuals can share and access news from diverse sources, free from editorial bias. Founded in 2005, the UP Dawg was created with a clear vision: to foster a more informed and balanced society by offering unfiltered news content.
+            <br>
+            <strong>Our History</strong>
+            <br>
+            The UP Dawg began as a grassroots initiative by a group of passionate individuals who were disillusioned with the increasing biases and sensationalism in mainstream media. They recognized a growing need for a platform that emphasized transparency and objectivity, where news could be shared and consumed without the influence of partisan perspectives.
+            
+            In the early years, the UP Dawg operated as a modest blog, with a handful of contributors dedicated to curating and sharing news stories from various sources. The platform quickly gained traction among users who appreciated its commitment to neutrality and its user-friendly design.
+            <br>
+            <strong>Founding Principles</strong>
+            <br>
+            The core values that drove our founders remain at the heart of the UP Dawg’s mission today:
+            
+                Impartiality: We strive to present news content without bias, allowing readers to form their own opinions based on the facts.
+                Transparency: Our platform is designed to be open and accessible, with clear sources and attribution for all news articles.
+                Community Engagement: We value the role of our users in shaping the news landscape. By allowing contributions from a wide range of sources, we aim to foster a diverse and inclusive community.
+            
+            <br>
+            <strong>Our Evolution</strong>
+            <br>
+            Over the years, the UP Dawg has evolved from a simple blog into a comprehensive news platform, incorporating features that enhance user experience and engagement. Our team has worked tirelessly to ensure that the site remains a reliable source of news, adapting to the changing landscape of media and technology while staying true to our founding principles.
+            <br>
+            <strong>Looking Ahead</strong>
+            <br>
+            As we move forward, the UP Dawg remains committed to its founding vision of unbiased news delivery. We continue to innovate and improve our platform, with a focus on enhancing user experience and expanding our network of contributors. Our goal is to remain a trusted resource for individuals seeking reliable news and to contribute positively to the media landscape.
+            
+            Thank you for being a part of the UP Dawg community. Together, we are working towards a more informed and balanced world.
+        </p>
+    </main>
+    <footer>
+    </footer>
 </body>
 </html>

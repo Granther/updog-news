@@ -57,6 +57,3 @@ def create_story(title: str, content: str, prompt: str="none", length: str="none
     with open(f"documents/story_{ui.text}.xml", "wb") as f:
         tree.write(f)
  
-
-if __name__ == "__main__":
-    create_story(title="Hello", content="There")

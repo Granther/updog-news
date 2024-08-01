@@ -4,13 +4,14 @@ from dotenv import load_dotenv
 from infer import generate_news
 import os
 
-load_dotenv()
-os.environ["GROQ_API_KEY"] = os.getenv("GROQ_API_KEY")
-os.environ["FEATHERLESS_API_KEY"] = os.getenv("FEATHERLESS_API_KEY")
+def setup_env():
+    load_dotenv()
+    os.environ["GROQ_API_KEY"] = os.getenv("GROQ_API_KEY")
+    os.environ["FEATHERLESS_API_KEY"] = os.getenv("FEATHERLESS_API_KEY")
 
 app = Flask(__name__)
-
 stories = parse_news()
+story = []
 
 @app.route('/')
 def index():
@@ -23,6 +24,8 @@ def read_form():
 
     story = generate_news(title=data['title'])
     create_story(title=data['title'], content=story, days=data['days'], author=data['author'], tag=data['tag'])
+
+    #return render_template('allow.html', story=story)
 
     return redirect(url_for('index'))   
 
@@ -48,4 +51,5 @@ def story(uuid):
 
 
 if __name__ == "__main__":
+    setup_env()
     app.run(debug=True)
