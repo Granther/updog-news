@@ -2,16 +2,20 @@ from flask import Flask, render_template, request, redirect, url_for, flash
 from gen_news import parse_news, create_story
 from dotenv import load_dotenv
 from infer import generate_news
+from config import Config
 import os
 
 app = Flask(__name__)
 app.secret_key = "glorp"
+config = Config()
 
 def setup_env():
     try:
         load_dotenv()
         os.environ["GROQ_API_KEY"] = os.getenv("GROQ_API_KEY")
         os.environ["FEATHERLESS_API_KEY"] = os.getenv("FEATHERLESS_API_KEY")
+        os.environ["TAVILY_API_KEY"] = os.getenv("TAVILY_API_KEY")
+
     except EnvironmentError:
         print("Environment data is missing")
         raise RuntimeError
@@ -54,8 +58,10 @@ def read_form():
             pass
         
     story = generate_news(title=data['title'])
-    create_story(title=data['title'], content=story, days=data['days'], author=data['author'], tag=data['tag'])
+    if not story:
+        return redirect(url_for('index'))
 
+    create_story(title=data['title'], content=story, days=data['days'], author=data['author'], tag=data['tag'])
     return redirect(url_for('index'))
 
 @app.route('/about')
