@@ -75,6 +75,7 @@ def create_story(title: str, content: str, prompt: str="none", length: str="none
     try:
         with open(f"{document_path}/story_{ui.text}.xml", "wb") as f:
             tree.write(f)
+        return ui.text
     except FileExistsError or FileNotFoundError:
         print("Unable to make story xml file")
     except Exception as e:

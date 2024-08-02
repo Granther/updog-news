@@ -3,6 +3,7 @@ from gen_news import parse_news, create_story
 from dotenv import load_dotenv
 from infer import generate_news
 from config import Config
+import re
 import os
 
 app = Flask(__name__)
@@ -75,11 +76,28 @@ def story(uuid):
 
     for story in stories:
         if story['uuid'] == uuid:
-            print("found rend story")
             rend_story = story
 
     return render_template("story.html", **rend_story)
 
+
+@app.route("/<title>")
+def inline(title):
+    title = re.sub('-', ' ', title)
+
+    data = dict(title=title,
+                days="0",
+                author="Daniel Smith",
+                tag="Technology")
+
+    story = generate_news(title=data['title'])
+    
+    if not story:
+        return redirect(url_for('index'))
+
+    uuid = create_story(title=data['title'], content=story, days=data['days'], author=data['author'], tag=data['tag'])
+
+    return redirect(url_for('story', uuid=uuid))
 
 if __name__ == "__main__":
     setup_env()
