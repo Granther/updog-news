@@ -35,7 +35,7 @@ def parse_news():
             root = tree.getroot()
 
             for item in root:
-                if item.text != None: # Exit loop for cur iter if not empty
+                if item.text != None or item.text == '': # Exit loop for cur iter if not empty
                     continue
 
                 if item.tag in required:

@@ -43,31 +43,22 @@ def read_form():
             msg = "Error recieving form data"
             return render_template('gen_news.html', msg=msg)
         
-        try:
-            int(data['days']) 
-        except:
-            data['days'] = None
-
-        # if any(value == '' for value in data.values()):
-        #     msg = "Some feilds empty"
-        #     return render_template('gen_news.html', msg=msg)
-
-        # try:
-        #     int(data['days'])
-        # except:
-        #     msg = "Days must take number (0, 1, 2)"
-        #     return render_template('gen_news.html', msg=msg)
+        if data['title'] == '': # If no title
+            msg = "Title feild must be filled"
+            return render_template('gen_news.html', msg=msg)
         
-        # else:    
-        #     #status = "Generating story, please DONT refresh page. You will be redirected automatically when finished"
-        #     #return render_template('gen_news.html', status=status)
-        #     pass
+        try:
+            int(data['days'])
+        except ValueError:
+            msg = "Days Old field must be a number"
+            return render_template('gen_news.html', msg=msg)
         
     story = generate_news(title=data['title'])
     if not story:
-        return redirect(url_for('index'))
-
-    create_story(title=data['title'], content=story, days=data['days'], author=data['author'], tag=data['tag'])
+        msg = "Error generating story, please try again"
+        return render_template('gen_news.html', msg=msg) 
+    
+    create_story(title=data['title'], content=story, days=data['days'], author=data['author'], tag=data['tag'], prompt=data['guideline'])
     return redirect(url_for('index'))
 
 @app.route('/about')
