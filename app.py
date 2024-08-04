@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for, flash
-from gen_news import parse_news, create_story
+from gen_news import GenerateNews
 from dotenv import load_dotenv
 from infer import generate_news
 from config import Config
@@ -9,6 +9,7 @@ import os
 app = Flask(__name__)
 app.secret_key = "glorp"
 config = Config()
+gen_news = GenerateNews(config)
 
 def setup_env():
     try:
@@ -25,7 +26,7 @@ def setup_env():
 
 @app.route('/')
 def index():
-    stories = parse_news()
+    stories = gen_news.parse_news()
     return render_template("index.html", stories=stories)
 
 @app.route("/gen_news")
@@ -58,7 +59,7 @@ def read_form():
         msg = "Error generating story, please try again"
         return render_template('gen_news.html', msg=msg) 
     
-    create_story(title=data['title'], content=story, days=data['days'], author=data['author'], tag=data['tag'], prompt=data['guideline'])
+    gen_news.create_story(title=data['title'], content=story, days=data['days'], author=data['author'], tag=data['tag'], prompt=data['guideline'])
     return redirect(url_for('index'))
 
 @app.route('/about')
@@ -67,7 +68,7 @@ def about():
 
 @app.route(f"/story/<uuid>")
 def story(uuid):
-    stories = parse_news()
+    stories = gen_news.parse_news()
     rend_story = dict()
 
     for story in stories:
@@ -75,7 +76,6 @@ def story(uuid):
             rend_story = story
 
     return render_template("story.html", **rend_story)
-
 
 @app.route("/<title>")
 def inline(title):
@@ -91,7 +91,7 @@ def inline(title):
     if not story:
         return redirect(url_for('index'))
 
-    uuid = create_story(title=data['title'], content=story, days=data['days'], author=data['author'], tag=data['tag'])
+    uuid = gen_news.create_story(title=data['title'], content=story, days=data['days'], author=data['author'], tag=data['tag'])
 
     return redirect(url_for('story', uuid=uuid))
 

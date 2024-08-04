@@ -6,19 +6,20 @@ import os
 
 class GenerateNews():
     def __init__(self, config):
+        self.config = config
         if not os.path.exists(config.documents_path) or not os.path.exists(config.trash_path):
             raise RuntimeError(f"documents or trash directory not found at {config.documents_path} or {config.trash_path}")
 
     def parse_news(self):
         news = []
 
-        for i, file in enumerate(os.listdir(document_path)):
-            if not os.path.isfile(document_path+file):
+        for i, file in enumerate(os.listdir(self.config.documents_path)):
+            if not os.path.isfile(self.config.documents_path+file):
                 continue
 
             required = ["content", "title", "uuid"]
             filename = file
-            file_path = os.path.join(document_path, filename)
+            file_path = os.path.join(self.config.documents_path, filename)
 
             try:
                 tree = ET.parse(file_path)
@@ -37,11 +38,11 @@ class GenerateNews():
                         case "length":
                             item.text = None
                         case "days":
-                            item.text = "0"
+                            item.text = self.config.def_days_old
                         case "author":
-                            item.text = "Julia Garner"
+                            item.text = self.config.def_author
                         case "tag":
-                            item.text = "Technology"
+                            item.text = self.config.def_tag
 
                 doc = dict(title=root[0].text, prompt=root[1].text, 
                         length=root[2].text, content=root[3].text, 
@@ -50,13 +51,12 @@ class GenerateNews():
                 
                 news.append(doc)
             except:
-                pass
-                #os.rename(file_path, os.path.join(trash_path, file))
+                os.rename(file_path, os.path.join(self.config.trash_path, file))
 
         news = sorted(news, key=lambda story:int(story['days']))
         return news
 
-    def create_story(title: str, content: str, prompt: str=None, length: str=None, days: str="0", author: str = None, tag: str = None):
+    def create_story(self, title: str, content: str, prompt: str=None, length: str=None, days: str="0", author: str = None, tag: str = None):
         root = ET.Element("document")
         tit = ET.SubElement(root, "title") 
         tit.text = title
@@ -85,7 +85,7 @@ class GenerateNews():
         tree = ET.ElementTree(root) 
 
         try:
-            with open(f"{document_path}/story_{ui.text}.xml", "wb") as f:
+            with open(f"{self.config.documents_path}/story_{ui.text}.xml", "wb") as f:
                 tree.write(f)
             return ui.text
         except FileExistsError or FileNotFoundError:
