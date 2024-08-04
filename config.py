@@ -12,9 +12,17 @@ class Config():
             print("Created config")
         
         self.add_sources = self.config['General']['add_sources']
+        self.def_author = self.config['Default']['author']
+        self.def_days_old = self.config['Default']['days_old']
+        self.def_tag = self.config['Default']['tag']
 
     def create_config(self):    
-        self.config['General'] = {'add_sources': False}
+        self.config['General'] = {'add_sources': False,
+                                  'documents_path': 'documents/',
+                                  'trash_path': 'documents/trash/'}
+        self.config['Defaults'] = {"author": "Julia Garner",
+                                   "days_old": "0",
+                                   "tag": "Lifestyle"}
         
         with open('config.conf', 'w') as configfile:
             self.config.write(configfile)
