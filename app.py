@@ -93,9 +93,9 @@ def archived_story(uuid):
 
     for story in stories:
         if story['uuid'] == uuid:
-            rend_story = story
-
-    return render_template("story.html", **rend_story)
+            return render_template("story.html", **story)
+    
+    return render_template("error.html", msg="Story Not Found")
 
 @app.route('/archive')
 def archive():
