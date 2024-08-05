@@ -108,11 +108,28 @@ class GenerateNews():
             
         return     
 
-    def unarchive_story(self, uuid):
-        self._move_story(uuid, self.config.archived_path, self.config.documents_path)   
+    def _is_archived(self, uuid):
+        path = self.config.archived_path
 
-    def archive_story(self, uuid):
-        self._move_story(uuid, self.config.documents_path, self.config.archived_path)   
+        for file in os.listdir(path):
+            if not os.path.isfile(os.path.join(path, file)):
+                continue
+
+            name, ext = os.path.splitext(file)
+            iuuid = name[6:]
+
+            print(iuuid)
+
+            if uuid == iuuid:
+                return True
+            
+        return False
+    
+    def toggle_archive(self, uuid):
+        if self._is_archived(uuid):
+            self._move_story(uuid, self.config.archived_path, self.config.documents_path)
+        else:
+            self._move_story(uuid, self.config.documents_path, self.config.archived_path) 
 
 if __name__ == "__main__":
     from config import Config

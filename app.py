@@ -66,21 +66,14 @@ def read_form():
 def about():
     return render_template("about.html")
 
-@app.route("/archive/<uuid>")
+@app.route("/toggle_archive/<uuid>")
 def archive(uuid):
-    print(uuid)
-    generate.archive_story(uuid)
-    return render_template("about.html")
-
-@app.route("/unarchive/<uuid>")
-def unarchive(uuid):
-    print(uuid)
-    generate.unarchive_story(uuid)
-    return render_template("about.html")
+    generate.toggle_archive(uuid)
+    return redirect(url_for('index'))
 
 @app.route(f"/story/<uuid>")
 def story(uuid):
-    stories = generate.parse_news()
+    stories = generate.parse_news(config.documents_path)
     rend_story = dict()
 
     for story in stories:
@@ -92,7 +85,7 @@ def story(uuid):
 @app.route('/archived')
 def archived():
     stories = generate.parse_news(config.archived_path)
-    return render_template("index.html", stories=stories)
+    return render_template("archive.html", stories=stories)
 
 @app.route("/<title>")
 def inline(title):

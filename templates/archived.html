@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The UP Dawg</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><ah ref="{{ url_for('index')}}">Archived Stories</a></h1>
+            <p>Simple & Unbiased since 2005</p>
+            <nav>
+                <ul>
+                    <li><a href="{{ url_for('about') }}">About</a></li>
+                    <li><a href="https://www.scientologynews.org/quick-facts/community-outreach-actions.html">Donate</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main class="container">
+        <section class="articles">
+            {% for story in stories %}
+            <article>
+                <div class="content">
+                    <h2><a href="{{ url_for('story', uuid=story.uuid)}}">{{ story.title }}</a></h2>
+                    {% if story.days == "0" %}
+                        <p class="meta">by {{ story.author }} | Posted today</p>
+                    {% elif story.days == "1" %}
+                        <p class="meta">by {{ story.author }} | Posted yesterday</p>
+                    {% else %}
+                        <p class="meta">by {{ story.author }} | Posted {{ story.days }} days ago</p>
+                    {% endif %}
+                    <p>{{ story.short }}</p>
+                    <a class="read-more" href="{{ url_for('story', uuid=story.uuid)}}">Read More</a>
+                </div>
+            </article>
+            {% endfor %}
+        </section>
+    </main>
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 The UP Dawg. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
