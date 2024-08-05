@@ -3,23 +3,22 @@ import xml.etree.ElementTree as ET
 import shortuuid
 import os
 
-
 class GenerateNews():
     def __init__(self, config):
         self.config = config
         if not os.path.exists(config.documents_path) or not os.path.exists(config.trash_path):
             raise RuntimeError(f"documents or trash directory not found at {config.documents_path} or {config.trash_path}")
 
-    def parse_news(self):
+    def parse_news(self, path):
         news = []
 
-        for i, file in enumerate(os.listdir(self.config.documents_path)):
-            if not os.path.isfile(self.config.documents_path+file):
+        for i, file in enumerate(os.listdir(path)):
+            if not os.path.isfile(path+file):
                 continue
 
             required = ["content", "title", "uuid"]
             filename = file
-            file_path = os.path.join(self.config.documents_path, filename)
+            file_path = os.path.join(path, filename)
 
             try:
                 tree = ET.parse(file_path)
@@ -93,3 +92,31 @@ class GenerateNews():
         except Exception as e:
             print(f"Unknown exceptin occured when creating story XML file: {e}")
 
+    def _move_story(self, uuid, source_dir, target_dir):
+        for file in os.listdir(source_dir):
+            if not os.path.isfile(os.path.join(source_dir, file)):
+                continue
+
+            name, ext = os.path.splitext(file)
+            iuuid = name[6:]
+
+            print(iuuid)
+
+            if uuid == iuuid:
+                os.rename(os.path.join(source_dir, file), os.path.join(target_dir, file))
+                return
+            
+        return     
+
+    def unarchive_story(self, uuid):
+        self._move_story(uuid, self.config.archived_path, self.config.documents_path)   
+
+    def archive_story(self, uuid):
+        self._move_story(uuid, self.config.documents_path, self.config.archived_path)   
+
+if __name__ == "__main__":
+    from config import Config
+    conf = Config()
+    gen = GenerateNews(conf)
+    #gen.archive_story("AKps63QNJpVHPL3n7XbV3g")
+    gen._move_story("AKps63QNJpVHPL3n7XbV3g", "testdir/", "testdir/trash/")

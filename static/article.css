@@ -9,6 +9,16 @@ body {
     padding: 0;
 }
 
+.archive a {
+    text-align: left;
+    display: none;
+}
+
+.bottom {
+    position: fixed;
+    bottom: 0;
+}
+
 .container {
     width: 80%;
     max-width: 1200px;

@@ -9,7 +9,7 @@ import os
 app = Flask(__name__)
 app.secret_key = "glorp"
 config = Config()
-gen_news = GenerateNews(config)
+generate = GenerateNews(config)
 
 def setup_env():
     try:
@@ -26,7 +26,7 @@ def setup_env():
 
 @app.route('/')
 def index():
-    stories = gen_news.parse_news()
+    stories = generate.parse_news(config.documents_path)
     return render_template("index.html", stories=stories)
 
 @app.route("/gen_news")
@@ -59,16 +59,28 @@ def read_form():
         msg = "Error generating story, please try again"
         return render_template('gen_news.html', msg=msg) 
     
-    gen_news.create_story(title=data['title'], content=story, days=data['days'], author=data['author'], tag=data['tag'], prompt=data['guideline'])
+    generate.create_story(title=data['title'], content=story, days=data['days'], author=data['author'], tag=data['tag'], prompt=data['guideline'])
     return redirect(url_for('index'))
 
 @app.route('/about')
 def about():
     return render_template("about.html")
 
+@app.route("/archive/<uuid>")
+def archive(uuid):
+    print(uuid)
+    generate.archive_story(uuid)
+    return render_template("about.html")
+
+@app.route("/unarchive/<uuid>")
+def unarchive(uuid):
+    print(uuid)
+    generate.unarchive_story(uuid)
+    return render_template("about.html")
+
 @app.route(f"/story/<uuid>")
 def story(uuid):
-    stories = gen_news.parse_news()
+    stories = generate.parse_news()
     rend_story = dict()
 
     for story in stories:
@@ -76,6 +88,11 @@ def story(uuid):
             rend_story = story
 
     return render_template("story.html", **rend_story)
+
+@app.route('/archived')
+def archived():
+    stories = generate.parse_news(config.archived_path)
+    return render_template("index.html", stories=stories)
 
 @app.route("/<title>")
 def inline(title):
@@ -91,7 +108,7 @@ def inline(title):
     if not story:
         return redirect(url_for('index'))
 
-    uuid = gen_news.create_story(title=data['title'], content=story, days=data['days'], author=data['author'], tag=data['tag'])
+    uuid = generate.create_story(title=data['title'], content=story, days=data['days'], author=data['author'], tag=data['tag'])
 
     return redirect(url_for('story', uuid=uuid))
 
