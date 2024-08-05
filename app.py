@@ -66,6 +66,10 @@ def read_form():
 def about():
     return render_template("about.html")
 
+@app.route('/control/<uuid>')
+def control(uuid):
+    return render_template('about.html')
+
 @app.route("/toggle_archive/<uuid>")
 def toggle_archive(uuid):
     generate.toggle_archive(uuid)
@@ -78,9 +82,9 @@ def story(uuid):
 
     for story in stories:
         if story['uuid'] == uuid:
-            rend_story = story
-
-    return render_template("story.html", **rend_story)
+            return render_template("story.html", **story)
+    
+    return render_template("error.html", msg="Story Not Found")
 
 @app.route(f"/archived_story/<uuid>")
 def archived_story(uuid):
@@ -102,17 +106,12 @@ def archive():
 def inline(title):
     title = re.sub('-', ' ', title)
 
-    data = dict(title=title,
-                days="0",
-                author="Daniel Smith",
-                tag="Technology")
-
-    story = generate_news(title=data['title'])
+    story = generate_news(title=title)
     
     if not story:
         return redirect(url_for('index'))
 
-    uuid = generate.create_story(title=data['title'], content=story, days=data['days'], author=data['author'], tag=data['tag'])
+    uuid = generate.create_story(title=title, content=story)
 
     return redirect(url_for('story', uuid=uuid))
 

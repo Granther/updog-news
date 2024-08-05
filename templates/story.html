@@ -5,8 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ title }}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='article.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
+    <div id="page-container">
     <header>
         <div class="container">
             <h1><a href="{{ url_for('index') }}">{{ title }}</a></h1>
@@ -19,16 +21,18 @@
             {% endif %}
         </div>
     </header>
-    <main class="container">
+    <main class="container content-wrap">
         <article>
             <section class="content">
                 <p>{{ content }}</p>
             </section>
         </article>
+        <p id="tag">Tags: {{ tag }}</p>
         <footer>
-            <p>Tags: {{ tag }}</p>
+            <p>&copy; 2024 The UP Dawg. All rights reserved.</p>
         </footer>
     </main>
-    <a href="{{ url_for('toggle_archive', uuid=uuid) }}" style="color: #f4f4f4;" class="bottom">Archive</a>
+    <a href="{{ url_for('toggle_archive', uuid=uuid) }}" id="secret-link">Archive</a>
+    </div>
 </body>
 </html>

@@ -5,9 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The UP Dawg</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
 </head>
 <body>
+    <div id="page-container">
     <header>
         <div class="container">
             <h1>The UP Da<a href="{{ url_for('gen_news')}}" class="gen_w">w</a>g</h1>
@@ -20,7 +22,7 @@
             </nav>
         </div>
     </header>
-    <main class="container">
+    <main id="article-container">
         <section class="articles">
             {% for story in stories %}
             <article>
@@ -41,31 +43,8 @@
         </section>
     </main>
     <footer>
-        <div class="container">
-            <p>&copy; 2024 The UP Dawg. All rights reserved.</p>
-        </div>
+        <p>&copy; 2024 The UP Dawg. All rights reserved.</p>
     </footer>
+</div>
 </body>
-
-
-
-
-<!-- <body>
-    <div class="banner">
-        <h1>The UP Da<a href="{{ url_for('gen_news')}}" class="gen_w">w</a>g</h1>
-        <a href="{{ url_for('about') }}" class="about-link">About</a>
-    </div>
-
-    <div class="news">
-        <h1>Whats UP Today Dawg?</h1>
-        <ul>
-            {% for story in stories %}
-                <li>
-                    <h2><a href="{{ url_for('story', uuid=story.uuid)}}">{{ story.title }}</a></h2>
-                    <p>Posted {{ story.days }} days ago</p>
-                </li>
-            {% endfor %}
-        </ul>  
-    </div>
-</body> -->
 </html>

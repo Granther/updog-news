@@ -16,6 +16,14 @@ body {
     padding: 5px;
 }
 
+#article-container {
+    width: 80%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 5px;
+    padding-bottom: 3.5em;
+}
+
 header {
     background: #333;
     color: #fff;
@@ -27,6 +35,11 @@ header h1 {
     margin: 0;
     font-size: 2.5em;
 }
+
+/* nav {
+    display: flex;
+    flex-direction: row;
+} */
 
 nav ul {
     list-style: none;
@@ -107,15 +120,4 @@ article .read-more {
 
 article .read-more:hover {
     text-decoration: underline;
-}
-
-footer {
-    background: #333;
-    color: #fff;
-    padding: 20px 0;
-    text-align: center;
-}
-
-footer p {
-    margin: 0;
 }

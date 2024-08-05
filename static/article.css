@@ -14,11 +14,6 @@ body {
     display: none;
 }
 
-.bottom {
-    position: fixed;
-    bottom: 0;
-}
-
 .container {
     width: 80%;
     max-width: 1200px;
@@ -93,3 +88,13 @@ footer a:hover {
     text-decoration: underline;
 }
 
+#tag {
+    text-align: center;
+}
+
+#secret-link {
+    color: #333;
+    text-decoration: none;   
+    position: fixed;
+    bottom: 0;
+}
