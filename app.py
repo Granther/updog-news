@@ -67,13 +67,13 @@ def about():
     return render_template("about.html")
 
 @app.route("/toggle_archive/<uuid>")
-def archive(uuid):
+def toggle_archive(uuid):
     generate.toggle_archive(uuid)
     return redirect(url_for('index'))
 
 @app.route(f"/story/<uuid>")
 def story(uuid):
-    stories = generate.parse_news(config.documents_path)
+    stories = generate.parse_all_news()
     rend_story = dict()
 
     for story in stories:
@@ -82,9 +82,20 @@ def story(uuid):
 
     return render_template("story.html", **rend_story)
 
-@app.route('/archived')
-def archived():
-    stories = generate.parse_news(config.archived_path)
+@app.route(f"/archived_story/<uuid>")
+def archived_story(uuid):
+    stories = generate.parse_news(config.archive_path)
+    rend_story = dict()
+
+    for story in stories:
+        if story['uuid'] == uuid:
+            rend_story = story
+
+    return render_template("story.html", **rend_story)
+
+@app.route('/archive')
+def archive():
+    stories = generate.parse_news(config.archive_path)
     return render_template("archive.html", stories=stories)
 
 @app.route("/<title>")

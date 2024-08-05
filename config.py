@@ -14,7 +14,7 @@ class Config():
         self.add_sources = self.config['General']['add_sources']
         self.documents_path = self.config['General']['documents_path']
         self.trash_path = self.config['General']['trash_path']
-        self.archived_path = self.config['General']['archived_path']
+        self.archive_path = self.config['General']['archived_path']
         self.def_author = self.config['Defaults']['author']
         self.def_days_old = self.config['Defaults']['days_old']
         self.def_tag = self.config['Defaults']['tag']

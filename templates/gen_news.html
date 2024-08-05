@@ -37,5 +37,11 @@
     <h3>After successfully submitting, please DO NOT refresh the page. It is generating the story, you will be redirected when it is done</h3>
     <p>{{ msg }}</p>
     <h1>{{ status }}</h1>
+    <br><br>
+    <h4>Instructions:</h4>
+    <p>
+        Click the invisible link at the bottom left of any article to archive/unarchive it.
+        You can see archived stories at this link: <a href="{{ url_for('archive')  }}">Here</a>
+    </p>
 </body>
 </html>

@@ -6,8 +6,8 @@ import os
 class GenerateNews():
     def __init__(self, config):
         self.config = config
-        if not os.path.exists(config.documents_path) or not os.path.exists(config.trash_path):
-            raise RuntimeError(f"documents or trash directory not found at {config.documents_path} or {config.trash_path}")
+        if not os.path.exists(config.documents_path) or not os.path.exists(config.trash_path) or not os.path.exists(config.archive_path):
+            raise RuntimeError(f"documents, trash or archive directory not found at {config.documents_path} or {config.trash_path} or {config.archive_path}")
 
     def parse_news(self, path):
         news = []
@@ -54,6 +54,12 @@ class GenerateNews():
 
         news = sorted(news, key=lambda story:int(story['days']))
         return news
+
+    def parse_all_news(self):
+        all_news = self.parse_news(self.config.documents_path)
+        all_news = all_news + self.parse_news(self.config.archive_path) #handle if empty
+        return all_news
+
 
     def create_story(self, title: str, content: str, prompt: str=None, length: str=None, days: str="0", author: str = None, tag: str = None):
         root = ET.Element("document")
@@ -109,7 +115,7 @@ class GenerateNews():
         return     
 
     def _is_archived(self, uuid):
-        path = self.config.archived_path
+        path = self.config.archive_path
 
         for file in os.listdir(path):
             if not os.path.isfile(os.path.join(path, file)):
@@ -127,13 +133,6 @@ class GenerateNews():
     
     def toggle_archive(self, uuid):
         if self._is_archived(uuid):
-            self._move_story(uuid, self.config.archived_path, self.config.documents_path)
+            self._move_story(uuid, self.config.archive_path, self.config.documents_path)
         else:
-            self._move_story(uuid, self.config.documents_path, self.config.archived_path) 
-
-if __name__ == "__main__":
-    from config import Config
-    conf = Config()
-    gen = GenerateNews(conf)
-    #gen.archive_story("AKps63QNJpVHPL3n7XbV3g")
-    gen._move_story("AKps63QNJpVHPL3n7XbV3g", "testdir/", "testdir/trash/")
+            self._move_story(uuid, self.config.documents_path, self.config.archive_path) 

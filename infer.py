@@ -48,6 +48,3 @@ def perform_search(key: str):
     response = tavily_client.search("Elon musk bought the moon?")
 
     print(response['results'][1]['url'])  
-
-if __name__ == "__main__":
-    perform_search("H")
