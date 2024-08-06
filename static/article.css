@@ -68,20 +68,6 @@ blockquote {
     font-style: italic;
 }
 
-footer {
-    padding: 20px;
-    text-align: center;
-}
-
-footer p {
-    margin: 0;
-}
-
-footer a {
-    color: #333;
-    text-decoration: none;
-}
-
 footer a:hover {
     text-decoration: underline;
 }
@@ -93,6 +79,25 @@ footer a:hover {
 #secret-link {
     color: #333;
     text-decoration: none;   
-    position: fixed;
+    position: absolute;
     bottom: 0;
+    text-align: left;
+}
+
+#article-container {
+    width: 80%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    /* padding-bottom: 3.5em; */
+    position: relative;
+    min-height: 80vh;
+}
+
+footer a {
+    margin: 0;
+    text-align: left;
+    position: relative;
+    text-decoration: none;
+    color: #333;
 }
