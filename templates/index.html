@@ -4,12 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The UP Dawg</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
-    <link rel="icon" href="{{ url_for('icon', filename='favicon.ico') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-    <div id="page-container">
     <header>
         <div class="container">
             <h1>The UP Da<a href="{{ url_for('gen_news')}}" class="gen_w">w</a>g</h1>
@@ -45,6 +43,5 @@
     <footer>
         <p>&copy; 2024 The UP Dawg. All rights reserved.</p>
     </footer>
-</div>
 </body>
 </html>

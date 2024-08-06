@@ -6,7 +6,6 @@
     <title>The UP Dawg</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
 </head>
 <body>
     <header>
@@ -21,7 +20,7 @@
             </nav>
         </div>
     </header>
-    <main class="container">
+    <main id="article-container">
         <section class="articles">
             {% for story in stories %}
             <article>
@@ -42,9 +41,7 @@
         </section>
     </main>
     <footer>
-        <div class="container">
-            <p>&copy; 2024 The UP Dawg. All rights reserved.</p>
-        </div>
+        <p>&copy; 2024 The UP Dawg. All rights reserved.</p>
     </footer>
 </body>
 </html>
