@@ -102,18 +102,18 @@ def archive():
     stories = generate.parse_news(config.archive_path)
     return render_template("archive.html", stories=stories)
 
-@app.route("/<title>")
-def inline(title):
-    title = re.sub('-', ' ', title)
+# @app.route("/<title>")
+# def inline(title):
+#     title = re.sub('-', ' ', title)
 
-    story = generate_news(title=title)
+#     story = generate_news(title=title)
     
-    if not story:
-        return redirect(url_for('index'))
+#     if not story:
+#         return redirect(url_for('index'))
 
-    uuid = generate.create_story(title=title, content=story)
+#     uuid = generate.create_story(title=title, content=story)
 
-    return redirect(url_for('story', uuid=uuid))
+#     return redirect(url_for('story', uuid=uuid))
 
 if __name__ == "__main__":
     setup_env()

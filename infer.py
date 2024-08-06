@@ -45,6 +45,6 @@ def generate_news(title, model="NeverSleep/Llama-3-Lumimaid-8B-v0.1"):
 
 def perform_search(key: str):
     tavily_client = TavilyClient(api_key=os.environ.get("TAVILY_API_KEY"))
-    response = tavily_client.search("Elon musk bought the moon?")
+    response = tavily_client.search("Donald trump is actually a dog")
 
     print(response['results'][1]['url'])  
