@@ -14,7 +14,7 @@ body {
     padding: 5px;
 }
 
-#article-container {
+.article-container {
     width: 80%;
     max-width: 1200px;
     margin: 0 auto;
