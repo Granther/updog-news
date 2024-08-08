@@ -7,11 +7,15 @@
     <title>Document Control</title>
 </head>
 <body>
-    <label>Archive</label> 
-    <input type="submit" name="submit_button" value="archive"> 
+    <form action="{{ url_for('toggle_archive', uuid=uuid) }}">
+        <label>Archive</label> 
+        <input type="submit" name="submit_button" value="archive"> 
+    </form>
     <br><br>
-    <label>Trash</label> 
-    <input type="submit" name="submit_button" value="archive"> 
+    <form action="{{ url_for('trash_story', uuid=uuid) }}">
+        <label>Trash</label> 
+        <input type="submit" name="submit_button" value="trash"> 
+    </form>
     <p>{{ msg }}</p>
     <h1>{{ status }}</h1>
 </body>

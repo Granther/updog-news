@@ -136,3 +136,14 @@ class GenerateNews():
             self._move_story(uuid, self.config.archive_path, self.config.documents_path)
         else:
             self._move_story(uuid, self.config.documents_path, self.config.archive_path) 
+
+    def trash(self, uuid):
+        try:
+            self._move_story(uuid, self.config.documents_path, self.config.trash_path)
+        except:
+            pass
+
+        try:
+            self._move_story(uuid, self.config.archive_path, self.config.trash_path)
+        except:
+            pass

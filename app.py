@@ -102,6 +102,12 @@ def archive():
     stories = generate.parse_news(config.archive_path)
     return render_template("archive.html", stories=stories)
 
+
+@app.route('/trash_story/<uuid>')
+def trash_story(uuid):
+    generate.trash(uuid)
+    return redirect(url_for('index'))
+
 # @app.route("/<title>")
 # def inline(title):
 #     title = re.sub('-', ' ', title)
