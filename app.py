@@ -68,7 +68,7 @@ def about():
 
 @app.route('/control/<uuid>')
 def control(uuid):
-    return render_template('about.html')
+    return render_template('control.html')
 
 @app.route("/toggle_archive/<uuid>")
 def toggle_archive(uuid):
