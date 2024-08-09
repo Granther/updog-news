@@ -40,7 +40,7 @@ def generate_news(title, prompt: str=None, model="NeverSleep/Llama-3-Lumimaid-8B
             messages= messages,
             temperature=1.0,
             stream=False,
-            max_tokens=config.max_tokens
+            max_tokens=int(config.max_tokens)
         )
     except openai.APIError as e:
         print(f"Inference exception occured when getting chat completions: {e}")
