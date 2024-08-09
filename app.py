@@ -49,12 +49,13 @@ def read_form():
             return render_template('gen_news.html', msg=msg)
         
         try:
-            int(data['days'])
+            if data['days'] != '':
+                int(data['days'])
         except ValueError:
             msg = "Days Old field must be a number"
             return render_template('gen_news.html', msg=msg)
         
-    story = generate_news(title=data['title'])
+    story = generate_news(title=data['title'], prompt=data['guideline'])
     if not story:
         msg = "Error generating story, please try again"
         return render_template('gen_news.html', msg=msg) 

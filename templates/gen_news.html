@@ -8,11 +8,13 @@
 </head>
 <body>
     <form action="{{ url_for('read_form')}}" method="post" class="gen_form"> 
-        <fieldset class>
-            <label>Title</label> 
-            <input name="title" id="title" size="50" placeholder="Look what happened in Dr Disrespect's Twitch Whispers"> 
+        <fieldset>
+            <label>Title</label>
+            <p style="color: red; font-size: small; margin-bottom: 0; margin-top: 0;">*only required field</p>
+            <input name="title" id="title" size="50" placeholder="Look what happened in Dr Disrespect's Twitch Whispers">
             <br><br>
             <label>Loose Guideline</label> 
+            <p style="color: red; font-size: small; margin-bottom: 0; margin-top: 0;">*Experimental and optional</p>
             <input name="guideline" id="guideline" size="50" placeholder="Specify Dr Disrespect is 6ft tall"> 
             <br><br>
             <label>Author Name</label> 
@@ -20,9 +22,9 @@
             <br><br>
             <label>Tag</label> 
             <input name="tag" id="tag" size="30" placeholder="Technology"> 
-            <br><br>
+            <!-- <br><br>
             <label>Include Fake Sources</label>
-            <input name="sources" id="sources">
+            <input name="sources" id="sources"> -->
             <br><br>
             <label>Days Old</label> 
             <input name="days" id="days" size="10" placeholder="0">
