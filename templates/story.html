@@ -6,6 +6,7 @@
     <title>{{ title }}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/article.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="{{url_for('static',filename='dist/css/output.css')}}">
 </head>
 <body>
     <header>
@@ -23,7 +24,7 @@
     <main class="article-container">
         <article>
             <section class="content">
-                <p>{{ content }}</p>
+                <p class="text-center" style="white-space: pre-wrap;">{{ content }}</p>
             </section>
         </article>
         <p id="tag">Tags: {{ tag }}</p>

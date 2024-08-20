@@ -27,7 +27,7 @@ def setup_env():
 @app.route('/')
 def index():
     stories = generate.parse_news(config.documents_path)
-    return render_template("index.html", stories=stories)
+    return render_template("index2.html", stories=stories)
 
 @app.route("/gen_news")
 def gen_news():
@@ -81,8 +81,13 @@ def story(uuid):
     stories = generate.parse_all_news()
     rend_story = dict()
 
+    # def add_nl(story):
+    #     story['content'] = re.sub("\n", "<br>", story['content'])
+    #     return story
+
     for story in stories:
         if story['uuid'] == uuid:
+            #story = add_nl(story)
             return render_template("story.html", **story)
     
     return render_template("error.html", msg="Story Not Found")
