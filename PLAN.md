@@ -7,3 +7,8 @@
 - More consistency
 - Maybe a article menu for control/admin
 - Allow for fake source creation option
+
+- Reporter profiles
+- UPDOG acronym
+- Indents
+- Reporter pages
