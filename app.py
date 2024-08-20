@@ -27,7 +27,7 @@ def setup_env():
 @app.route('/')
 def index():
     stories = generate.parse_news(config.documents_path)
-    return render_template("index.html", stories=stories)
+    return render_template("index2.html", stories=stories)
 
 @app.route("/gen_news")
 def gen_news():
@@ -49,12 +49,13 @@ def read_form():
             return render_template('gen_news.html', msg=msg)
         
         try:
-            int(data['days'])
+            if data['days'] != '':
+                int(data['days'])
         except ValueError:
             msg = "Days Old field must be a number"
             return render_template('gen_news.html', msg=msg)
         
-    story = generate_news(title=data['title'])
+    story = generate_news(title=data['title'], prompt=data['guideline'])
     if not story:
         msg = "Error generating story, please try again"
         return render_template('gen_news.html', msg=msg) 
@@ -80,8 +81,13 @@ def story(uuid):
     stories = generate.parse_all_news()
     rend_story = dict()
 
+    # def add_nl(story):
+    #     story['content'] = re.sub("\n", "<br>", story['content'])
+    #     return story
+
     for story in stories:
         if story['uuid'] == uuid:
+            #story = add_nl(story)
             return render_template("story.html", **story)
     
     return render_template("error.html", msg="Story Not Found")
