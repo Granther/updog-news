@@ -38,7 +38,7 @@ class GenerateNewsSQL():
 
     def create_story(self, title: str, content: str, days: str="0", author: str = None, tags: str = None, archived: int = 0, trashed: int = 0):
         cursor = self.connection.cursor()
-        query = f"INSERT INTO stories (title, content, daysold, uuid, tags, author, archived, trashed) VALUES ('{title}', '{content.replace("'", "''")}', '{days}', '{str(shortuuid.uuid())}', '{tags}', '{author}', '{archived}', '{trashed}')"
+        query = f"""INSERT INTO stories (title, content, daysold, uuid, tags, author, archived, trashed) VALUES ('{title}', '{content.replace("'", "''")}', '{days}', '{str(shortuuid.uuid())}', '{tags}', '{author}', '{archived}', '{trashed}')"""
         cursor.execute(query)
         self.connection.commit() 
 

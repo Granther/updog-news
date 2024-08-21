@@ -40,7 +40,6 @@ def authors():
 @app.route('/read_form', methods=['POST'])
 def read_form():
     msg = None
-    status = None
 
     if request.method == "POST":
         data = request.form
@@ -49,7 +48,7 @@ def read_form():
             return render_template('gen_news.html', msg=msg)
         
         if data['title'] == '': # If no title
-            msg = "Title feild must be filled"
+            msg = "Title field must be filled"
             return render_template('gen_news.html', msg=msg)
         
         try:
@@ -59,12 +58,19 @@ def read_form():
             msg = "Days Old field must be a number"
             return render_template('gen_news.html', msg=msg)
         
-    story = generate_news(title=data['title'], prompt=data['guideline'])
+    if data['days'] == '':
+        days = config.def_days_old
+    if data['author'] == '':
+        author = config.def_author
+    if data['tags'] == '':
+        tags = config.def_tag
+                
+    story = generate_news(title=data['title'], prompt=data['guideline'], add_sources=bool(data['sources']))
     if not story:
         msg = "Error generating story, please try again"
         return render_template('gen_news.html', msg=msg) 
     
-    genSQL.create_story(title=data['title'], content=story, days=data['days'], author=data['author'], tags=data['tag'])
+    genSQL.create_story(title=data['title'], content=story, days=days, author=author, tags=tags)
     return redirect(url_for('index'))
 
 @app.route('/about')
