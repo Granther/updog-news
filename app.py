@@ -33,6 +33,10 @@ def index():
 def gen_news():
     return render_template("gen_news.html")
 
+@app.route("/authors")
+def authors():
+    return render_template("authors.html")
+
 @app.route('/read_form', methods=['POST'])
 def read_form():
     msg = None
