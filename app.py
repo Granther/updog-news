@@ -9,7 +9,6 @@ import os
 app = Flask(__name__)
 app.secret_key = "glorp"
 config = Config()
-generate = GenerateNews(config)
 genSQL = GenerateNewsSQL()
 
 def setup_env():
@@ -27,7 +26,7 @@ def setup_env():
 
 @app.route('/')
 def index():
-    stories = generate.parse_news(config.documents_path)
+    stories = genSQL.parse_news()
     return render_template("index.html", stories=stories)
 
 @app.route("/gen_news")
@@ -61,10 +60,7 @@ def read_form():
         msg = "Error generating story, please try again"
         return render_template('gen_news.html', msg=msg) 
     
-    x = genSQL.create_story(title=data['title'], content=story, days=data['days'], author=data['author'], tags=data['tag'])
-    genSQL.parse_news()
-    print(x)
-    #generate.create_story(title=data['title'], content=story, days=data['days'], author=data['author'], tag=data['tag'], prompt=data['guideline'])
+    genSQL.create_story(title=data['title'], content=story, days=data['days'], author=data['author'], tags=data['tag'])
     return redirect(url_for('index'))
 
 @app.route('/about')
@@ -77,29 +73,12 @@ def control(uuid):
 
 @app.route("/toggle_archive/<uuid>")
 def toggle_archive(uuid):
-    generate.toggle_archive(uuid)
+    genSQL.toggle_archive(uuid)
     return redirect(url_for('index'))
 
 @app.route(f"/story/<uuid>")
 def story(uuid):
-    stories = generate.parse_all_news()
-    rend_story = dict()
-
-    # def add_nl(story):
-    #     story['content'] = re.sub("\n", "<br>", story['content'])
-    #     return story
-
-    for story in stories:
-        if story['uuid'] == uuid:
-            #story = add_nl(story)
-            return render_template("story.html", **story)
-    
-    return render_template("error.html", msg="Story Not Found")
-
-@app.route(f"/archived_story/<uuid>")
-def archived_story(uuid):
-    stories = generate.parse_news(config.archive_path)
-    rend_story = dict()
+    stories = genSQL.parse_news(all=True)
 
     for story in stories:
         if story['uuid'] == uuid:
@@ -109,27 +88,13 @@ def archived_story(uuid):
 
 @app.route('/archive')
 def archive():
-    stories = generate.parse_news(config.archive_path)
+    stories = genSQL.parse_news(index=False)
     return render_template("archive.html", stories=stories)
-
 
 @app.route('/trash_story/<uuid>')
 def trash_story(uuid):
-    generate.trash(uuid)
+    genSQL.trash(uuid)
     return redirect(url_for('index'))
-
-# @app.route("/<title>")
-# def inline(title):
-#     title = re.sub('-', ' ', title)
-
-#     story = generate_news(title=title)
-    
-#     if not story:
-#         return redirect(url_for('index'))
-
-#     uuid = generate.create_story(title=title, content=story)
-
-#     return redirect(url_for('story', uuid=uuid))
 
 if __name__ == "__main__":
     setup_env()

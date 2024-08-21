@@ -17,7 +17,7 @@ CREATE TABLE stories (
     daysold TEXT NOT NULL,
     tags TEXT NOT NULL,
     author TEXT NOT NULL,
+    uuid TEXT NOT NULL,
     trashed INT NOT NULL,
-    archived INT NOT NULL,
-    uuid TEXT NOT NULL
+    archived INT NOT NULL
 );

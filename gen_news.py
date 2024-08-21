@@ -7,15 +7,67 @@ import os
 class GenerateNewsSQL():
     def __init__(self):
         self.connection = sqlite3.connect('database.db', check_same_thread=False)
+        #self.connection.row_factory = lambda cursor, row: row[0]
 
-    def parse_news(self):
-        stories = self.connection.cursor().execute('SELECT * FROM stories').fetchall()
+    def parse_news(self, index=True, all=False):
+        # This needs to be redone a little, I'm upset at how im unpacking
+        if all:
+            query = 'SELECT * FROM stories'
+        elif index:
+            # Select all stories not trashed or archived
+            query = 'SELECT * FROM stories WHERE trashed = FALSE AND archived = FALSE'
+        elif not index:
+            # Select archived
+            query = 'SELECT * FROM stories WHERE archived = TRUE'
 
-    def create_story(self, title: str, content: str, days: str="0", author: str = None, tags: str = None):
+        response = self.connection.cursor().execute(query).fetchall()
+        stories = list()
+
+        for res in response:
+            _, _, title, content, days, tags, author, uuid, trashed, archived = res
+            story = {
+                "title":title,
+                "content":content,
+                "days":days,
+                "tags":tags,
+                "author":author,
+                "uuid":uuid
+            }
+            stories.append(story)
+        return stories
+
+    def create_story(self, title: str, content: str, days: str="0", author: str = None, tags: str = None, archived: int = 0, trashed: int = 0):
         cursor = self.connection.cursor()
-        query = f"INSERT INTO stories (title, content, daysold, uuid, tags, author) VALUES ('{title}', '{content.replace("'", "''")}', '{days}', '{str(shortuuid.uuid())}', '{tags}', '{author}')"
+        query = f"INSERT INTO stories (title, content, daysold, uuid, tags, author, archived, trashed) VALUES ('{title}', '{content.replace("'", "''")}', '{days}', '{str(shortuuid.uuid())}', '{tags}', '{author}', '{archived}', '{trashed}')"
         cursor.execute(query)
-        self.connection.commit()
+        self.connection.commit() 
+
+    def _is_archived(self, uuid):
+        query = f"SELECT archived FROM stories WHERE uuid = '{uuid}'"
+        response = self.connection.cursor().execute(query).fetchall()[0]
+
+        return not bool(response)
+    
+    def send_query(self, query):
+        return self.connection.cursor().execute(query).fetchall()
+
+    def toggle_archive(self, uuid):
+        if self._is_archived(uuid):
+            query = f"UPDATE stories SET archived = FALSE, trashed = FALSE WHERE uuid = '{uuid}'"
+        else:
+            query = f"UPDATE stories SET archived = TRUE, trashed = FALSE WHERE uuid = '{uuid}'"
+
+        response = self.send_query(query)
+
+    def trash(self, uuid):
+        query = f"UPDATE stories SET trashed = TRUE WHERE uuid = '{uuid}'"
+
+        response = self.connection.cursor().execute(query).fetchall()
+        if len(response) > 0:
+            return 1
+        elif len(response) >= 1:
+            return 0
+
 
 class GenerateNews():
     def __init__(self, config):
