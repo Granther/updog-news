@@ -1,0 +1,23 @@
+DROP TABLE IF EXISTS authors;
+DROP TABLE IF EXISTS stories;
+
+CREATE TABLE authors (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    authorname TEXT NOT NULL,
+    authorid TEXT,
+    bio TEXT
+);
+
+CREATE TABLE stories (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    title TEXT NOT NULL,
+    content TEXT NOT NULL,
+    daysold TEXT NOT NULL,
+    tags TEXT NOT NULL,
+    author TEXT NOT NULL,
+    trashed INT NOT NULL,
+    archived INT NOT NULL,
+    uuid TEXT NOT NULL
+);

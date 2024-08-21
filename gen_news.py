@@ -1,7 +1,21 @@
 from groq import Groq
 import xml.etree.ElementTree as ET
 import shortuuid
+import sqlite3
 import os
+
+class GenerateNewsSQL():
+    def __init__(self):
+        self.connection = sqlite3.connect('database.db', check_same_thread=False)
+
+    def parse_news(self):
+        stories = self.connection.cursor().execute('SELECT * FROM stories').fetchall()
+
+    def create_story(self, title: str, content: str, days: str="0", author: str = None, tags: str = None):
+        cursor = self.connection.cursor()
+        query = f"INSERT INTO stories (title, content, daysold, uuid, tags, author) VALUES ('{title}', '{content.replace("'", "''")}', '{days}', '{str(shortuuid.uuid())}', '{tags}', '{author}')"
+        cursor.execute(query)
+        self.connection.commit()
 
 class GenerateNews():
     def __init__(self, config):

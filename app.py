@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for, flash
-from gen_news import GenerateNews
+from gen_news import GenerateNews, GenerateNewsSQL
 from dotenv import load_dotenv
 from infer import generate_news
 from config import Config
@@ -10,6 +10,7 @@ app = Flask(__name__)
 app.secret_key = "glorp"
 config = Config()
 generate = GenerateNews(config)
+genSQL = GenerateNewsSQL()
 
 def setup_env():
     try:
@@ -27,7 +28,7 @@ def setup_env():
 @app.route('/')
 def index():
     stories = generate.parse_news(config.documents_path)
-    return render_template("index2.html", stories=stories)
+    return render_template("index.html", stories=stories)
 
 @app.route("/gen_news")
 def gen_news():
@@ -60,7 +61,10 @@ def read_form():
         msg = "Error generating story, please try again"
         return render_template('gen_news.html', msg=msg) 
     
-    generate.create_story(title=data['title'], content=story, days=data['days'], author=data['author'], tag=data['tag'], prompt=data['guideline'])
+    x = genSQL.create_story(title=data['title'], content=story, days=data['days'], author=data['author'], tags=data['tag'])
+    genSQL.parse_news()
+    print(x)
+    #generate.create_story(title=data['title'], content=story, days=data['days'], author=data['author'], tag=data['tag'], prompt=data['guideline'])
     return redirect(url_for('index'))
 
 @app.route('/about')
