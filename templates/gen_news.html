@@ -1,12 +1,148 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/gen.css') }}">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.0/socket.io.js"></script>
+    <link rel="stylesheet" href="{{url_for('static',filename='dist/css/output.css')}}">
     <title>Generate AI News</title>
 </head>
-<body>
+
+<body class="grid grid-cols-3 gap-5">
+    <div class="w-full text-center">
+        <h3>After successfully submitting, please DO NOT refresh the page. It is generating the story, you will be
+            redirected when it is done</h3>
+        <p>{{ msg }}</p>
+        <h1>{{ status }}</h1>
+        <br><br>
+        <h4>Instructions:</h4>
+        <p>
+            Click the invisible link at the bottom left of any article to archive/unarchive it.
+            You can see archived stories at this link: <a href="{{ url_for('archive')  }}">Here</a>
+        </p>
+    </div>
+    <!-- action="{{ url_for('read_form')}}" method="post" -->
+    <form class="mt-10 max-w-lg w-full mx-auto p-6 bg-white rounded-lg shadow-md" id="news-form">
+        <h2 class="text-2xl font-bold mb-6 text-gray-900">Generate Fake News</h2>
+
+        <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="message">
+                Title
+            </label>
+            <textarea
+                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                id="title" name="title" rows="5">
+            </textarea>
+        </div>
+
+        <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="message">
+                Loose Guideline
+            </label>
+            <textarea
+                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                id="guideline" name="guideline" rows="5">
+            </textarea>
+        </div>
+
+        <div class="mb-6">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="name">
+                Author Name
+            </label>
+            <input
+                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                id="author" name="author" type="text" placeholder="Julia Garner">
+        </div>
+
+        <div class="mb-6">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="name">
+                Tags
+            </label>
+            <input
+                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                id="tags" name="tags" type="text" placeholder="Lifestyle">
+        </div>
+
+        <div class="mb-6">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="name">
+                Days Old
+            </label>
+            <input
+                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                id="days" type="days" placeholder="0">
+        </div>
+
+        <div class="mb-6">
+            <label class="block text-gray-700 text-sm font-bold mb-2">Include Sources?</label>
+            <label class="block text-gray-700 text-sm font-bold mb-2">
+                <input type="radio" name="sources" value="True">
+                Yes
+            </label class="block text-gray-700 text-sm font-bold mb-2">
+            <label>
+                <input type="radio" name="sources" value="False" checked>
+                No
+            </label>
+        </div>
+
+        <div class="flex items-center justify-between">
+            <button
+                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+                type="submit" id="news-button">
+                Send
+            </button>
+        </div>
+    </form>
+    <div class="text-center w-full" id="preview-box">
+    </div>
+    <script>
+        document.getElementById("news-form").addEventListener("submit", function (event) {
+            event.preventDefault(); // prevent default form submit
+            const promptSubmitButton = document.getElementById("news-button");
+            promptSubmitButton.disabled = true;
+
+            // Create formdata object
+            var formdata = new FormData(this);
+
+            readStream(formdata)
+            promptSubmitButton.disabled = false
+        });
+
+        function readStream(formdata) {
+            const previewBox = document.getElementById('preview-box');
+
+            // Add an empty message div to show the streaming response
+            const newMessage = document.createElement('div');
+            newMessage.className = "text-black"
+            previewBox.appendChild(newMessage);
+
+            const data = {};
+            formdata.forEach((value, key) => {
+                data[key] = value;
+            });
+
+            const jsonString = encodeURIComponent(JSON.stringify(data));
+            const eventSource = new EventSource(`/stream?formdata=${jsonString}`);
+            console.log("sent")
+
+            eventSource.onmessage = function(event) {
+                // Append the streamed data to the message div
+                newMessage.innerHTML = `${event.data}`;
+                console.log(`${event.data}`)
+                console.log("message")
+            };
+
+            eventSource.onerror = function() {
+                // Close the connection if there's an error
+                eventSource.close();
+            };
+        }
+    </script>
+</body>
+</html>
+
+<!-- <body>
     <form action="{{ url_for('read_form')}}" method="post" class="gen_form"> 
         <fieldset>
             <label>Title</label>
@@ -22,9 +158,6 @@
             <br><br>
             <label>Tag</label> 
             <input name="tag" id="tag" size="30" placeholder="Technology"> 
-            <!-- <br><br>
-            <label>Include Fake Sources</label>
-            <input name="sources" id="sources"> -->
             <br><br>
             <label>Days Old</label> 
             <input name="days" id="days" size="10" placeholder="0">
@@ -55,5 +188,4 @@
         Click the invisible link at the bottom left of any article to archive/unarchive it.
         You can see archived stories at this link: <a href="{{ url_for('archive')  }}">Here</a>
     </p>
-</body>
-</html>
+</body> -->

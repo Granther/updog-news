@@ -1,10 +1,11 @@
-from flask import Flask, render_template, request, redirect, url_for, flash
+from flask import Flask, render_template, request, redirect, url_for, flash, Response, stream_with_context
 from gen_news import GenerateNews, GenerateNewsSQL
 from dotenv import load_dotenv
-from infer import generate_news
+from infer import generate_news, generate_news_stream
 from config import Config
 import re
 import os
+import json
 
 app = Flask(__name__)
 app.secret_key = "glorp"
@@ -77,6 +78,15 @@ def read_form():
 def about():
     return render_template("about.html")
 
+@app.route("/stream")
+def stream():
+    print("executted")
+    json_str = request.args.get('formdata')
+    data = json.loads(json_str)
+    print(data)
+
+    return Response(stream_with_context(generate_news_stream(title=data['title'], prompt=data['guideline'], add_sources=False)), mimetype='text/event-stream')
+
 @app.route('/control/<uuid>')
 def control(uuid):
     return render_template('control.html', uuid=uuid)
@@ -108,4 +118,4 @@ def trash_story(uuid):
 
 if __name__ == "__main__":
     setup_env()
-    app.run(debug=True)
+    app.run(debug=True, threaded=True)

@@ -4,6 +4,7 @@ from tavily import TavilyClient
 from dotenv import load_dotenv
 from config import Config
 import os
+import time
 
 config = Config()
 
@@ -29,7 +30,7 @@ def generate_news(title, prompt: str=None, model="NeverSleep/Llama-3-Lumimaid-8B
             sources = perform_search(title)
         except:
             print("Failure to retrieve sources.. skipping")
-            
+
         sys_prompt = """Roleplay as a news writer. Given a news story title and some snippet of information to include, please generate a fitting news story. Please cite many fake articles, use the token {source} when referencing the source. 
 
         Example: 
@@ -65,6 +66,52 @@ def generate_news(title, prompt: str=None, model="NeverSleep/Llama-3-Lumimaid-8B
         return False
 
     return response.choices[0].message.content + f"\n\n {sources}"
+
+def generate_news_stream(title, prompt: str=None, model="NeverSleep/Llama-3-Lumimaid-8B-v0.1", add_sources=False):
+    api_key = os.environ.get('FEATHERLESS_API_KEY')
+    response = None
+
+    client = OpenAI(
+        base_url="https://api.featherless.ai/v1",
+        api_key=api_key
+    )
+
+    msg = None
+
+    if prompt:
+        msg = f"### Title:\n{title}\n### Guideline:\n{prompt}"
+    else:
+        msg = f"### Title:\n{title}"
+
+    sys_prompt = "Roleplay as a news writer. Given a news story title and some snippet of information to include, please generate a fitting news story. Please omit bolding and tokens like **, please break the article into paragraphs" 
+
+    messages=[
+        {
+            "role": "user",
+            "content": f"{msg}",
+        },
+        {
+            "role": "system",
+            "content": sys_prompt
+        }
+    ]
+
+    response = client.chat.completions.create(
+        model=model,
+        messages= messages,
+        temperature=1.0,
+        stream=True,
+        max_tokens=int(config.max_tokens)
+    )
+
+    partial_message = ""
+    for chunk in response:
+        if chunk.choices[0].delta.content is not None:
+            partial_message = partial_message + chunk.choices[0].delta.content
+            print(partial_message)
+            yield f"data: {partial_message}\n\n"
+            time.sleep(0)
+
 
 def perform_search(search: str, n_results=1):
     tavily_client = TavilyClient(api_key=os.environ.get("TAVILY_API_KEY"))
