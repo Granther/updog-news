@@ -11,29 +11,31 @@
 <body>
     <header class="bg-blue-800 text-white py-4">
         <div class="container mx-auto flex justify-between items-center px-4">
-            <h1 class="text-xl font-bold flex-grow text-center">UPDog Reporters</h1>
-            
-            <nav class="flex space-x-4">
-                <a href="#" class="hover:text-gray-300">Home</a>
-                <a href="#" class="hover:text-gray-300">About</a>
-            </nav>
+            <h1 class="text-xl font-bold flex-grow text-center"><a href="{{url_for('index')}}">{{ name }}</a></h1>
         </div>
     </header>
 
     <div class="relative container mx-auto px-4 py-8">
         <div class="flex justify-end mb-4">
-            <a href="{{ url_for('new_reporter') }}" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                New Reporter
+            <a href="{{ url_for('gen_news') }}" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                New Story
             </a>
         </div>
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             {% for story in stories %}
-            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-                <img src="https://via.placeholder.com/400x250" alt="News Thumbnail" class="w-full h-40 object-cover">
-                <div class="p-4">
-                    <h3 class="text-xl font-semibold mb-2">{{ story.title }}</h3>
+            <a href="{{url_for('story', uuid=story.uuid)}}">
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden w-full">
+                    <div class="px-4 pt-4">
+                        <h1 class="text-3xl font-semibold mb-1">{{ story.title }}</h1>
+                    </div>
+                    <div class="px-4">
+                        <h3 class="text-sm mb-3">By {{ name }} | On {{ daysold }}</h3>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-md mb-3 text-blue">Read Article</h3>
+                    </div>
                 </div>
-            </div>
+            </a>
             {% endfor %}
         </div>
     </div>

@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for, flash, Response, stream_with_context, jsonify
-from gen_news import GenerateNews, GenerateNewsSQL
+from gen_news import GenerateNewsSQL
 from dotenv import load_dotenv
 from infer import Infer
 from config import Config
@@ -70,10 +70,7 @@ def create_reporter():
             msg = "Personality field must be filled"
             return render_template('new_reporter.html', msg=msg)
 
-    print(data)
-
     res = rep.create_reporter(name=data['name'], personality=data['personality'], bio=data['bio'])
-    print(res)
 
     return redirect(url_for("reporters"))
 
@@ -83,9 +80,7 @@ def post():
     
     genSQL.create_story(title=finalForm['title'], content=finalForm['story'], days=finalForm['days'], reporter=finalForm['reporter'], tags=finalForm['tags'])
 
-    return jsonify({
-        "status": "done"
-    })
+    return redirect(url_for('index'))
 
 
 @app.route('/read_form', methods=['POST'])
@@ -133,7 +128,7 @@ def stream():
     json_str = request.args.get('formdata')
     data = json.loads(json_str)
 
-    return Response(stream_with_context(infer.generate_news_stream(title=data['title'], prompt=data['guideline'], add_sources=False)), mimetype='text/event-stream')
+    return Response(stream_with_context(infer.generate_news_stream(title=data['title'], prompt=data['guideline'], reporter=data['reporter'], add_sources=False)), mimetype='text/event-stream')
 
 @app.route('/control/<uuid>')
 def control(uuid):

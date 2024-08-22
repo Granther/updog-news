@@ -30,6 +30,17 @@ class ReportersSQL():
             reporters.append(reporter)
         return reporters
 
+    def get_personality(self, name: str):
+        if not self.reporter_exists(name):
+            return False
+        
+        name = self.make_username(name)
+        
+        query = f"SELECT personality FROM reporters WHERE username = '{name}'"
+        res = self.send_query(query)
+
+        return res[0][0]
+
     def create_reporter(self, name: str=None, bio: str=None, personality: str=None):
         if self.reporter_exists(name):
             return False

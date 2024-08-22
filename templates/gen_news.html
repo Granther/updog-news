@@ -65,10 +65,13 @@
                 class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 id="author" name="author" type="text" placeholder="Julia Garner">
         </div> -->
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="message">
+            Select or Fill in a Reporter
+        </label>
         <div class="relative mb-4">
             <input type="text" id="dropdown-item" name="reporter"
                 class="w-full rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-blue-500 focus:outline-none"
-                placeholder="Select an option" readonly>
+                placeholder="Select an option">
 
             <div class="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none hidden"
                 role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1" id="dropdown-menu">
@@ -148,7 +151,7 @@
         // Hide if clicked out of it
         document.addEventListener('click', (e) => {
             if (!dropdownItem.contains(e.target) && !dropdownMenu.contains(e.target)) {
-            dropdownMenu.classList.toggle('hidden');
+            dropdownMenu.classList.add('hidden');
             }
         });
 
@@ -173,7 +176,7 @@
                         event.preventDefault();
                         const value = item.innerHTML;
                         dropdownItem.value = value;
-                        dropdownMenu.classList.toggle('hidden');
+                        dropdownMenu.classList.add('hidden');
                     });
                 });
 
