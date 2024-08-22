@@ -12,26 +12,38 @@ class GenerateNewsSQL():
     def parse_news(self, index=True, all=False):
         # This needs to be redone a little, I'm upset at how im unpacking
         if all:
-            query = 'SELECT * FROM stories'
+            query = """SELECT title, content, daysold, tags, uuid, reporterid, name 
+                    FROM stories AS a 
+                    INNER JOIN reporters AS b 
+                    ON a.reporterid = b.id
+                    ORDER BY title;"""
         elif index:
             # Select all stories not trashed or archived
-            query = 'SELECT * FROM stories WHERE trashed = FALSE AND archived = FALSE'
+            query = """SELECT title, content, daysold, tags, uuid, reporterid, name 
+                    FROM stories AS a 
+                    INNER JOIN reporters AS b 
+                    ON a.reporterid = b.id
+                    WHERE a.trashed = FALSE AND a.archived = FALSE;"""
         elif not index:
             # Select archived
-            query = 'SELECT * FROM stories WHERE archived = TRUE'
+            query = """SELECT title, content, daysold, tags, uuid, reporterid, name 
+                    FROM stories AS a 
+                    INNER JOIN reporters AS b 
+                    ON a.reporterid = b.id
+                    WHERE a.archived = TRUE;"""
 
         response = self.connection.cursor().execute(query).fetchall()
         stories = list()
 
         for res in response:
-            _, _, title, content, days, tags, author, uuid, trashed, archived = res
             story = {
-                "title":title,
-                "content":content,
-                "days":days,
-                "tags":tags,
-                "author":author,
-                "uuid":uuid
+                "title": res[0],
+                "content": res[1],
+                "days": res[2],
+                "tags": res[3],
+                "uuid": res[4],
+                "reporterid": res[5],
+                "reportername": res[6],
             }
             stories.append(story)
         return stories

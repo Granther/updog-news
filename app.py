@@ -3,6 +3,7 @@ from gen_news import GenerateNews, GenerateNewsSQL
 from dotenv import load_dotenv
 from infer import Infer
 from config import Config
+from reporters import ReportersSQL
 import re
 import os
 import json
@@ -10,6 +11,7 @@ import json
 app = Flask(__name__)
 app.secret_key = "glorp"
 config = Config()
+rep = ReportersSQL()
 genSQL = GenerateNewsSQL()
 infer = Infer()
 
@@ -35,14 +37,37 @@ def index():
 def gen_news():
     return render_template("gen_news.html")
 
-@app.route("/authors")
-def authors():
-    return render_template("authors.html")
+@app.route("/reporters")
+def reporters():
+    reporters = rep.parse_reporters()
+    print(reporters)
+    return render_template("reporters.html", reporters=reporters)
+
+@app.route("/new_reporter")
+def new_reporter():
+    return render_template("new_reporter.html")
+
+@app.route("/create_reporter", methods=["POST"])
+def create_reporter():
+    if request.method == "POST":
+        data = request.form
+        if not data:
+            msg = "Error recieving form data"
+            return render_template('new_reporter.html', msg=msg)
+        
+        if data['name'] == '': # If no title
+            msg = "Name field must be filled"
+            return render_template('new_reporter.html', msg=msg)
+        
+        if data['personality'] == '': # If no personality
+            msg = "Personality field must be filled"
+            return render_template('new_reporter.html', msg=msg)
+
+    res = rep.create_reporter()
 
 @app.route('/post', methods=['POST'])
 def post():
     story = request.get_json()['story']
-    print(x)
 
     return jsonify({
         "status": "done"

@@ -1,12 +1,14 @@
-DROP TABLE IF EXISTS authors;
+DROP TABLE IF EXISTS reporters;
 DROP TABLE IF EXISTS stories;
+DROP TABLE IF EXISTS authors;
+DROP TABLE IF EXISTS posts;
 
-CREATE TABLE authors (
+CREATE TABLE reporters (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    authorname TEXT NOT NULL,
-    authorid TEXT,
-    bio TEXT
+    name TEXT NOT NULL,
+    bio TEXT,
+    personality TEXT NOT NULL
 );
 
 CREATE TABLE stories (
@@ -16,8 +18,9 @@ CREATE TABLE stories (
     content TEXT NOT NULL,
     daysold TEXT NOT NULL,
     tags TEXT NOT NULL,
-    author TEXT NOT NULL,
     uuid TEXT NOT NULL,
     trashed INT NOT NULL,
-    archived INT NOT NULL
+    archived INT NOT NULL,
+    reporterid TEXT NOT NULL,
+    FOREIGN KEY(reporterid) REFERENCES reporters(id)
 );
