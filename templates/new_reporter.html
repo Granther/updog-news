@@ -22,7 +22,7 @@
             </a>
         </div>
     </div>
-    <form class="mt-10 max-w-lg w-full mx-auto p-6 bg-white rounded-lg shadow-md" id="news-form">
+    <form class="mt-10 max-w-lg w-full mx-auto p-6 bg-white rounded-lg shadow-md" id="news-form" action="{{ url_for('create_reporter') }}" method="post">
         <h2 class="text-2xl font-bold mb-6 text-gray-900">Create New Reporter</h2>
 
         <div class="mb-4">
@@ -39,7 +39,7 @@
             </label>
             <textarea
                 class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                id="guideline" name="guideline" rows="5"></textarea>
+                id="bio" name="bio" rows="5"></textarea>
         </div>
         <div class="mb-6">
             <label class="block text-gray-700 text-sm font-bold mb-2" for="name">
@@ -57,6 +57,9 @@
             </button>
         </div>
     </form>
+    <h1>
+        {{ msg }}
+    </h1>
     <script>
     </script>
 </body>

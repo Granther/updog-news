@@ -11,7 +11,7 @@ class ReportersSQL():
 
     def parse_reporters(self):
         # This needs to be redone a little, I'm upset at how im unpacking
-        query = 'SELECT id, name, bio FROM reporters'
+        query = 'SELECT personality, name, bio FROM reporters'
 
         response = self.connection.cursor().execute(query).fetchall()
         reporters = list()
@@ -20,7 +20,7 @@ class ReportersSQL():
             reporter = {
                 "name": res[1],
                 "bio": res[2],
-                "id": res[0]
+                "personality": res[0]
             }
             reporters.append(reporter)
         return reporters
@@ -29,10 +29,16 @@ class ReportersSQL():
         if name == None or personality == None:
             return "Error creating reporter"
         
+        if bio == '':
+            query = f"""INSERT INTO reporters (name, personality) VALUES ('{name}', '{personality.replace("'", "''")}')"""
+        else:
+            query = f"""INSERT INTO reporters (name, bio, personality) VALUES ('{name}', '{bio.replace("'", "''")}', '{personality.replace("'", "''")}')"""
+
         cursor = self.connection.cursor()
-        query = f"""INSERT INTO reporters (name, bio, personality, uuid) VALUES ('{name}', '{bio.replace("'", "''")}', '{personality.replace("'", "''")}', '{str(shortuuid.uuid())}')"""
-        cursor.execute(query)
+        res = cursor.execute(query)
         self.connection.commit() 
+
+        return res
     
     def send_query(self, query):
         return self.connection.cursor().execute(query).fetchall()

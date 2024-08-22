@@ -33,6 +33,13 @@ def index():
     stories = genSQL.parse_news()
     return render_template("index.html", stories=stories)
 
+@app.route("/get_reporters", methods=["GET"])
+def get_reporters():
+    reporters = rep.parse_reporters()
+    print(reporters)
+
+    return jsonify(reporters)
+
 @app.route("/gen_news")
 def gen_news():
     return render_template("gen_news.html")
@@ -63,7 +70,10 @@ def create_reporter():
             msg = "Personality field must be filled"
             return render_template('new_reporter.html', msg=msg)
 
-    res = rep.create_reporter()
+    res = rep.create_reporter(name=data['name'], personality=data['personality'], bio=data['bio'])
+    print(res)
+
+    return redirect(url_for("reporters"))
 
 @app.route('/post', methods=['POST'])
 def post():
@@ -74,6 +84,7 @@ def post():
     return jsonify({
         "status": "done"
     })
+
 
 @app.route('/read_form', methods=['POST'])
 def read_form():

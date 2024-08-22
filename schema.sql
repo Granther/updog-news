@@ -8,7 +8,7 @@ CREATE TABLE reporters (
     created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     name TEXT NOT NULL,
     bio TEXT,
-    personality TEXT NOT NULL
+    personality TEXT NOT NULL,
 );
 
 CREATE TABLE stories (
