@@ -70,6 +70,8 @@ def create_reporter():
             msg = "Personality field must be filled"
             return render_template('new_reporter.html', msg=msg)
 
+    print(data)
+
     res = rep.create_reporter(name=data['name'], personality=data['personality'], bio=data['bio'])
     print(res)
 
@@ -79,7 +81,7 @@ def create_reporter():
 def post():
     finalForm = request.get_json()['story']
     
-    genSQL.create_story(title=finalForm['title'], content=finalForm['story'], days=finalForm['days'], author=finalForm['reporter'], tags=finalForm['tags'])
+    genSQL.create_story(title=finalForm['title'], content=finalForm['story'], days=finalForm['days'], reporter=finalForm['reporter'], tags=finalForm['tags'])
 
     return jsonify({
         "status": "done"
@@ -162,6 +164,15 @@ def trash_story(uuid):
     genSQL.trash(uuid)
     return redirect(url_for('index'))
 
+@app.route("/reporter/<username>")
+def reporter(username):
+    username = rep.make_username(username)
+    reporter = rep.parse_reporters(username=username)[0]
+    stories = genSQL.parse_news_reporter(username=username)
+    print(reporter)
+    print(stories)
+
+    return render_template("reporter.html", **reporter, stories=stories)
 if __name__ == "__main__":
     setup_env()
     app.run(debug=True, threaded=True)

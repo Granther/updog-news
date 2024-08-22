@@ -7,10 +7,8 @@ import os
 class GenerateNewsSQL():
     def __init__(self):
         self.connection = sqlite3.connect('database.db', check_same_thread=False)
-        #self.connection.row_factory = lambda cursor, row: row[0]
 
     def parse_news(self, index=True, all=False):
-        # This needs to be redone a little, I'm upset at how im unpacking
         if all:
             query = """SELECT title, content, daysold, tags, uuid, reporterid, name 
                     FROM stories AS a 
@@ -47,10 +45,39 @@ class GenerateNewsSQL():
             }
             stories.append(story)
         return stories
+    
+    def parse_news_reporter(self, username: str):
+        query = f"""SELECT title, content, daysold, tags, uuid, reporterid, name 
+                FROM stories AS a 
+                INNER JOIN reporters AS b 
+                ON a.reporterid = b.id
+                WHERE b.username = '{username}';"""
 
-    def create_story(self, title: str, content: str, days: str="0", author: str = None, tags: str = None, archived: int = 0, trashed: int = 0):
+        response = self.connection.cursor().execute(query).fetchall()
+        stories = list()
+
+        for res in response:
+            story = {
+                "title": res[0],
+                "content": res[1],
+                "days": res[2],
+                "tags": res[3],
+                "uuid": res[4],
+                "reporterid": res[5],
+                "reportername": res[6],
+            }
+            stories.append(story)
+        return stories
+    
+    def get_reporter_id(self, name: str):
+        query = f"""SELECT id FROM reporters WHERE name = '{name}';"""
+        x = self.send_query(query)
+        print(x)
+        return int(x[0][0])
+
+    def create_story(self, title: str, content: str, days: str="0", reporter: str = None, tags: str = None, archived: int = 0, trashed: int = 0):
         cursor = self.connection.cursor()
-        query = f"""INSERT INTO stories (title, content, daysold, uuid, tags, author, archived, trashed) VALUES ('{title}', '{content.replace("'", "''")}', '{days}', '{str(shortuuid.uuid())}', '{tags}', '{author}', '{archived}', '{trashed}')"""
+        query = f"""INSERT INTO stories (title, content, daysold, uuid, tags, reporterid, archived, trashed) VALUES ('{title}', '{content.replace("'", "''")}', '{days}', '{str(shortuuid.uuid())}', '{tags}', {self.get_reporter_id(reporter)}, '{archived}', '{trashed}')"""
         cursor.execute(query)
         self.connection.commit() 
 

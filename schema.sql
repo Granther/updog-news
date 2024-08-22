@@ -9,6 +9,7 @@ CREATE TABLE reporters (
     name TEXT NOT NULL,
     bio TEXT,
     personality TEXT NOT NULL,
+    username TEXT NOT NULL
 );
 
 CREATE TABLE stories (

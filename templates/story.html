@@ -13,11 +13,11 @@
         <div class="container">
             <h1><a href="{{ url_for('index') }}">{{ title }}</a></h1>
             {% if days == "0" %}
-                <p class="meta">by {{ author }} | Posted today</p>
+                <p class="meta">by <a href="{{url_for('reporter', username=reportername)}}">{{ reportername }}</a> | Posted today</p>
             {% elif days == "1" %}
-                <p class="meta">by {{ author }} | Posted yesterday</p>
+                <p class="meta">by <a href="{{url_for('reporter', username=reportername)}}">{{ reportername }}</a> | Posted yesterday</p>
             {% else %}
-                <p class="meta">by {{ author }} | Posted {{ days }} days ago</p>
+                <p class="meta">by <a href="{{url_for('reporter', username=reportername)}}">{{ reportername }}</a> | Posted {{ days }} days ago</p>
             {% endif %}
         </div>
     </header>
