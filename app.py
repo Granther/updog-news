@@ -1,7 +1,7 @@
-from flask import Flask, render_template, request, redirect, url_for, flash, Response, stream_with_context
+from flask import Flask, render_template, request, redirect, url_for, flash, Response, stream_with_context, jsonify
 from gen_news import GenerateNews, GenerateNewsSQL
 from dotenv import load_dotenv
-from infer import generate_news, generate_news_stream
+from infer import Infer
 from config import Config
 import re
 import os
@@ -11,6 +11,7 @@ app = Flask(__name__)
 app.secret_key = "glorp"
 config = Config()
 genSQL = GenerateNewsSQL()
+infer = Infer()
 
 def setup_env():
     try:
@@ -37,6 +38,15 @@ def gen_news():
 @app.route("/authors")
 def authors():
     return render_template("authors.html")
+
+@app.route('/post', methods=['POST'])
+def post():
+    story = request.get_json()['story']
+    print(x)
+
+    return jsonify({
+        "status": "done"
+    })
 
 @app.route('/read_form', methods=['POST'])
 def read_form():
@@ -66,7 +76,7 @@ def read_form():
     if data['tags'] == '':
         tags = config.def_tag
                 
-    story = generate_news(title=data['title'], prompt=data['guideline'], add_sources=bool(data['sources']))
+    story = infer.generate_news(title=data['title'], prompt=data['guideline'], add_sources=bool(data['sources']))
     if not story:
         msg = "Error generating story, please try again"
         return render_template('gen_news.html', msg=msg) 
@@ -80,12 +90,10 @@ def about():
 
 @app.route("/stream")
 def stream():
-    print("executted")
     json_str = request.args.get('formdata')
     data = json.loads(json_str)
-    print(data)
 
-    return Response(stream_with_context(generate_news_stream(title=data['title'], prompt=data['guideline'], add_sources=False)), mimetype='text/event-stream')
+    return Response(stream_with_context(infer.generate_news_stream(title=data['title'], prompt=data['guideline'], add_sources=False)), mimetype='text/event-stream')
 
 @app.route('/control/<uuid>')
 def control(uuid):

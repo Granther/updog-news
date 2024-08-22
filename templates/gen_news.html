@@ -11,17 +11,23 @@
 </head>
 
 <body class="grid grid-cols-3 gap-5">
-    <div class="w-full text-center">
-        <h3>After successfully submitting, please DO NOT refresh the page. It is generating the story, you will be
-            redirected when it is done</h3>
-        <p>{{ msg }}</p>
-        <h1>{{ status }}</h1>
-        <br><br>
-        <h4>Instructions:</h4>
-        <p>
-            Click the invisible link at the bottom left of any article to archive/unarchive it.
-            You can see archived stories at this link: <a href="{{ url_for('archive')  }}">Here</a>
-        </p>
+    <div class="relative text-center w-full h-full p-5">
+        <div class="absolute flex flex-row gap-5 items-center justify-between bottom-5">
+            <a href="{{ url_for('index') }}">
+                <button
+                    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+                    type="submit" id="news-button">
+                    Home Page
+                </button>
+            </a>
+            <a href="{{ url_for('archive') }}">
+                <button
+                    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+                    type="submit" id="news-button">
+                    Archive
+                </button>
+            </a>
+        </div>
     </div>
     <!-- action="{{ url_for('read_form')}}" method="post" -->
     <form class="mt-10 max-w-lg w-full mx-auto p-6 bg-white rounded-lg shadow-md" id="news-form">
@@ -33,8 +39,7 @@
             </label>
             <textarea
                 class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                id="title" name="title" rows="5">
-            </textarea>
+                id="title" name="title" rows="5"></textarea>
         </div>
 
         <div class="mb-4">
@@ -43,8 +48,7 @@
             </label>
             <textarea
                 class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                id="guideline" name="guideline" rows="5">
-            </textarea>
+                id="guideline" name="guideline" rows="5"></textarea>
         </div>
 
         <div class="mb-6">
@@ -94,27 +98,53 @@
             </button>
         </div>
     </form>
-    <div class="text-center w-full" id="preview-box">
+    <div class="relative text-center w-full h-full p-5" id="preview-box">
+        <div class="absolute flex flex-row gap-5 items-center justify-between bottom-5">
+            <form>
+                <button
+                    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+                    type="submit" id="clear-button">
+                    Clear Textbox
+                </button>
+            </form>
+            <form onsubmit="postStory()">
+                <button
+                    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+                    type="submit" id="post-button">
+                    Post!
+                </button>
+            </form>
+        </div>
     </div>
     <script>
         document.getElementById("news-form").addEventListener("submit", function (event) {
+            var formdata = new FormData(this);
+            formSubmit(event, formdata)
+        });
+
+        function formSubmit (event, formdata) {
             event.preventDefault(); // prevent default form submit
             const promptSubmitButton = document.getElementById("news-button");
             promptSubmitButton.disabled = true;
 
-            // Create formdata object
-            var formdata = new FormData(this);
+            readStream(formdata);
+            promptSubmitButton.disabled = false;
+        };
 
-            readStream(formdata)
-            promptSubmitButton.disabled = false
-        });
+        function removeID(id){ 
+            var e = document.getElementById(id);
+            if (e!==null) e.remove();
+        };
 
         function readStream(formdata) {
             const previewBox = document.getElementById('preview-box');
 
+            removeID('story')
+
             // Add an empty message div to show the streaming response
             const newMessage = document.createElement('div');
-            newMessage.className = "text-black"
+            newMessage.setAttribute("id", "story");
+            newMessage.className = "text-black";
             previewBox.appendChild(newMessage);
 
             const data = {};
@@ -124,19 +154,34 @@
 
             const jsonString = encodeURIComponent(JSON.stringify(data));
             const eventSource = new EventSource(`/stream?formdata=${jsonString}`);
-            console.log("sent")
+            console.log("sent");
 
             eventSource.onmessage = function(event) {
                 // Append the streamed data to the message div
                 newMessage.innerHTML = `${event.data}`;
-                console.log(`${event.data}`)
-                console.log("message")
+                console.log(`${event.uuid}`);
             };
 
-            eventSource.onerror = function() {
+            eventSource.onerror = function(event) {
                 // Close the connection if there's an error
+                console.log(`Closing connection due to error`);
                 eventSource.close();
             };
+        }
+
+        function postStory() {
+            event.preventDefault(); 
+            let story = document.getElementById('story').innerHTML;
+            console.log(`${story}`)
+
+            fetch(`{{url_for('post')}}`, {
+                method: "POST",
+                body: JSON.stringify({"story": story}),
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+            }).then(response => response.json()).then(data => {
+            }).catch(error => console.error('Error', error));
         }
     </script>
 </body>
