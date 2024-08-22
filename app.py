@@ -67,7 +67,9 @@ def create_reporter():
 
 @app.route('/post', methods=['POST'])
 def post():
-    story = request.get_json()['story']
+    finalForm = request.get_json()['story']
+    
+    genSQL.create_story(title=finalForm['title'], content=finalForm['story'], days=finalForm['days'], author=finalForm['reporter'], tags=finalForm['tags'])
 
     return jsonify({
         "status": "done"

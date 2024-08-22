@@ -11,17 +11,16 @@ class ReportersSQL():
 
     def parse_reporters(self):
         # This needs to be redone a little, I'm upset at how im unpacking
-        query = 'SELECT * FROM reporters'
+        query = 'SELECT id, name, bio FROM reporters'
 
         response = self.connection.cursor().execute(query).fetchall()
         reporters = list()
 
         for res in response:
             reporter = {
-                "name": res[2],
-                "bio": res[],
-                "personality": res[],
-                "uuid": res[]
+                "name": res[1],
+                "bio": res[2],
+                "id": res[0]
             }
             reporters.append(reporter)
         return reporters

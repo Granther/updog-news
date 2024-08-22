@@ -118,7 +118,7 @@ class Infer():
                 self.partial_message = self.partial_message + chunk.choices[0].delta.content
                 # Some kind of encoding error occurs in the SSE, this fixes it
                 self.partial_message = self.partial_message.replace('\n', '<br>').replace('\r', '<br>')
-                yield f"data: {self.partial_message} uuid: {uuid}\n\n"
+                yield f"data: {self.partial_message}\n\n"
 
 
     def perform_search(self, search: str, n_results=1):
