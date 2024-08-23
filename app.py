@@ -28,6 +28,17 @@ def setup_env():
     except Exception as e:
         print(f"Exception {e} occured when preparing evironment")
 
+    if os.path.isfile("database.db"):
+        print("Database exists")
+    elif not os.path.isfile("database.db"):
+        import sqlite3
+        connection = sqlite3.connect('database.db')
+        with open('schema.sql') as f:
+            connection.executescript(f.read())
+        connection.close()
+        print("Created DB")
+
+
 @app.route('/')
 def index():
     stories = genSQL.parse_news()
