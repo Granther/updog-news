@@ -11,13 +11,14 @@
         <h1 class="text-3xl font-bold"><a href="{{ url_for('index') }}">{{ title }}</a></h1>
         <p class="text-white">By <a href="{{url_for('reporter', username=reportername)}}">{{ reportername }}</a></p>
     </header>
-    <main class="flex-grow p-4">
+    <main class="flex flex-grow p-4">
         <article class="max-w-3xl mx-auto text-center">
             <section>
                 {{ content|safe }}
             </section>
         </article>
     </main>
+    <p class="p-3 mt-auto text-center">Tags: <strong>{{ tags }}</strong></p>
     <footer class="bg-gray-800 p-4">
         <p class="text-center">&copy; 2024 The UP Dawg. All rights reserved.</p>
     </footer>
