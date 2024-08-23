@@ -69,7 +69,6 @@ class GenerateNewsSQL():
     def get_reporter_id(self, name: str):
         query = f"""SELECT id FROM reporters WHERE username = '{self.repSQL.make_username(name)}';"""
         x = self.send_query(query)
-        print(x)
         return int(x[0][0])
 
     def create_story(self, title: str, content: str, days: str="0", reporter: str = None, tags: str = None, archived: int = 0, trashed: int = 0):
@@ -77,7 +76,6 @@ class GenerateNewsSQL():
 
         if self.repSQL.reporter_exists(reporter):
             reporterid = self.get_reporter_id(reporter)
-            print("Reporter exits", reporterid)
         else:
             reporterid = 1000
 

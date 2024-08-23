@@ -151,13 +151,6 @@
     </form>
     <div class="relative text-center w-full h-full p-5 overflow-auto" id="preview-box">
         <div class="absolute flex flex-row gap-5 items-center justify-between bottom-5">
-            <form>
-                <button
-                    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
-                    type="submit" id="clear-button">
-                    Clear Textbox
-                </button>
-            </form>
             <form onsubmit="postStory()">
                 <button
                     class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
@@ -265,17 +258,19 @@
                 console.log(`${event.uuid}`);
             };
 
-            eventSource.onerror = function (event) {
-                // Close the connection if there's an error
-                console.log(`Closing connection due to error`);
-                eventSource.close();
-            };
+            // eventSource.onerror = function (event) {
+            //     // Close the connection if there's an error
+            //     console.log(`Closing connection due to error`);
+            //     eventSource.close();
+            // };
         }
 
         function postStory() {
             event.preventDefault();
             let story = document.getElementById('story').innerHTML;
             formGlobal['story'] = story;
+
+            console.log(JSON.stringify({ "story": formGlobal }));
 
             fetch(`{{url_for('post')}}`, {
                 method: "POST",
@@ -284,6 +279,7 @@
                     'Content-Type': 'application/json'
                 },
             }).then(response => response.json()).then(data => {
+                window.location.replace("{{url_for('index')}}");
             }).catch(error => console.error('Error', error));
         }
     </script>
