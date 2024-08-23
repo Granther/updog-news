@@ -31,12 +31,20 @@ def setup_env():
     if os.path.isfile("database.db"):
         print("Database exists")
     elif not os.path.isfile("database.db"):
-        import sqlite3
-        connection = sqlite3.connect('database.db')
-        with open('schema.sql') as f:
-            connection.executescript(f.read())
-        connection.close()
-        print("Created DB")
+        try:
+            import sqlite3
+            connection = sqlite3.connect('database.db')
+            with open('schema.sql') as f:
+                connection.executescript(f.read())
+            cur = connection.cursor()
+            cur.execute("INSERT INTO posts (title, content) VALUES (?, ?)",
+                        ('First Post', 'Content for the first post')
+                        )
+            connection.commit()
+            connection.close()
+            print("Created DB")
+        except:
+            pass
 
 
 @app.route('/')
