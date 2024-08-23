@@ -130,6 +130,9 @@ class Infer():
                 self.partial_message = self.partial_message.replace('\n', '<br>').replace('\r', '<br>')
                 yield f"data: {self.partial_message}\n\n"
 
+        yield "event: end\n"
+        yield "data: done\n\n"
+
 
     def perform_search(self, search: str, n_results=1):
         tavily_client = TavilyClient(api_key=os.environ.get("TAVILY_API_KEY"))

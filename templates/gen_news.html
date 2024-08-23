@@ -5,51 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.0/socket.io.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <title>Generate AI News</title>
 </head>
-
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ title }}</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-gray-900 text-gray-100 flex flex-col min-h-screen">
-    <header class="bg-gray-800 p-4 text-center">
-        <h1 class="text-3xl font-bold"><a href="{{ url_for('index') }}">Control</a></h1>
-    </header>
-    <main class="flex-grow p-4">
-        <div class="container grid grid-cols-2 mt-30 max-w-lg w-full mx-auto p-6 bg-slate-600 rounded-lg shadow-md" id="news-form">
-            <form action="{{ url_for('toggle_archive', uuid=uuid) }}" class="mb-6">
-                <button
-                    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
-                    type="submit" name="submit_button" value="Trash">
-                    Trash
-                </button>
-            </form>
-
-            <form action="{{ url_for('trash_story', uuid=uuid) }}" class="mb-6">
-                <button
-                    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
-                    type="submit" name="submit_button" value="archive">
-                    Archive
-                </button>
-            </form>
-        </div>
-
-        <p>{{ msg }}</p>
-        <h1>{{ status }}</h1>
-    </main>
-    <footer class="bg-gray-800 p-4">
-        <p class="text-center">&copy; 2024 The UP Dawg. All rights reserved.</p>
-    </footer>
-</body>
-</html> -->
-
 <body class="grid sm:grid-cols-3 grid-cols-1 gap-5 bg-gray-900">
     <div class="relative text-center w-full h-full p-5">
         <div class="absolute flex flex-row gap-5 items-center justify-between bottom-5">
@@ -210,7 +168,6 @@
         };
 
 
-
         document.getElementById("news-form").addEventListener("submit", function (event) {
             var formdata = new FormData(this);
             formSubmit(event, formdata)
@@ -231,6 +188,7 @@
         };
 
         function readStream(formdata) {
+            console.log("called readstream")
             const previewBox = document.getElementById('preview-box');
 
             removeID('story')
@@ -255,14 +213,13 @@
             eventSource.onmessage = function (event) {
                 // Append the streamed data to the message div
                 newMessage.innerHTML = `${event.data}`;
-                console.log(`${event.uuid}`);
             };
 
-            // eventSource.onerror = function (event) {
-            //     // Close the connection if there's an error
-            //     console.log(`Closing connection due to error`);
-            //     eventSource.close();
-            // };
+            eventSource.addEventListener('end', function(event) {
+                // Handle the 'end' event
+                console.log('Stream finished, closing connection.');
+                eventSource.close();
+            });
         }
 
         function postStory() {

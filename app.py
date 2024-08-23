@@ -104,7 +104,7 @@ def post():
     finalForm = request.get_json()['story']
     res = genSQL.create_story(title=finalForm['title'], content=finalForm['story'], days=finalForm['days'], reporter=finalForm['reporter'], tags=finalForm['tags'])
 
-    return redirect(url_for("index"))
+    return jsonify({"status":"good"})
 
 
 @app.route('/read_form', methods=['POST'])
