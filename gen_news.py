@@ -12,27 +12,24 @@ class GenerateNewsSQL():
 
     def parse_news(self, index=True, all=False):
         if all:
-            query = """SELECT title, content, daysold, tags, uuid, reporterid, name 
-                    FROM stories AS a 
-                    INNER JOIN reporters AS b 
-                    ON a.reporterid = b.id
-                    ORDER BY title;"""
+            query = """SELECT title, content, daysold, tags, uuid, reporterid, reportername 
+                    FROM stories
+                    ORDER BY created;"""
         elif index:
             # Select all stories not trashed or archived
-            query = """SELECT title, content, daysold, tags, uuid, reporterid, name 
-                    FROM stories AS a 
-                    INNER JOIN reporters AS b 
-                    ON a.reporterid = b.id
-                    WHERE a.trashed = FALSE AND a.archived = FALSE;"""
+            query = """SELECT title, content, daysold, tags, uuid, reporterid, reportername 
+                    FROM stories
+                    WHERE trashed = FALSE AND archived = FALSE
+                    ORDER BY created;"""
         elif not index:
             # Select archived
-            query = """SELECT title, content, daysold, tags, uuid, reporterid, name 
-                    FROM stories AS a 
-                    INNER JOIN reporters AS b 
-                    ON a.reporterid = b.id
-                    WHERE a.archived = TRUE;"""
+            query = """SELECT title, content, daysold, tags, uuid, reporterid, reportername 
+                    FROM stories
+                    WHERE archived = TRUE
+                    ORDER BY created"""
 
         response = self.connection.cursor().execute(query).fetchall()
+        print(response)
         stories = list()
 
         for res in response:
@@ -49,11 +46,10 @@ class GenerateNewsSQL():
         return stories
     
     def parse_news_reporter(self, username: str):
-        query = f"""SELECT title, content, daysold, tags, uuid, reporterid, name 
-                FROM stories AS a 
-                INNER JOIN reporters AS b 
-                ON a.reporterid = b.id
-                WHERE b.username = '{username}';"""
+        query = f"""SELECT title, content, daysold, tags, uuid, reporterid, reportername 
+                FROM stories
+                WHERE reporterid = {self.get_reporter_id(username)}
+                ORDER BY created;"""
 
         response = self.connection.cursor().execute(query).fetchall()
         stories = list()
@@ -72,22 +68,28 @@ class GenerateNewsSQL():
         return stories
     
     def get_reporter_id(self, name: str):
-        query = f"""SELECT id FROM reporters WHERE name = '{name}';"""
+        query = f"""SELECT id FROM reporters WHERE username = '{name}';"""
         x = self.send_query(query)
         return int(x[0][0])
 
     def create_story(self, title: str, content: str, days: str="0", reporter: str = None, tags: str = None, archived: int = 0, trashed: int = 0):
         cursor = self.connection.cursor()
-        if self.repSQL.reporter_exists(reporter):
-            reporter
 
-        query = f"""INSERT INTO stories (title, content, daysold, uuid, tags, reporterid, archived, trashed) VALUES ('{title}', '{content.replace("'", "''")}', '{days}', '{str(shortuuid.uuid())}', '{tags}', {reporter}, '{archived}', '{trashed}')"""
-        cursor.execute(query)
+        if self.repSQL.reporter_exists(reporter):
+            reporterid = self.get_reporter_id(reporter)
+        else:
+            reporterid = 1000
+
+        query = f"""INSERT INTO stories (title, content, daysold, uuid, tags, reportername, reporterid, archived, trashed) VALUES ('{title}', '{content.replace("'", "''")}', '{days}', '{str(shortuuid.uuid())}', '{tags}', '{reporter}', {reporterid}, '{archived}', '{trashed}')"""
+        res = cursor.execute(query)
         self.connection.commit() 
+
+        return res
 
     def _is_archived(self, uuid):
         query = f"SELECT archived FROM stories WHERE uuid = '{uuid}'"
         response = self.connection.cursor().execute(query).fetchall()[0]
+        print("FROM IS ARCHIVED", response)
 
         return not bool(response)
     

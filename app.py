@@ -31,6 +31,7 @@ def setup_env():
 @app.route('/')
 def index():
     stories = genSQL.parse_news()
+    print(stories)
     return render_template("index.html", stories=stories)
 
 @app.route("/get_reporters", methods=["GET"])
@@ -78,9 +79,11 @@ def create_reporter():
 def post():
     finalForm = request.get_json()['story']
     
-    genSQL.create_story(title=finalForm['title'], content=finalForm['story'], days=finalForm['days'], reporter=finalForm['reporter'], tags=finalForm['tags'])
+    res = genSQL.create_story(title=finalForm['title'], content=finalForm['story'], days=finalForm['days'], reporter=finalForm['reporter'], tags=finalForm['tags'])
 
-    return redirect(url_for('index'))
+    print(res)
+
+    return redirect(url_for("index"))
 
 
 @app.route('/read_form', methods=['POST'])
@@ -152,6 +155,7 @@ def story(uuid):
 @app.route('/archive')
 def archive():
     stories = genSQL.parse_news(index=False)
+    print(stories)
     return render_template("archive.html", stories=stories)
 
 @app.route('/trash_story/<uuid>')
@@ -163,6 +167,11 @@ def trash_story(uuid):
 def reporter(username):
     username = rep.make_username(username)
     reporter = rep.parse_reporters(username=username)[0]
+
+    if not reporter:
+        print("Failure to get reporter")
+        return redirect(url_for('index'))
+
     stories = genSQL.parse_news_reporter(username=username)
     print(reporter)
     print(stories)

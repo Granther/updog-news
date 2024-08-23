@@ -11,6 +11,7 @@ class ReportersSQL():
 
     def parse_reporters(self, username: str = None):
         # This needs to be redone a little, I'm upset at how im unpacking
+        # if username != None and 
         if username != None:
             query = f"SELECT personality, name, bio, username FROM reporters WHERE username = '{username}'"
         # Parse all

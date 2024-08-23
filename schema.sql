@@ -22,6 +22,7 @@ CREATE TABLE stories (
     uuid TEXT NOT NULL,
     trashed INT NOT NULL,
     archived INT NOT NULL,
+    reportername TEXT NOT NULL,
     reporterid TEXT NOT NULL,
     FOREIGN KEY(reporterid) REFERENCES reporters(id)
 );
