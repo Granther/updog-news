@@ -7,6 +7,7 @@ from reporters import ReportersSQL
 import re
 import os
 import json
+import threading
 
 app = Flask(__name__)
 app.secret_key = "glorp"
@@ -14,6 +15,8 @@ config = Config()
 rep = ReportersSQL()
 genSQL = GenerateNewsSQL()
 infer = Infer()
+
+lock = threading.Lock()
 
 def setup_env():
     try:
@@ -46,17 +49,20 @@ def setup_env():
         except:
             pass
 
+def fix_stories(stories: list):
+    for story in stories:
+        story['content'] = story['content'][:150].replace("<br>", "")
+
+    return stories
 
 @app.route('/')
 def index():
-    stories = genSQL.parse_news()
-    print(stories)
+    stories = fix_stories(genSQL.parse_news())
     return render_template("index.html", stories=stories)
 
 @app.route("/get_reporters", methods=["GET"])
 def get_reporters():
     reporters = rep.parse_reporters()
-    print(reporters)
 
     return jsonify(reporters)
 
@@ -67,7 +73,6 @@ def gen_news():
 @app.route("/reporters")
 def reporters():
     reporters = rep.parse_reporters()
-    print(reporters)
     return render_template("reporters.html", reporters=reporters)
 
 @app.route("/new_reporter")
@@ -97,10 +102,7 @@ def create_reporter():
 @app.route('/post', methods=['POST'])
 def post():
     finalForm = request.get_json()['story']
-    
     res = genSQL.create_story(title=finalForm['title'], content=finalForm['story'], days=finalForm['days'], reporter=finalForm['reporter'], tags=finalForm['tags'])
-
-    print(res)
 
     return redirect(url_for("index"))
 
@@ -147,10 +149,11 @@ def about():
 
 @app.route("/stream")
 def stream():
-    json_str = request.args.get('formdata')
-    data = json.loads(json_str)
+    with lock:
+        json_str = request.args.get('formdata')
+        data = json.loads(json_str)
 
-    return Response(stream_with_context(infer.generate_news_stream(title=data['title'], prompt=data['guideline'], reporter=data['reporter'], add_sources=False)), mimetype='text/event-stream')
+        return Response(stream_with_context(infer.generate_news_stream(title=data['title'], prompt=data['guideline'], reporter=data['reporter'], add_sources=False)), mimetype='text/event-stream')
 
 @app.route('/control/<uuid>')
 def control(uuid):
@@ -173,8 +176,7 @@ def story(uuid):
 
 @app.route('/archive')
 def archive():
-    stories = genSQL.parse_news(index=False)
-    print(stories)
+    stories = fix_stories(genSQL.parse_news(index=False))
     return render_template("archive.html", stories=stories)
 
 @app.route('/trash_story/<uuid>')
@@ -185,17 +187,14 @@ def trash_story(uuid):
 @app.route("/reporter/<username>")
 def reporter(username):
     username = rep.make_username(username)
-    reporter = rep.parse_reporters(username=username)[0]
 
-    if not reporter:
-        print("Failure to get reporter")
+    if not rep.reporter_exists(username):
         return redirect(url_for('index'))
 
+    reporter = rep.parse_reporters(username=username)[0]
     stories = genSQL.parse_news_reporter(username=username)
-    print(reporter)
-    print(stories)
 
     return render_template("reporter.html", **reporter, stories=stories)
 if __name__ == "__main__":
     setup_env()
-    app.run(debug=True, threaded=True)
+    app.run(debug=True)

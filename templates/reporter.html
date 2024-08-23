@@ -5,23 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.0/socket.io.js"></script>
-    <link rel="stylesheet" href="{{url_for('static',filename='dist/css/output.css')}}">
+    <script src="https://cdn.tailwindcss.com"></script>
     <title>{{ name }}</title>
 </head>
-<body>
-    <header class="bg-blue-800 text-white py-4">
-        <div class="container mx-auto flex justify-between items-center px-4">
-            <h1 class="text-xl font-bold flex-grow text-center"><a href="{{url_for('index')}}">{{ name }}</a></h1>
-        </div>
+<body class="bg-gray-900 text-gray-100 flex flex-col min-h-screen">
+    <header class="bg-gray-800 p-4 text-center">
+        <h1 class="text-3xl font-bold text-white"><a href="{{ url_for('index') }}">{{ name }}</a></h1>
     </header>
-
     <div class="relative container mx-auto px-4 py-8">
         <div class="flex justify-end mb-4">
             <a href="{{ url_for('gen_news') }}" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                 New Story
             </a>
         </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 text-black">
             {% for story in stories %}
             <a href="{{url_for('story', uuid=story.uuid)}}">
                 <div class="bg-white rounded-lg shadow-lg overflow-hidden w-full">

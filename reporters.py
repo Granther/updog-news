@@ -68,10 +68,8 @@ class ReportersSQL():
 
         query = f"""SELECT * FROM reporters WHERE username = '{name}'"""
         if len(self.send_query(query)) > 0:
-            print(f"reporter {name} exists")
             return True
         
-        print(f"reporter {name} doesnt exist")
         return False
     
     def send_query(self, query):

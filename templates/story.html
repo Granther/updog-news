@@ -1,40 +1,3 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ title }}</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/article.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
-    <link rel="stylesheet" href="{{url_for('static',filename='dist/css/output.css')}}">
-</head>
-<body>
-    <header>
-        <div class="container">
-            <h1><a href="{{ url_for('index') }}">{{ title }}</a></h1>
-            {% if days == "0" %}
-                <p class="meta">by <a href="{{url_for('reporter', username=reportername)}}">{{ reportername }}</a> | Posted today</p>
-            {% elif days == "1" %}
-                <p class="meta">by <a href="{{url_for('reporter', username=reportername)}}">{{ reportername }}</a> | Posted yesterday</p>
-            {% else %}
-                <p class="meta">by <a href="{{url_for('reporter', username=reportername)}}">{{ reportername }}</a> | Posted {{ days }} days ago</p>
-            {% endif %}
-        </div>
-    </header>
-    <main class="article-container">
-        <article>
-            <section class="content">
-                <p class="text-center" style="white-space: pre-wrap;">{{ content }}</p>
-            </section>
-        </article>
-        <p id="tag">Tags: {{ tag }}</p>
-    </main>
-    <footer>
-        <p>&copy; 2024 The UP Dawg. All rights reserved.</p>
-        <a href="{{ url_for('control', uuid=uuid) }}">Control</a>
-    </footer>
-</body>
-</html> -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -46,12 +9,13 @@
 <body class="bg-gray-900 text-gray-100 flex flex-col min-h-screen">
     <header class="bg-gray-800 p-4 text-center">
         <h1 class="text-3xl font-bold"><a href="{{ url_for('index') }}">{{ title }}</a></h1>
+        <p class="text-white">By <a href="{{url_for('reporter', username=reportername)}}">{{ reportername }}</a></p>
     </header>
     <main class="flex-grow p-4">
-        <article class="max-w-3xl mx-auto">
-            <p class="text-center">
-                {{ content }}
-            </p>
+        <article class="max-w-3xl mx-auto text-center">
+            <section>
+                {{ content|safe }}
+            </section>
         </article>
     </main>
     <footer class="bg-gray-800 p-4">

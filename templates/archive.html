@@ -14,12 +14,12 @@
     <div class="relative container mx-auto px-4 py-8 flex-grow text-black">
         <div class="grid grid-cols-1 gap-6">
             {% for story in stories %}
-            <a href="{{url_for('story', uuid=uuid)}}">
+            <a href="{{url_for('story', uuid=story.uuid)}}">
                 <div class="bg-white rounded-lg hover:shadow-lg hover:shadow-blue-500/70 overflow-hidden">
                     <div class="p-4">
-                        <h3 class="text-xl font-semibold mb-1"><a href="{{url_for('story', uuid=story.uuid)}}">{{ story.title }}</a></h3>
+                        <h3 class="text-xl font-semibold mb-1">{{ story.title }}</h3>
                         <h3 class="text-sm font-semibold mb-2">By {{ story.reportername }}</h3>
-                        <p class="text-gray-700">{{ story.content }}...<a href="{{url_for('story', uuid=story.uuid)}}">Read More</a></p>
+                        <p class="text-gray-700">{{ story.content }}</p>
                     </div>
                 </div>
             </a>
