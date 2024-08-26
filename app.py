@@ -153,7 +153,7 @@ def stream():
         json_str = request.args.get('formdata')
         data = json.loads(json_str)
 
-        return Response(stream_with_context(infer.generate_news_stream(title=data['title'], prompt=data['guideline'], reporter=data['reporter'], add_sources=False)), mimetype='text/event-stream')
+        return Response(stream_with_context(infer.generate_news_stream_groq(title=data['title'], prompt=data['guideline'], reporter=data['reporter'], add_sources=False)), mimetype='text/event-stream')
 
 @app.route('/control/<uuid>')
 def control(uuid):

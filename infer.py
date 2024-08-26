@@ -4,6 +4,7 @@ from tavily import TavilyClient
 from dotenv import load_dotenv
 from config import Config
 from reporters import ReportersSQL
+from groq import Groq
 from uuid import uuid4
 import os
 import time
@@ -82,6 +83,62 @@ class Infer():
             base_url="https://api.featherless.ai/v1",
             api_key=api_key
         )
+
+        personality = rep.get_personality(reporter)
+
+        include_guideline = "Given a news story title and some snippet of information to include"
+        standard = "Given a news story title"
+
+        default_person = "Roleplay as a news writer."
+        custom_person = f"Roleplay as a news writer with this personality: \n\n{personality}\n."
+
+        sys_prompt = f"{custom_person if personality else default_person} {include_guideline if prompt else standard} please generate a fitting news story. Please omit bolding and tokens like **, please break the article into paragraphs"
+
+        print(sys_prompt)
+
+        msg = None
+        # If guideline is given
+        if prompt:
+            msg = f"### Title:\n{title}\n### Guideline:\n{prompt}"
+        else:
+            msg = f"### Title:\n{title}"
+
+        messages=[
+            {
+                "role": "system",
+                "content": sys_prompt
+            },
+            {
+                "role": "user",
+                "content": msg,
+            }
+        ]
+
+        response = client.chat.completions.create(
+            model=model,
+            messages= messages,
+            temperature=1.0,
+            stream=True,
+            max_tokens=int(config.max_tokens)
+        )
+
+        uuid = str(uuid4())
+        self.partial_message = ""
+        for chunk in response:
+            if chunk.choices[0].delta.content is not None:
+                self.partial_message = self.partial_message + chunk.choices[0].delta.content
+                # Some kind of encoding error occurs in the SSE, this fixes it
+                self.partial_message = self.partial_message.replace('\n', '<br>').replace('\r', '<br>')
+                yield f"data: {self.partial_message}\n\n"
+
+        yield "event: end\n"
+        yield "data: done\n\n"
+
+    def generate_news_stream_groq(self, title, prompt: str=None, reporter: str=None, model="NeverSleep/Llama-3-Lumimaid-8B-v0.1", add_sources=False):
+        api_key = os.environ.get('GROQ_API_KEY')
+        client = Groq(api_key=api_key)
+
+        model = "gemma2-9b-it"
 
         personality = rep.get_personality(reporter)
 
