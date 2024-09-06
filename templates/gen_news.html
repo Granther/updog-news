@@ -18,20 +18,6 @@
                     Home Page
                 </button>
             </a>
-            <a href="{{ url_for('archive') }}">
-                <button
-                    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
-                    type="submit" id="news-button">
-                    Archive
-                </button>
-            </a>
-            <a href="{{ url_for('reporters') }}">
-                <button
-                    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
-                    type="submit" id="news-button">
-                    Reporters
-                </button>
-            </a>
         </div>
     </div>
     <form class="bg-white container mt-10 max-w-lg w-full mx-auto p-6 rounded-lg shadow-md text-black" id="news-form" autocomplete="off">
@@ -48,7 +34,7 @@
 
         <div class="mb-4">
             <label class="block text-black text-sm font-bold mb-2" for="message">
-                Loose Guideline
+                Guideline
             </label>
             <textarea
                 class="shadow appearance-none border rounded w-full py-2 px-3 text-black leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
@@ -70,32 +56,14 @@
         </div>
 
         <div class="mb-6">
-            <label class="block text-black text-sm font-bold mb-2" for="name">
-                Tags
-            </label>
-            <input
-                class="shadow appearance-none border rounded w-full py-2 px-3 text-black leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                id="tags" name="tags" type="text" placeholder="Lifestyle">
-        </div>
-
-        <div class="mb-6">
-            <label class="block text-black text-sm font-bold mb-2" for="name">
-                Days Old
-            </label>
-            <input
-                class="shadow appearance-none border rounded w-full py-2 px-3 text-black leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                id="days" name="days" type="days" placeholder="0">
-        </div>
-
-        <div class="mb-6">
-            <label class="block text-black text-sm font-bold mb-2">Include Sources?</label>
+            <label class="block text-black text-sm font-bold mb-2">Mode</label>
             <label class="block text-black text-sm font-bold mb-2">
-                <input type="radio" name="sources" value="True">
-                Yes
-            </label class="block text-black text-sm font-bold mb-2">
-            <label>
-                <input type="radio" name="sources" value="False" checked>
-                No
+                <input type="radio" name="mode" value="fast">
+                Fast but Censored
+            </label>
+            <label class="block text-black text-sm font-bold mb-2">
+                <input type="radio" name="mode" value="slow" checked>
+                Slow but Uncensored
             </label>
         </div>
 
@@ -103,7 +71,7 @@
             <button
                 class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
                 type="submit" id="news-button">
-                Send
+                Generate
             </button>
         </div>
     </form>

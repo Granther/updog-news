@@ -1,4 +1,9 @@
 from flask import Flask, render_template, request, redirect, url_for, flash, Response, stream_with_context, jsonify
+from flask_sqlalchemy import SQLAlchemy
+from flask_wtf import FlaskForm
+from wtforms import StringField, PasswordField, RadioField, SubmitField, BooleanField, TextAreaField
+from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationError
+from sqlalchemy.orm import DeclarativeBase
 from gen_news import GenerateNewsSQL
 from dotenv import load_dotenv
 from infer import Infer
@@ -10,12 +15,43 @@ import json
 import threading
 
 app = Flask(__name__)
-app.secret_key = "glorp"
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///updog.db'
+app.config['SECRET_KEY'] = 'glorp'
+db = SQLAlchemy(app)
+
+class Reporters(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    created = db.Column(db.TIMESTAMP, nullable=False, server_default=db.func.now())
+    name = db.Column(db.String(100), nullable=False)
+    personality = db.Column(db.String, nullable=False)
+    trashed = db.Column(db.Boolean, nullable=True, default=False)    
+    archived = db.Column(db.Boolean, nullable=True, default=False)
+    likes = db.Column(db.Integer, nullable=True, default=0)
+    stories = db.relationship('Stories', backref='reporters', lazy=True)
+
+class Stories(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    created = db.Column(db.TIMESTAMP, nullable=False, server_default=db.func.now())
+    title = db.Column(db.String, nullable=False)
+    content = db.Column(db.String, nullable=False)
+    trashed = db.Column(db.Boolean, nullable=True, default=False)    
+    archived = db.Column(db.Boolean, nullable=True, default=False)
+    likes = db.Column(db.Integer, nullable=True, default=0)
+    reporter_id = db.Column(db.Integer, db.ForeignKey('reporters.id'), nullable=False)
+
+class ReporterCreationForm(FlaskForm):
+    name = StringField('Name', validators=[DataRequired()])
+    personality = TextAreaField('Personality', validators=[DataRequired()])
+    submit = SubmitField('Generate')
+
+# Actually creates the database in ./instances, prob should only run in debug
+with app.app_context():
+    db.create_all()
+
 config = Config()
 rep = ReportersSQL()
 genSQL = GenerateNewsSQL()
 infer = Infer()
-
 lock = threading.Lock()
 
 def setup_env():
@@ -66,18 +102,28 @@ def get_reporters():
 
     return jsonify(reporters)
 
-@app.route("/gen_news")
+@app.route("/gen_news",  methods=['GET', 'POST'])
 def gen_news():
     return render_template("gen_news.html")
 
 @app.route("/reporters")
 def reporters():
     reporters = rep.parse_reporters()
+    reporters = []
+    x = Reporters.query.all()
+    for reporter in x:
+        reporters.append({"id":reporter.id, "name":reporter.name, "personality":reporter.personality})
     return render_template("reporters.html", reporters=reporters)
 
-@app.route("/new_reporter")
+@app.route("/new_reporter", methods=['GET', 'POST'])
 def new_reporter():
-    return render_template("new_reporter.html")
+    form = ReporterCreationForm()
+    if form.validate_on_submit():
+        reporter = Reporters(name=form.name.data, personality=form.personality.data)
+        db.session.add(reporter)
+        db.session.commit()
+        return redirect(url_for('reporters'))
+    return render_template('new_reporter.html', form=form)
 
 @app.route("/create_reporter", methods=["POST"])
 def create_reporter():
@@ -102,6 +148,7 @@ def create_reporter():
 @app.route('/post', methods=['POST'])
 def post():
     finalForm = request.get_json()['story']
+    #story = Stories(title=finalForm['title'], content=finalForm['content'])
     res = genSQL.create_story(title=finalForm['title'], content=finalForm['story'], days=finalForm['days'], reporter=finalForm['reporter'], tags=finalForm['tags'])
 
     return jsonify({"status":"good"})
@@ -174,27 +221,23 @@ def story(uuid):
     
     return render_template("error.html", msg="Story Not Found")
 
-@app.route('/archive')
-def archive():
-    stories = fix_stories(genSQL.parse_news(index=False))
-    return render_template("archive.html", stories=stories)
+# @app.route('/archive')
+# def archive():
+#     stories = fix_stories(genSQL.parse_news(index=False))
+#     return render_template("archive.html", stories=stories)
 
-@app.route('/trash_story/<uuid>')
-def trash_story(uuid):
-    genSQL.trash(uuid)
-    return redirect(url_for('index'))
+# @app.route('/trash_story/<uuid>')
+# def trash_story(uuid):
+#     genSQL.trash(uuid)
+#     return redirect(url_for('index'))
 
-@app.route("/reporter/<username>")
-def reporter(username):
-    username = rep.make_username(username)
+@app.route("/reporter/<id>")
+def reporter(id):
+    results = Reporters.query.filter_by(id=id).first()
+    reporter = {"name":results.name, "personality":results.personality}
 
-    if not rep.reporter_exists(username):
-        return redirect(url_for('index'))
+    return render_template("reporter.html", **reporter, stories=results.stories)
 
-    reporter = rep.parse_reporters(username=username)[0]
-    stories = genSQL.parse_news_reporter(username=username)
-
-    return render_template("reporter.html", **reporter, stories=stories)
 if __name__ == "__main__":
     setup_env()
     app.run(debug=True)
