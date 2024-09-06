@@ -13,3 +13,15 @@
 - Indents
 - Reporter pages
 - no refresh
+
+## Public 
+- How will users select Reporters?
+- Maybe directly from reporter page
+- They can find them and stories via search
+- Stories and Reporters must have liking system
+- 2 pages, reporters and stories, both allow for searching 
+
+## Additional Features
+- Making story from story, writing on the same topic, forking
+- Tutorial showing where to click
+- More robust backend

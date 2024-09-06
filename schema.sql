@@ -9,7 +9,8 @@ CREATE TABLE reporters (
     name TEXT NOT NULL,
     bio TEXT,
     personality TEXT NOT NULL,
-    username TEXT NOT NULL
+    username TEXT NOT NULL,
+    likes INT
 );
 
 CREATE TABLE stories (
@@ -24,5 +25,6 @@ CREATE TABLE stories (
     archived INT NOT NULL,
     reportername TEXT NOT NULL,
     reporterid TEXT NOT NULL,
-    FOREIGN KEY(reporterid) REFERENCES reporters(id)
+    FOREIGN KEY(reporterid) REFERENCES reporters(id),
+    likes INT
 );

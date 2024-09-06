@@ -9,8 +9,3 @@ cur.execute("INSERT INTO posts (title, content) VALUES (?, ?)",
 connection.commit()
 connection.close()
 
-
-# cur.execute("INSERT INTO posts (title, content) VALUES (?, ?)",
-#             ('Second Post', 'Content for the second post')
-#             )
-
