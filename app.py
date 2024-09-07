@@ -9,6 +9,7 @@ from dotenv import load_dotenv
 from infer import Infer
 from config import Config
 from reporters import ReportersSQL
+import shortuuid
 import re
 import os
 import json
@@ -33,6 +34,7 @@ class Stories(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     created = db.Column(db.TIMESTAMP, nullable=False, server_default=db.func.now())
     title = db.Column(db.String, nullable=False)
+    uuid = db.Column(db.String, nullable=False)
     content = db.Column(db.String, nullable=False)
     trashed = db.Column(db.Boolean, nullable=True, default=False)    
     archived = db.Column(db.Boolean, nullable=True, default=False)
@@ -67,24 +69,6 @@ def setup_env():
     except Exception as e:
         print(f"Exception {e} occured when preparing evironment")
 
-    if os.path.isfile("database.db"):
-        print("Database exists")
-    elif not os.path.isfile("database.db"):
-        try:
-            import sqlite3
-            connection = sqlite3.connect('database.db')
-            with open('schema.sql') as f:
-                connection.executescript(f.read())
-            cur = connection.cursor()
-            cur.execute("INSERT INTO posts (title, content) VALUES (?, ?)",
-                        ('First Post', 'Content for the first post')
-                        )
-            connection.commit()
-            connection.close()
-            print("Created DB")
-        except:
-            pass
-
 def fix_stories(stories: list):
     for story in stories:
         story['content'] = story['content'][:150].replace("<br>", "")
@@ -93,7 +77,12 @@ def fix_stories(stories: list):
 
 @app.route('/')
 def index():
-    stories = fix_stories(genSQL.parse_news())
+    stories = []
+    result = Stories.query.all()
+    for story in result:
+        reporter = Reporters.query.filter_by(id=story.reporter_id).first()
+        stories.append({"id":story.id, "title":story.title, "content":story.content, "uuid":story.uuid, "reportername":reporter.name})
+
     return render_template("index.html", stories=stories)
 
 @app.route("/get_reporters", methods=["GET"])
@@ -108,10 +97,9 @@ def gen_news():
 
 @app.route("/reporters")
 def reporters():
-    reporters = rep.parse_reporters()
     reporters = []
-    x = Reporters.query.all()
-    for reporter in x:
+    result = Reporters.query.all()
+    for reporter in result:
         reporters.append({"id":reporter.id, "name":reporter.name, "personality":reporter.personality})
     return render_template("reporters.html", reporters=reporters)
 
@@ -125,32 +113,32 @@ def new_reporter():
         return redirect(url_for('reporters'))
     return render_template('new_reporter.html', form=form)
 
-@app.route("/create_reporter", methods=["POST"])
-def create_reporter():
-    if request.method == "POST":
-        data = request.form
-        if not data:
-            msg = "Error recieving form data"
-            return render_template('new_reporter.html', msg=msg)
+# @app.route("/create_reporter", methods=["POST"])
+# def create_reporter():
+#     if request.method == "POST":
+#         data = request.form
+#         if not data:
+#             msg = "Error recieving form data"
+#             return render_template('new_reporter.html', msg=msg)
         
-        if data['name'] == '': # If no title
-            msg = "Name field must be filled"
-            return render_template('new_reporter.html', msg=msg)
+#         if data['name'] == '': # If no title
+#             msg = "Name field must be filled"
+#             return render_template('new_reporter.html', msg=msg)
         
-        if data['personality'] == '': # If no personality
-            msg = "Personality field must be filled"
-            return render_template('new_reporter.html', msg=msg)
+#         if data['personality'] == '': # If no personality
+#             msg = "Personality field must be filled"
+#             return render_template('new_reporter.html', msg=msg)
 
-    res = rep.create_reporter(name=data['name'], personality=data['personality'], bio=data['bio'])
+#     res = rep.create_reporter(name=data['name'], personality=data['personality'], bio=data['bio'])
 
-    return redirect(url_for("reporters"))
+#     return redirect(url_for("reporters"))
 
 @app.route('/post', methods=['POST'])
 def post():
     finalForm = request.get_json()['story']
-    #story = Stories(title=finalForm['title'], content=finalForm['content'])
-    res = genSQL.create_story(title=finalForm['title'], content=finalForm['story'], days=finalForm['days'], reporter=finalForm['reporter'], tags=finalForm['tags'])
-
+    story = Stories(title=finalForm['title'], content=finalForm['story'], reporter_id=1, uuid=str(shortuuid.uuid()))
+    db.session.add(story)
+    db.session.commit()
     return jsonify({"status":"good"})
 
 
@@ -211,14 +199,29 @@ def toggle_archive(uuid):
     genSQL.toggle_archive(uuid)
     return redirect(url_for('index'))
 
-@app.route(f"/story/<uuid>")
-def story(uuid):
-    stories = genSQL.parse_news(all=True)
+# @app.route(f"/story/<uuid>")
+# def story(uuid):
+#     stories = genSQL.parse_news(all=True)
 
-    for story in stories:
-        if story['uuid'] == uuid:
-            return render_template("story.html", **story)
+#     for story in stories:
+#         if story['uuid'] == uuid:
+#             return render_template("story.html", **story)
     
+    # return render_template("error.html", msg="Story Not Found")
+
+@app.template_filter('get_name')
+def get_name(id):
+    results = Reporters.query.filter_by(id=id).first().name
+    return results
+
+@app.route(f"/story/<uuid>")
+@app.route(f"/story/<uuid>/<title>")
+def story(uuid, title=None):
+    results = Stories.query.filter_by(uuid=uuid).first()
+    if results:
+        story = {"title": results.title, "content": results.content, "reporter_id": results.reporter_id}
+        return render_template("story.html", **story)
+
     return render_template("error.html", msg="Story Not Found")
 
 # @app.route('/archive')
