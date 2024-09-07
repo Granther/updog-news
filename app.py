@@ -56,6 +56,8 @@ genSQL = GenerateNewsSQL()
 infer = Infer()
 lock = threading.Lock()
 
+queue = []
+
 def setup_env():
     try:
         load_dotenv()
@@ -182,13 +184,17 @@ def read_form():
 def about():
     return render_template("about.html")
 
+# Queue system
+# When generate, add to end of queue
+# if user refresh or leave page, remove from queue
+# 
+
 @app.route("/stream")
 def stream():
-    with lock:
-        json_str = request.args.get('formdata')
-        data = json.loads(json_str)
-
-        return Response(stream_with_context(infer.generate_news_stream_groq(title=data['title'], prompt=data['guideline'], reporter=data['reporter'], add_sources=False)), mimetype='text/event-stream')
+    
+    json_str = request.args.get('formdata')
+    data = json.loads(json_str)
+    return Response(stream_with_context(infer.generate_news_stream_groq(title=data['title'], prompt=data['guideline'], reporter=data['reporter'], add_sources=False)), mimetype='text/event-stream')
 
 @app.route('/control/<uuid>')
 def control(uuid):
