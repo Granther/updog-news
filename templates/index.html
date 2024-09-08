@@ -7,18 +7,6 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-900 text-gray-100 flex flex-col min-h-screen">
-    <!-- <div class="fixed grid grid-cols-3 gap-3 left-0 top-0 py-7 px-5">
-        <button class="text-md font-semibold text-white rounded-lg px-2 py-1 bg-gray-900 hover:bg-gray-600">First time here?</button>
-        <button class="text-md font-semibold text-white rounded-lg px-2 py-1 bg-gray-900 hover:bg-gray-600">About</button>
-    </div> -->
-    <!-- <div class="grid grid-cols-1 bg-gray-800 p-4 text-center justify-center mx-auto w-full justify-items-center">
-        <header class="grid grid-cols-3 gap-1 bg-gray-800 text-center justify-center mx-auto w- justify-items-center">
-            <button class="text-md font-semibold text-white rounded-lg p-0 m-0">About</button>
-            <h1 class="text-3xl text-white">What's <strong>Upd<a href="{{ url_for('gen_news') }}">o</a>g?</strong></h1>
-            <button class="text-md font-semibold text-white rounded-lg px-2 py-1">About</button>
-        </header>
-         <p class="text-white">Simple & Unbiased since 2005</p> -->
-    <!-- </div> -->
     <nav class="bg-blue-900 text-white p-4 flex justify-between items-center">
         <div class="flex-none">
           <a href="#" class="text-white hover:text-blue-300">About</a>
@@ -43,6 +31,7 @@
                         <h3 class="text-xl font-semibold mb-1">{{ story.title }}</h3>
                         <h3 class="text-sm font-semibold mb-2">By {{ story.reportername }}</h3>
                         <p class="text-gray-700">{{ story.content|safe }}</p>
+                        <p class="text-gray-700">Likes: {{ story.likes }}</p>
                     </div>
                 </div>
             </a>
@@ -54,6 +43,3 @@
     </footer>
 </body>
 </html>
-<!-- 
-<li><a href="{{ url_for('about') }}">About</a></li>
-<li><a href="https://www.scientologynews.org/quick-facts/community-outreach-actions.html">Donate</a></li> -->

@@ -5,8 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ title }}</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-900 text-gray-100 flex flex-col min-h-screen">
+    <div class="fixed right-0 p-5">
+        <button class="text-white text-md font-bold bg-blue-500 rounded-lg" id="like-btn">{{ uuid | is_liked }}</button>
+    </div>
     <header class="bg-gray-800 p-4 text-center">
         <h1 class="text-3xl font-bold"><a href="{{ url_for('index') }}">{{ title }}</a></h1>
         <p class="text-white">By <a href="{{url_for('reporter', id=reporter_id)}}">{{ reporter_id | get_name }}</a></p>
@@ -22,4 +27,15 @@
         <p class="text-center">&copy; 2024 The UP Dawg. All rights reserved.</p>
     </footer>
 </body>
+<script>
+    document.getElementById('like-btn').addEventListener("click", function(event) {
+        event.preventDefault();
+        fetch(`{{url_for('like', uuid=uuid)}}`, {
+                method: "POST",
+            }).then(response => response.json()).then(data => {
+                this.innerHTML = data;
+            }).catch(error => console.error('Error', error));
+                this.innerHTML = "Like"
+        });
+</script>
 </html>

@@ -1,10 +1,11 @@
-from flask import Flask, render_template, request, redirect, url_for, flash, Response, stream_with_context, jsonify
+from flask import Flask, render_template, request, redirect, url_for, flash, Response, stream_with_context, jsonify, session
 from flask_sqlalchemy import SQLAlchemy
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, RadioField, SubmitField, BooleanField, TextAreaField
 from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationError
 from sqlalchemy.orm import DeclarativeBase
 from gen_news import GenerateNewsSQL
+from flask_session import Session
 from dotenv import load_dotenv
 from infer import Infer
 from config import Config
@@ -19,6 +20,9 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///updog.db'
 app.config['SECRET_KEY'] = 'glorp'
 db = SQLAlchemy(app)
+SESSION_TYPE = "filesystem"
+app.config.from_object(__name__)
+Session(app)
 
 class Reporters(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -79,11 +83,12 @@ def fix_stories(stories: list):
 
 @app.route('/')
 def index():
+    # session['likes'] = []
     stories = []
-    result = Stories.query.all()
+    result = Stories.query.order_by(db.desc(Stories.likes)).all()
     for story in result:
         reporter = Reporters.query.filter_by(id=story.reporter_id).first()
-        stories.append({"id":story.id, "title":story.title, "content":story.content, "uuid":story.uuid, "reportername":reporter.name})
+        stories.append({"id":story.id, "title":story.title, "content":story.content, "uuid":story.uuid, "reportername":reporter.name, "likes":story.likes})
 
     return render_template("index.html", stories=stories)
 
@@ -220,12 +225,45 @@ def get_name(id):
     results = Reporters.query.filter_by(id=id).first().name
     return results
 
+@app.template_filter('is_liked')
+def is_liked(uuid):
+    for item in session['likes']:
+        if item['uuid'] == uuid:
+            return "Liked"
+    
+    return "Like"
+
+@app.route('/like/<uuid>', methods=['POST'])
+def like(uuid):
+    likes_history = session['likes']
+    for item in likes_history:
+        x = item.get('uuid', False)
+        if x:
+            print("Already liked, unliking and removing from likes list")
+            story = Stories.query.filter_by(uuid=uuid).first()
+            story.likes -= 1
+            db.session.add(story)
+            db.session.commit()
+            likes_history.remove(item)
+            return jsonify("Like")
+
+    print("Not yet liked, adding to likes list and updating row")
+    story = Stories.query.filter_by(uuid=uuid).first()
+    story.likes += 10
+    db.session.add(story)
+    db.session.commit()
+    likes_history.append({'uuid': uuid})
+
+    session['likes'] = likes_history
+
+    return jsonify("Liked")
+
 @app.route(f"/story/<uuid>")
 @app.route(f"/story/<uuid>/<title>")
 def story(uuid, title=None):
     results = Stories.query.filter_by(uuid=uuid).first()
     if results:
-        story = {"title": results.title, "content": results.content, "reporter_id": results.reporter_id}
+        story = {"title": results.title, "content": results.content, "reporter_id": results.reporter_id, "uuid": results.uuid}
         return render_template("story.html", **story)
 
     return render_template("error.html", msg="Story Not Found")
