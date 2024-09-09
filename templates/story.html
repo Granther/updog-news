@@ -9,13 +9,17 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-900 text-gray-100 flex flex-col min-h-screen">
-    <div class="fixed right-0 p-5">
-        <button class="text-white text-md font-bold bg-blue-500 rounded-lg" id="like-btn">{{ uuid | is_liked }}</button>
-    </div>
-    <header class="bg-gray-800 p-4 text-center">
+    <header class="relative bg-gray-800 p-4 text-center">
         <h1 class="text-3xl font-bold"><a href="{{ url_for('index') }}">{{ title }}</a></h1>
-        <p class="text-white">By <a href="{{url_for('reporter', id=reporter_id)}}">{{ reporter_id | get_name }}</a></p>
-    </header>
+        <p class="text-white">By <a href="{{url_for('reporter', uuid=reporter_uuid, name=reporter_name)}}">{{ reporter_id | get_name }}</a></p>
+    
+        <div class="absolute right-0 top-0 p-5 flex flex-row gap-5 items-end space-y-2">
+            <p class="text-white text-md font-bold bg-blue-500 rounded-lg px-4 py-2" id="likes-num">{{ uuid | story_likes }}</p>
+            <button class="text-white text-md font-bold bg-blue-500 rounded-lg px-4 py-2" id="like-btn">
+                {{ uuid | story_is_liked }}
+            </button>
+        </div>
+    </header>    
     <main class="flex flex-grow p-4">
         <article class="max-w-3xl mx-auto text-center">
             <section>
@@ -28,12 +32,15 @@
     </footer>
 </body>
 <script>
+    let likes_num = document.getElementById('likes-num')
+
     document.getElementById('like-btn').addEventListener("click", function(event) {
         event.preventDefault();
         fetch(`{{url_for('like', uuid=uuid)}}`, {
                 method: "POST",
             }).then(response => response.json()).then(data => {
-                this.innerHTML = data;
+                this.innerHTML = data.state;
+                likes_num.innerHTML = data.likes
             }).catch(error => console.error('Error', error));
                 this.innerHTML = "Like"
         });

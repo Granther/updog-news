@@ -28,6 +28,7 @@ class Reporters(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     created = db.Column(db.TIMESTAMP, nullable=False, server_default=db.func.now())
     name = db.Column(db.String(100), nullable=False)
+    uuid = db.Column(db.String, nullable=False)
     personality = db.Column(db.String, nullable=False)
     trashed = db.Column(db.Boolean, nullable=True, default=False)    
     archived = db.Column(db.Boolean, nullable=True, default=False)
@@ -108,14 +109,14 @@ def reporters():
     reporters = []
     result = Reporters.query.all()
     for reporter in result:
-        reporters.append({"id":reporter.id, "name":reporter.name, "personality":reporter.personality})
+        reporters.append({"id":reporter.id, "name":reporter.name, "personality":reporter.personality, "uuid":reporter.uuid, "likes":reporter.likes})
     return render_template("reporters.html", reporters=reporters)
 
 @app.route("/new_reporter", methods=['GET', 'POST'])
 def new_reporter():
     form = ReporterCreationForm()
     if form.validate_on_submit():
-        reporter = Reporters(name=form.name.data, personality=form.personality.data)
+        reporter = Reporters(name=form.name.data, personality=form.personality.data, uuid=str(shortuuid.uuid()))
         db.session.add(reporter)
         db.session.commit()
         return redirect(url_for('reporters'))
@@ -190,14 +191,12 @@ def read_form():
 def about():
     return render_template("about.html")
 
-# Queue system
-# When generate, add to end of queue
-# if user refresh or leave page, remove from queue
-# 
+@app.route("/queue", methods=['POST', 'GET'])
+def queue():
+    print("Added to queue")
 
 @app.route("/stream")
 def stream():
-    
     json_str = request.args.get('formdata')
     data = json.loads(json_str)
     return Response(stream_with_context(infer.generate_news_stream_groq(title=data['title'], prompt=data['guideline'], reporter=data['reporter'], add_sources=False)), mimetype='text/event-stream')
@@ -211,23 +210,21 @@ def toggle_archive(uuid):
     genSQL.toggle_archive(uuid)
     return redirect(url_for('index'))
 
-# @app.route(f"/story/<uuid>")
-# def story(uuid):
-#     stories = genSQL.parse_news(all=True)
-
-#     for story in stories:
-#         if story['uuid'] == uuid:
-#             return render_template("story.html", **story)
-    
-    # return render_template("error.html", msg="Story Not Found")
-
 @app.template_filter('get_name')
 def get_name(id):
     results = Reporters.query.filter_by(id=id).first().name
     return results
 
-@app.template_filter('is_liked')
-def is_liked(uuid):
+@app.template_filter('story_likes')
+def story_likes(uuid):
+    results = Stories.query.filter_by(uuid=uuid).first().likes
+
+    if results:
+        return results
+    return 0
+
+@app.template_filter('story_is_liked')
+def story_is_liked(uuid):
     for item in session['likes']:
         if item['uuid'] == uuid:
             return "Liked"
@@ -246,7 +243,7 @@ def like(uuid):
             db.session.add(story)
             db.session.commit()
             likes_history.remove(item)
-            return jsonify("Like")
+            return jsonify({"state":"Like", "likes": story.likes})
 
     print("Not yet liked, adding to likes list and updating row")
     story = Stories.query.filter_by(uuid=uuid).first()
@@ -257,34 +254,28 @@ def like(uuid):
 
     session['likes'] = likes_history
 
-    return jsonify("Liked")
+    return jsonify({"state":"Liked", "likes": story.likes})
 
-@app.route(f"/story/<uuid>")
+@app.route(f"/reporter/<uuid>/")
+@app.route(f"/reporter/<uuid>/<name>")
+def reporter(uuid, name=None):
+    results = Reporters.query.filter_by(uuid=uuid).first()
+    if results:
+        reporter = {"name":results.name, "personality":results.personality}
+        return render_template("reporter.html", **reporter, stories=results.stories)
+
+    return render_template("error.html", msg="Reporter Not Found")
+
+@app.route(f"/story/<uuid>/")
 @app.route(f"/story/<uuid>/<title>")
 def story(uuid, title=None):
     results = Stories.query.filter_by(uuid=uuid).first()
     if results:
-        story = {"title": results.title, "content": results.content, "reporter_id": results.reporter_id, "uuid": results.uuid}
+        reporter = Reporters.query.filter_by(id=results.reporter_id).first()
+        story = {"title": results.title, "content": results.content, "reporter_uuid": reporter.uuid, "reporter_name": reporter.name, "reporter_id": results.reporter_id, "uuid": results.uuid}
         return render_template("story.html", **story)
 
     return render_template("error.html", msg="Story Not Found")
-
-# @app.route('/archive')
-# def archive():
-#     stories = fix_stories(genSQL.parse_news(index=False))
-#     return render_template("archive.html", stories=stories)
-
-# @app.route('/trash_story/<uuid>')
-# def trash_story(uuid):
-#     genSQL.trash(uuid)
-#     return redirect(url_for('index'))
-
-@app.route("/reporter/<id>")
-def reporter(id):
-    results = Reporters.query.filter_by(id=id).first()
-    reporter = {"name":results.name, "personality":results.personality}
-
-    return render_template("reporter.html", **reporter, stories=results.stories)
 
 if __name__ == "__main__":
     setup_env()
