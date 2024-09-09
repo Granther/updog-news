@@ -14,11 +14,6 @@
         <p class="text-white">{{ personality }}</p>
     </header>
     <div class="relative container mx-auto px-4 py-8">
-        <div class="flex justify-end mb-4">
-            <a href="{{ url_for('gen_news') }}" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                New Story
-            </a>
-        </div>
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 text-black">
             {% for story in stories %}
             <a href="{{url_for('story', uuid=story.uuid)}}">

@@ -83,7 +83,8 @@ def fix_stories(stories: list):
 
 @app.route('/')
 def index():
-    # session['likes'] = []
+    if not session.get("likes", False):
+        session['likes'] = []
     stories = []
     result = Stories.query.order_by(db.desc(Stories.likes)).all()
     for story in result:
