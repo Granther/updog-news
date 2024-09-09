@@ -249,7 +249,7 @@ def like(uuid):
 
     print("Not yet liked, adding to likes list and updating row")
     story = Stories.query.filter_by(uuid=uuid).first()
-    story.likes += 10
+    story.likes += 1
     db.session.add(story)
     db.session.commit()
     likes_history.append({'uuid': uuid})
