@@ -24,14 +24,18 @@ SESSION_TYPE = "filesystem"
 app.config.from_object(__name__)
 Session(app)
 
+def gen_uuid():
+    return str(shortuuid.uuid())
+
 class Reporters(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     created = db.Column(db.TIMESTAMP, nullable=False, server_default=db.func.now())
     name = db.Column(db.String(100), nullable=False)
-    uuid = db.Column(db.String, nullable=False)
+    uuid = db.Column(db.String, nullable=True, unique=True, default=gen_uuid)
     personality = db.Column(db.String, nullable=False)
     trashed = db.Column(db.Boolean, nullable=True, default=False)    
     archived = db.Column(db.Boolean, nullable=True, default=False)
+    onetime = db.Column(db.Boolean, nullable=True)
     likes = db.Column(db.Integer, nullable=True, default=0)
     stories = db.relationship('Stories', backref='reporters', lazy=True)
 
@@ -82,6 +86,13 @@ def fix_stories(stories: list):
 
     return stories
 
+def check_default_reporter():
+    results = Reporters.query.filter_by(id=1).first()
+    if not results:
+        default = Reporters(name="Default", personality="Default", uuid="Default")
+        db.session.add(default)
+        db.session.commit()
+
 @app.route('/')
 def index():
     if not session.get("likes", False):
@@ -116,7 +127,7 @@ def reporters():
 def new_reporter():
     form = ReporterCreationForm()
     if form.validate_on_submit():
-        reporter = Reporters(name=form.name.data, personality=form.personality.data, uuid=str(shortuuid.uuid()))
+        reporter = Reporters(name=form.name.data, personality=form.personality.data, onetime=False)
         db.session.add(reporter)
         db.session.commit()
         return redirect(url_for('reporters'))
@@ -145,7 +156,20 @@ def new_reporter():
 @app.route('/post', methods=['POST'])
 def post():
     finalForm = request.get_json()['story']
-    story = Stories(title=finalForm['title'], content=finalForm['story'], reporter_id=1, uuid=str(shortuuid.uuid()))
+    reporter_name = finalForm.get('reporter', False)
+    if not reporter_name:
+        raise RuntimeError("Cannot get reporter from form")
+    
+    reporter = Reporters.query.filter_by(name=reporter_name, onetime=False).first()
+    if not reporter:
+        new_onetime = Reporters(name=reporter_name, onetime=True, personality="Default")
+        db.session.add(new_onetime)
+        db.session.commit()
+        reporter_id = new_onetime.id
+    else:
+        reporter_id = reporter.id
+
+    story = Stories(title=finalForm['title'], content=finalForm['story'], reporter_id=reporter_id, uuid=str(shortuuid.uuid()))
     db.session.add(story)
     db.session.commit()
     return jsonify({"status":"good"})
@@ -260,7 +284,9 @@ def like(uuid):
 @app.route(f"/reporter/<uuid>/<name>")
 def reporter(uuid, name=None):
     results = Reporters.query.filter_by(uuid=uuid).first()
-    if results:
+    if results.onetime:
+        return redirect(url_for('index'))
+    else:
         reporter = {"name":results.name, "personality":results.personality}
         return render_template("reporter.html", **reporter, stories=results.stories)
 

@@ -11,7 +11,7 @@
 <body class="bg-gray-900 text-gray-100 flex flex-col min-h-screen">
     <header class="relative bg-gray-800 p-4 text-center">
         <h1 class="text-3xl font-bold"><a href="{{ url_for('index') }}">{{ title }}</a></h1>
-        <p class="text-white">By <a href="{{url_for('reporter', uuid=reporter_uuid, name=reporter_name)}}">{{ reporter_id | get_name }}</a></p>
+        <p class="text-white">By <a href="{{url_for('reporter', uuid=reporter_uuid, name=reporter_name)}}">{{ reporter_name }}</a></p>
     
         <div class="absolute right-0 top-0 p-5 flex flex-row gap-5 items-end space-y-2">
             <p class="text-white text-md font-bold bg-blue-500 rounded-lg px-4 py-2" id="likes-num">{{ uuid | story_likes }}</p>
