@@ -20,14 +20,18 @@ def create_app(config=DevelopmentConfig):
     app.config['SECRET_KEY'] = config.SECRET_KEY
     app.config.from_object(__name__)
 
+    print(config.DATABASE_URI)
+
     # SESSION_TYPE = 'filesystem'
     # Session(app)
 
     # Create all tables if not already created
     db.init_app(app)
     with app.app_context():
+        from app.models import Story, Comment, User, Reporter
         db.create_all()
 
+    # Imported later to prevent circular import
     from app.routes.main import main
 
     app.register_blueprint(main)
