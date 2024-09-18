@@ -15,9 +15,9 @@ class Infer():
 
     def generate(self, uuid: str):
         # with current_app.app_context():
-        story = QueuedStory.query.filter_by(uuid=uuid).first()
-        print(self.generate_news(title=story.title, guideline=story.guideline))
-        return True
+        # story = QueuedStory.query.filter_by(uuid=uuid).first()
+        # print(self.generate_news(title=story.title, guideline=story.guideline))
+        return uuid
 
     def generate_news(self, title, guideline: str=None, model="NeverSleep/Llama-3-Lumimaid-8B-v0.1", add_sources=False):
         api_key = os.environ.get('FEATHERLESS_API_KEY')
@@ -60,6 +60,8 @@ class Infer():
             print(f"Inference exception occured when getting chat completions: {e}")
             return False
 
+
+        print(response)
         return response.choices[0].message.content
 
 
@@ -69,7 +71,7 @@ def generate_news(title: str, guideline: str=None, model: str="NeverSleep/Llama-
     return _infer.generate_news(title, guideline, model, add_sources)
 
 def generate(uuid: str):
-    return _infer.generate(uuid=uuid)
+    print(_infer.generate(uuid=uuid))
 
 if __name__ == "__main__":
     # os.environ["GROQ_API_KEY"] = os.getenv("GROQ_API_KEY")

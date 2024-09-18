@@ -7,7 +7,7 @@ from app import db, login_manager
 from app.models import Story, Comment, User, Reporter, QueuedStory, QueuedComment
 from app.forms import GenerateStoryForm, LoginForm, RegistrationForm, NewReporterForm
 from app.queue import queue_story
-from app.infer import generate
+from app.infer import generate_news
 
 main = Blueprint('main', __name__,
                         template_folder='templates')
@@ -88,8 +88,8 @@ def generate():
         db.session.add(queuedStory)
         db.session.commit()
 
-        generate(uuid=uuid)
-        # queue_story(uuid)
+        # print(generate_news(title=queue_story.title, guideline=queue_story.guideline))
+        queue_story(uuid)
 
         return redirect(url_for('main.index'))
 
