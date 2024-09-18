@@ -1,10 +1,21 @@
-from flask import Blueprint, render_template, session, jsonify
+from flask import Blueprint, render_template, session, jsonify, redirect, url_for
+from flask_redis import FlaskRedis
 
-from main import db
-from app.models import Story, Comment, User, Reporter
+from app import db
+from app.models import Story, Comment, User, Reporter, QueuedStory, QueuedComment
+from app.forms import GenerateStoryForm
 
 main = Blueprint('main', __name__,
                         template_folder='templates')
+
+from rq import Queue
+from redis import Redis
+ 
+redis_conn = Redis()
+ 
+q = Queue(connection=redis_conn)
+ 
+result = q.enqueue(print, 'http://nvie.com')
 
 @main.route('/')
 def index():
@@ -19,17 +30,22 @@ def index():
     return render_template("index.html", stories=stories)
 
 
+@main.route("/generate",  methods=['GET', 'POST'])
+def generate():
+    form = GenerateStoryForm()
 
-@main.route("/gen_news",  methods=['GET', 'POST'])
-def gen_news():
-    return render_template("gen_news.html")
+    if form.validate_on_submit():
+        print(form.title.data)
+        return redirect(url_for('main.index'))
+
+    return render_template("generate.html", form=form)
 
 @main.route(f"/story/<uuid>/")
 @main.route(f"/story/<uuid>/<title>")
 def story(uuid, title=None):
-    results = Stories.query.filter_by(uuid=uuid).first()
+    results = Story.query.filter_by(uuid=uuid).first()
     if results:
-        reporter = Reporters.query.filter_by(id=results.reporter_id).first()
+        reporter = Reporter.query.filter_by(id=results.reporter_id).first()
         story = {"title": results.title, "content": results.content, "reporter_uuid": reporter.uuid, "reporter_name": reporter.name, "reporter_id": results.reporter_id, "uuid": results.uuid}
         return render_template("story.html", **story)
 
@@ -38,7 +54,7 @@ def story(uuid, title=None):
 @main.route("/reporters")
 def reporters():
     reporters = []
-    result = Reporters.query.all()
+    result = Reporter.query.all()
     for reporter in result:
         reporters.mainend({"id":reporter.id, "name":reporter.name, "personality":reporter.personality, "uuid":reporter.uuid, "likes":reporter.likes})
     return render_template("reporters.html", reporters=reporters)

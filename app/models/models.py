@@ -15,6 +15,28 @@ class Story(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     reporter_id = db.Column(db.Integer, db.ForeignKey('reporter.id'))
 
+class QueuedStory(db.Model):
+    """Pre-Generated story waiting on execution queue"""
+
+    id = db.Column(db.Integer, primary_key=True)
+    created = db.Column(db.TIMESTAMP, nullable=False, server_default=db.func.now())
+    uuid = db.Column(db.String, unique=True, nullable=False)
+    title = db.Column(db.String, unique=False, nullable=False)
+    guideline = db.Column(db.String, unique=False, nullable=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    reporter_id = db.Column(db.Integer, db.ForeignKey('reporter.id'))
+
+class QueuedComment(db.Model):
+    """Pre-Generated comment waiting on execution queue"""
+
+    id = db.Column(db.Integer, primary_key=True)
+    created = db.Column(db.TIMESTAMP, nullable=False, server_default=db.func.now())
+    uuid = db.Column(db.String, unique=True, nullable=False)
+    # title = db.Column(db.String, unique=False, nullable=False)
+    # guideline = db.Column(db.String, unique=False, nullable=True)
+    # user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    # reporter_id = db.Column(db.Integer, db.ForeignKey('reporter.id'))
+
 class Comment(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     created = db.Column(db.TIMESTAMP, nullable=False, server_default=db.func.now())

@@ -14,6 +14,9 @@ from app.config import DevelopmentConfig, ProductionConfig
 db = SQLAlchemy()
 
 def create_app(config=DevelopmentConfig):
+    
+
+def build_app(config=DevelopmentConfig):
     app = Flask(__name__)
 
     app.config['SQLALCHEMY_DATABASE_URI'] = config.DATABASE_URI
@@ -28,7 +31,7 @@ def create_app(config=DevelopmentConfig):
     # Create all tables if not already created
     db.init_app(app)
     with app.app_context():
-        from app.models import Story, Comment, User, Reporter
+        from app.models import Story, Comment, User, Reporter, QueuedStory, QueuedComment
         db.create_all()
 
     # Imported later to prevent circular import
