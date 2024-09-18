@@ -50,23 +50,10 @@ class Stories(db.Model):
     likes = db.Column(db.Integer, nullable=True, default=0)
     reporter_id = db.Column(db.Integer, db.ForeignKey('reporters.id'), nullable=False)
 
-class Queue(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    created = db.Column(db.TIMESTAMP, nullable=False, server_default=db.func.now())
-    title = db.Column(db.String, nullable=False)
-    guideline = db.Column(db.String, nullable=False)
-    reporter_id = db.Column(db.Integer, db.ForeignKey('reporters.id'), nullable=False)
-
 class ReporterCreationForm(FlaskForm):
     name = StringField('Name', validators=[DataRequired()])
     personality = TextAreaField('Personality', validators=[DataRequired()])
     submit = SubmitField('Generate')
-
-class GenNewsForm(FlaskForm):
-    title = TextAreaField('Title', validators=[DataRequired()])
-    guideline = TextAreaField('Guideline', validators=[DataRequired()])
-    reporter = StringField('Reporter', validators=[DataRequired()])
-    submit = SubmitField('Submit')
 
 # Actually creates the database in ./instances, prob should only run in debug
 with app.app_context():
@@ -126,12 +113,7 @@ def get_reporters():
 
 @app.route("/gen_news",  methods=['GET', 'POST'])
 def gen_news():
-    form = GenNewsForm()
-
-    if form.validate_on_submit():
-        return redirect(url_for('index'))
-
-    return render_template("gen_news.html", form=form)
+    return render_template("gen_news.html")
 
 @app.route("/reporters")
 def reporters():

@@ -26,11 +26,7 @@
 - Tutorial showing where to click
 - More robust backend
 
-### ONLY 2 THINGS I WANT
-- If reporter does not exist, use default
-
-### OP For post replies to user comments
-
-### Reporters auto comment
-
-### Passively write comments and articles
+## New Vision
+- Users can not create reporters, they are premade
+- When you go to create a story you select a reporter, it adds it to the backend queue, the user cannot review before submission
+- 

@@ -1,12 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The UP Dawg</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-</head>
+{% extends 'base.html' %}
+
+{% block title %}UpDog News{% endblock %}
+
+{% block list %}
+<li>
+    <a href="{{url_for('about')}}" class="block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">About</a>
+</li>
+<li>
+    <a href="{{url_for('reporters')}}" class="block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Reporters</a>
+</li>
+<li>
+    <a href="{{url_for('gen_news')}}" class="block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Generate</a>
+</li>
+{% endblock %}
+
+{% block content %}
 <body class="bg-gray-900 text-gray-100 flex flex-col min-h-screen">
+<<<<<<< HEAD
+=======
     <nav class="bg-gray-800 text-white p-4 flex justify-between items-center">
         <div class="flex-none">
           <a href="{{url_for('about')}}" class="text-white hover:text-blue-300">About</a>
@@ -18,10 +29,8 @@
             <h1 class="text-3xl text-white">What's <strong>Upd<a href="{{ url_for('gen_news') }}">o</a>g?</strong></h1>
             <p class="text-white">Unbiased since tomorrow</p>
         </div>
-        <div class="flex-none text-center">
-            <a href="{{url_for('gen_news')}}" class="text-white hover:text-blue-300">New Story</a>
-        </div>
     </nav>
+>>>>>>> refs/remotes/origin/public
     <div class="relative container mx-auto px-4 py-8 flex-grow text-black">
         <div class="grid grid-cols-1 gap-6">
             {% for story in stories %}
@@ -30,16 +39,18 @@
                     <div class="p-4">
                         <h3 class="text-xl font-semibold mb-1">{{ story.title }}</h3>
                         <h3 class="text-sm font-semibold mb-2">By {{ story.reportername }}</h3>
+<<<<<<< HEAD
+                        <p class="text-gray-700 line-clamp-2">{{ story.content|safe }}</p>
+                        <p class="text-gray-700">Likes: {{ story.likes }}</p>
+=======
                         <p class="text-gray-700 line-clamp-3">{{ story.content|safe }}...</p>
                         <p class="text-gray-700"><strong>Likes:</strong> {{ story.likes }}</p>
+>>>>>>> refs/remotes/origin/public
                     </div>
                 </div>
             </a>
             {% endfor %}
         </div>
     </div>
-    <footer class="bg-gray-800 p-4 text-center text-white">
-        <p>&copy; 2024 The UP Dawg. All rights reserved.</p>
-    </footer>
 </body>
-</html>
+{% endblock %}
