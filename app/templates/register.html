@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %}New Reporter{% endblock %}
+{% block title %}Register Dog{% endblock %}
 
 {% block list %}
 <li>
@@ -15,8 +15,10 @@
 <body class="bg-gray-900 text-gray-100 flex flex-col min-h-screen">
     <form method="POST" action="">
         {{ form.hidden_tag() }}
-        <div>{{ form.name.label }} {{ form.name }}</div>
-        <div>{{ form.personality.label }} {{ form.personality }}</div>
+        <div>{{ form.username.label }} {{ form.username }}</div>
+        <div>{{ form.email.label }} {{ form.email }}</div>
+        <div>{{ form.password.label }} {{ form.password }}</div>
+        <div>{{ form.confirm_password.label }} {{ form.confirm_password }}</div>
         <div>{{ form.submit() }}</div>
     </form>
 </body>

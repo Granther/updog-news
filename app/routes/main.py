@@ -1,21 +1,65 @@
-from flask import Blueprint, render_template, session, jsonify, redirect, url_for
+from flask import Blueprint, render_template, session, jsonify, redirect, url_for, current_app, flash, request
 from flask_redis import FlaskRedis
+from flask_login import login_required, logout_user, login_user, current_user
+from uuid import uuid4
 
-from app import db
+from app import db, login_manager
 from app.models import Story, Comment, User, Reporter, QueuedStory, QueuedComment
-from app.forms import GenerateStoryForm
+from app.forms import GenerateStoryForm, LoginForm, RegistrationForm, NewReporterForm
+from app.queue import queue_story
 
 main = Blueprint('main', __name__,
                         template_folder='templates')
 
-from rq import Queue
-from redis import Redis
- 
-redis_conn = Redis()
- 
-q = Queue(connection=redis_conn)
- 
-result = q.enqueue(print, 'http://nvie.com')
+# current_app.logger.info("At index page")
+
+# Submit
+#   |
+# Make Queue SQL entry
+#   |
+# Add uuid to queue
+#   |
+# Call generate up queue time
+
+@login_manager.user_loader
+def load_user(user_id):
+    return User.query.get(int(user_id))
+
+@main.route("/register", methods=['GET', 'POST'])
+def register():
+    form = RegistrationForm()
+    if form.validate_on_submit():
+        hashed_password = current_app.bcrypt.generate_password_hash(form.password.data).decode('utf-8')
+        email = User.query.filter_by(email=form.email.data).first()
+        if email:
+            flash('Register Unsuccessful. Email already associated with account', 'danger')
+            return render_template("register.html", title='Register', form=form)
+
+        user = User(username=form.username.data, email=form.email.data, password=hashed_password)
+        db.session.add(user)
+        db.session.commit()
+        flash('Your account has been created! You can now log in.', 'success')
+        return redirect(url_for('login'))
+    return render_template('register.html', title='Register', form=form)
+
+@main.route("/login", methods=['GET', 'POST'])
+def login():
+    form = LoginForm()
+    if form.validate_on_submit():
+        user = User.query.filter_by(email=form.email.data).first()
+        if user and current_app.bcrypt.check_password_hash(user.password, form.password.data):
+            login_user(user, remember=form.remember.data)
+            next_page = request.args.get('next')
+            return redirect(next_page) if next_page else redirect(url_for('home'))
+        else:
+            flash('Login Unsuccessful. Please check email and password', 'danger')
+
+    return render_template('login.html', title='Login', form=form)
+
+@main.route("/logout")
+def logout():
+    logout_user()
+    return redirect(url_for('login'))
 
 @main.route('/')
 def index():
@@ -25,20 +69,50 @@ def index():
     result = Story.query.order_by(db.desc(Story.likes)).all()
     for story in result:
         reporter = Reporter.query.filter_by(id=story.reporter_id).first()
-        stories.mainend({"id":story.id, "title":story.title, "content":story.content, "uuid":story.uuid, "reportername":reporter.name, "likes":story.likes})
+        stories.append({"id":story.id, "title":story.title, "content":story.content, "uuid":story.uuid, "reportername":reporter.name, "likes":story.likes})
 
     return render_template("index.html", stories=stories)
 
-
+@login_required
 @main.route("/generate",  methods=['GET', 'POST'])
 def generate():
     form = GenerateStoryForm()
 
     if form.validate_on_submit():
         print(form.title.data)
+
+        uuid = str(uuid4())
+        queuedStory = QueuedStory(uuid=uuid, title=form.title.data, guideline=form.guideline.data, user_id=current_user.id, reporter_id=form.reporter_id.data)
+        db.session.add(queuedStory)
+        db.commit()
+
+        queue_story(uuid)
+
         return redirect(url_for('main.index'))
 
     return render_template("generate.html", form=form)
+
+    # uuid = db.Column(db.String, unique=True, nullable=False)
+    # title = db.Column(db.String, unique=False, nullable=False)
+    # guideline = db.Column(db.String, unique=False, nullable=True)
+    # user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    # reporter_id = db.Column(db.Integer, db.ForeignKey('reporter.id'))
+
+@main.route("/new_reporter", methods=['GET', 'POST'])
+def new_reporter():
+    form = NewReporterForm()
+
+    if form.validate_on_submit():
+        uuid = str(uuid4())
+
+        new_reporter = Reporter(uuid=uuid, name=form.name.data, username=form.name.data, personality=form.personality.data)
+        db.session.add(new_reporter)
+        db.session.commit()
+
+        return jsonify({"id": new_reporter.id})
+        # return redirect(url_for('main.index'))
+    
+    return render_template("new_reporter.html", form=form)
 
 @main.route(f"/story/<uuid>/")
 @main.route(f"/story/<uuid>/<title>")

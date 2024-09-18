@@ -1,32 +1,35 @@
-from flask import Flask, render_template, request, redirect, url_for, flash, Response, stream_with_context, jsonify, session
+from flask import Flask, session, current_app, g
 from flask_sqlalchemy import SQLAlchemy
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, RadioField, SubmitField, BooleanField, TextAreaField
 from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationError
 from flask_session import Session
+from flask_login import LoginManager
+from flask_bcrypt import Bcrypt
 
-# from gen_news import GenerateNewsSQL
-# from infer import Infer
-# from reporters import ReportersSQL
 from app.config import DevelopmentConfig, ProductionConfig
+from app.logger import create_logger
 
 # Create a single SQLAlchemy instance
 db = SQLAlchemy()
+login_manager = LoginManager()
 
 def create_app(config=DevelopmentConfig):
-    
-
-def build_app(config=DevelopmentConfig):
     app = Flask(__name__)
 
     app.config['SQLALCHEMY_DATABASE_URI'] = config.DATABASE_URI
     app.config['SECRET_KEY'] = config.SECRET_KEY
     app.config.from_object(__name__)
 
-    print(config.DATABASE_URI)
+    with app.app_context():
+        logger = create_logger(__name__, config)
+        current_app.logger = logger
+        current_app.bcrypt = Bcrypt(app)
 
-    # SESSION_TYPE = 'filesystem'
-    # Session(app)
+    login_manager.login_view = 'login'
+    login_manager.login_message = None
+    login_manager.login_message_category = 'info'
+    login_manager.init_app(app)
 
     # Create all tables if not already created
     db.init_app(app)
