@@ -1,0 +1,6 @@
+# Disallow all 
+User-agent: *
+Disallow: /
+Disallow: /story
+Disallow: /archive
+Disallow: /gen_news

@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block list %}
+<li>
+    <a href="{{url_for('about')}}" class="block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">About</a>
+</li>
+{% endblock %}
+
+{% block content %}
+<body class="bg-gray-900 text-gray-100 flex flex-col min-h-screen">
+<<<<<<< HEAD
+    <div class="fixed right-0 p-5">
+        <button class="text-white text-md p-2 font-bold bg-blue-500 rounded-lg" id="like-btn">{{ uuid | is_liked }}</button>
+    </div>
+    <header class="p-4 text-center">
+=======
+    <header class="relative bg-gray-800 p-4 text-center">
+>>>>>>> refs/remotes/origin/public
+        <h1 class="text-3xl font-bold"><a href="{{ url_for('index') }}">{{ title }}</a></h1>
+        <p class="text-white">By <a href="{{url_for('reporter', uuid=reporter_uuid, name=reporter_name)}}">{{ reporter_name }}</a></p>
+    
+        <div class="absolute right-0 top-0 p-5 flex flex-row gap-5 items-end space-y-2">
+            <p class="text-white text-md font-bold bg-blue-500 rounded-lg px-4 py-2" id="likes-num">{{ uuid | story_likes }}</p>
+            <button class="text-white text-md font-bold bg-blue-500 rounded-lg px-4 py-2" id="like-btn">
+                {{ uuid | story_is_liked }}
+            </button>
+        </div>
+    </header>    
+    <main class="flex flex-grow p-4">
+        <article class="max-w-3xl mx-auto text-center">
+            <section>
+                {{ content|safe }}
+            </section>
+        </article>
+    </main>
+    <section>
+        {% for comment in comments %}
+            <
+        {% endfor %}
+        Hello
+    </section>
+</body>
+<script>
+    let likes_num = document.getElementById('likes-num')
+
+    document.getElementById('like-btn').addEventListener("click", function(event) {
+        event.preventDefault();
+        fetch(`{{url_for('like', uuid=uuid)}}`, {
+                method: "POST",
+            }).then(response => response.json()).then(data => {
+                this.innerHTML = data.state;
+                likes_num.innerHTML = data.likes
+            }).catch(error => console.error('Error', error));
+                this.innerHTML = "Like"
+        });
+</script>
+{% endblock %}

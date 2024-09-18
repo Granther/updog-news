@@ -1,0 +1,20 @@
+label {
+    display:inline-block;
+    width:900px;
+    margin-right:30px;
+    text-align:left;
+}
+
+fieldset {
+    border:none;
+    width:500px;
+    margin:0px auto;
+}
+
+.gen_form {
+    font-size: 1em;
+}
+
+.gen_form p {
+    font-size: 1em;
+}
