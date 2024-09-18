@@ -7,6 +7,7 @@ from app import db, login_manager
 from app.models import Story, Comment, User, Reporter, QueuedStory, QueuedComment
 from app.forms import GenerateStoryForm, LoginForm, RegistrationForm, NewReporterForm
 from app.queue import queue_story
+from app.infer import generate
 
 main = Blueprint('main', __name__,
                         template_folder='templates')
@@ -39,7 +40,7 @@ def register():
         db.session.add(user)
         db.session.commit()
         flash('Your account has been created! You can now log in.', 'success')
-        return redirect(url_for('login'))
+        return redirect(url_for('main.login'))
     return render_template('register.html', title='Register', form=form)
 
 @main.route("/login", methods=['GET', 'POST'])
@@ -49,8 +50,9 @@ def login():
         user = User.query.filter_by(email=form.email.data).first()
         if user and current_app.bcrypt.check_password_hash(user.password, form.password.data):
             login_user(user, remember=form.remember.data)
-            next_page = request.args.get('next')
-            return redirect(next_page) if next_page else redirect(url_for('home'))
+            return redirect(url_for('main.index'))
+            # next_page = request.args.get('next')
+            # return redirect(next_page) if next_page else redirect(url_for('home'))
         else:
             flash('Login Unsuccessful. Please check email and password', 'danger')
 
@@ -84,9 +86,10 @@ def generate():
         uuid = str(uuid4())
         queuedStory = QueuedStory(uuid=uuid, title=form.title.data, guideline=form.guideline.data, user_id=current_user.id, reporter_id=form.reporter_id.data)
         db.session.add(queuedStory)
-        db.commit()
+        db.session.commit()
 
-        queue_story(uuid)
+        generate(uuid=uuid)
+        # queue_story(uuid)
 
         return redirect(url_for('main.index'))
 
