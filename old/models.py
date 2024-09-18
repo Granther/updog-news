@@ -13,13 +13,15 @@ class User(db.Model, UserMixin):
     password = db.Column(db.String, nullable=False)
     containers = db.relationship('Containers', backref='users', lazy=True)
 
+class Reporter(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    created = db.Column(db.TIMESTAMP, nullable=False, server_default=db.func.now())
+
+
 class Article(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     created = db.Column(db.TIMESTAMP, nullable=False, server_default=db.func.now())
 
-class Reporter(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    created = db.Column(db.TIMESTAMP, nullable=False, server_default=db.func.now())
 
 class Comment(db.Model):
     id = db.Column(db.Integer, primary_key=True)

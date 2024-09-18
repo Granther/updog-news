@@ -1,9 +1,10 @@
 from flask import Blueprint, render_template, session
-
-from models import User, Reporter, Article, Comment
+from app.models import Story, Comment, User, Reporter
 
 main = Blueprint('main', __name__,
                         template_folder='templates')
+
+from app import db
 
 @main.route('/')
 def index():

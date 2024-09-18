@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}UpDog News{% endblock %}
+
+{% block list %}
+<li>
+    <a href="{{url_for('about')}}" class="block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">About</a>
+</li>
+<li>
+    <a href="{{url_for('reporters')}}" class="block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Reporters</a>
+</li>
+<li>
+    <a href="{{url_for('gen_news')}}" class="block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Generate</a>
+</li>
+{% endblock %}
+
+{% block content %}
+<body class="bg-gray-900 text-gray-100 flex flex-col min-h-screen">
+    <div class="relative container mx-auto px-4 py-8 flex-grow text-black">
+        <div class="grid grid-cols-1 gap-6">
+            {% for story in stories %}
+            <a href="{{url_for('story', uuid=story.uuid, title=story.title)}}">
+                <div class="bg-white rounded-lg hover:shadow-lg hover:shadow-blue-500/70 overflow-hidden">
+                    <div class="p-4">
+                        <h3 class="text-xl font-semibold mb-1">{{ story.title }}</h3>
+                        <h3 class="text-sm font-semibold mb-2">By {{ story.reportername }}</h3>
+                        <p class="text-gray-700 line-clamp-3">{{ story.content|safe }}...</p>
+                        <p class="text-gray-700"><strong>Likes:</strong> {{ story.likes }}</p>
+                    </div>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+{% endblock %}

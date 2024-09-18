@@ -16,7 +16,7 @@ from infer import Infer
 from reporters import ReportersSQL
 from config import DevelopmentConfig, ProductionConfig
 
-from views.main import main
+from app.routes.main import main
 
 # Create a single SQLAlchemy instance
 db = SQLAlchemy()
