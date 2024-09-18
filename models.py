@@ -1,4 +1,4 @@
-from db_factory import db
+from factory import db
 from flask_login import UserMixin
 import uuid
 

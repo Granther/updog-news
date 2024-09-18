@@ -10,14 +10,7 @@
 
 {% block content %}
 <body class="bg-gray-900 text-gray-100 flex flex-col min-h-screen">
-<<<<<<< HEAD
-    <div class="fixed right-0 p-5">
-        <button class="text-white text-md p-2 font-bold bg-blue-500 rounded-lg" id="like-btn">{{ uuid | is_liked }}</button>
-    </div>
-    <header class="p-4 text-center">
-=======
     <header class="relative bg-gray-800 p-4 text-center">
->>>>>>> refs/remotes/origin/public
         <h1 class="text-3xl font-bold"><a href="{{ url_for('index') }}">{{ title }}</a></h1>
         <p class="text-white">By <a href="{{url_for('reporter', uuid=reporter_uuid, name=reporter_name)}}">{{ reporter_name }}</a></p>
     

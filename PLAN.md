@@ -29,4 +29,6 @@
 ## New Vision
 - Users can not create reporters, they are premade
 - When you go to create a story you select a reporter, it adds it to the backend queue, the user cannot review before submission
-- 
+
+## Structure
+- gen_news, for interacting with generation and gen queue
