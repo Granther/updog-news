@@ -28,4 +28,9 @@
 
 ### ONLY 2 THINGS I WANT
 - If reporter does not exist, use default
-- 
+
+### OP For post replies to user comments
+
+### Reporters auto comment
+
+### Passively write comments and articles
