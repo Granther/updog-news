@@ -9,8 +9,6 @@ from app.routes import main
 from app.infer import generate_news, generate
 from app.models import QueuedStory
 
-# app = create_app()
-
 class QueueManager:
     def __init__(self):
         redis_conn = Redis()
@@ -18,10 +16,6 @@ class QueueManager:
 
     def queue_story(self, uuid: str):
         """Process a story in a separate thread."""
-
-        # if self.q.enqueue(generate, uuid):
-        #     return True
-        # return False
     
         app = current_app._get_current_object()  
 
@@ -29,16 +23,23 @@ class QueueManager:
             """Run inside a new thread."""
 
             with app.app_context(): 
-                self.q.enqueue(generate, uuid)
+                story = QueuedStory.query.filter_by(uuid=uuid).first()
+                print("From queue_story", story.title)
 
-                # story = QueuedStory.query.filter_by(uuid=uuid).first()
-                # print(generate_news(title=story.title, guideline=story.guideline, model="meta-llama/Meta-Llama-3.1-8B-Instruct"))
+                self.q.enqueue(generate, story.title, story.guideline, on_success=self.finish_queue, )
+                print("Does this run?")
 
         thread = threading.Thread(target=process_in_thread, args=(uuid,))
         thread.start()
+
+    def finish_queue(story: str):
+        print(story)
 
 _manager = QueueManager()
 
 def queue_story(uuid: str):
     return _manager.queue_story(uuid)
+
+def finish_queue(story: str):
+    return _manager.finish_queue(story)
 

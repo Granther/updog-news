@@ -1,3 +1,5 @@
+import os
+
 from flask import Flask, session, current_app, g
 from flask_sqlalchemy import SQLAlchemy
 from flask_wtf import FlaskForm
