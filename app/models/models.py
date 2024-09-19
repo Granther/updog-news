@@ -37,16 +37,26 @@ class QueuedComment(db.Model):
     # user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     # reporter_id = db.Column(db.Integer, db.ForeignKey('reporter.id'))
 
+# class Comment(db.Model):
+#     id = db.Column(db.Integer, primary_key=True)
+#     created = db.Column(db.TIMESTAMP, nullable=False, server_default=db.func.now())
+#     content = db.Column(db.String, unique=False, nullable=False)
+#     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+#     story_id = db.Column(db.Integer, db.ForeignKey('story.id'))
+#     likes = db.Column(db.Integer, nullable=True, default=0)
+#     parent = db.Column(db.Integer, db.ForeignKey('comment.id'))
+#     child = db.relationship('Comment', backref='comment')
+
 class Comment(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     created = db.Column(db.TIMESTAMP, nullable=False, server_default=db.func.now())
+    uuid = db.Column(db.String, unique=True, nullable=False)
     content = db.Column(db.String, unique=False, nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     story_id = db.Column(db.Integer, db.ForeignKey('story.id'))
     likes = db.Column(db.Integer, nullable=True, default=0)
-    parent = db.Column(db.Integer, db.ForeignKey('comment.id'))
-    child = db.relationship('Comment', backref='comment')
-
+    parent_id = db.Column(db.Integer, db.ForeignKey('comment.id'), nullable=True)
+    children = db.relationship('Comment', backref=db.backref('parent_comment', remote_side=[id]), lazy='dynamic')
 
 class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)

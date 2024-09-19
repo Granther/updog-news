@@ -137,11 +137,35 @@ def new_reporter():
 @main.route(f"/story/<uuid>/")
 @main.route(f"/story/<uuid>/<title>")
 def story(uuid, title=None):
+    form = CommentForm()
+
     results = Story.query.filter_by(uuid=uuid).first()
+
+    comments = Comment.query.filter_by(story_id=results.id).order_by(Comment.created).all()
+
+    from collections import defaultdict
+    def build_comment_tree(comments):
+        comment_dict = defaultdict(list)
+        top_level_comments = []
+
+        for comment in comments:
+            if comment.parent_id:
+                comment_dict[comment.parent_id].append(comment)
+            else:
+                top_level_comments.append(comment)
+
+        return top_level_comments, comment_dict
+    
+    top_level_comments, comment_tree = build_comment_tree(comments)
+
+    forms = {comment.id: CommentForm() for comment in comments}
+
+    print(top_level_comments, comment_tree)
+
     if results:
         reporter = Reporter.query.filter_by(id=results.reporter_id).first()
         story = {"title": results.title, "content": results.content, "reporter_uuid": reporter.uuid, "reporter_name": reporter.name, "reporter_id": results.reporter_id, "uuid": results.uuid}
-        return render_template("story.html", **story)
+        return render_template("story.html", **story, form=form, forms=forms, top_level_comments=top_level_comments, comment_tree=comment_tree)
 
     return render_template("error.html", msg="Story Not Found")
 
@@ -158,15 +182,39 @@ def about():
     return render_template("about.html")
 
 @main.route("/comment/<uuid>", methods=['POST', 'GET'])
+@login_required
 def comment(uuid):
     form = CommentForm()
 
     if form.validate_on_submit():
         print(form.comment.data)
+        story_id = Story.query.filter_by(uuid=uuid).first().id
+        uuid = str(uuid4())
 
-@main.route("/reply", methods=['POST', 'GET'])
-def reply():
-    pass
+        new_comment = Comment(content=form.comment.data, story_id=story_id, uuid=uuid, user_id=current_user.id)
+        db.session.add(new_comment)
+        db.session.commit()
+
+        return jsonify({"Status": "huh"})
+
+    return jsonify({"Status": "huh"})
+
+@main.route("/reply<int:comment_id>", methods=['POST', 'GET'])
+def reply(comment_id):
+    form = CommentForm()
+
+    if form.validate_on_submit():
+        # story_id = Story.query.filter_by(uuid=uuid).first().id
+        story_id = 1
+        uuid = str(uuid4())
+
+        new_reply = Comment(content=form.comment.data, story_id=story_id, uuid=uuid, user_id=current_user.id, parent_id=comment_id)
+        db.session.add(new_reply)
+        db.session.commit()
+
+        return jsonify({"Status": "huh"})
+
+    return jsonify({"Status": "huh"})   
 
 # @main.route("/get_reporters", methods=["GET"])
 # def get_reporters():

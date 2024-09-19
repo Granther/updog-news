@@ -30,14 +30,34 @@
     </main>
     <section>
         <form action="" id="comment-box" method="POST" name="">
-            {{ command_select_form.hidden_tag() }}
+            {{ form.hidden_tag() }}
             <div class="flex justify-center">
                 {{form.comment}}
                 <button type="submit" class="bg-sky-500 hover:bg-sky-700 text-white py-2 px-5 rounded-r-full font-bold text-md transition duration-300">Send</button>
             </div>
         </form>
-        {% for comment in comments %}
-        {% endfor %}
+    {% macro render_comment(comment, comment_tree, forms) %}
+        <div class="comment">
+            <p>{{ comment.content }}</p>
+            <small>By {{ comment.user_id }} at {{ comment.created }}</small>
+            
+            <form method="POST" action="{{url_for('main.reply', comment_id=comment.id, story_uuid=uuid)}}" class="hidden">
+                {{ forms[comment.id].hidden_tag() }}
+                {{ forms[comment.id].comment.label}} {{ forms[comment.id].comment}}
+                {{ forms[comment.id].submit }}
+            </form>
+            
+            <div class="replies ml-10">
+                {% for child in comment_tree[comment.id] %}
+                    {{ render_comment(child, comment_tree, forms) }}
+                {% endfor %}
+            </div>
+        </div>
+    {% endmacro %}
+    
+    {% for comment in top_level_comments %}
+        {{ render_comment(comment, comment_tree, forms) }}
+    {% endfor %}
     </section>
 </body>
 <script>
@@ -59,7 +79,7 @@
         event.preventDefault()
         var formdata = new FormData(this)
 
-        fetch(`{{url_for('main.comment, story_uuid=uuid')}}`, {
+        fetch(`{{url_for('main.comment', uuid=uuid)}}`, {
                 method: 'POST',
                 body: formdata,
                 headers: {
