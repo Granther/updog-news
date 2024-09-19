@@ -9,6 +9,7 @@ from flask_session import Session
 from flask_login import LoginManager
 from flask_bcrypt import Bcrypt
 from flask_redis import FlaskRedis
+from flask_rq2 import RQ
 
 from app.config import DevelopmentConfig, ProductionConfig
 from app.logger import create_logger
@@ -16,6 +17,7 @@ from app.logger import create_logger
 # Create a single SQLAlchemy instance
 db = SQLAlchemy()
 login_manager = LoginManager()
+rq = RQ()
 
 def create_app(config=DevelopmentConfig):
     app = Flask(__name__)
@@ -30,7 +32,9 @@ def create_app(config=DevelopmentConfig):
         current_app.bcrypt = Bcrypt(app)
         current_app.redis_client = FlaskRedis(app)
 
-    login_manager.login_view = 'login'
+    rq.init_app(app)
+
+    login_manager.login_view = 'main.login'
     login_manager.login_message = None
     login_manager.login_message_category = 'info'
     login_manager.init_app(app)

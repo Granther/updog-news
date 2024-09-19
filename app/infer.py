@@ -5,13 +5,34 @@ import openai
 from openai import OpenAI
 from groq import Groq
 from dotenv import load_dotenv
+from flask import current_app
+
+from app import db, rq
+from app.models import Story, QueuedStory, QueuedComment
 
 class Infer():
     def __init__(self):
         load_dotenv()
 
-    def generate(self, title, guideline):
-        return self.generate_news(title=title, guideline=guideline)
+    def generate(self, uuid: str):
+        queued_story = QueuedStory.query.filter_by(uuid=uuid).first()
+        queued_comment = QueuedComment.query.filter_by(uuid=uuid).first()
+
+        if queued_story:
+            generated_story = self.generate_news(title=queued_story.title, guideline=queued_story.guideline)
+            story = Story(uuid=uuid, content=generated_story, title=queued_story.title, guideline=queued_story.guideline, user_id=queued_story.user_id, reporter_id=queued_story.reporter_id)
+            db.session.add(story)
+
+        elif queued_comment:
+            # generated_comment = self.generate_comment(title=queued_story.title, guideline=queued_story.guideline)
+            # story = Story(uuid=uuid, content=generated_story, title=queued_story.title, guideline=queued_story.guideline, user_id=queued_story.user_id, reporter_id=queued_story.reporter_id)
+            # db.session.add(story)
+            pass
+
+        else:
+            raise RuntimeError(f"Exception occured when attempting to generate from queue, uuid {uuid} not found")
+
+        db.session.commit()
 
     def generate_news(self, title, guideline: str=None, model="NeverSleep/Llama-3-Lumimaid-8B-v0.1", add_sources=False):
         response = None
@@ -54,7 +75,6 @@ class Infer():
             return False
 
 
-        print(response)
         return response.choices[0].message.content
 
 
@@ -63,8 +83,9 @@ _infer = Infer()
 def generate_news(title: str, guideline: str=None, model: str="NeverSleep/Llama-3-Lumimaid-8B-v0.1", add_sources: bool=False):
     return _infer.generate_news(title, guideline, model, add_sources)
 
-def generate(title, guideline):
-    print(_infer.generate(title, guideline))
+@rq.job
+def generate(uuid: str):
+    return _infer.generate(uuid)
 
 if __name__ == "__main__":
     # os.environ["GROQ_API_KEY"] = os.getenv("GROQ_API_KEY")

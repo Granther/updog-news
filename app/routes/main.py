@@ -86,7 +86,7 @@ def login():
 @main.route("/logout")
 def logout():
     logout_user()
-    return redirect(url_for('login'))
+    return redirect(url_for('main.login'))
 
 @main.route('/')
 def index():
@@ -94,20 +94,19 @@ def index():
         session['likes'] = []
     stories = []
     result = Story.query.order_by(db.desc(Story.likes)).all()
+
     for story in result:
         reporter = Reporter.query.filter_by(id=story.reporter_id).first()
         stories.append({"id":story.id, "title":story.title, "content":story.content, "uuid":story.uuid, "reportername":reporter.name, "likes":story.likes})
 
     return render_template("index.html", stories=stories)
 
-@login_required
 @main.route("/generate",  methods=['GET', 'POST'])
+@login_required
 def generate():
     form = GenerateStoryForm()
 
     if form.validate_on_submit():
-        print(form.title.data)
-
         uuid = str(uuid4())
         queuedStory = QueuedStory(uuid=uuid, title=form.title.data, guideline=form.guideline.data, user_id=current_user.id, reporter_id=form.reporter_id.data)
         db.session.add(queuedStory)
@@ -115,19 +114,9 @@ def generate():
 
         queue_story(uuid)
 
-        # p = Process(target=queue_story, kwargs={"uuid":uuid})
-        # p.start()
-        # p.join()
-
         return redirect(url_for('main.index'))
 
     return render_template("generate.html", form=form)
-
-    # uuid = db.Column(db.String, unique=True, nullable=False)
-    # title = db.Column(db.String, unique=False, nullable=False)
-    # guideline = db.Column(db.String, unique=False, nullable=True)
-    # user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
-    # reporter_id = db.Column(db.Integer, db.ForeignKey('reporter.id'))
 
 @main.route("/new_reporter", methods=['GET', 'POST'])
 def new_reporter():
@@ -161,7 +150,7 @@ def reporters():
     reporters = []
     result = Reporter.query.all()
     for reporter in result:
-        reporters.mainend({"id":reporter.id, "name":reporter.name, "personality":reporter.personality, "uuid":reporter.uuid, "likes":reporter.likes})
+        reporters.append({"id":reporter.id, "name":reporter.name, "personality":reporter.personality, "uuid":reporter.uuid, "likes":reporter.likes})
     return render_template("reporters.html", reporters=reporters)
 
 @main.route('/about')
@@ -286,55 +275,55 @@ def about():
 #     results = Reporters.query.filter_by(id=id).first().name
 #     return results
 
-# @main.template_filter('story_likes')
-# def story_likes(uuid):
-#     results = Stories.query.filter_by(uuid=uuid).first().likes
+@main.app_template_filter('story_likes')
+def story_likes(uuid):
+    results = Story.query.filter_by(uuid=uuid).first().likes
 
-#     if results:
-#         return results
-#     return 0
+    if results:
+        return results
+    return 0
 
-# @main.template_filter('story_is_liked')
-# def story_is_liked(uuid):
-#     for item in session['likes']:
-#         if item['uuid'] == uuid:
-#             return "Liked"
+@main.app_template_filter('story_is_liked')
+def story_is_liked(uuid):
+    for item in session['likes']:
+        if item['uuid'] == uuid:
+            return "Liked"
     
-#     return "Like"
+    return "Like"
 
-# @main.route('/like/<uuid>', methods=['POST'])
-# def like(uuid):
-#     likes_history = session['likes']
-#     for item in likes_history:
-#         x = item.get('uuid', False)
-#         if x:
-#             print("Already liked, unliking and removing from likes list")
-#             story = Stories.query.filter_by(uuid=uuid).first()
-#             story.likes -= 1
-#             db.session.add(story)
-#             db.session.commit()
-#             likes_history.remove(item)
-#             return jsonify({"state":"Like", "likes": story.likes})
+@main.route('/like/<uuid>', methods=['POST'])
+def like(uuid):
+    likes_history = session['likes']
+    for item in likes_history:
+        x = item.get('uuid', False)
+        if x:
+            print("Already liked, unliking and removing from likes list")
+            story = Story.query.filter_by(uuid=uuid).first()
+            story.likes -= 1
+            db.session.add(story)
+            db.session.commit()
+            likes_history.remove(item)
+            return jsonify({"state":"Like", "likes": story.likes})
 
-#     print("Not yet liked, adding to likes list and updating row")
-#     story = Stories.query.filter_by(uuid=uuid).first()
-#     story.likes += 1
-#     db.session.add(story)
-#     db.session.commit()
-#     likes_history.mainend({'uuid': uuid})
+    print("Not yet liked, adding to likes list and updating row")
+    story = Story.query.filter_by(uuid=uuid).first()
+    story.likes += 1
+    db.session.add(story)
+    db.session.commit()
+    likes_history.mainend({'uuid': uuid})
 
-#     session['likes'] = likes_history
+    session['likes'] = likes_history
 
-#     return jsonify({"state":"Liked", "likes": story.likes})
+    return jsonify({"state":"Liked", "likes": story.likes})
 
-# @main.route(f"/reporter/<uuid>/")
-# @main.route(f"/reporter/<uuid>/<name>")
-# def reporter(uuid, name=None):
-#     results = Reporters.query.filter_by(uuid=uuid).first()
-#     if results.onetime:
-#         return redirect(url_for('index'))
-#     else:
-#         reporter = {"name":results.name, "personality":results.personality}
-#         return render_template("reporter.html", **reporter, stories=results.stories)
+@main.route(f"/reporter/<uuid>/")
+@main.route(f"/reporter/<uuid>/<name>")
+def reporter(uuid, name=None):
+    results = Reporter.query.filter_by(uuid=uuid).first()
+    if results.onetime:
+        return redirect(url_for('index'))
+    else:
+        reporter = {"name":results.name, "personality":results.personality}
+        return render_template("reporter.html", **reporter, stories=results.stories)
 
-#     return render_template("error.html", msg="Reporter Not Found")
+    return render_template("error.html", msg="Reporter Not Found")
