@@ -8,6 +8,7 @@ from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationE
 from flask_session import Session
 from flask_login import LoginManager
 from flask_bcrypt import Bcrypt
+from flask_redis import FlaskRedis
 
 from app.config import DevelopmentConfig, ProductionConfig
 from app.logger import create_logger
@@ -27,6 +28,7 @@ def create_app(config=DevelopmentConfig):
         logger = create_logger(__name__, config)
         current_app.logger = logger
         current_app.bcrypt = Bcrypt(app)
+        current_app.redis_client = FlaskRedis(app)
 
     login_manager.login_view = 'login'
     login_manager.login_message = None
