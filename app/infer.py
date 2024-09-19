@@ -4,10 +4,9 @@ from uuid import uuid4
 import openai
 from openai import OpenAI
 from groq import Groq
-from flask import current_app
 
 from app import db
-from app.models import QueuedStory, QueuedComment, Story, Reporter
+# from app.models import QueuedStory, QueuedComment, Story, Reporter
 
 class Infer():
     def __init__(self):
@@ -17,6 +16,7 @@ class Infer():
         # with current_app.app_context():
         # story = QueuedStory.query.filter_by(uuid=uuid).first()
         # print(self.generate_news(title=story.title, guideline=story.guideline))
+        print(uuid)
         return uuid
 
     def generate_news(self, title, guideline: str=None, model="NeverSleep/Llama-3-Lumimaid-8B-v0.1", add_sources=False):
@@ -71,7 +71,8 @@ def generate_news(title: str, guideline: str=None, model: str="NeverSleep/Llama-
     return _infer.generate_news(title, guideline, model, add_sources)
 
 def generate(uuid: str):
-    print(_infer.generate(uuid=uuid))
+    print("hello")
+    # print(_infer.generate(uuid=uuid))
 
 if __name__ == "__main__":
     # os.environ["GROQ_API_KEY"] = os.getenv("GROQ_API_KEY")

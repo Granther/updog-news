@@ -1,13 +1,15 @@
 from flask import Blueprint, render_template, session, jsonify, redirect, url_for, current_app, flash, request
 from flask_redis import FlaskRedis
 from flask_login import login_required, logout_user, login_user, current_user
+from concurrent.futures import ThreadPoolExecutor
+from multiprocessing import Process, Queue
 from uuid import uuid4
 
 from app import db, login_manager
 from app.models import Story, Comment, User, Reporter, QueuedStory, QueuedComment
 from app.forms import GenerateStoryForm, LoginForm, RegistrationForm, NewReporterForm
 from app.queue import queue_story
-from app.infer import generate_news
+# from app.infer import generate_news
 
 main = Blueprint('main', __name__,
                         template_folder='templates')
@@ -21,6 +23,29 @@ main = Blueprint('main', __name__,
 # Add uuid to queue
 #   |
 # Call generate up queue time
+
+# from rq import Queue
+# from redis import Redis
+
+# from app.infer import generate_news, generate
+
+# class QueueManager:
+#     def __init__(self):
+#         redis_conn = Redis()
+#         self.q = Queue(connection=redis_conn)
+
+#     def queue_story(self, uuid: str):
+#         # if self.q.enqueue(generate, uuid):
+#         #     return True
+#         # return False
+#         with current_app.app_context():
+#             story = QueuedStory.query.filter_by(uuid=uuid).first()
+#             print(generate_news(title=story.title, guideline=story.guideline, model="meta-llama/Meta-Llama-3.1-8B-Instruct"))
+
+# _manager = QueueManager()
+
+# def queue_story(uuid: str):
+#     return _manager.queue_story(uuid)
 
 @login_manager.user_loader
 def load_user(user_id):
@@ -88,8 +113,11 @@ def generate():
         db.session.add(queuedStory)
         db.session.commit()
 
-        # print(generate_news(title=queue_story.title, guideline=queue_story.guideline))
         queue_story(uuid)
+
+        # p = Process(target=queue_story, kwargs={"uuid":uuid})
+        # p.start()
+        # p.join()
 
         return redirect(url_for('main.index'))
 
