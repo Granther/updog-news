@@ -7,7 +7,7 @@ from uuid import uuid4
 
 from app import db, login_manager
 from app.models import Story, Comment, User, Reporter, QueuedStory, QueuedComment
-from app.forms import GenerateStoryForm, LoginForm, RegistrationForm, NewReporterForm
+from app.forms import GenerateStoryForm, LoginForm, RegistrationForm, NewReporterForm, CommentForm
 from app.queue import queue_story
 # from app.infer import generate_news
 
@@ -156,6 +156,17 @@ def reporters():
 @main.route('/about')
 def about():
     return render_template("about.html")
+
+@main.route("/comment/<uuid>", methods=['POST', 'GET'])
+def comment(uuid):
+    form = CommentForm()
+
+    if form.validate_on_submit():
+        print(form.comment.data)
+
+@main.route("/reply", methods=['POST', 'GET'])
+def reply():
+    pass
 
 # @main.route("/get_reporters", methods=["GET"])
 # def get_reporters():

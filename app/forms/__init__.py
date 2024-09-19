@@ -1,1 +1,1 @@
-from .forms import GenerateStoryForm, LoginForm, RegistrationForm, NewReporterForm
+from .forms import GenerateStoryForm, LoginForm, RegistrationForm, NewReporterForm, CommentForm

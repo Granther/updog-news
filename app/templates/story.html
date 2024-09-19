@@ -29,12 +29,20 @@
         </article>
     </main>
     <section>
+        <form action="" id="comment-box" method="POST" name="">
+            {{ command_select_form.hidden_tag() }}
+            <div class="flex justify-center">
+                {{form.comment}}
+                <button type="submit" class="bg-sky-500 hover:bg-sky-700 text-white py-2 px-5 rounded-r-full font-bold text-md transition duration-300">Send</button>
+            </div>
+        </form>
         {% for comment in comments %}
         {% endfor %}
     </section>
 </body>
 <script>
     let likes_num = document.getElementById('likes-num')
+    var comment_box = document.getElementById('comment-box')
 
     document.getElementById('like-btn').addEventListener("click", function(event) {
         event.preventDefault();
@@ -46,5 +54,23 @@
             }).catch(error => console.error('Error', error));
                 this.innerHTML = "Like"
         });
+
+    comment_box.addEventListener("submit", function(event) {
+        event.preventDefault()
+        var formdata = new FormData(this)
+
+        fetch(`{{url_for('main.comment, story_uuid=uuid')}}`, {
+                method: 'POST',
+                body: formdata,
+                headers: {
+                'Accept': 'application/json',
+                }   
+            }).then(response => response.json()).then(data => {
+                this.input.value = ''
+                response_div.innerHTML = data.response
+            }).catch(error => {
+                console.log("Error occured while submitting command:", error)
+        })
+    })
 </script>
 {% endblock %}
