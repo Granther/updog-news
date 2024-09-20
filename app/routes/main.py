@@ -10,7 +10,7 @@ from uuid import uuid4
 from app import db, login_manager
 from app.models import Story, Comment, User, Reporter, QueuedStory, QueuedComment
 from app.forms import GenerateStoryForm, LoginForm, RegistrationForm, NewReporterForm, CommentForm
-from app.queue import queue_story
+from app.queue import queue_story, queue_decide_respond
 # from app.infer import generate_news
 
 main = Blueprint('main', __name__,
@@ -156,6 +156,8 @@ def story(uuid, title=None):
         return top_level_comments, comment_dict
     
     top_level_comments, comment_tree = build_comment_tree(comments)
+
+    # print(comments, top_level_comments, comment_tree)
     forms = {comment.id: CommentForm() for comment in comments}
 
     if results:
@@ -183,12 +185,14 @@ def comment(uuid):
     form = CommentForm()
 
     if form.validate_on_submit():
-        story_id = Story.query.filter_by(uuid=uuid).first().id
+        story = Story.query.filter_by(uuid=uuid).first()
         uuid = str(uuid4())
 
-        new_comment = Comment(content=form.comment.data, story_id=story_id, uuid=uuid, user_id=current_user.id)
+        new_comment = Comment(content=form.comment.data, story_id=story.id, uuid=uuid, user_id=current_user.id)
         db.session.add(new_comment)
         db.session.commit()
+
+        queue_decide_respond(story.uuid, new_comment.uuid)
 
         return jsonify({"Status": "huh"})
 
@@ -213,6 +217,11 @@ def reply():
         return jsonify({"status": True})
 
     return abort(401)
+
+@main.route("/test")
+def test():
+    pass
+
 
 # @main.route("/get_reporters", methods=["GET"])
 # def get_reporters():

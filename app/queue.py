@@ -5,7 +5,7 @@ from redis import Redis
 from flask import current_app
 
 from app import db, rq
-from app.infer import generate
+from app.infer import generate, decide_respond
 
 class QueueManager:
     def __init__(self):
@@ -18,11 +18,19 @@ class QueueManager:
         app = current_app._get_current_object()  
         with app.app_context():
             generate.queue(uuid)
+    
+    def queue_decide_respond(self, story_uuid: str, comment_uuid: str):
+        app = current_app._get_current_object()  
+        with app.app_context():
+            decide_respond.queue(story_uuid, comment_uuid)
 
 _manager = QueueManager()
 
 def queue_story(uuid: str):
     return _manager.queue_story(uuid)
+
+def queue_decide_respond(story_uuid: str, comment_uuid: str):
+    return _manager.queue_decide_respond(story_uuid, comment_uuid)
 
 # def finish_queue():
 #     return _manager.finish_queue()
