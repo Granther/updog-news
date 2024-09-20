@@ -34,6 +34,9 @@ class Infer():
 
         db.session.commit()
 
+    def decide_respond(self, story_uuid: str, comment_uuid: str) -> bool:
+        pass
+
     def generate_news(self, title, guideline: str=None, model="NeverSleep/Llama-3-Lumimaid-8B-v0.1", add_sources=False):
         response = None
 

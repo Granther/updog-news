@@ -1,6 +1,6 @@
 from collections import defaultdict
 
-from flask import Blueprint, render_template, session, jsonify, redirect, url_for, current_app, flash, request
+from flask import Blueprint, abort, render_template, session, jsonify, redirect, url_for, current_app, flash, request
 from flask_redis import FlaskRedis
 from flask_login import login_required, logout_user, login_user, current_user
 from concurrent.futures import ThreadPoolExecutor
@@ -156,10 +156,7 @@ def story(uuid, title=None):
         return top_level_comments, comment_dict
     
     top_level_comments, comment_tree = build_comment_tree(comments)
-
     forms = {comment.id: CommentForm() for comment in comments}
-
-    print(top_level_comments, comment_tree)
 
     if results:
         reporter = Reporter.query.filter_by(id=results.reporter_id).first()
@@ -186,7 +183,6 @@ def comment(uuid):
     form = CommentForm()
 
     if form.validate_on_submit():
-        print(form.comment.data)
         story_id = Story.query.filter_by(uuid=uuid).first().id
         uuid = str(uuid4())
 
@@ -198,21 +194,25 @@ def comment(uuid):
 
     return jsonify({"Status": "huh"})
 
-@main.route("/reply/<int:comment_id>/<story_uuid>", methods=['POST', 'GET'])
-def reply(comment_id, story_uuid):
-    form = CommentForm()
+@main.route("/reply", methods=['POST', 'GET'])
+def reply():
+    if request.method == 'POST':
+        data = request.get_json()
 
-    if form.validate_on_submit():
+        comment_id = data.get('comment_id')
+        story_uuid = data.get('uuid')
+        content = data.get('content')
+
         story_id = Story.query.filter_by(uuid=story_uuid).first().id
         uuid = str(uuid4())
 
-        new_reply = Comment(content=form.comment.data, story_id=story_id, uuid=uuid, user_id=current_user.id, parent_id=comment_id)
+        new_reply = Comment(content=content, story_id=story_id, uuid=uuid, user_id=current_user.id, parent_id=comment_id)
         db.session.add(new_reply)
         db.session.commit()
 
-        return jsonify({"Status": "huh"})
+        return jsonify({"status": True})
 
-    return jsonify({"Status": "huh"})   
+    return abort(401)
 
 # @main.route("/get_reporters", methods=["GET"])
 # def get_reporters():
