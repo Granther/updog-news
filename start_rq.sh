@@ -1,1 +1,1 @@
-rq worker --with-scheduler
+flask rq worker

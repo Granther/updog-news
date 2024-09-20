@@ -48,3 +48,4 @@
 </html>
 
 
+            <small>By {{ comment.user_id }} at {{ comment.created }}</small>

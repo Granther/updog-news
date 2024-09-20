@@ -28,22 +28,24 @@
             </section>
         </article>
     </main>
-    <section>
-        <form action="" id="comment-box" method="POST" name="">
+    <section class="flex flex-col w-1/2 justify-center mx-auto pt-10">
+        <form action="" id="comment-box" method="POST" name="" class="pb-10">
             {{ form.hidden_tag() }}
             <div class="flex justify-center">
                 {{form.comment}}
-                <button type="submit" class="bg-sky-500 hover:bg-sky-700 text-white py-2 px-5 rounded-r-full font-bold text-md transition duration-300">Send</button>
+                <button type="submit" class="bg-sky-500 hover:bg-sky-700 text-white py-2 px-5 l font-bold text-md transition duration-300">Comment</button>
             </div>
         </form>
     {% macro render_comment(comment, comment_tree, forms) %}
         <div class="comment">
-            <p>{{ comment.content }}</p>
-            <small>By {{ comment.user_id }} at {{ comment.created }}</small>
-            
-            <form method="POST" action="{{url_for('main.reply', comment_id=comment.id, story_uuid=uuid)}}" class="hidden">
+            <div class="bg-gray-800">
+                <p>{{ comment.content }}</p>
+                <button class="reply-btn" data-comment-id="{{ comment.id }}">Reply</button> 
+            </div> 
+
+            <form id="reply-form-{{ comment.id }}" method="POST" onSubmit="JavaScript:goof("{{ comment.id }}", "{{ uuid }}")" class="hidden">
                 {{ forms[comment.id].hidden_tag() }}
-                {{ forms[comment.id].comment.label}} {{ forms[comment.id].comment}}
+                {{ forms[comment.id].comment}}
                 {{ forms[comment.id].submit }}
             </form>
             
@@ -60,9 +62,24 @@
     {% endfor %}
     </section>
 </body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
     let likes_num = document.getElementById('likes-num')
     var comment_box = document.getElementById('comment-box')
+
+    function goof(comment_id, uuid) {
+        console.log(comment_id)
+    }
+
+    $(document).ready(function() {
+        $('.reply-btn').on('click', function() {
+            const commentId = $(this).data('comment-id');
+
+            console.log('clicked');
+            form = document.getElementById(`reply-form-${commentId}`)
+            form.classList.toggle('hidden');
+        });
+    });
 
     document.getElementById('like-btn').addEventListener("click", function(event) {
         event.preventDefault();
@@ -86,8 +103,7 @@
                 'Accept': 'application/json',
                 }   
             }).then(response => response.json()).then(data => {
-                this.input.value = ''
-                response_div.innerHTML = data.response
+                console.log(data.Status)
             }).catch(error => {
                 console.log("Error occured while submitting command:", error)
         })

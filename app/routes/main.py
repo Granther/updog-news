@@ -1,3 +1,5 @@
+from collections import defaultdict
+
 from flask import Blueprint, render_template, session, jsonify, redirect, url_for, current_app, flash, request
 from flask_redis import FlaskRedis
 from flask_login import login_required, logout_user, login_user, current_user
@@ -138,12 +140,9 @@ def new_reporter():
 @main.route(f"/story/<uuid>/<title>")
 def story(uuid, title=None):
     form = CommentForm()
-
     results = Story.query.filter_by(uuid=uuid).first()
-
     comments = Comment.query.filter_by(story_id=results.id).order_by(Comment.created).all()
 
-    from collections import defaultdict
     def build_comment_tree(comments):
         comment_dict = defaultdict(list)
         top_level_comments = []
@@ -199,13 +198,12 @@ def comment(uuid):
 
     return jsonify({"Status": "huh"})
 
-@main.route("/reply<int:comment_id>", methods=['POST', 'GET'])
-def reply(comment_id):
+@main.route("/reply/<int:comment_id>/<story_uuid>", methods=['POST', 'GET'])
+def reply(comment_id, story_uuid):
     form = CommentForm()
 
     if form.validate_on_submit():
-        # story_id = Story.query.filter_by(uuid=uuid).first().id
-        story_id = 1
+        story_id = Story.query.filter_by(uuid=story_uuid).first().id
         uuid = str(uuid4())
 
         new_reply = Comment(content=form.comment.data, story_id=story_id, uuid=uuid, user_id=current_user.id, parent_id=comment_id)
