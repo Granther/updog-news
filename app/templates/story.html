@@ -37,33 +37,9 @@
             </div>
         </form>
     <div id="comment-section">
-    {% macro render_comment(comment, comment_tree, forms) %}
-        <div class="comment">
-            <div class="bg-gray-800 flex flex-row m-3">
-                <p class="pl-2 pt-1">{{ comment.content }}</p>
-                <button class="relative ml-auto px-3 py-2 reply-btn" data-comment-id="{{ comment.id }}">Reply</button> 
-            </div> 
-            
-            <div class="reply-form-container hidden" data-comment-id="{{ comment.id }}">
-                <form method="POST" class="reply-form" data-comment-id="{{ comment.id }}" data-uuid="{{ uuid }}">
-                    {{ forms[comment.id].hidden_tag() }}
-                    {{ forms[comment.id].comment}}
-                    {{ forms[comment.id].submit }}
-                </form>    
-            </div>
-
-            <div class="replies ml-10">
-                {% for child in comment_tree[comment.id] %}
-                    {{ render_comment(child, comment_tree, forms) }}
-                {% endfor %}
-            </div>
-        </div>
-    {% endmacro %}
     </div>
-    
-    {% for comment in top_level_comments %}
-        {{ render_comment(comment, comment_tree, forms) }}
-    {% endfor %}
+
+
     </section>
 </body>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -72,39 +48,35 @@
     var comment_box = document.getElementById('comment-box')
     var comment_section = document.getElementById('comment-section')
 
-    $(document).ready(function() {
-        $(document).on('click', '.reply-btn', function() {
-            const commentId = $(this).data('comment-id')
-            const uuid = $(this).data('uuid')
+    fetch(`{{url_for('main.comments', uuid=uuid)}}`).then(response => response.json()).then(data => {
+        console.log(data)
+        top_level = data.top_level_comments
+        comment_tree = data.comment_tree
 
-            $(`.reply-form-container[data-comment-id="${commentId}"]`).toggle('hidden');
-        })
-
-        $(document).on('submit', '.reply-form', function(event) {
-            event.preventDefault()
-
-            const commentId = $(this).data('comment-id')
-            const uuid = $(this).data('uuid')
-            
-            const data = {
-                comment_id: commentId,
-                uuid: uuid,
-                content: this.comment.value
-            };
-
-            fetch(`{{ url_for('main.reply') }}`, {
-                method: 'POST',
-                body: JSON.stringify(data), //Send as JSON string
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            }).then(response => response.json()).then(data => {
-                console.log(data)
-            }).catch((error) => {
-                console.error(error)
-            })
-        })
+        top_level.forEach(element => {
+            render_comment(element, comment_tree)
+        });
+    }).catch((error) => {
+        console.log(error)
     })
+
+    function render_comment(comment, comment_tree) {
+        console.log("comment", comment.content)
+
+        // comment_tree.forEach(element => {
+        //     if (element.id === comment.id) {
+        //         console.log(element.content)
+        //     }
+        // })
+
+        Object.keys(comment_tree).forEach(key => {
+            console.log(key)
+            if (key === comment.id) {
+                console.log(comment.content)
+                render_comment(comment, comment_tree)
+            }
+        })
+    }
 
     document.getElementById('like-btn').addEventListener("click", function(event) {
         event.preventDefault();

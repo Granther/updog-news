@@ -1,0 +1,41 @@
+#!/bin/bash
+sudo apt update && sudo apt install -y gdb curl lib32gcc1 libc++-dev unzip
+sudo useradd -m steam
+sudo chsh -s /bin/bash steam
+sudo passwd steam
+
+sudo su -l steam
+mkdir ~/Steam && cd ~/Steam && curl -sqL "https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz" | tar zxvf -
+~/Steam/steamcmd.sh +force_install_dir /home/steam/pavlovserver +login anonymous +app_update 622970 +exit
+~/Steam/steamcmd.sh +login anonymous +app_update 1007 +quit
+mkdir -p ~/.steam/sdk64
+cp ~/Steam/steamapps/common/Steamworks\ SDK\ Redist/linux64/steamclient.so ~/.steam/sdk64/steamclient.so
+cp ~/Steam/steamapps/common/Steamworks\ SDK\ Redist/linux64/steamclient.so ~/pavlovserver/Pavlov/Binaries/Linux/steamclient.so
+sudo rm /usr/lib/x86_64-linux-gnu/libc++.so 
+sudo ln -s /usr/lib/x86_64-linux-gnu/libc++.so.1 /usr/lib/x86_64-linux-gnu/libc++.so
+chmod +x ~/pavlovserver/PavlovServer.sh
+mkdir -p /home/steam/pavlovserver/Pavlov/Saved/Logs
+mkdir -p /home/steam/pavlovserver/Pavlov/Saved/Config/LinuxServer
+mkdir -p /home/steam/pavlovserver/Pavlov/Saved/maps
+nano /home/steam/pavlovserver/Pavlov/Saved/Config/LinuxServer/Game.ini
+
+[/Script/Pavlov.DedicatedServer]
+bEnabled=true
+ServerName="My_private_idaho"
+MaxPlayers=10     #its recommended for the best experience to keep shack servers at or below 10 players pcvr and psvr are both capped at 24 too. 
+ApiKey="ABC123FALSEKEYDONTUSEME"
+bSecured=true
+bCustomServer=true 
+bVerboseLogging=false 
+bCompetitive=false #This only works for SND
+bWhitelist=false 
+RefreshListTime=120 
+LimitedAmmoType=0 
+TickRate=90
+TimeLimit=60
+AFKTimeLimit=300
+#Password=0000 
+#BalanceTableURL="vankruptgames/BalancingTable/main"
+MapRotation=(MapId="UGC1758245796", GameMode="GUN")
+MapRotation=(MapId="datacenter", GameMode="SND")
+MapRotation=(MapId="sand", GameMode="DM")

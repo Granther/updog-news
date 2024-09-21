@@ -11,7 +11,6 @@ from app import db, login_manager
 from app.models import Story, Comment, User, Reporter, QueuedStory, QueuedComment
 from app.forms import GenerateStoryForm, LoginForm, RegistrationForm, NewReporterForm, CommentForm
 from app.queue import queue_story, queue_decide_respond
-# from app.infer import generate_news
 
 main = Blueprint('main', __name__,
                         template_folder='templates')
@@ -25,29 +24,6 @@ main = Blueprint('main', __name__,
 # Add uuid to queue
 #   |
 # Call generate up queue time
-
-# from rq import Queue
-# from redis import Redis
-
-# from app.infer import generate_news, generate
-
-# class QueueManager:
-#     def __init__(self):
-#         redis_conn = Redis()
-#         self.q = Queue(connection=redis_conn)
-
-#     def queue_story(self, uuid: str):
-#         # if self.q.enqueue(generate, uuid):
-#         #     return True
-#         # return False
-#         with current_app.app_context():
-#             story = QueuedStory.query.filter_by(uuid=uuid).first()
-#             print(generate_news(title=story.title, guideline=story.guideline, model="meta-llama/Meta-Llama-3.1-8B-Instruct"))
-
-# _manager = QueueManager()
-
-# def queue_story(uuid: str):
-#     return _manager.queue_story(uuid)
 
 @login_manager.user_loader
 def load_user(user_id):
@@ -178,6 +154,34 @@ def reporters():
 @main.route('/about')
 def about():
     return render_template("about.html")
+
+@main.route("/comments/<uuid>", methods=['GET', 'POST'])
+def comments(uuid):
+    if request.method == 'GET':
+        results = Story.query.filter_by(uuid=uuid).first()
+        comments = Comment.query.filter_by(story_id=results.id).order_by(Comment.created).all()
+
+        def build_comment_tree(comments):
+            comment_dict = defaultdict(list)
+            top_level_comments = []
+
+            for comment in comments:
+                if comment.parent_id:
+                    comment_payload = {"id": comment.id, "content": comment.content}
+                    comment_dict[comment.parent_id].append(comment_payload)
+                else:
+                    comment_payload = {"id": comment.id, "content": comment.content}
+                    top_level_comments.append(comment_payload)
+
+            return top_level_comments, comment_dict
+        
+        top_level_comments, comment_tree = build_comment_tree(comments)
+        payload = {"comment_tree": comment_tree, "top_level_comments": top_level_comments}
+        print(top_level_comments, comment_tree)
+
+        return jsonify({"comment_tree": comment_tree, "top_level_comments": top_level_comments})
+    
+    return jsonify({"status": False})
 
 @main.route("/comment/<uuid>", methods=['POST', 'GET'])
 @login_required
