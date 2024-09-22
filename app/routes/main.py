@@ -205,22 +205,24 @@ def comment(uuid):
 @main.route("/reply", methods=['POST', 'GET'])
 def reply():
     if request.method == 'POST':
-        data = request.get_json()
+        # data = request.get_json()
 
-        comment_id = data.get('comment_id')
-        story_uuid = data.get('uuid')
-        content = data.get('content')
+        # comment_id = data.get('comment_id')
+        # story_uuid = data.get('uuid')
+        # content = data.get('content')
 
-        story_id = Story.query.filter_by(uuid=story_uuid).first().id
-        uuid = str(uuid4())
+        # story_id = Story.query.filter_by(uuid=story_uuid).first().id
+        # uuid = str(uuid4())
 
-        new_reply = Comment(content=content, story_id=story_id, uuid=uuid, user_id=current_user.id, parent_id=comment_id)
-        db.session.add(new_reply)
-        db.session.commit()
+        # new_reply = Comment(content=content, story_id=story_id, uuid=uuid, user_id=current_user.id, parent_id=comment_id)
+        # db.session.add(new_reply)
+        # db.session.commit()
 
         return jsonify({"status": True})
 
-    return abort(401)
+    #return abort(401)
+    return jsonify({"status": True})
+
 
 @main.route("/test")
 def test():

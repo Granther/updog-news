@@ -66,11 +66,14 @@
         const commentElement = document.createElement('div');
         const replyButton = document.createElement('button')
         const replyForm = document.createElement('form')
+        const replyInput = document.createElement('input')
+
+        replyInput.name = "reply"
 
         replyForm.id = comment.id
         replyForm.addEventListener("submit", function(event) {
             event.preventDefault()
-            console.log("clicked", this.id)
+            reply({parent_id: comment.id, reply: this.reply.value})
         })
 
         replyButton.innerHTML = "Reply"
@@ -83,6 +86,7 @@
         // Append the comment to the document (for example, to a comments container)
         const commentsContainer = document.getElementById('comment-section');
         commentsContainer.appendChild(commentElement);
+        replyForm.appendChild(replyInput)
         replyForm.appendChild(replyButton);
         commentsContainer.appendChild(replyForm)
 
@@ -94,6 +98,30 @@
                 render_comment(childComment, comment_tree);
             });
         }
+    }
+
+    function reply(json) {
+        fetch(`{{url_for('main.reply')}}`, {
+                method: 'POST',
+                body: JSON.stringify(json),
+                headers: {
+                'Accept': 'application/json',
+                }   
+            }).then(response => response.json()).then(data => {
+                console.log(data.Status)
+                
+                parent_comment = document.getElementById(json.parent_id)
+                new_comment = document.createElement('div')
+                new_comment.innerHTML = `<div class="comment px-4">
+                        <div class="bg-gray-800">
+                            <p>${json.reply}</p>
+                        </div> 
+                    </div>`
+
+                parent_comment.append(new_comment)
+            }).catch(error => {
+                console.log("Error occured while submitting command:", error)
+        })
     }
 
     document.getElementById('like-btn').addEventListener("click", function(event) {
