@@ -38,8 +38,6 @@
         </form>
     <div id="comment-section">
     </div>
-
-
     </section>
 </body>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -48,34 +46,54 @@
     var comment_box = document.getElementById('comment-box')
     var comment_section = document.getElementById('comment-section')
 
-    fetch(`{{url_for('main.comments', uuid=uuid)}}`).then(response => response.json()).then(data => {
+    fetch(`{{url_for('main.comments', uuid=uuid)}}`)
+    .then(response => response.json())
+    .then(data => {
         console.log(data)
-        top_level = data.top_level_comments
-        comment_tree = data.comment_tree
+        const top_level = data.top_level_comments;
+        const comment_tree = data.comment_tree;
 
-        top_level.forEach(element => {
-            render_comment(element, comment_tree)
+        top_level.forEach(comment => {
+            render_comment(comment, comment_tree);
         });
-    }).catch((error) => {
-        console.log(error)
     })
+    .catch((error) => {
+        console.log(error);
+    });
 
     function render_comment(comment, comment_tree) {
-        console.log("comment", comment.content)
+        // Create a container for the comment
+        const commentElement = document.createElement('div');
+        const replyButton = document.createElement('button')
+        const replyForm = document.createElement('form')
 
-        // comment_tree.forEach(element => {
-        //     if (element.id === comment.id) {
-        //         console.log(element.content)
-        //     }
-        // })
-
-        Object.keys(comment_tree).forEach(key => {
-            console.log(key)
-            if (key === comment.id) {
-                console.log(comment.content)
-                render_comment(comment, comment_tree)
-            }
+        replyForm.id = comment.id
+        replyForm.addEventListener("submit", function(event) {
+            event.preventDefault()
+            console.log("clicked", this.id)
         })
+
+        replyButton.innerHTML = "Reply"
+        replyButton.type = "submit"
+        replyButton.classList = "bg-sky-500 hover:bg-sky-700 text-white py-2 px-5 rounded-full font-bold text-md transition duration-300"
+
+        commentElement.textContent = comment.content;
+        commentElement.classList.add('comment');
+
+        // Append the comment to the document (for example, to a comments container)
+        const commentsContainer = document.getElementById('comment-section');
+        commentsContainer.appendChild(commentElement);
+        replyForm.appendChild(replyButton);
+        commentsContainer.appendChild(replyForm)
+
+        // Check if this comment has any child comments
+        const children = comment_tree[comment.id];
+
+        if (children && children.length > 0) {
+            children.forEach(childComment => {
+                render_comment(childComment, comment_tree);
+            });
+        }
     }
 
     document.getElementById('like-btn').addEventListener("click", function(event) {
