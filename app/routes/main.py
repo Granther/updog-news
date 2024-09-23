@@ -176,8 +176,6 @@ def comments(uuid):
             return top_level_comments, comment_dict
         
         top_level_comments, comment_tree = build_comment_tree(comments)
-        payload = {"comment_tree": comment_tree, "top_level_comments": top_level_comments}
-        print(top_level_comments, comment_tree)
 
         return jsonify({"comment_tree": comment_tree, "top_level_comments": top_level_comments})
     
@@ -205,23 +203,26 @@ def comment(uuid):
 @main.route("/reply", methods=['POST', 'GET'])
 def reply():
     if request.method == 'POST':
-        # data = request.get_json()
+        data = request.get_json()
 
-        # comment_id = data.get('comment_id')
-        # story_uuid = data.get('uuid')
-        # content = data.get('content')
+        parent_id = data.get('parent_id')
+        content = data.get('reply')
+        story_uuid = data.get('story_id')
 
-        # story_id = Story.query.filter_by(uuid=story_uuid).first().id
-        # uuid = str(uuid4())
+        story_id = Story.query.filter_by(uuid=story_uuid).first().id
 
-        # new_reply = Comment(content=content, story_id=story_id, uuid=uuid, user_id=current_user.id, parent_id=comment_id)
-        # db.session.add(new_reply)
-        # db.session.commit()
+        print(parent_id, content, story_id)
+
+        uuid = str(uuid4())
+
+        new_reply = Comment(content=content, story_id=story_id, uuid=uuid, user_id=current_user.id, parent_id=parent_id)
+        db.session.add(new_reply)
+        db.session.commit()
 
         return jsonify({"status": True})
 
     #return abort(401)
-    return jsonify({"status": True})
+    return jsonify({"status": False})
 
 
 @main.route("/test")

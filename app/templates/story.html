@@ -13,13 +13,6 @@
     <header class="relative bg-gray-900 p-4 text-center">
         <h1 class="text-3xl font-bold"><a href="{{ url_for('main.index') }}">{{ title }}</a></h1>
         <p class="text-white">By <a href="{{url_for('main.reporter', uuid=reporter_uuid, name=reporter_name)}}">{{ reporter_name }}</a></p>
-    
-        <div class="absolute right-0 top-0 p-5 flex flex-row gap-5 items-end space-y-2">
-            <p class="text-white text-md font-bold bg-blue-500 rounded-lg px-4 py-2" id="likes-num">{{ uuid | story_likes }}</p>
-            <button class="text-white text-md font-bold bg-blue-500 rounded-lg px-4 py-2" id="like-btn">
-                {{ uuid | story_is_liked }}
-            </button>
-        </div>
     </header>    
     <main class="flex flex-grow p-4">
         <article class="max-w-3xl mx-auto text-center">
@@ -28,115 +21,37 @@
             </section>
         </article>
     </main>
+
     <section class="flex flex-col w-1/2 justify-center mx-auto pt-10">
         <form action="" id="comment-box" method="POST" name="" class="pb-10">
             {{ form.hidden_tag() }}
             <div class="flex justify-center">
                 {{form.comment}}
-                <button type="submit" class="bg-sky-500 hover:bg-sky-700 text-white py-2 px-5 l font-bold text-md transition duration-300">Comment</button>
+                <button type="submit" class="bg-sky-500 hover:bg-sky-700 text-white py-2 px-5 rounded-full font-bold text-md transition duration-300">Comment</button>
             </div>
         </form>
-    <section class="bg-white dark:bg-gray-900 py-8 lg:py-16 antialiased">
-        <div class="max-w-2xl mx-auto px-4" id="comment-section">
-            <div class="flex justify-between items-center mb-6">
-                <h2 class="text-lg lg:text-2xl font-bold text-gray-900 dark:text-white">Comments (20)</h2>
+
+        <section class="bg-white dark:bg-gray-900 py-8 lg:py-16 antialiased">
+            <div class="max-w-2xl mx-auto px-4" id="comment-section">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-lg lg:text-2xl font-bold text-gray-900 dark:text-white">Comments</h2>
+                </div>
             </div>
-            <form class="mb-6">
-                <div
-                    class="py-2 px-4 mb-4 bg-white rounded-lg rounded-t-lg border border-gray-200 dark:bg-gray-800 dark:border-gray-700">
-                    <label for="comment" class="sr-only">Your comment</label>
-                    <textarea id="comment" rows="6"
-                        class="px-0 w-full text-sm text-gray-900 border-0 focus:ring-0 focus:outline-none dark:text-white dark:placeholder-gray-400 dark:bg-gray-800"
-                        placeholder="Write a comment..." required></textarea>
-                </div>
-                <button type="submit"
-                    class="inline-flex items-center py-2.5 px-4 text-xs font-medium text-center text-white bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800">
-                    Post comment
-                </button>
-            </form>
-            <article class="p-6 mb-3 ml-6 lg:ml-12 text-base bg-white rounded-lg dark:bg-gray-900">
-                <footer class="flex justify-between items-center mb-2">
-                    <div class="flex items-center">
-                        <p class="inline-flex items-center mr-3 text-sm text-gray-900 dark:text-white font-semibold"><img
-                                class="mr-2 w-6 h-6 rounded-full"
-                                src="https://flowbite.com/docs/images/people/profile-picture-5.jpg" alt="Jese Leos">Jese
-                            Leos</p>
-                        <p class="text-sm text-gray-600 dark:text-gray-400"><time pubdate datetime="2022-02-12"
-                                title="February 12th, 2022">Feb. 12, 2022</time></p>
-                    </div>
-                    <button id="dropdownComment2Button" data-dropdown-toggle="dropdownComment2"
-                        class="inline-flex items-center p-2 text-sm font-medium text-center text-gray-500 dark:text-gray-40 bg-white rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-50 dark:bg-gray-900 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-                        type="button">
-                        <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
-                            viewBox="0 0 16 3">
-                            <path
-                                d="M2 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm6.041 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM14 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Z" />
-                        </svg>
-                    </button>
-                </footer>
-                <p class="text-gray-500 dark:text-gray-400">Much appreciated! Glad you liked it ☺️</p>
-                <div class="flex items-center mt-4 space-x-4">
-                    <button type="button"
-                        class="flex items-center text-sm text-gray-500 hover:underline dark:text-gray-400 font-medium">
-                        <svg class="mr-1.5 w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                            viewBox="0 0 20 18">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M5 5h5M5 8h2m6-3h2m-5 3h6m2-7H2a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h3v5l5-5h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1Z" />
-                        </svg>
-                        Reply
-                    </button>
-                </div>
-            </article>
-            <article class="p-6 text-base bg-white border-t border-gray-200 dark:border-gray-700 dark:bg-gray-900">
-                <footer class="flex justify-between items-center mb-2">
-                    <div class="flex items-center">
-                        <p class="inline-flex items-center mr-3 text-sm text-gray-900 dark:text-white font-semibold">Helene
-                            Engels</p>
-                        <p class="text-sm text-gray-600 dark:text-gray-400"><time pubdate datetime="2022-06-23"
-                                title="June 23rd, 2022">Jun. 23, 2022</time></p>
-                    </div>
-                    <button id="dropdownComment4Button" data-dropdown-toggle="dropdownComment4"
-                        class="inline-flex items-center p-2 text-sm font-medium text-center text-gray-500 dark:text-gray-40 bg-white rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-50 dark:bg-gray-900 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-                        type="button">
-                        <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
-                            viewBox="0 0 16 3">
-                            <path
-                                d="M2 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm6.041 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM14 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Z" />
-                        </svg>
-                    </button>
-                </footer>
-                <p class="text-gray-500 dark:text-gray-400">Thanks for sharing this. I do came from the Backend development
-                    and explored some of the tools to design my Side Projects.</p>
-                <div class="flex items-center mt-4 space-x-4">
-                    <button type="button"
-                        class="flex items-center text-sm text-gray-500 hover:underline dark:text-gray-400 font-medium">
-                        <svg class="mr-1.5 w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                            viewBox="0 0 20 18">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M5 5h5M5 8h2m6-3h2m-5 3h6m2-7H2a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h3v5l5-5h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1Z" />
-                        </svg>
-                        Reply
-                    </button>
-                </div>
-            </article>
-        </div>
-    </section>
+        </section>
     </section>
 </body>
+
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-    var likes_num = document.getElementById('likes-num')
-    var comment_box = document.getElementById('comment-box')
-    var comment_section = document.getElementById('comment-section')
+    var comment_section = document.getElementById('comment-section');
 
     fetch(`{{url_for('main.comments', uuid=uuid)}}`)
     .then(response => response.json())
     .then(data => {
-        console.log(data)
-        const top_level = data.top_level_comments;
+        const top_level_comments = data.top_level_comments;
         const comment_tree = data.comment_tree;
 
-        top_level.forEach(comment => {
+        top_level_comments.forEach(comment => {
             render_comment(comment, comment_tree);
         });
     })
@@ -144,105 +59,95 @@
         console.log(error);
     });
 
-    function render_comment(comment, comment_tree) {
-        // Create a container for the comment
+    function render_comment(comment, comment_tree, parent = null) {
         const commentElement = document.createElement('div');
-        const replyButton = document.createElement('button')
-        const replyForm = document.createElement('form')
-        const replyInput = document.createElement('input')
+        commentElement.classList = "text-black bg-gray-800"
+        commentElement.classList.add('comment', 'p-6', 'mb-4');
+        commentElement.innerHTML = `
+            <div class="flex flex-col">
+                <p class="text-gray-900 dark:text-white">${comment.content}</p>
+                <button class="reply-btn bg-sky-500 hover:bg-sky-700 text-white rounded-full text-sm right-0 ml-auto">Reply</button>
+            </div>
+            <form class="reply-form hidden" data-parent-id="${comment.id}" data-story-id="{{ uuid }}">
+                <textarea class="reply-input mt-2 w-full p-2 rounded border"></textarea>
+                <button type="submit" class="submit-reply bg-sky-500 hover:bg-sky-700 text-white py-1 px-3 rounded-full text-sm mt-2">Submit Reply</button>
+            </form>
+        `;
 
-        replyInput.name = "reply"
+        // If there is a parent, append it to the parent's comment
+        if (parent) {
+            parent.appendChild(commentElement);
+        } else {
+            comment_section.appendChild(commentElement);
+        }
 
-        replyForm.id = comment.id
-        replyForm.addEventListener("submit", function(event) {
+        // Event listener for "Reply" button
+        const replyBtn = commentElement.querySelector('.reply-btn');
+        replyBtn.addEventListener('click', function(event) {
             event.preventDefault()
-            reply({parent_id: comment.id, reply: this.reply.value})
-        })
+            const replyForm = commentElement.querySelector('.reply-form');
+            replyForm.classList.toggle('hidden'); // Show or hide reply form
+        });
 
-        replyButton.innerHTML = "Reply"
-        replyButton.type = "submit"
-        replyButton.classList = "bg-sky-500 hover:bg-sky-700 text-white py-2 px-5 rounded-full font-bold text-md transition duration-300"
+        // Event listener for submitting reply
+        const replyForm = commentElement.querySelector('.reply-form');
+        replyForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            const replyContent = replyForm.querySelector('.reply-input').value;
+            const parentId = replyForm.dataset.parentId;
+            const storyId = replyForm.dataset.storyId;
+            reply({parent_id: parentId, reply: replyContent, story_id: storyId});
+        });
 
-        commentElement.textContent = comment.content;
-        commentElement.classList.add('comment');
-
-        // Append the comment to the document (for example, to a comments container)
-        const commentsContainer = document.getElementById('comment-section');
-        commentsContainer.appendChild(commentElement);
-        replyForm.appendChild(replyInput)
-        replyForm.appendChild(replyButton);
-        commentsContainer.appendChild(replyForm)
-
-        // Check if this comment has any child comments
+        // Render child comments (replies)
         const children = comment_tree[comment.id];
-
         if (children && children.length > 0) {
             children.forEach(childComment => {
-                render_comment(childComment, comment_tree);
+                render_comment(childComment, comment_tree, commentElement);
             });
         }
     }
 
+    // Function to handle the reply form submission
     function reply(json) {
         fetch(`{{url_for('main.reply')}}`, {
                 method: 'POST',
                 body: JSON.stringify(json),
                 headers: {
-                'Accept': 'application/json',
-                }   
-            }).then(response => response.json()).then(data => {
-                console.log(data.Status)
-                
-                parent_comment = document.getElementById(json.parent_id)
-                new_comment = document.createElement('div')
-                new_comment.innerHTML = `<div class="comment px-4">
-                        <div class="bg-gray-800">
-                            <p>${json.reply}</p>
-                        </div> 
-                    </div>`
-
-                parent_comment.append(new_comment)
-            }).catch(error => {
-                console.log("Error occured while submitting command:", error)
-        })
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                // Refresh the comment section after reply is submitted
+                // location.reload();
+            })
+            .catch(error => {
+                console.log('Error occurred while submitting reply:', error);
+            });
     }
 
-    document.getElementById('like-btn').addEventListener("click", function(event) {
+    // Handle main comment submission
+    document.getElementById('comment-box').addEventListener("submit", function(event) {
         event.preventDefault();
-        fetch(`{{url_for('main.like', uuid=uuid)}}`, {
-                method: "POST",
-            }).then(response => response.json()).then(data => {
-                this.innerHTML = data.state;
-                likes_num.innerHTML = data.likes
-            }).catch(error => console.error('Error', error));
-                this.innerHTML = "Like"
-        });
-
-    comment_box.addEventListener("submit", function(event) {
-        event.preventDefault()
-        var formdata = new FormData(this)
-
-        console.log(formdata.get('comment'))
+        var formData = new FormData(this);
 
         fetch(`{{url_for('main.comment', uuid=uuid)}}`, {
-                method: 'POST',
-                body: formdata,
-                headers: {
+            method: 'POST',
+            body: formData,
+            headers: {
                 'Accept': 'application/json',
-                }   
-            }).then(response => response.json()).then(data => {
-                console.log(data.Status)
-                new_comment = document.createElement('div')
-                new_comment.innerHTML = `<div class="comment">
-                        <div class="bg-gray-800">
-                            <p>${formdata.get('comment')}</p>
-                        </div> 
-                    </div>`
-
-                comment_section.prepend(new_comment)
-            }).catch(error => {
-                console.log("Error occured while submitting command:", error)
-        })
-    })
+            }
+        }).then(response => response.json())
+        .then(data => {
+            console.log(data);
+            // Refresh comment section after submitting a new comment
+            location.reload();
+        }).catch(error => {
+            console.log("Error occurred while submitting comment:", error);
+        });
+    });
 </script>
 {% endblock %}
