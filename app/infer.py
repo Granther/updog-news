@@ -1,5 +1,6 @@
 import os
 from uuid import uuid4
+import random
 
 import openai
 from openai import OpenAI
@@ -9,7 +10,7 @@ from flask import current_app
 
 from app import db, rq
 from app.models import Story, QueuedStory, QueuedComment, Reporter, Comment
-from app.utils import get_reply_tree
+from app.utils import get_reply_tree, whoami, account_type_owns
 
 class Infer():
     def __init__(self):
@@ -35,7 +36,60 @@ class Infer():
 
         db.session.commit()
 
-    def decide_respond(self, story_uuid: str, comment_uuid: str):
+    def decide_respond(self, story_uuid: str, comment_uuid: str) -> bool:
+        reply_tree = get_reply_tree(comment_uuid)
+        story = Story.query.filter_by(uuid=story_uuid).first()
+        reporter = Reporter.query.filter_by(id=story.reporter_id).first()
+        original_comment = Comment.query.filter_by(uuid=comment_uuid).first()
+
+        if not original_comment.parent_id:
+            current_app.logger.debug(f"{whoami()}:::Comment is a top level comment")
+        else:
+            current_app.logger.debug(f"{whoami()}:::Comment is a reply to another comment")
+            parent_to_original = Comment.query.filter_by(id=original_comment.parent_id).first()
+
+            """ 
+            The parent of the comment that a user replied to, initiating this reply generation
+            If this parent's reporter is this' reporter, it is valid
+            """
+            if parent_to_original.reporter != reporter:
+                current_app.logger.debug(f"{whoami()}:::Cannot reply to comment for which this reporter is not in the chain of")
+                return False
+
+
+        sys_prompt = f'''
+            You are a reporter for a famous news reporting site updog.news, your name is: {reporter.name} and your personality is as follows: {reporter.personality}. 
+            Someone has commented on your article. You will be shown your article, followed by the comment that was added by a random user to your post. Please decide whether you as {reporter.name} with a personality of {reporter.personality} would respond to such a comment.
+            Think to yourself, "Would I, {reporter.name}, respond to this comment?". 
+            If the answer is Yes, please produce "YES":
+            Response: YES
+            Response: YES
+            Response: YES
+
+            Or, If the answer is NO, please produce "No":
+            Response: No
+            Response: No
+            Response: No
+        '''
+        prompt = f"### Original Post/Story:\n{story.content}\n### Comment/Comment Tree:\n{reply_tree}\n"
+
+        response = self._gen(prompt, sys_prompt)
+        if "no" in response.lower():
+            current_app.logger.debug(f"decide_respond ::: Responding with choice of {False}")
+            return False
+        elif "yes" in response.lower():
+            current_app.logger.debug(f"decide_respond ::: Responding with choice of {True}")
+            return True
+        else:
+            choice = random.choice([True, False]) 
+            current_app.logger.debug(f"decide_respond ::: Responding with random choice of {choice}")
+            return choice
+
+    def respond_comment(self, story_uuid: str, comment_uuid: str):
+        # Use semantic analysis to decide 
+        # Chance to respond to top level
+        # Always respond to threaded comments
+
         reply_tree = get_reply_tree(comment_uuid)
         story = Story.query.filter_by(uuid=story_uuid).first()
         reporter = Reporter.query.filter_by(id=story.reporter_id).first()
@@ -45,13 +99,13 @@ class Infer():
             Someone has commented on your article. You will be shown your article, followed by the comment that was added by a random user to your post. Please write a reply to their comment in your personality, which is: {reporter.personality}.
             Please only make the response a few short sentences, the comment section has a low max limit for tokens.
         '''
-        prompt = f"### Original Post/Story:\n{story.content}\n### Comment:\n{reply_tree}\n"
+        prompt = f"### Original Post/Story:\n{story.content}\n### Comment/Comment Tree, you are responding to the most recent one:\n{reply_tree}\n"
 
         original_comment = Comment.query.filter_by(uuid=comment_uuid).first()
         comment_content = self._gen(prompt, sys_prompt)
         uuid = str(uuid4())
 
-        new_comment = Comment(content=comment_content, story_id=story.id, uuid=uuid, user_id=original_comment.user_id)
+        new_comment = Comment(content=comment_content, story_id=story.id, uuid=uuid, user_id=original_comment.user_id, parent_id=original_comment.id)
         db.session.add(new_comment)
         db.session.commit()
 
@@ -61,6 +115,7 @@ class Infer():
             api_key=os.getenv('FEATHERLESS_API_KEY')
         )
 
+        # Use messages instead of comment tree
         messages=[
             {
                 "role": "user",
@@ -106,6 +161,10 @@ def generate_news(title: str, guideline: str=None):
 @rq.job
 def generate(uuid: str):
     return _infer.generate(uuid)
+
+@rq.job
+def respond_comment(story_uuid: str, comment_uuid: str):
+    return _infer.respond_comment(story_uuid, comment_uuid)
 
 @rq.job
 def decide_respond(story_uuid: str, comment_uuid: str):

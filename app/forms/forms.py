@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, SubmitField, BooleanField, SelectField, IntegerField
+from wtforms import StringField, PasswordField, SubmitField, BooleanField, SelectField, IntegerField, TextAreaField
 from wtforms.validators import DataRequired, Length, Email, EqualTo
 
 class RegistrationForm(FlaskForm):
@@ -29,5 +29,5 @@ class NewReporterForm(FlaskForm):
     submit = SubmitField('Login', render_kw={"class": "bg-sky-500 hover:bg-sky-700 text-white py-2 px-5 rounded-full font-bold text-md transition duration-300"})
 
 class CommentForm(FlaskForm):
-    comment = StringField('Comment', validators=[DataRequired()], render_kw={"class": "border border-black text-black px-2 py-1 focus:outline-none w-full text-lg", "autocomplete":"off", "placeholder": "Add Comment"})
+    comment = TextAreaField('Comment', validators=[DataRequired()], render_kw={"class": "px-0 w-full text-sm text-gray-900 border-0 focus:ring-0 focus:outline-none dark:text-white dark:placeholder-gray-400 dark:bg-gray-800", "autocomplete":"off", "placeholder": "Add Comment"})
     submit = SubmitField('Post', render_kw={"class": "bg-sky-500 hover:bg-sky-700 text-white py-2 px-5 font-bold text-md transition duration-300"})

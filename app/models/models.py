@@ -52,11 +52,18 @@ class Comment(db.Model):
     created = db.Column(db.TIMESTAMP, nullable=False, server_default=db.func.now())
     uuid = db.Column(db.String, unique=True, nullable=False)
     content = db.Column(db.String, unique=False, nullable=False)
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+
+    # Both are nullable because they are mutually exclusive, cannot be owned by user and reporter
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=True)
+    reporter_id = db.Column(db.Integer, db.ForeignKey('reporter.id'), nullable=True)
+
     story_id = db.Column(db.Integer, db.ForeignKey('story.id'))
     likes = db.Column(db.Integer, nullable=True, default=0)
     parent_id = db.Column(db.Integer, db.ForeignKey('comment.id'), nullable=True)
     children = db.relationship('Comment', backref=db.backref('parent_comment', remote_side=[id]), lazy='dynamic')
+    
+    # When querying a comment, I can access the user object with *.user.*. Requires relationship in User model as well
+    # user = db.relationship('User', back_populates='comments')
 
 class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
@@ -78,4 +85,4 @@ class Reporter(db.Model):
     archived = db.Column(db.Boolean, nullable=True, default=False)
     likes = db.Column(db.Integer, nullable=True, default=0)
     stories = db.relationship('Story', backref='reporter')
-    # comments = db.relationship('Comment', backref='reporter')
+    comments = db.relationship('Comment', backref='reporter')

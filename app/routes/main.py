@@ -10,7 +10,7 @@ from uuid import uuid4
 from app import db, login_manager
 from app.models import Story, Comment, User, Reporter, QueuedStory, QueuedComment
 from app.forms import GenerateStoryForm, LoginForm, RegistrationForm, NewReporterForm, CommentForm
-from app.queue import queue_story, queue_decide_respond
+from app.queue import queue_story, queue_respond_comment
 
 main = Blueprint('main', __name__,
                         template_folder='templates')
@@ -54,8 +54,6 @@ def login():
         if user and current_app.bcrypt.check_password_hash(user.password, form.password.data):
             login_user(user, remember=form.remember.data)
             return redirect(url_for('main.index'))
-            # next_page = request.args.get('next')
-            # return redirect(next_page) if next_page else redirect(url_for('home'))
         else:
             flash('Login Unsuccessful. Please check email and password', 'danger')
 
@@ -166,17 +164,16 @@ def comments(uuid):
             top_level_comments = []
 
             for comment in comments:
+                comment_payload = {"id": comment.id, "content": comment.content, "username": comment.user.username}
+
                 if comment.parent_id:
-                    comment_payload = {"id": comment.id, "content": comment.content}
                     comment_dict[comment.parent_id].append(comment_payload)
                 else:
-                    comment_payload = {"id": comment.id, "content": comment.content}
                     top_level_comments.append(comment_payload)
 
             return top_level_comments, comment_dict
-        
-        top_level_comments, comment_tree = build_comment_tree(comments)
 
+        top_level_comments, comment_tree = build_comment_tree(comments)
         return jsonify({"comment_tree": comment_tree, "top_level_comments": top_level_comments})
     
     return jsonify({"status": False})
@@ -184,21 +181,23 @@ def comments(uuid):
 @main.route("/comment/<uuid>", methods=['POST', 'GET'])
 @login_required
 def comment(uuid):
-    form = CommentForm()
+    if request.method == 'POST':
+        data = request.get_json()
+        content = data.get('comment')
 
-    if form.validate_on_submit():
         story = Story.query.filter_by(uuid=uuid).first()
         uuid = str(uuid4())
 
-        new_comment = Comment(content=form.comment.data, story_id=story.id, uuid=uuid, user_id=current_user.id)
+        new_comment = Comment(content=content, story_id=story.id, uuid=uuid, user_id=current_user.id)
         db.session.add(new_comment)
         db.session.commit()
 
-        queue_decide_respond(story.uuid, new_comment.uuid)
+        # if queue_decide_respond(story.uuid, new_comment.uuid):
+        queue_respond_comment(story.uuid, new_comment.uuid)
 
-        return jsonify({"Status": "huh"})
+        return jsonify({"Status": False})
 
-    return jsonify({"Status": "huh"})
+    return jsonify({"Status": True})
 
 @main.route("/reply", methods=['POST', 'GET'])
 def reply():
@@ -208,26 +207,19 @@ def reply():
         parent_id = data.get('parent_id')
         content = data.get('reply')
         story_uuid = data.get('story_id')
-
         story_id = Story.query.filter_by(uuid=story_uuid).first().id
-
-        print(parent_id, content, story_id)
-
         uuid = str(uuid4())
 
         new_reply = Comment(content=content, story_id=story_id, uuid=uuid, user_id=current_user.id, parent_id=parent_id)
         db.session.add(new_reply)
         db.session.commit()
 
+        # if queue_decide_respond(story_uuid, new_reply.uuid):
+        queue_respond_comment(story_uuid, new_reply.uuid)
+
         return jsonify({"status": True})
 
-    #return abort(401)
     return jsonify({"status": False})
-
-
-@main.route("/test")
-def test():
-    pass
 
 
 # @main.route("/get_reporters", methods=["GET"])

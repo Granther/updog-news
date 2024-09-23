@@ -1,4 +1,5 @@
 import os
+import inspect
 from collections import defaultdict
 
 from app import db
@@ -25,7 +26,8 @@ def get_reply_tree(comment_uuid: str):
     parents = []
 
     def get_parent(comment):
-        parents.append(comment.content)
+        # Use name 
+        parents.append({"content": comment.content, "username": comment.user.username})
         for key, value in comment_tree.items():
             for item in value:
                 if item.id == comment.parent_id:
@@ -40,3 +42,14 @@ def get_reply_tree(comment_uuid: str):
     get_parent(target_comment)
 
     return parents
+
+def whoami():
+    return inspect.stack()[1][3]
+
+def account_type_owns(comment: Comment) -> str:
+    if comment.user:
+        return "user"
+    elif comment.reporter:
+        return "reporter"
+    else:
+        return None

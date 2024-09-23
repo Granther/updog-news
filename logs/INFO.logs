@@ -1,1 +1,49 @@
 2024-09-18 14:34:16,225 - app - INFO - At index page
+2024-09-23 01:22:34,738 - app - INFO - decide_respond ::: Responding with choice of True
+2024-09-23 01:24:30,678 - app - DEBUG - decide_respond ::: Responding with choice of True
+2024-09-23 01:28:07,978 - app - DEBUG - decide_respond ::: Responding with choice of True
+2024-09-23 01:53:08,883 - app - DEBUG - decide_respond:::Comment is a reply to another comment
+2024-09-23 01:58:27,243 - app - DEBUG - decide_respond:::Comment is a top level comment
+2024-09-23 01:58:29,860 - app - DEBUG - decide_respond ::: Responding with choice of False
+2024-09-23 01:58:48,150 - app - DEBUG - decide_respond:::Comment is a reply to another comment
+2024-09-23 01:58:48,152 - app - DEBUG - decide_respond:::Cannot reply to comment for which this reporter is not in the chain of
+2024-09-23 02:13:07,923 - app - DEBUG - decide_respond:::Comment is a top level comment
+2024-09-23 02:13:09,347 - app - DEBUG - decide_respond ::: Responding with choice of True
+2024-09-23 02:13:09,481 - app - DEBUG - decide_respond:::Comment is a top level comment
+2024-09-23 02:13:10,844 - app - DEBUG - decide_respond ::: Responding with choice of True
+2024-09-23 02:13:19,228 - app - DEBUG - decide_respond:::Comment is a top level comment
+2024-09-23 02:13:31,621 - app - DEBUG - decide_respond ::: Responding with choice of False
+2024-09-23 02:14:12,784 - app - DEBUG - decide_respond:::Comment is a top level comment
+2024-09-23 02:14:14,223 - app - DEBUG - decide_respond ::: Responding with choice of True
+2024-09-23 02:14:42,580 - app - DEBUG - decide_respond:::Comment is a top level comment
+2024-09-23 02:14:49,792 - app - DEBUG - decide_respond ::: Responding with choice of True
+2024-09-23 02:14:49,916 - app - DEBUG - decide_respond:::Comment is a top level comment
+2024-09-23 02:14:51,267 - app - DEBUG - decide_respond ::: Responding with choice of False
+2024-09-23 02:15:36,462 - app - DEBUG - decide_respond:::Comment is a top level comment
+2024-09-23 02:15:40,699 - app - DEBUG - decide_respond ::: Responding with choice of False
+2024-09-23 02:15:40,829 - app - DEBUG - decide_respond:::Comment is a top level comment
+2024-09-23 02:15:43,347 - app - DEBUG - decide_respond ::: Responding with choice of True
+2024-09-23 02:15:43,479 - app - DEBUG - decide_respond:::Comment is a top level comment
+2024-09-23 02:15:44,879 - app - DEBUG - decide_respond ::: Responding with choice of False
+2024-09-23 02:15:45,003 - app - DEBUG - decide_respond:::Comment is a top level comment
+2024-09-23 02:15:46,369 - app - DEBUG - decide_respond ::: Responding with choice of True
+2024-09-23 02:15:46,496 - app - DEBUG - decide_respond:::Comment is a top level comment
+2024-09-23 02:15:48,775 - app - DEBUG - decide_respond ::: Responding with choice of True
+2024-09-23 02:17:18,393 - app - DEBUG - decide_respond:::Comment is a top level comment
+2024-09-23 02:17:28,708 - app - DEBUG - decide_respond ::: Responding with choice of True
+2024-09-23 02:18:10,709 - app - DEBUG - decide_respond:::Comment is a top level comment
+2024-09-23 02:18:12,161 - app - DEBUG - decide_respond ::: Responding with choice of True
+2024-09-23 02:18:13,147 - app - DEBUG - decide_respond:::Comment is a top level comment
+2024-09-23 02:18:14,601 - app - DEBUG - decide_respond ::: Responding with choice of False
+2024-09-23 02:18:17,196 - app - DEBUG - decide_respond:::Comment is a top level comment
+2024-09-23 02:18:18,598 - app - DEBUG - decide_respond ::: Responding with choice of False
+2024-09-23 02:19:33,468 - app - DEBUG - decide_respond:::Comment is a top level comment
+2024-09-23 02:19:35,877 - app - DEBUG - decide_respond ::: Responding with choice of False
+2024-09-23 02:22:27,420 - app - DEBUG - decide_respond:::Comment is a top level comment
+2024-09-23 02:22:33,281 - app - DEBUG - decide_respond ::: Responding with choice of True
+2024-09-23 02:22:41,105 - app - DEBUG - decide_respond:::Comment is a top level comment
+2024-09-23 02:22:42,465 - app - DEBUG - decide_respond ::: Responding with choice of True
+2024-09-23 02:23:11,959 - app - DEBUG - decide_respond:::Comment is a top level comment
+2024-09-23 02:23:13,344 - app - DEBUG - decide_respond ::: Responding with choice of False
+2024-09-23 02:23:13,465 - app - DEBUG - decide_respond:::Comment is a top level comment
+2024-09-23 02:23:14,852 - app - DEBUG - decide_respond ::: Responding with choice of False
