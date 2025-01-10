@@ -35,8 +35,6 @@ class Reporters(db.Model):
     personality = db.Column(db.String, nullable=False)
     trashed = db.Column(db.Boolean, nullable=True, default=False)    
     archived = db.Column(db.Boolean, nullable=True, default=False)
-    onetime = db.Column(db.Boolean, nullable=True)
-    likes = db.Column(db.Integer, nullable=True, default=0)
     stories = db.relationship('Stories', backref='reporters', lazy=True)
 
 class Stories(db.Model):
@@ -47,7 +45,6 @@ class Stories(db.Model):
     content = db.Column(db.String, nullable=False)
     trashed = db.Column(db.Boolean, nullable=True, default=False)    
     archived = db.Column(db.Boolean, nullable=True, default=False)
-    likes = db.Column(db.Integer, nullable=True, default=0)
     reporter_id = db.Column(db.Integer, db.ForeignKey('reporters.id'), nullable=False)
 
 class ReporterCreationForm(FlaskForm):
@@ -98,10 +95,10 @@ def index():
     if not session.get("likes", False):
         session['likes'] = []
     stories = []
-    result = Stories.query.order_by(db.desc(Stories.likes)).all()
-    for story in result:
-        reporter = Reporters.query.filter_by(id=story.reporter_id).first()
-        stories.append({"id":story.id, "title":story.title, "content":story.content, "uuid":story.uuid, "reportername":reporter.name, "likes":story.likes})
+    # result = Stories.query.order_by(db.desc(Stories.likes)).all()
+    # for story in result:
+    #     reporter = Reporters.query.filter_by(id=story.reporter_id).first()
+    #     stories.append({"id":story.id, "title":story.title, "content":story.content, "uuid":story.uuid, "reportername":reporter.name, "likes":story.likes})
 
     return render_template("index.html", stories=stories)
 
@@ -133,25 +130,25 @@ def new_reporter():
         return redirect(url_for('reporters'))
     return render_template('new_reporter.html', form=form)
 
-# @app.route("/create_reporter", methods=["POST"])
-# def create_reporter():
-#     if request.method == "POST":
-#         data = request.form
-#         if not data:
-#             msg = "Error recieving form data"
-#             return render_template('new_reporter.html', msg=msg)
+@app.route("/create_reporter", methods=["POST"])
+def create_reporter():
+    if request.method == "POST":
+        data = request.form
+        if not data:
+            msg = "Error recieving form data"
+            return render_template('new_reporter.html', msg=msg)
         
-#         if data['name'] == '': # If no title
-#             msg = "Name field must be filled"
-#             return render_template('new_reporter.html', msg=msg)
+        if data['name'] == '': # If no title
+            msg = "Name field must be filled"
+            return render_template('new_reporter.html', msg=msg)
         
-#         if data['personality'] == '': # If no personality
-#             msg = "Personality field must be filled"
-#             return render_template('new_reporter.html', msg=msg)
+        if data['personality'] == '': # If no personality
+            msg = "Personality field must be filled"
+            return render_template('new_reporter.html', msg=msg)
 
-#     res = rep.create_reporter(name=data['name'], personality=data['personality'], bio=data['bio'])
+    res = rep.create_reporter(name=data['name'], personality=data['personality'], bio=data['bio'])
 
-#     return redirect(url_for("reporters"))
+    return redirect(url_for("reporters"))
 
 @app.route('/post', methods=['POST'])
 def post():
