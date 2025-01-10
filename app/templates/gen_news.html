@@ -11,7 +11,7 @@
 <body class="grid sm:grid-cols-3 grid-cols-1 gap-5 bg-gray-900">
     <div class="relative text-center w-full h-full p-5">
         <div class="absolute flex flex-row gap-5 items-center justify-between bottom-5">
-            <a href="{{ url_for('index') }}">
+            <a href="{{ url_for('main.index') }}">
                 <button
                     class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
                     type="submit" id="news-button">
@@ -211,7 +211,7 @@
                     'Content-Type': 'application/json'
                 },
             }).then(response => response.json()).then(data => {
-                window.location.replace("{{url_for('index')}}");
+                window.location.replace("{{url_for('main.index')}}");
             }).catch(error => console.error('Error', error));
         }
     </script>

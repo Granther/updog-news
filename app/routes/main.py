@@ -34,12 +34,12 @@ def register():
     form = RegistrationForm()
     if form.validate_on_submit():
         hashed_password = current_app.bcrypt.generate_password_hash(form.password.data).decode('utf-8')
-        email = User.query.filter_by(email=form.email.data).first()
-        if email:
-            flash('Register Unsuccessful. Email already associated with account', 'danger')
+        user = User.query.filter_by(username=form.username.data).first()
+        if user:
+            flash('Register Unsuccessful. Username already registered', 'danger')
             return render_template("register.html", title='Register', form=form)
 
-        user = User(username=form.username.data, email=form.email.data, password=hashed_password)
+        user = User(username=form.username.data, password=hashed_password)
         db.session.add(user)
         db.session.commit()
         flash('Your account has been created! You can now log in.', 'success')
@@ -50,7 +50,7 @@ def register():
 def login():
     form = LoginForm()
     if form.validate_on_submit():
-        user = User.query.filter_by(email=form.email.data).first()
+        user = User.query.filter_by(username=form.username.data).first()
         if user and current_app.bcrypt.check_password_hash(user.password, form.password.data):
             login_user(user, remember=form.remember.data)
             return redirect(url_for('main.index'))
@@ -386,7 +386,7 @@ def like(uuid):
 def reporter(uuid, name=None):
     results = Reporter.query.filter_by(uuid=uuid).first()
     if results.onetime:
-        return redirect(url_for('index'))
+        return redirect(url_for('main.index'))
     else:
         reporter = {"name":results.name, "personality":results.personality}
         return render_template("reporter.html", **reporter, stories=results.stories)

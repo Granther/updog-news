@@ -68,8 +68,8 @@ class Comment(db.Model):
 class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     created = db.Column(db.TIMESTAMP, nullable=False, server_default=db.func.now())
-    username = db.Column(db.String, unique=False, nullable=False)
-    email = db.Column(db.String, unique=True, nullable=False)
+    username = db.Column(db.String, unique=True, nullable=False)
+    # email = db.Column(db.String, unique=True, nullable=False)
     password = db.Column(db.String, nullable=False)
     stories = db.relationship('Story', backref='user')
     comments = db.relationship('Comment', backref='user')
