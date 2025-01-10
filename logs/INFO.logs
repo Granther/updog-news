@@ -601,3 +601,236 @@ Traceback (most recent call last):
   File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/redis/connection.py", line 283, in connect
     raise ConnectionError(self._error_message(e))
 redis.exceptions.ConnectionError: Error 111 connecting to localhost:6379. Connection refused.
+2025-01-10 15:53:15,304 - app - ERROR - Exception on /generate [GET]
+Traceback (most recent call last):
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+  File "/home/grant/Workspace/updog-news/app/routes/main.py", line 95, in generate
+    return render_template("generate_2.html", form=form)
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/templating.py", line 150, in render_template
+    return _render(app, template, context)
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/templating.py", line 131, in _render
+    rv = template.render(context)
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/jinja2/environment.py", line 1304, in render
+    self.environment.handle_exception()
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/jinja2/environment.py", line 939, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/home/grant/Workspace/updog-news/app/templates/generate_2.html", line 118, in top-level template code
+    fetch(`{{url_for('get_reporters')}}`).then(response => response.json()).then
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 1084, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 1073, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/werkzeug/routing/map.py", line 924, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'get_reporters'. Did you mean 'main.new_reporter' instead?
+2025-01-10 16:07:05,417 - app - ERROR - Exception on /generate [POST]
+Traceback (most recent call last):
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/sqlalchemy/engine/base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/sqlalchemy/engine/default.py", line 941, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: sub-select returns 9 columns - expected 1
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+  File "/home/grant/Workspace/updog-news/app/routes/main.py", line 93, in generate
+    db.session.commit()
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/sqlalchemy/orm/scoping.py", line 597, in commit
+    return self._proxied.commit()
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/sqlalchemy/orm/session.py", line 2028, in commit
+    trans.commit(_to_root=True)
+  File "<string>", line 2, in commit
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/sqlalchemy/orm/session.py", line 1313, in commit
+    self._prepare_impl()
+  File "<string>", line 2, in _prepare_impl
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/sqlalchemy/orm/session.py", line 1288, in _prepare_impl
+    self.session.flush()
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/sqlalchemy/orm/session.py", line 4352, in flush
+    self._flush(objects)
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/sqlalchemy/orm/session.py", line 4488, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/sqlalchemy/orm/session.py", line 4448, in _flush
+    flush_context.execute()
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/sqlalchemy/orm/unitofwork.py", line 466, in execute
+    rec.execute(self)
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/sqlalchemy/orm/unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/sqlalchemy/orm/persistence.py", line 93, in save_obj
+    _emit_insert_statements(
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/sqlalchemy/orm/persistence.py", line 1227, in _emit_insert_statements
+    result = connection.execute(
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/sqlalchemy/engine/base.py", line 1418, in execute
+    return meth(
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/sqlalchemy/sql/elements.py", line 515, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/sqlalchemy/engine/base.py", line 1640, in _execute_clauseelement
+    ret = self._execute_context(
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/sqlalchemy/engine/base.py", line 1846, in _execute_context
+    return self._exec_single_context(
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/sqlalchemy/engine/base.py", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/sqlalchemy/engine/base.py", line 2355, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/sqlalchemy/engine/base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/sqlalchemy/engine/default.py", line 941, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) sub-select returns 9 columns - expected 1
+[SQL: INSERT INTO queued_story (uuid, title, guideline, user_id, reporter_id) VALUES (?, ?, ?, ?, (SELECT reporter.id, reporter.created, reporter.uuid, reporter.name, reporter.username, reporter.personality, reporter.trashed, reporter.archived, reporter.likes 
+FROM reporter 
+WHERE reporter.name = ?))]
+[parameters: ('6df956a7-c81b-4bd5-976c-b8eb5cbf5ab7', 'huh', 'wut', 1, 'Dan')]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-01-10 16:08:45,318 - app - ERROR - Exception on /generate [POST]
+Traceback (most recent call last):
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/sqlalchemy/engine/base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/sqlalchemy/engine/default.py", line 941, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.InterfaceError: Error binding parameter 4 - probably unsupported type.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+  File "/home/grant/Workspace/updog-news/app/routes/main.py", line 93, in generate
+    db.session.commit()
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/sqlalchemy/orm/scoping.py", line 597, in commit
+    return self._proxied.commit()
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/sqlalchemy/orm/session.py", line 2028, in commit
+    trans.commit(_to_root=True)
+  File "<string>", line 2, in commit
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/sqlalchemy/orm/session.py", line 1313, in commit
+    self._prepare_impl()
+  File "<string>", line 2, in _prepare_impl
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/sqlalchemy/orm/session.py", line 1288, in _prepare_impl
+    self.session.flush()
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/sqlalchemy/orm/session.py", line 4352, in flush
+    self._flush(objects)
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/sqlalchemy/orm/session.py", line 4488, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/sqlalchemy/orm/session.py", line 4448, in _flush
+    flush_context.execute()
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/sqlalchemy/orm/unitofwork.py", line 466, in execute
+    rec.execute(self)
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/sqlalchemy/orm/unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/sqlalchemy/orm/persistence.py", line 93, in save_obj
+    _emit_insert_statements(
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/sqlalchemy/orm/persistence.py", line 1233, in _emit_insert_statements
+    result = connection.execute(
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/sqlalchemy/engine/base.py", line 1418, in execute
+    return meth(
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/sqlalchemy/sql/elements.py", line 515, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/sqlalchemy/engine/base.py", line 1640, in _execute_clauseelement
+    ret = self._execute_context(
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/sqlalchemy/engine/base.py", line 1846, in _execute_context
+    return self._exec_single_context(
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/sqlalchemy/engine/base.py", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/sqlalchemy/engine/base.py", line 2355, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/sqlalchemy/engine/base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/sqlalchemy/engine/default.py", line 941, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.InterfaceError: (sqlite3.InterfaceError) Error binding parameter 4 - probably unsupported type.
+[SQL: INSERT INTO queued_story (uuid, title, guideline, user_id, reporter_id) VALUES (?, ?, ?, ?, ?)]
+[parameters: ('7647c3b4-748d-4851-8b90-1917f0f8e8ae', 'huh', 'wut', 1, <Reporter 1>)]
+(Background on this error at: https://sqlalche.me/e/20/rvf5)
+2025-01-10 16:09:33,473 - app - ERROR - Exception on /generate [POST]
+Traceback (most recent call last):
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/redis/connection.py", line 277, in connect
+    sock = self.retry.call_with_retry(
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/redis/retry.py", line 62, in call_with_retry
+    return do()
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/redis/connection.py", line 278, in <lambda>
+    lambda: self._connect(), lambda error: self.disconnect(error)
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/redis/connection.py", line 639, in _connect
+    raise err
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/redis/connection.py", line 627, in _connect
+    sock.connect(socket_address)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+  File "/home/grant/Workspace/updog-news/app/routes/main.py", line 95, in generate
+    queue_story(uuid)
+  File "/home/grant/Workspace/updog-news/app/queue.py", line 37, in queue_story
+    return _manager.queue_story(uuid)
+  File "/home/grant/Workspace/updog-news/app/queue.py", line 20, in queue_story
+    generate.queue(uuid)
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask_rq2/functions.py", line 127, in queue
+    return self.rq.get_queue(queue_name).enqueue_call(
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/rq/queue.py", line 719, in enqueue_call
+    return self.enqueue_job(job, pipeline=pipeline, at_front=at_front)
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/rq/queue.py", line 1094, in enqueue_job
+    return self._enqueue_job(job, pipeline=pipeline, at_front=at_front)
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/rq/queue.py", line 1114, in _enqueue_job
+    job.redis_server_version = self.get_redis_server_version()
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/rq/queue.py", line 208, in get_redis_server_version
+    self.redis_server_version = get_version(self.connection)
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/rq/utils.py", line 293, in get_version
+    tuple(int(i) for i in str(connection.info("server")["redis_version"]).split('.')[:3]),
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/redis/commands/core.py", line 996, in info
+    return self.execute_command("INFO", section, *args, **kwargs)
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/redis/client.py", line 545, in execute_command
+    conn = self.connection or pool.get_connection(command_name, **options)
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/redis/connection.py", line 1074, in get_connection
+    connection.connect()
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/redis/connection.py", line 283, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 111 connecting to localhost:6379. Connection refused.
