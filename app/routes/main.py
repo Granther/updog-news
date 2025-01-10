@@ -385,10 +385,10 @@ def like(uuid):
 @main.route(f"/reporter/<uuid>/<name>")
 def reporter(uuid, name=None):
     results = Reporter.query.filter_by(uuid=uuid).first()
-    if results.onetime:
-        return redirect(url_for('main.index'))
-    else:
-        reporter = {"name":results.name, "personality":results.personality}
-        return render_template("reporter.html", **reporter, stories=results.stories)
+    # if results.onetime:
+    #     return redirect(url_for('main.index'))
+    # else:
+    reporter = {"name":results.name, "personality":results.personality}
+    return render_template("reporter.html", **reporter, stories=results.stories)
 
     return render_template("error.html", msg="Reporter Not Found")

@@ -434,3 +434,170 @@ Traceback (most recent call last):
   File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/werkzeug/routing/map.py", line 924, in build
     raise BuildError(endpoint, values, method, self)
 werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'about'. Did you mean 'main.about' instead?
+2025-01-10 15:42:01,983 - app - ERROR - Exception on /reporters [GET]
+Traceback (most recent call last):
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/grant/Workspace/updog-news/app/routes/main.py", line 150, in reporters
+    return render_template("reporters.html", reporters=reporters)
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/templating.py", line 150, in render_template
+    return _render(app, template, context)
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/templating.py", line 131, in _render
+    rv = template.render(context)
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/jinja2/environment.py", line 1304, in render
+    self.environment.handle_exception()
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/jinja2/environment.py", line 939, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/home/grant/Workspace/updog-news/app/templates/reporters.html", line 19, in top-level template code
+    <a href="{{url_for('reporter', uuid=reporter.uuid, name=reporter.name)}}">
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 1084, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 1073, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/werkzeug/routing/map.py", line 924, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'reporter' with values ['name', 'uuid']. Did you mean 'main.reporter' instead?
+2025-01-10 15:42:54,486 - app - ERROR - Exception on /reporters [GET]
+Traceback (most recent call last):
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/grant/Workspace/updog-news/app/routes/main.py", line 150, in reporters
+    return render_template("reporters.html", reporters=reporters)
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/templating.py", line 150, in render_template
+    return _render(app, template, context)
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/templating.py", line 131, in _render
+    rv = template.render(context)
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/jinja2/environment.py", line 1304, in render
+    self.environment.handle_exception()
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/jinja2/environment.py", line 939, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/home/grant/Workspace/updog-news/app/templates/reporters.html", line 19, in top-level template code
+    <a href="{{url_for('reporter', uuid=reporter.uuid, name=reporter.name)}}">
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 1084, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 1073, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/werkzeug/routing/map.py", line 924, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'reporter' with values ['name', 'uuid']. Did you mean 'main.reporter' instead?
+2025-01-10 15:43:29,503 - app - ERROR - Exception on /reporters [GET]
+Traceback (most recent call last):
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/grant/Workspace/updog-news/app/routes/main.py", line 150, in reporters
+    return render_template("reporters.html", reporters=reporters)
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/templating.py", line 150, in render_template
+    return _render(app, template, context)
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/templating.py", line 131, in _render
+    rv = template.render(context)
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/jinja2/environment.py", line 1304, in render
+    self.environment.handle_exception()
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/jinja2/environment.py", line 939, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/home/grant/Workspace/updog-news/app/templates/reporters.html", line 19, in top-level template code
+    <a href="{{url_for('main.reporter', uuid=reporter.uuid, name=reporter.name)}}">
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 1084, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 1073, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/werkzeug/routing/map.py", line 924, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'reporter' with values ['name', 'uuid']. Did you mean 'main.reporter' instead?
+2025-01-10 15:43:46,067 - app - ERROR - Exception on /reporter/e6a5063a-dd60-4b60-86d6-c369ea32918e/Dan [GET]
+Traceback (most recent call last):
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/grant/Workspace/updog-news/app/routes/main.py", line 388, in reporter
+    if results.onetime:
+AttributeError: 'Reporter' object has no attribute 'onetime'
+2025-01-10 15:44:57,115 - app - ERROR - Exception on /reporter/e6a5063a-dd60-4b60-86d6-c369ea32918e/Dan [GET]
+Traceback (most recent call last):
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/grant/Workspace/updog-news/app/routes/main.py", line 388, in reporter
+    # if results.onetime:
+AttributeError: 'Reporter' object has no attribute 'onetime'
+2025-01-10 15:48:21,513 - app - ERROR - Exception on /generate [POST]
+Traceback (most recent call last):
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/redis/connection.py", line 277, in connect
+    sock = self.retry.call_with_retry(
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/redis/retry.py", line 62, in call_with_retry
+    return do()
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/redis/connection.py", line 278, in <lambda>
+    lambda: self._connect(), lambda error: self.disconnect(error)
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/redis/connection.py", line 639, in _connect
+    raise err
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/redis/connection.py", line 627, in _connect
+    sock.connect(socket_address)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+  File "/home/grant/Workspace/updog-news/app/routes/main.py", line 91, in generate
+    queue_story(uuid)
+  File "/home/grant/Workspace/updog-news/app/queue.py", line 37, in queue_story
+    return _manager.queue_story(uuid)
+  File "/home/grant/Workspace/updog-news/app/queue.py", line 20, in queue_story
+    generate.queue(uuid)
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask_rq2/functions.py", line 127, in queue
+    return self.rq.get_queue(queue_name).enqueue_call(
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/rq/queue.py", line 719, in enqueue_call
+    return self.enqueue_job(job, pipeline=pipeline, at_front=at_front)
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/rq/queue.py", line 1094, in enqueue_job
+    return self._enqueue_job(job, pipeline=pipeline, at_front=at_front)
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/rq/queue.py", line 1114, in _enqueue_job
+    job.redis_server_version = self.get_redis_server_version()
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/rq/queue.py", line 208, in get_redis_server_version
+    self.redis_server_version = get_version(self.connection)
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/rq/utils.py", line 293, in get_version
+    tuple(int(i) for i in str(connection.info("server")["redis_version"]).split('.')[:3]),
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/redis/commands/core.py", line 996, in info
+    return self.execute_command("INFO", section, *args, **kwargs)
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/redis/client.py", line 545, in execute_command
+    conn = self.connection or pool.get_connection(command_name, **options)
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/redis/connection.py", line 1074, in get_connection
+    connection.connect()
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/redis/connection.py", line 283, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 111 connecting to localhost:6379. Connection refused.
