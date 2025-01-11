@@ -11,6 +11,7 @@ from flask import current_app
 from app import db, rq
 from app.models import Story, QueuedStory, QueuedComment, Reporter, Comment
 from app.utils import get_reply_tree, whoami, account_type_owns
+from app.infer import decide_respond_prompt, respond_comment_prompt, generate_news_prompt
 
 class Infer():
     def __init__(self):
@@ -57,20 +58,8 @@ class Infer():
                 return False
 
 
-        sys_prompt = f'''
-            You are a reporter for a famous news reporting site updog.news, your name is: {reporter.name} and your personality is as follows: {reporter.personality}. 
-            Someone has commented on your article. You will be shown your article, followed by the comment that was added by a random user to your post. Please decide whether you as {reporter.name} with a personality of {reporter.personality} would respond to such a comment.
-            Think to yourself, "Would I, {reporter.name}, respond to this comment?". 
-            If the answer is Yes, please produce "YES":
-            Response: YES
-            Response: YES
-            Response: YES
+        sys_prompt = decide_respond_prompt(name=reporter.name, personality=reporter.personality) 
 
-            Or, If the answer is NO, please produce "No":
-            Response: No
-            Response: No
-            Response: No
-        '''
         prompt = f"### Original Post/Story:\n{story.content}\n### Comment/Comment Tree:\n{reply_tree}\n"
 
         response = self._gen(prompt, sys_prompt)
@@ -94,11 +83,8 @@ class Infer():
         story = Story.query.filter_by(uuid=story_uuid).first()
         reporter = Reporter.query.filter_by(id=story.reporter_id).first()
 
-        sys_prompt = f'''
-            You are a reporter for a famous news reporting site updog.news, your name is: {reporter.name} and your personality is as follows: {reporter.personality}. 
-            Someone has commented on your article. You will be shown your article, followed by the comment that was added by a random user to your post. Please write a reply to their comment in your personality, which is: {reporter.personality}.
-            Please only make the response a few short sentences, the comment section has a low max limit for tokens.
-        '''
+        sys_prompt = respond_comment_prompt(name=reporter.name, personality=reporter.personality)
+
         prompt = f"### Original Post/Story:\n{story.content}\n### Comment/Comment Tree, you are responding to the most recent one:\n{reply_tree}\n"
 
         original_comment = Comment.query.filter_by(uuid=comment_uuid).first()
@@ -109,48 +95,50 @@ class Infer():
         db.session.add(new_comment)
         db.session.commit()
 
-    def _gen(self, prompt: str, sys_prompt: str, model="NeverSleep/Llama-3-Lumimaid-8B-v0.1"):
-        client = OpenAI(
-            base_url="https://api.featherless.ai/v1",
-            api_key=os.getenv('FEATHERLESS_API_KEY')
-        )
+    def _gen(self, prompt: str, sys_prompt: str, backend: str, messages=[], model="NeverSleep/Llama-3-Lumimaid-8B-v0.1"):
+        if backend == "groq":
+            client = Groq(api_key=os.getenv('GROQ_API_KEY'))
+        elif backend == "feather":
+            client = OpenAI(
+                base_url="https://api.featherless.ai/v1",
+                api_key=os.getenv('FEATHERLESS_API_KEY')
+            )
+        else:
+            raise RuntimeError(f"Unknown backend, {backend}, specified. Expected 'groq' or 'featherless'")
 
         # Use messages instead of comment tree
-        messages=[
-            {
-                "role": "user",
-                "content": prompt,
-            },
+        messages.append([
             {
                 "role": "system",
                 "content": sys_prompt
+            },
+            {
+                "role": "user",
+                "content": prompt,
             }
-        ]
+        ])
 
         try:
-            response = client.chat.completions.create(
+            chat_comp = client.chat.completions.create(
+                messages=messages,
                 model=model,
-                messages= messages,
-                temperature=1.0,
-                stream=False,
-                max_tokens=int(os.getenv("MAX_TOKENS_COMMENTS", "300"))
-            )
-        except openai.APIError as e:
-            print(f"Inference exception occured when getting chat completions: {e}")
-            return False
-
-        return response.choices[0].message.content
+                top_p=float(os.getenv('MODEL_TOP_P', '1.0')),
+                temperature=float(os.getenv('MODEL_TEMPERATURE', '1.0')),
+                )
+        except (openai.APIError, groq.APIError) as e:
+            raise RuntimeError(f"Inference exception occured when getting chat completions: {e}")
+        return chat_comp.choices[0].message.conten
 
     def generate_news(self, title, guideline: str=None):
         msg = None
+
+        sys_prompt = generate_news_prompt()
 
         if guideline:
             msg = f"### Title:\n{title}\n### Guideline:\n{guideline}"
         else:
             msg = f"### Title:\n{title}"
         
-        sys_prompt = "Roleplay as a news writer. Given a news story title and some snippet of information to include, please generate a fitting news story. Please omit bolding and tokens like **, please break the article into paragraphs" 
-
         return self._gen(msg, sys_prompt)
 
 _infer = Infer()

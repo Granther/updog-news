@@ -83,10 +83,13 @@ def generate():
     form = GenerateStoryForm()
     reporters = Reporter.query.all()
     form.reporters.choices = [f"{reporter.name} | {reporter.personality}" for reporter in reporters]
+    # form.reporters.choices = [(reporter.name, reporter.personality) for reporter in reporters]
 
     if form.validate_on_submit():
         uuid = str(uuid4())
-        reporter_id = Reporter.query.filter_by(name=form.reporters.data).first().id
+        reporter_name = form.reporters.data.split(" |")[0]
+        reporter_id = Reporter.query.filter_by(name=reporter_name).first().id
+        # print(f"Reporter: {form.reporters.data}")
         queuedStory = QueuedStory(uuid=uuid, title=form.title.data, guideline=form.guideline.data, user_id=current_user.id, reporter_id=reporter_id)
         db.session.add(queuedStory)
         db.session.commit()
