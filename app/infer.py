@@ -95,9 +95,9 @@ class Infer():
         db.session.add(new_comment)
         db.session.commit()
 
-    def _gen(self, prompt: str, sys_prompt: str, backend: str, model=None, messages=[]):
-        if model is None:
-            model = os.getenv('DEFAULT_MODEL')
+    def _gen(self, prompt: str, sys_prompt: str, backend=None, model=None, messages=[]):
+        model = (model if model else os.getenv('DEFAULT_MODEL'))
+        backend = (backend if backend else os.getenv('INFER_BACKEND'))
 
         if backend == "groq":
             client = Groq(api_key=os.getenv('GROQ_API_KEY'))

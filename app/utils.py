@@ -1,6 +1,8 @@
 import os
 import inspect
 from collections import defaultdict
+from markupsafe import Markup
+import markdown
 
 from app import db
 from app.models import Comment
@@ -53,3 +55,11 @@ def account_type_owns(comment: Comment) -> str:
         return "reporter"
     else:
         return None
+
+# def create_defaults(db: sqlalchemy.db):
+#     default_reporter = Reporter(name="Default Dan", )
+
+def preserve_markdown(s):
+    html = markdown.markdown(s)
+    html.replace('\n', '<br>')
+    return Markup(html)

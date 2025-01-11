@@ -972,3 +972,46 @@ Traceback (most recent call last):
   File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/redis/connection.py", line 283, in connect
     raise ConnectionError(self._error_message(e))
 redis.exceptions.ConnectionError: Error 111 connecting to localhost:6379. Connection refused.
+2025-01-11 13:25:10,179 - app - DEBUG - decide_respond:::Comment is a top level comment
+2025-01-11 13:26:17,428 - app - DEBUG - decide_respond:::Comment is a top level comment
+2025-01-11 13:48:58,034 - app - ERROR - Exception on /story/2e310d1c-12c0-4d64-97a2-20e6ac71f0b6/Joe biden runs again [GET]
+Traceback (most recent call last):
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/grant/Workspace/updog-news/app/routes/main.py", line 124, in story
+    results = Story.query.filter_by(uuid=uuid).first()
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask_sqlalchemy/model.py", line 22, in __get__
+    return cls.query_class(
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/sqlalchemy/orm/query.py", line 275, in __init__
+    self._set_entities(entities)
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/sqlalchemy/orm/query.py", line 287, in _set_entities
+    self._raw_columns = [
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/sqlalchemy/orm/query.py", line 288, in <listcomp>
+    coercions.expect(
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/sqlalchemy/sql/coercions.py", line 389, in expect
+    insp._post_inspect
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/sqlalchemy/util/langhelpers.py", line 1253, in __get__
+    obj.__dict__[self.__name__] = result = self.fget(obj)
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/sqlalchemy/orm/mapper.py", line 2711, in _post_inspect
+    self._check_configure()
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/sqlalchemy/orm/mapper.py", line 2388, in _check_configure
+    _configure_registries({self.registry}, cascade=True)
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/sqlalchemy/orm/mapper.py", line 4204, in _configure_registries
+    _do_configure_registries(registries, cascade)
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/sqlalchemy/orm/mapper.py", line 4245, in _do_configure_registries
+    mapper._post_configure_properties()
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/sqlalchemy/orm/mapper.py", line 2405, in _post_configure_properties
+    prop.init()
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/sqlalchemy/orm/interfaces.py", line 584, in init
+    self.do_init()
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/sqlalchemy/orm/relationships.py", line 1647, in do_init
+    self._generate_backref()
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/sqlalchemy/orm/relationships.py", line 2075, in _generate_backref
+    raise sa_exc.ArgumentError(
+sqlalchemy.exc.ArgumentError: Error creating backref 'user' on relationship 'User.liked_stories': property of that name exists on mapper 'Mapper[Story(story)]'

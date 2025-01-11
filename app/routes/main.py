@@ -5,12 +5,13 @@ from flask_redis import FlaskRedis
 from flask_login import login_required, logout_user, login_user, current_user
 from concurrent.futures import ThreadPoolExecutor
 from multiprocessing import Process, Queue
-from uuid import uuid4
+from uuid import uuid4   
 
 from app import db, login_manager
 from app.models import Story, Comment, User, Reporter, QueuedStory, QueuedComment
 from app.forms import GenerateStoryForm, LoginForm, RegistrationForm, NewReporterForm, CommentForm
 from app.queue import queue_story, queue_respond_comment
+from app.utils import preserve_markdown
 
 main = Blueprint('main', __name__,
                         template_folder='templates')
@@ -142,7 +143,8 @@ def story(uuid, title=None):
 
     if results:
         reporter = Reporter.query.filter_by(id=results.reporter_id).first()
-        story = {"title": results.title, "content": results.content, "reporter_uuid": reporter.uuid, "reporter_name": reporter.name, "reporter_id": results.reporter_id, "uuid": results.uuid}
+        proc_story_content = preserve_markdown(results.content)
+        story = {"title": results.title, "content": proc_story_content, "reporter_uuid": reporter.uuid, "reporter_name": reporter.name, "reporter_id": results.reporter_id, "uuid": results.uuid}
         return render_template("story.html", **story, form=form, forms=forms, top_level_comments=top_level_comments, comment_tree=comment_tree)
 
     return render_template("error.html", msg="Story Not Found")

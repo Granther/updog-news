@@ -44,6 +44,7 @@ def create_app(config=DevelopmentConfig):
     with app.app_context():
         from app.models import Story, Comment, User, Reporter, QueuedStory, QueuedComment
         db.create_all()
+        # create_defaults(db)
 
     # Imported later to prevent circular import
     from app.routes.main import main
