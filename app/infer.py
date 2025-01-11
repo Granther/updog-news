@@ -11,7 +11,7 @@ from flask import current_app
 from app import db, rq
 from app.models import Story, QueuedStory, QueuedComment, Reporter, Comment
 from app.utils import get_reply_tree, whoami, account_type_owns
-from app.infer import decide_respond_prompt, respond_comment_prompt, generate_news_prompt
+from app.prompts import decide_respond_prompt, respond_comment_prompt, generate_news_prompt
 
 class Infer():
     def __init__(self):
@@ -95,7 +95,10 @@ class Infer():
         db.session.add(new_comment)
         db.session.commit()
 
-    def _gen(self, prompt: str, sys_prompt: str, backend: str, messages=[], model="NeverSleep/Llama-3-Lumimaid-8B-v0.1"):
+    def _gen(self, prompt: str, sys_prompt: str, backend: str, model=None, messages=[]):
+        if model is None:
+            model = os.getenv('DEFAULT_MODEL')
+
         if backend == "groq":
             client = Groq(api_key=os.getenv('GROQ_API_KEY'))
         elif backend == "feather":
@@ -107,16 +110,17 @@ class Infer():
             raise RuntimeError(f"Unknown backend, {backend}, specified. Expected 'groq' or 'featherless'")
 
         # Use messages instead of comment tree
-        messages.append([
+        messages.append(
             {
                 "role": "system",
                 "content": sys_prompt
-            },
-            {
+            })
+        messages.append({
                 "role": "user",
                 "content": prompt,
-            }
-        ])
+            })
+
+        print(messages)
 
         try:
             chat_comp = client.chat.completions.create(
@@ -125,9 +129,11 @@ class Infer():
                 top_p=float(os.getenv('MODEL_TOP_P', '1.0')),
                 temperature=float(os.getenv('MODEL_TEMPERATURE', '1.0')),
                 )
-        except (openai.APIError, groq.APIError) as e:
+        except openai.APIError as e:
             raise RuntimeError(f"Inference exception occured when getting chat completions: {e}")
-        return chat_comp.choices[0].message.conten
+        except Exception as e:
+            raise RuntimeError(f"Unknown exception occured: {e}")
+        return chat_comp.choices[0].message.content
 
     def generate_news(self, title, guideline: str=None):
         msg = None
