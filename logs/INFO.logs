@@ -1015,3 +1015,363 @@ Traceback (most recent call last):
   File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/sqlalchemy/orm/relationships.py", line 2075, in _generate_backref
     raise sa_exc.ArgumentError(
 sqlalchemy.exc.ArgumentError: Error creating backref 'user' on relationship 'User.liked_stories': property of that name exists on mapper 'Mapper[Story(story)]'
+2025-01-11 15:56:30,254 - app - ERROR - Exception on /like/12879ec0-d54e-44a6-a4f0-38b664e8a5b6 [POST]
+Traceback (most recent call last):
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/grant/Workspace/updog-news/app/routes/main.py", line 374, in like
+    current_user.liked_stories.add(story)
+AttributeError: 'InstrumentedList' object has no attribute 'add'
+2025-01-11 16:01:11,860 - app - ERROR - Exception on /like/12879ec0-d54e-44a6-a4f0-38b664e8a5b6 [POST]
+Traceback (most recent call last):
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/sqlalchemy/engine/base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/sqlalchemy/engine/default.py", line 941, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.IntegrityError: NOT NULL constraint failed: story.title
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/grant/Workspace/updog-news/app/routes/main.py", line 376, in like
+    db.session.commit()
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/sqlalchemy/orm/scoping.py", line 597, in commit
+    return self._proxied.commit()
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/sqlalchemy/orm/session.py", line 2028, in commit
+    trans.commit(_to_root=True)
+  File "<string>", line 2, in commit
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/sqlalchemy/orm/session.py", line 1313, in commit
+    self._prepare_impl()
+  File "<string>", line 2, in _prepare_impl
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/sqlalchemy/orm/session.py", line 1288, in _prepare_impl
+    self.session.flush()
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/sqlalchemy/orm/session.py", line 4352, in flush
+    self._flush(objects)
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/sqlalchemy/orm/session.py", line 4488, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/sqlalchemy/orm/session.py", line 4448, in _flush
+    flush_context.execute()
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/sqlalchemy/orm/unitofwork.py", line 466, in execute
+    rec.execute(self)
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/sqlalchemy/orm/unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/sqlalchemy/orm/persistence.py", line 93, in save_obj
+    _emit_insert_statements(
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/sqlalchemy/orm/persistence.py", line 1233, in _emit_insert_statements
+    result = connection.execute(
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/sqlalchemy/engine/base.py", line 1418, in execute
+    return meth(
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/sqlalchemy/sql/elements.py", line 515, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/sqlalchemy/engine/base.py", line 1640, in _execute_clauseelement
+    ret = self._execute_context(
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/sqlalchemy/engine/base.py", line 1846, in _execute_context
+    return self._exec_single_context(
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/sqlalchemy/engine/base.py", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/sqlalchemy/engine/base.py", line 2355, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/sqlalchemy/engine/base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/sqlalchemy/engine/default.py", line 941, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) NOT NULL constraint failed: story.title
+[SQL: INSERT INTO story (uuid, title, content, guideline, trashed, archived, likes, user_id, reporter_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)]
+[parameters: ('12879ec0-d54e-44a6-a4f0-38b664e8a5b6', None, None, None, 0, 0, 0, 2, None)]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-01-11 16:02:43,172 - app - ERROR - Exception on /like/12879ec0-d54e-44a6-a4f0-38b664e8a5b6 [POST]
+Traceback (most recent call last):
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/sqlalchemy/engine/base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/sqlalchemy/engine/default.py", line 941, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.IntegrityError: NOT NULL constraint failed: story.title
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/grant/Workspace/updog-news/app/routes/main.py", line 377, in like
+    db.session.commit()
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/sqlalchemy/orm/scoping.py", line 597, in commit
+    return self._proxied.commit()
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/sqlalchemy/orm/session.py", line 2028, in commit
+    trans.commit(_to_root=True)
+  File "<string>", line 2, in commit
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/sqlalchemy/orm/session.py", line 1313, in commit
+    self._prepare_impl()
+  File "<string>", line 2, in _prepare_impl
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/sqlalchemy/orm/session.py", line 1288, in _prepare_impl
+    self.session.flush()
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/sqlalchemy/orm/session.py", line 4352, in flush
+    self._flush(objects)
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/sqlalchemy/orm/session.py", line 4488, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/sqlalchemy/orm/session.py", line 4448, in _flush
+    flush_context.execute()
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/sqlalchemy/orm/unitofwork.py", line 466, in execute
+    rec.execute(self)
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/sqlalchemy/orm/unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/sqlalchemy/orm/persistence.py", line 93, in save_obj
+    _emit_insert_statements(
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/sqlalchemy/orm/persistence.py", line 1233, in _emit_insert_statements
+    result = connection.execute(
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/sqlalchemy/engine/base.py", line 1418, in execute
+    return meth(
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/sqlalchemy/sql/elements.py", line 515, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/sqlalchemy/engine/base.py", line 1640, in _execute_clauseelement
+    ret = self._execute_context(
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/sqlalchemy/engine/base.py", line 1846, in _execute_context
+    return self._exec_single_context(
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/sqlalchemy/engine/base.py", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/sqlalchemy/engine/base.py", line 2355, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/sqlalchemy/engine/base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/sqlalchemy/engine/default.py", line 941, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) NOT NULL constraint failed: story.title
+[SQL: INSERT INTO story (uuid, title, content, guideline, trashed, archived, likes, user_id, reporter_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)]
+[parameters: ('12879ec0-d54e-44a6-a4f0-38b664e8a5b6', None, None, None, 0, 0, 0, 2, None)]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-01-11 16:03:08,662 - app - ERROR - Exception on /like/12879ec0-d54e-44a6-a4f0-38b664e8a5b6 [POST]
+Traceback (most recent call last):
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/grant/Workspace/updog-news/app/routes/main.py", line 375, in like
+    current_user.liked_stories.append(story)
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/sqlalchemy/orm/collections.py", line 1131, in append
+    item = __set(self, item, _sa_initiator, NO_KEY)
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/sqlalchemy/orm/collections.py", line 1096, in __set
+    item = executor.fire_append_event(item, _sa_initiator, key=key)
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/sqlalchemy/orm/collections.py", line 688, in fire_append_event
+    return self.attr.fire_append_event(
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/sqlalchemy/orm/attributes.py", line 1752, in fire_append_event
+    value = fn(state, value, initiator or self._append_token, key=key)
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/sqlalchemy/orm/unitofwork.py", line 63, in append
+    item_state = attributes.instance_state(item)
+AttributeError: 'Query' object has no attribute '_sa_instance_state'
+2025-01-11 16:07:32,065 - app - ERROR - Exception on /like/12879ec0-d54e-44a6-a4f0-38b664e8a5b6 [GET]
+Traceback (most recent call last):
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/grant/Workspace/updog-news/app/routes/main.py", line 379, in like
+    return jsonify({"status": status})
+UnboundLocalError: local variable 'status' referenced before assignment
+2025-01-11 16:22:49,211 - app - ERROR - Exception on /like/12879ec0-d54e-44a6-a4f0-38b664e8a5b6 [GET]
+Traceback (most recent call last):
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/grant/Workspace/updog-news/app/routes/main.py", line 371, in like
+    status = ("liked" if story in current_user.liked_stories else "unliked")
+AttributeError: 'AnonymousUserMixin' object has no attribute 'liked_stories'
+2025-01-11 16:23:26,803 - app - ERROR - Exception on /like/12879ec0-d54e-44a6-a4f0-38b664e8a5b6 [GET]
+Traceback (most recent call last):
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/grant/Workspace/updog-news/app/routes/main.py", line 371, in like
+    status = ("liked" if story in current_user.liked_stories else "unliked")
+AttributeError: 'AnonymousUserMixin' object has no attribute 'liked_stories'
+2025-01-11 16:24:03,657 - app - ERROR - Exception on /like/12879ec0-d54e-44a6-a4f0-38b664e8a5b6 [GET]
+Traceback (most recent call last):
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/grant/Workspace/updog-news/app/routes/main.py", line 371, in like
+    status = ("liked" if story in current_user.liked_stories else "unliked")
+AttributeError: 'AnonymousUserMixin' object has no attribute 'liked_stories'
+2025-01-11 16:24:05,123 - app - ERROR - Exception on /like/12879ec0-d54e-44a6-a4f0-38b664e8a5b6 [GET]
+Traceback (most recent call last):
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/grant/Workspace/updog-news/app/routes/main.py", line 371, in like
+    status = ("liked" if story in current_user.liked_stories else "unliked")
+AttributeError: 'AnonymousUserMixin' object has no attribute 'liked_stories'
+2025-01-11 16:24:57,540 - app - ERROR - Exception on /like/12879ec0-d54e-44a6-a4f0-38b664e8a5b6 [GET]
+Traceback (most recent call last):
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/grant/Workspace/updog-news/app/routes/main.py", line 372, in like
+    status = ("liked" if story in current_user.liked_stories else "unliked")
+AttributeError: 'AnonymousUserMixin' object has no attribute 'liked_stories'
+2025-01-11 16:31:31,117 - app - ERROR - Exception on /story/12879ec0-d54e-44a6-a4f0-38b664e8a5b6/Joe biden did what [GET]
+Traceback (most recent call last):
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/grant/Workspace/updog-news/app/routes/main.py", line 149, in story
+    return render_template("story.html", **story, form=form, forms=forms, top_level_comments=top_level_comments, comment_tree=comment_tree, logged_in=current_user.is_authenticated())
+TypeError: 'bool' object is not callable
+2025-01-11 16:34:28,175 - app - ERROR - Exception on /like/12879ec0-d54e-44a6-a4f0-38b664e8a5b6 [GET]
+Traceback (most recent call last):
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/grant/Workspace/updog-news/app/routes/main.py", line 372, in like
+    status = ("liked" if story in current_user.liked_stories else "unliked")
+AttributeError: 'AnonymousUserMixin' object has no attribute 'liked_stories'
+2025-01-11 16:34:32,110 - app - ERROR - Exception on /like/12879ec0-d54e-44a6-a4f0-38b664e8a5b6 [POST]
+Traceback (most recent call last):
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/grant/Workspace/updog-news/app/routes/main.py", line 372, in like
+    status = ("liked" if story in current_user.liked_stories else "unliked")
+AttributeError: 'AnonymousUserMixin' object has no attribute 'liked_stories'
+2025-01-11 16:34:33,761 - app - ERROR - Exception on /like/12879ec0-d54e-44a6-a4f0-38b664e8a5b6 [POST]
+Traceback (most recent call last):
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/grant/Workspace/updog-news/app/routes/main.py", line 372, in like
+    status = ("liked" if story in current_user.liked_stories else "unliked")
+AttributeError: 'AnonymousUserMixin' object has no attribute 'liked_stories'
+2025-01-11 16:43:48,398 - app - ERROR - Exception on /like/12879ec0-d54e-44a6-a4f0-38b664e8a5b6 [GET]
+Traceback (most recent call last):
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/grant/Workspace/updog-news/app/routes/main.py", line 371, in like
+    status = ("liked" if story in current_user.liked_stories else "unliked")
+AttributeError: 'AnonymousUserMixin' object has no attribute 'liked_stories'
+2025-01-11 16:45:57,272 - app - ERROR - Exception on /like/12879ec0-d54e-44a6-a4f0-38b664e8a5b6 [GET]
+Traceback (most recent call last):
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/grant/Workspace/updog-news/app/routes/main.py", line 371, in like
+    status = ("liked" if story in current_user.liked_stories else "unliked")
+AttributeError: 'AnonymousUserMixin' object has no attribute 'liked_stories'
+2025-01-11 16:46:05,929 - app - ERROR - Exception on /like/12879ec0-d54e-44a6-a4f0-38b664e8a5b6 [POST]
+Traceback (most recent call last):
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/grant/Workspace/updog-news/app/routes/main.py", line 371, in like
+    status = ("liked" if story in current_user.liked_stories else "unliked")
+AttributeError: 'AnonymousUserMixin' object has no attribute 'liked_stories'
+2025-01-11 16:46:07,483 - app - ERROR - Exception on /like/12879ec0-d54e-44a6-a4f0-38b664e8a5b6 [POST]
+Traceback (most recent call last):
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/grant/Workspace/updog-news/.venv/lib64/python3.9/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/grant/Workspace/updog-news/app/routes/main.py", line 371, in like
+    status = ("liked" if story in current_user.liked_stories else "unliked")
+AttributeError: 'AnonymousUserMixin' object has no attribute 'liked_stories'

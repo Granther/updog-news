@@ -10,15 +10,19 @@
 
 {% block content %}
 <body class="bg-gray-900 text-gray-100 flex flex-col min-h-screen">
+    <!-- Header -->
     <header class="relative bg-gray-900 p-4 text-center">
         <h1 class="text-3xl font-bold"><a href="{{ url_for('main.index') }}">{{ title }}</a></h1>
         <p class="text-white">By <a href="{{url_for('main.reporter', uuid=reporter_uuid, name=reporter_name)}}">{{ reporter_name }}</a></p>
-    </header>    
+        <div class="absolute top-4 right-4">
+            <button id="like-btn" class="py-2 px-4 text-xs bg-blue-500 font-medium text-white rounded-lg hover:bg-blue-700 transition">
+                Like
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Content -->
     <main class="flex flex-grow p-4">
-        <button id="like-btn"
-        class="inline-flex items-center py-2.5 px-4 text-xs bg-blue-500 font-medium text-center text-white bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800">
-        Like
-        </button>
         <article class="max-w-3xl mx-auto text-center">
             <section>
                 {{ content }}
@@ -26,20 +30,21 @@
         </article>
     </main>
 
+    <!-- Comments Section -->
     <section class="flex flex-col w-1/2 justify-center mx-auto pt-10">
         <div class="flex justify-between items-center mb-6">
             <h2 class="text-lg lg:text-2xl font-bold text-gray-900 dark:text-white">Comments</h2>
         </div>
         <form action="" id="comment-box" method="POST" class="pb-10">
             {{ form.hidden_tag() }}
-            <div class="py-2 px-4 mb-4 bg-white rounded-lg rounded-t-lg border border-gray-200 dark:bg-gray-800 dark:border-gray-700">
+            <div class="py-2 px-4 mb-4 bg-white rounded-lg border border-gray-200 dark:bg-gray-800 dark:border-gray-700">
                 <label for="comment" class="sr-only">Add Comment</label>
                 <textarea id="comment" rows="6"
                     class="px-0 w-full text-sm text-gray-900 border-0 focus:ring-0 focus:outline-none dark:text-white dark:placeholder-gray-400 dark:bg-gray-800"
                     placeholder="Write a comment..." required></textarea>
             </div>
             <button type="submit"
-                class="inline-flex items-center py-2.5 px-4 text-xs bg-blue-500 font-medium text-center text-white bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800">
+                class="inline-flex items-center py-2.5 px-4 text-xs bg-blue-500 font-medium text-center text-white rounded-lg focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-900 hover:bg-blue-700">
                 Post comment
             </button>
         </form>
@@ -52,13 +57,38 @@
         </section>
     </section>
     <script>
+        update_like_btn()
+        const postCommentBtn = document.getElementById('comment-box')
         const likeBtn = document.getElementById('like-btn')
-        likeBtn.addEventListener('click', function(event) {
-            console.log("Clicked")
+        function update_like_btn() {
             fetch(`{{url_for('main.like', uuid=uuid)}}`)
             .then(response => response.json())
             .then(data => {
-                console.log(data)
+                if (data.status == "liked") {
+                    like()
+                }
+            }).catch((error) => {console.log(error);});
+        }
+
+        function like() {likeBtn.classList.replace("bg-gray-500", "bg-red-500"); likeBtn.innerHTML = "Unlike"}
+        function unlike() {likeBtn.classList.replace("bg-red-500", "bg-gray-500"); likeBtn.innerHTML = "Like"}
+
+        likeBtn.addEventListener('click', function(event) {
+            fetch(`{{url_for('main.like', uuid=uuid)}}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    like: true
+                })
+            }).then(response => response.json())
+            .then(data => {
+                if (data.status == "liked") {
+                    like()
+                } else {
+                    unlike()
+                }
             }).catch((error) => {console.log(error);});
         });
     </script>

@@ -12,13 +12,35 @@
 {% endblock %}
 
 {% block content %}
-<body class="bg-gray-900 text-gray-100 flex flex-col min-h-screen">
-    <form method="POST" action="">
-        {{ form.hidden_tag() }}
-        <div>{{ form.title.label }} {{ form.title }}</div>
-        <div>{{ form.guideline.label }} {{ form.guideline }}</div>
-        <div>{{ form.reporters.label }} {{ form.reporters }}</div>
-        <div>{{ form.submit() }}</div>
-    </form>
-</body>
+<div class="flex justify-center items-center h-full">
+    <div class="bg-gray-800 p-8 rounded-lg shadow-lg w-full max-w-lg">
+        <h1 class="text-2xl font-bold mb-6 text-center">Create a Story</h1>
+        <form method="POST" action="" class="space-y-4">
+            {{ form.hidden_tag() }}
+
+            <!-- Title Field -->
+            <div>
+                <label for="title" class="block text-sm font-medium mb-1">{{ form.title.label }}</label>
+                {{ form.title(class_="border border-gray-300 rounded-lg px-3 py-2 w-full text-black focus:outline-none focus:ring-2 focus:ring-blue-500") }}
+            </div>
+
+            <!-- Guideline Field -->
+            <div>
+                <label for="guideline" class="block text-sm font-medium mb-1">{{ form.guideline.label }}</label>
+                {{ form.guideline(class_="border border-gray-300 rounded-lg px-3 py-2 w-full text-black focus:outline-none focus:ring-2 focus:ring-blue-500") }}
+            </div>
+
+            <!-- Reporters Field -->
+            <div>
+                <label for="reporters" class="block text-sm font-medium mb-1">{{ form.reporters.label }}</label>
+                {{ form.reporters(class_="border border-gray-300 rounded-lg px-3 py-2 w-full text-black focus:outline-none focus:ring-2 focus:ring-blue-500") }}
+            </div>
+
+            <!-- Submit Button -->
+            <div class="text-center">
+                {{ form.submit(class_="bg-blue-500 hover:bg-blue-700 text-white py-2 px-6 rounded-full font-bold text-lg transition duration-300") }}
+            </div>
+        </form>
+    </div>
+</div>
 {% endblock %}

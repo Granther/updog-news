@@ -74,12 +74,12 @@ def index():
 
     for story in result:
         reporter = Reporter.query.filter_by(id=story.reporter_id).first()
-        stories.append({"id":story.id, "title":story.title, "content":story.content, "uuid":story.uuid, "reportername":reporter.name, "likes":story.likes})
+        proc_story_content = preserve_markdown(story.title)
+        stories.append({"id":story.id, "title":story.title, "content": proc_story_content, "uuid":story.uuid, "reportername":reporter.name, "likes":story.likes})
 
     return render_template("index.html", stories=stories)
 
 @main.route("/generate",  methods=['GET', 'POST'])
-@login_required
 def generate():
     form = GenerateStoryForm()
     reporters = Reporter.query.all()
@@ -145,7 +145,7 @@ def story(uuid, title=None):
         reporter = Reporter.query.filter_by(id=results.reporter_id).first()
         proc_story_content = preserve_markdown(results.content)
         story = {"title": results.title, "content": proc_story_content, "reporter_uuid": reporter.uuid, "reporter_name": reporter.name, "reporter_id": results.reporter_id, "uuid": results.uuid}
-        return render_template("story.html", **story, form=form, forms=forms, top_level_comments=top_level_comments, comment_tree=comment_tree)
+        return render_template("story.html", **story, form=form, forms=forms, top_level_comments=top_level_comments, comment_tree=comment_tree, logged_in=current_user.is_authenticated)
 
     return render_template("error.html", msg="Story Not Found")
 
@@ -187,8 +187,9 @@ def comments(uuid):
     return jsonify({"status": False})
 
 @main.route("/comment/<uuid>", methods=['POST', 'GET'])
-@login_required
 def comment(uuid):
+    if not current_user:
+        redirect(url_for('login'))
     if request.method == 'POST':
         data = request.get_json()
         content = data.get('comment')
@@ -366,8 +367,20 @@ def story_is_liked(uuid):
 
 @main.route('/like/<uuid>', methods=['POST', 'GET'])
 def like(uuid):
-    print(current_user.liked_stories)
-    return jsonify({"data": "10"})
+    story = Story.query.filter_by(uuid=uuid).first()
+    status = ("liked" if story in current_user.liked_stories else "unliked")
+    if request.method == 'POST':
+        if status is "liked":
+            current_user.liked_stories.remove(story)
+            story.likes -= 1
+            status = "unliked"
+        else:
+            current_user.liked_stories.append(story)
+            story.likes += 1
+            status = "liked"
+        db.session.commit()
+    return jsonify({"status": status})
+
     # likes_history = session['likes']
     # for item in likes_history:liked
     #     x = item.get('uuid', False)
