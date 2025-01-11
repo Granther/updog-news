@@ -162,7 +162,8 @@ if __name__ == "__main__":
     # os.environ["GROQ_API_KEY"] = os.getenv("GROQ_API_KEY")
     # os.environ["FEATHERLESS_API_KEY"] = os.getenv("FEATHERLESS_API_KEY")
     # os.environ["TAVILY_API_KEY"] = os.getenv("TAVILY_API_KEY")
-    pass
+    infer = Infer()
+    print(infer._gen("How are you", "You are a helpful AI", "feather"))
 
 # perform_search("Donald trump is a dog", n_results=3)
 # from tavily import TavilyClient
