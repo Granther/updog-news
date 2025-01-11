@@ -58,11 +58,8 @@
             fetch(`{{url_for('main.like', uuid=uuid)}}`)
             .then(response => response.json())
             .then(data => {
-
-            })
-            .catch((error) => {
-                console.log(error);
-            });
+                console.log(data)
+            }).catch((error) => {console.log(error);});
         });
     </script>
 </body>

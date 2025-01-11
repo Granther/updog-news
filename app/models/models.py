@@ -71,9 +71,9 @@ class User(db.Model, UserMixin):
     username = db.Column(db.String, unique=True, nullable=False)
     # email = db.Column(db.String, unique=True, nullable=False)
     password = db.Column(db.String, nullable=False)
-    stories = db.relationship('Story', backref='user')
+    # stories = db.relationship('Story', backref='user')
     comments = db.relationship('Comment', backref='user')
-    # liked_stories = db.relationship('Story', backref='user')
+    liked_stories = db.relationship('Story', backref='user')
 
 class Reporter(db.Model):
     id = db.Column(db.Integer, primary_key=True)

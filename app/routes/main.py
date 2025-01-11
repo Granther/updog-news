@@ -364,30 +364,32 @@ def story_is_liked(uuid):
     
     return "Like"
 
-@main.route('/like/<uuid>', methods=['POST'])
+@main.route('/like/<uuid>', methods=['POST', 'GET'])
 def like(uuid):
-    likes_history = session['likes']
-    for item in likes_history:
-        x = item.get('uuid', False)
-        if x:
-            print("Already liked, unliking and removing from likes list")
-            story = Story.query.filter_by(uuid=uuid).first()
-            story.likes -= 1
-            db.session.add(story)
-            db.session.commit()
-            likes_history.remove(item)
-            return jsonify({"state":"Like", "likes": story.likes})
+    print(current_user.liked_stories)
+    return jsonify({"data": "10"})
+    # likes_history = session['likes']
+    # for item in likes_history:liked
+    #     x = item.get('uuid', False)
+    #     if x:
+    #         print("Already liked, unliking and removing from likes list")
+    #         story = Story.query.filter_by(uuid=uuid).first()
+    #         story.likes -= 1
+    #         db.session.add(story)
+    #         db.session.commit()
+    #         likes_history.remove(item)
+    #         return jsonify({"state":"Like", "likes": story.likes})
 
-    print("Not yet liked, adding to likes list and updating row")
-    story = Story.query.filter_by(uuid=uuid).first()
-    story.likes += 1
-    db.session.add(story)
-    db.session.commit()
-    likes_history.mainend({'uuid': uuid})
+    # print("Not yet liked, adding to likes list and updating row")
+    # story = Story.query.filter_by(uuid=uuid).first()
+    # story.likes += 1
+    # db.session.add(story)
+    # db.session.commit()
+    # likes_history.mainend({'uuid': uuid})
 
-    session['likes'] = likes_history
+    # session['likes'] = likes_history
 
-    return jsonify({"state":"Liked", "likes": story.likes})
+    # return jsonify({"state":"Liked", "likes": story.likes})
 
 @main.route(f"/reporter/<uuid>/")
 @main.route(f"/reporter/<uuid>/<name>")
