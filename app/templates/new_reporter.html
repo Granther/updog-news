@@ -4,20 +4,35 @@
 
 {% block list %}
 <li>
-    <a href="{{url_for('main.about')}}" class="block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">About</a>
+    <a href="{{ url_for('main.about') }}"
+        class="block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">About</a>
 </li>
 <li>
-    <a href="{{url_for('main.reporters')}}" class="block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Reporters</a>
+    <a href="{{ url_for('main.reporters') }}"
+        class="block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Reporters</a>
+</li>
+<li>
+    <a href="{{ url_for('main.generate') }}"
+        class="block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Generate</a>
 </li>
 {% endblock %}
 
 {% block content %}
-<body class="bg-gray-900 text-gray-100 flex flex-col min-h-screen">
-    <form method="POST" action="">
+<div class="bg-gray-900 text-gray-100 flex flex-col items-center min-h-screen pt-10">
+    <h1 class="text-2xl font-bold mb-6">Create a New Reporter</h1>
+    <form method="POST" action="" class="bg-gray-800 p-6 rounded-lg shadow-lg w-full max-w-md">
         {{ form.hidden_tag() }}
-        <div>{{ form.name.label }} {{ form.name }}</div>
-        <div>{{ form.personality.label }} {{ form.personality }}</div>
-        <div>{{ form.submit() }}</div>
+        <div class="mb-4">
+            <label for="name" class="block text-md font-medium mb-2">{{ form.name.label }}</label>
+            {{ form.name(class="border border-gray-300 rounded-lg px-3 py-2 w-full text-black") }}
+        </div>
+        <div class="mb-4">
+            <label for="personality" class="block text-md font-medium mb-2">{{ form.personality.label }}</label>
+            {{ form.personality(class="border border-gray-300 rounded-lg px-3 py-2 w-full text-black") }}
+        </div>
+        <div class="flex justify-end">
+            {{ form.submit(class="bg-blue-500 hover:bg-blue-700 text-white py-2 px-6 rounded-full font-bold text-lg transition duration-300") }}
+        </div>
     </form>
-</body>
+</div>
 {% endblock %}

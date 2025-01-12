@@ -91,7 +91,7 @@ def generate():
         reporter_name = form.reporters.data.split(" |")[0]
         reporter_id = Reporter.query.filter_by(name=reporter_name).first().id
         # print(f"Reporter: {form.reporters.data}")
-        queuedStory = QueuedStory(uuid=uuid, title=form.title.data, guideline=form.guideline.data, user_id=current_user.id, reporter_id=reporter_id)
+        queuedStory = QueuedStory(uuid=uuid, title=form.title.data, guideline=form.guideline.data, reporter_id=reporter_id)
         db.session.add(queuedStory)
         db.session.commit()
 
@@ -112,13 +112,12 @@ def new_reporter():
         db.session.add(new_reporter)
         db.session.commit()
 
-        return jsonify({"id": new_reporter.id})
-        # return redirect(url_for('main.index'))
+        return redirect(url_for('main.reporters'))
     
     return render_template("new_reporter.html", form=form)
 
-@main.route(f"/story/<uuid>/")
-@main.route(f"/story/<uuid>/<title>")
+@main.route("/story/<uuid>/")
+@main.route("/story/<uuid>/<title>")
 def story(uuid, title=None):
     form = CommentForm()
     results = Story.query.filter_by(uuid=uuid).first()
@@ -144,10 +143,15 @@ def story(uuid, title=None):
     if results:
         reporter = Reporter.query.filter_by(id=results.reporter_id).first()
         proc_story_content = preserve_markdown(results.content)
+        comments = [{"username": "Gronk", "text": "I bonked"}]
         story = {"title": results.title, "content": proc_story_content, "reporter_uuid": reporter.uuid, "reporter_name": reporter.name, "reporter_id": results.reporter_id, "uuid": results.uuid}
-        return render_template("story.html", **story, form=form, forms=forms, top_level_comments=top_level_comments, comment_tree=comment_tree, logged_in=current_user.is_authenticated)
+        return render_template("story1.html", **story, commments=comments, form=form, forms=forms, top_level_comments=top_level_comments, comment_tree=comment_tree, logged_in=current_user.is_authenticated)
 
     return render_template("error.html", msg="Story Not Found")
+
+@main.route("/add_comment/<story_uuid>")
+def add_comment(story_uuid):
+
 
 @main.route("/reporters")
 def reporters():

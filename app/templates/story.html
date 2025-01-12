@@ -6,16 +6,21 @@
 <li>
     <a href="{{url_for('main.about')}}" class="block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">About</a>
 </li>
+<li>
+    <a href="{{url_for('main.reporters')}}" class="block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Reporters</a>
+</li>
+<li>
+    <a href="{{url_for('main.generate')}}" class="block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Generate</a>
+</li>
 {% endblock %}
 
 {% block content %}
 <body class="bg-gray-900 text-gray-100 flex flex-col min-h-screen">
-    <!-- Header -->
     <header class="relative bg-gray-900 p-4 text-center">
         <h1 class="text-3xl font-bold"><a href="{{ url_for('main.index') }}">{{ title }}</a></h1>
         <p class="text-white">By <a href="{{url_for('main.reporter', uuid=reporter_uuid, name=reporter_name)}}">{{ reporter_name }}</a></p>
         <div class="absolute top-4 right-4">
-            <button id="like-btn" class="py-2 px-4 text-xs bg-blue-500 font-medium text-white rounded-lg hover:bg-blue-700 transition">
+            <button id="like-btn" class="py-2 px-4 text-xs bg-blue-500 font-medium text-white rounded-lg transition">
                 Like
             </button>
         </div>

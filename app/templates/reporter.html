@@ -1,33 +1,44 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.0/socket.io.js"></script>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <title>{{ name }}</title>
-</head>
-<body class="bg-gray-900 text-gray-100 flex flex-col min-h-screen">
-    <header class="bg-gray-800 p-4 text-center">
-        <h1 class="text-3xl font-bold text-white"><a href="{{ url_for('main.index') }}">{{ name }}</a></h1>
-        <p class="text-white">{{ personality }}</p>
-    </header>
-    <div class="relative container mx-auto px-4 py-8 flex-grow text-black">
-        <div class="grid grid-cols-1 gap-6">
+{% extends 'base.html' %}
+
+{% block title %}{{ name }}'s Profile{% endblock %}
+
+{% block list %}
+<li>
+    <a href="{{ url_for('main.about') }}"
+        class="block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">About</a>
+</li>
+<li>
+    <a href="{{ url_for('main.reporters') }}"
+        class="block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Reporters</a>
+</li>
+<li>
+    <a href="{{ url_for('main.generate') }}"
+        class="block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Generate</a>
+</li>
+{% endblock %}
+
+{% block content %}
+<div class="container mx-auto px-4 py-8 text-gray-900 dark:text-gray-100">
+    <section class="mb-8 bg-gray-800 p-6 rounded-lg shadow-lg">
+        <h1 class="text-4xl font-bold mb-2">{{ name }}</h1>
+        <p class="text-lg text-gray-300">{{ personality }}</p>
+    </section>
+
+    <section>
+        <h2 class="text-2xl font-bold mb-6">Stories by {{ name }}</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {% for story in stories %}
-            <a href="{{url_for('main.story', uuid=story.uuid, title=story.title)}}">
-                <div class="bg-white rounded-lg hover:shadow-lg hover:shadow-blue-500/70 overflow-hidden">
+            <a href="{{ url_for('main.story', uuid=story.uuid, title=story.title) }}">
+                <div class="bg-white dark:bg-gray-700 rounded-lg hover:shadow-lg hover:shadow-blue-500/70 overflow-hidden">
                     <div class="p-4">
                         <h3 class="text-xl font-semibold mb-1">{{ story.title }}</h3>
-                        <h3 class="text-sm font-semibold mb-2">By {{ name }}</h3>
-                        <p class="text-gray-700 line-clamp-3">{{ story.content|safe }}...</p>
-                        <p class="text-gray-700"><strong>Likes:</strong> {{ story.likes }}</p>
+                        <p class="text-gray-700 dark:text-gray-300 line-clamp-3">{{ story.content|safe }}...</p>
+                        <p class="text-gray-700 dark:text-gray-400"><strong>Likes:</strong> {{ story.likes }}</p>
                     </div>
                 </div>
             </a>
             {% endfor %}
         </div>
-    </div>
-</body>
-</html>
+    </section>
+</div>
+{% endblock %}

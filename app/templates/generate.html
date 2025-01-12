@@ -18,25 +18,21 @@
         <form method="POST" action="" class="space-y-4">
             {{ form.hidden_tag() }}
 
-            <!-- Title Field -->
             <div>
-                <label for="title" class="block text-sm font-medium mb-1">{{ form.title.label }}</label>
-                {{ form.title(class_="border border-gray-300 rounded-lg px-3 py-2 w-full text-black focus:outline-none focus:ring-2 focus:ring-blue-500") }}
+                <label for="title" class="block text-md font-medium mb-1">{{ form.title.label }}</label>
+                {{ form.title(class_="border border-gray-300 rounded-lg px-3 py-2 w-full text-black") }}
             </div>
 
-            <!-- Guideline Field -->
             <div>
-                <label for="guideline" class="block text-sm font-medium mb-1">{{ form.guideline.label }}</label>
-                {{ form.guideline(class_="border border-gray-300 rounded-lg px-3 py-2 w-full text-black focus:outline-none focus:ring-2 focus:ring-blue-500") }}
+                <label for="guideline" class="block text-md font-medium mb-1">{{ form.guideline.label }}</label>
+                {{ form.guideline(class_="border border-gray-300 rounded-lg px-3 py-2 w-full text-black") }}
             </div>
 
-            <!-- Reporters Field -->
             <div>
-                <label for="reporters" class="block text-sm font-medium mb-1">{{ form.reporters.label }}</label>
-                {{ form.reporters(class_="border border-gray-300 rounded-lg px-3 py-2 w-full text-black focus:outline-none focus:ring-2 focus:ring-blue-500") }}
+                <label for="reporters" class="block text-md font-medium mb-1">{{ form.reporters.label }}</label>
+                {{ form.reporters(class_="border border-gray-300 rounded-lg px-3 py-2 w-full text-black") }}
             </div>
 
-            <!-- Submit Button -->
             <div class="text-center">
                 {{ form.submit(class_="bg-blue-500 hover:bg-blue-700 text-white py-2 px-6 rounded-full font-bold text-lg transition duration-300") }}
             </div>
