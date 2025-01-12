@@ -56,11 +56,12 @@ class Comment(db.Model):
     # Both are nullable because they are mutually exclusive, cannot be owned by user and reporter
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=True)
     reporter_id = db.Column(db.Integer, db.ForeignKey('reporter.id'), nullable=True)
+    username = db.Column(db.String, unique=False, nullable=False)
 
     story_id = db.Column(db.Integer, db.ForeignKey('story.id'))
-    likes = db.Column(db.Integer, nullable=True, default=0)
-    parent_id = db.Column(db.Integer, db.ForeignKey('comment.id'), nullable=True)
-    children = db.relationship('Comment', backref=db.backref('parent_comment', remote_side=[id]), lazy='dynamic')
+    # likes = db.Column(db.Integer, nullable=True, default=0)
+    # parent_id = db.Column(db.Integer, db.ForeignKey('comment.id'), nullable=True)
+    # children = db.relationship('Comment', backref=db.backref('parent_comment', remote_side=[id]), lazy='dynamic')
     
     # When querying a comment, I can access the user object with *.user.*. Requires relationship in User model as well
     # user = db.relationship('User', back_populates='comments')

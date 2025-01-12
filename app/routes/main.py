@@ -123,35 +123,41 @@ def story(uuid, title=None):
     results = Story.query.filter_by(uuid=uuid).first()
     comments = Comment.query.filter_by(story_id=results.id).order_by(Comment.created).all()
 
-    def build_comment_tree(comments):
-        comment_dict = defaultdict(list)
-        top_level_comments = []
+    # def build_comment_tree(comments):
+    #     comment_dict = defaultdict(list)
+    #     top_level_comments = []
 
-        for comment in comments:
-            if comment.parent_id:
-                comment_dict[comment.parent_id].append(comment)
-            else:
-                top_level_comments.append(comment)
+    #     for comment in comments:
+    #         if comment.parent_id:
+    #             comment_dict[comment.parent_id].append(comment)
+    #         else:
+    #             top_level_comments.append(comment)
 
-        return top_level_comments, comment_dict
+    #     return top_level_comments, comment_dict
     
-    top_level_comments, comment_tree = build_comment_tree(comments)
+    # top_level_comments, comment_tree = build_comment_tree(comments)
 
     # print(comments, top_level_comments, comment_tree)
     forms = {comment.id: CommentForm() for comment in comments}
+    comments = [{"username": comment.username, "text": comment.content} for comment in comments]
 
     if results:
         reporter = Reporter.query.filter_by(id=results.reporter_id).first()
         proc_story_content = preserve_markdown(results.content)
-        comments = [{"username": "Gronk", "text": "I bonked"}]
+        # comments = [{"username": "Gronk", "text": "I bonked"}]
         story = {"title": results.title, "content": proc_story_content, "reporter_uuid": reporter.uuid, "reporter_name": reporter.name, "reporter_id": results.reporter_id, "uuid": results.uuid}
-        return render_template("story1.html", **story, commments=comments, form=form, forms=forms, top_level_comments=top_level_comments, comment_tree=comment_tree, logged_in=current_user.is_authenticated)
+        return render_template("story1.html", **story, comments=comments, form=form, forms=forms, logged_in=current_user.is_authenticated)
 
     return render_template("error.html", msg="Story Not Found")
 
-@main.route("/add_comment/<story_uuid>")
+@main.route("/add_comment/<story_uuid>", methods=['POST', 'GET'])
 def add_comment(story_uuid):
-
+    content = request.form.get('comment')
+    story = Story.query.filter_by(uuid=story_uuid).first()
+    comment = Comment(uuid=str(uuid4()), content=content, story_id=story.id, user_id=current_user.id, username=current_user.username)
+    db.session.add(comment)
+    db.session.commit()
+    return redirect(url_for('main.story', uuid=story_uuid))
 
 @main.route("/reporters")
 def reporters():
@@ -171,22 +177,22 @@ def comments(uuid):
         results = Story.query.filter_by(uuid=uuid).first()
         comments = Comment.query.filter_by(story_id=results.id).order_by(Comment.created).all()
 
-        def build_comment_tree(comments):
-            comment_dict = defaultdict(list)
-            top_level_comments = []
+        # def build_comment_tree(comments):
+        #     comment_dict = defaultdict(list)
+        #     top_level_comments = []
 
-            for comment in comments:
-                comment_payload = {"id": comment.id, "content": comment.content, "username": comment.user.username}
+        #     for comment in comments:
+        #         comment_payload = {"id": comment.id, "content": comment.content, "username": comment.user.username}
 
-                if comment.parent_id:
-                    comment_dict[comment.parent_id].append(comment_payload)
-                else:
-                    top_level_comments.append(comment_payload)
+        #         if comment.parent_id:
+        #             comment_dict[comment.parent_id].append(comment_payload)
+        #         else:
+        #             top_level_comments.append(comment_payload)
 
-            return top_level_comments, comment_dict
+        #     return top_level_comments, comment_dict
 
-        top_level_comments, comment_tree = build_comment_tree(comments)
-        return jsonify({"comment_tree": comment_tree, "top_level_comments": top_level_comments})
+        # top_level_comments, comment_tree = build_comment_tree(comments)
+        # return jsonify({"comment_tree": comment_tree, "top_level_comments": top_level_comments})
     
     return jsonify({"status": False})
 
@@ -234,6 +240,49 @@ def reply():
 
     return jsonify({"status": False})
 
+@main.app_template_filter('story_likes')
+def story_likes(uuid):
+    results = Story.query.filter_by(uuid=uuid).first().likes
+
+    if results:
+        return results
+    return 0
+
+@main.app_template_filter('story_is_liked')
+def story_is_liked(uuid):
+    for item in session['likes']:
+        if item['uuid'] == uuid:
+            return "Liked"
+    
+    return "Like"
+
+@main.route('/like/<uuid>', methods=['POST', 'GET'])
+def like(uuid):
+    story = Story.query.filter_by(uuid=uuid).first()
+    status = ("liked" if story in current_user.liked_stories else "unliked")
+    if request.method == 'POST':
+        if status is "liked":
+            current_user.liked_stories.remove(story)
+            story.likes -= 1
+            status = "unliked"
+        else:
+            current_user.liked_stories.append(story)
+            story.likes += 1
+            status = "liked"
+        db.session.commit()
+    return jsonify({"status": status})
+
+@main.route(f"/reporter/<uuid>/")
+@main.route(f"/reporter/<uuid>/<name>")
+def reporter(uuid, name=None):
+    results = Reporter.query.filter_by(uuid=uuid).first()
+    # if results.onetime:
+    #     return redirect(url_for('main.index'))
+    # else:
+    reporter = {"name":results.name, "personality":results.personality}
+    return render_template("reporter.html", **reporter, stories=results.stories)
+
+    return render_template("error.html", msg="Reporter Not Found")
 
 # @main.route("/get_reporters", methods=["GET"])
 # def get_reporters():
@@ -353,69 +402,25 @@ def reply():
 #     results = Reporters.query.filter_by(id=id).first().name
 #     return results
 
-@main.app_template_filter('story_likes')
-def story_likes(uuid):
-    results = Story.query.filter_by(uuid=uuid).first().likes
+# likes_history = session['likes']
+# for item in likes_history:liked
+#     x = item.get('uuid', False)
+#     if x:
+#         print("Already liked, unliking and removing from likes list")
+#         story = Story.query.filter_by(uuid=uuid).first()
+#         story.likes -= 1
+#         db.session.add(story)
+#         db.session.commit()
+#         likes_history.remove(item)
+#         return jsonify({"state":"Like", "likes": story.likes})
 
-    if results:
-        return results
-    return 0
+# print("Not yet liked, adding to likes list and updating row")
+# story = Story.query.filter_by(uuid=uuid).first()
+# story.likes += 1
+# db.session.add(story)
+# db.session.commit()
+# likes_history.mainend({'uuid': uuid})
 
-@main.app_template_filter('story_is_liked')
-def story_is_liked(uuid):
-    for item in session['likes']:
-        if item['uuid'] == uuid:
-            return "Liked"
-    
-    return "Like"
+# session['likes'] = likes_history
 
-@main.route('/like/<uuid>', methods=['POST', 'GET'])
-def like(uuid):
-    story = Story.query.filter_by(uuid=uuid).first()
-    status = ("liked" if story in current_user.liked_stories else "unliked")
-    if request.method == 'POST':
-        if status is "liked":
-            current_user.liked_stories.remove(story)
-            story.likes -= 1
-            status = "unliked"
-        else:
-            current_user.liked_stories.append(story)
-            story.likes += 1
-            status = "liked"
-        db.session.commit()
-    return jsonify({"status": status})
-
-    # likes_history = session['likes']
-    # for item in likes_history:liked
-    #     x = item.get('uuid', False)
-    #     if x:
-    #         print("Already liked, unliking and removing from likes list")
-    #         story = Story.query.filter_by(uuid=uuid).first()
-    #         story.likes -= 1
-    #         db.session.add(story)
-    #         db.session.commit()
-    #         likes_history.remove(item)
-    #         return jsonify({"state":"Like", "likes": story.likes})
-
-    # print("Not yet liked, adding to likes list and updating row")
-    # story = Story.query.filter_by(uuid=uuid).first()
-    # story.likes += 1
-    # db.session.add(story)
-    # db.session.commit()
-    # likes_history.mainend({'uuid': uuid})
-
-    # session['likes'] = likes_history
-
-    # return jsonify({"state":"Liked", "likes": story.likes})
-
-@main.route(f"/reporter/<uuid>/")
-@main.route(f"/reporter/<uuid>/<name>")
-def reporter(uuid, name=None):
-    results = Reporter.query.filter_by(uuid=uuid).first()
-    # if results.onetime:
-    #     return redirect(url_for('main.index'))
-    # else:
-    reporter = {"name":results.name, "personality":results.personality}
-    return render_template("reporter.html", **reporter, stories=results.stories)
-
-    return render_template("error.html", msg="Reporter Not Found")
+# return jsonify({"state":"Liked", "likes": story.likes})
