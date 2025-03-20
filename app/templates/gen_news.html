@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Generate AI News</title>
+</head>
+<body class="grid sm:grid-cols-3 grid-cols-1 gap-5 bg-gray-900">
+    <div class="relative text-center w-full h-full p-5">
+        <div class="absolute flex flex-row gap-5 items-center justify-between bottom-5">
+            <a href="{{ url_for('main.index') }}">
+                <button
+                    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+                    type="submit" id="news-button">
+                    Home Page
+                </button>
+            </a>
+            <a href="{{ url_for('main.new_reporter') }}">
+                <button
+                    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+                    type="submit">
+                    New Reporter
+                </button>
+            </a>
+        </div>
+    </div>
+    <form class="bg-white container mt-10 max-w-lg w-full mx-auto p-6 rounded-lg shadow-md text-black" id="news-form" autocomplete="off">
+        <h2 class="text-2xl font-bold mb-6 text-black">Generate Fake News</h2>
+
+        <div class="mb-4">
+            <label class="block text-sm font-bold mb-2" for="message">
+                Title
+            </label>
+            <textarea
+                class="shadow appearance-none border rounded w-full py-2 px-3 text-black leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                id="title" name="title" rows="5"></textarea>
+        </div>
+
+        <div class="mb-4">
+            <label class="block text-black text-sm font-bold mb-2" for="message">
+                Guideline
+            </label>
+            <textarea
+                class="shadow appearance-none border rounded w-full py-2 px-3 text-black leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                id="guideline" name="guideline" rows="5"></textarea>
+        </div>
+        <label class="block text-black text-sm font-bold mb-2" for="message">
+            Select or Fill in a Reporter
+        </label>
+        <div class="relative mb-4">
+            <input type="text" id="dropdown-item" name="reporter"
+                class="w-full rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                placeholder="Select an option">
+
+            <div class="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none hidden"
+                role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1" id="dropdown-menu">
+                <div class="py-1" role="none" id="reporter-selection">
+                </div>
+            </div>
+        </div>
+
+        <div class="mb-6">
+            <label class="block text-black text-sm font-bold mb-2">Mode</label>
+            <label class="block text-black text-sm font-bold mb-2">
+                <input type="radio" name="mode" value="fast">
+                Fast but Censored
+            </label>
+            <label class="block text-black text-sm font-bold mb-2">
+                <input type="radio" name="mode" value="slow" checked>
+                Slow but Uncensored
+            </label>
+        </div>
+
+        <div class="flex items-center justify-between">
+            <button
+                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+                type="submit" id="news-button">
+                Generate
+            </button>
+        </div>
+    </form>
+    <div class="relative text-center w-full h-full p-5 overflow-auto" id="preview-box">
+        <div class="absolute flex flex-row gap-5 items-center justify-between bottom-5">
+            <form onsubmit="postStory()">
+                <button
+                    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+                    type="submit" id="post-button">
+                    Post!
+                </button>
+            </form>
+        </div>
+    </div>
+    <script>
+        let formGlobal = null;
+        const dropdownItem = document.getElementById('dropdown-item');
+        const dropdownMenu = document.getElementById('dropdown-menu');
+
+        getReporters()
+
+        // Show menu if clicked in the box
+        dropdownItem.addEventListener('click', () => {
+            dropdownMenu.classList.toggle('hidden');
+        });
+
+        // Hide if clicked out of it
+        document.addEventListener('click', (e) => {
+            if (!dropdownItem.contains(e.target) && !dropdownMenu.contains(e.target)) {
+            dropdownMenu.classList.add('hidden');
+            }
+        });
+
+        function getReporters() {
+            const reporterSelection = document.getElementById("reporter-selection")
+
+            fetch(`{{url_for('get_reporters')}}`).then(response => response.json()).then
+            (data => {
+                console.log(data);
+
+                data.forEach(item => {
+                    var newSelection = document.createElement('a');
+                    newSelection.className = "block px-4 py-2 text-sm text-black hover:text-slate-500";
+                    newSelection.setAttribute("href", "#");
+                    newSelection.innerHTML = `${item['name']}`
+                    reporterSelection.appendChild(newSelection);
+                });
+
+                document.querySelectorAll("#reporter-selection a").forEach(item => {
+                    item.addEventListener('click', (event) => {
+                        console.log("clciked")
+                        event.preventDefault();
+                        const value = item.innerHTML;
+                        dropdownItem.value = value;
+                        dropdownMenu.classList.add('hidden');
+                    });
+                });
+
+            }).catch(error => {
+                console.error("Error fetching data:", error);
+            });
+        };
+
+
+        document.getElementById("news-form").addEventListener("submit", function (event) {
+            var formdata = new FormData(this);
+            formSubmit(event, formdata)
+        });
+
+        function formSubmit(event, formdata) {
+            event.preventDefault(); // prevent default form submit
+            const promptSubmitButton = document.getElementById("news-button");
+            promptSubmitButton.disabled = true;
+
+            readStream(formdata);
+            promptSubmitButton.disabled = false;
+        };
+
+        function removeID(id) {
+            var e = document.getElementById(id);
+            if (e !== null) e.remove();
+        };
+
+        function readStream(formdata) {
+            console.log("called readstream")
+            const previewBox = document.getElementById('preview-box');
+
+            removeID('story')
+
+            // Add an empty message div to show the streaming response
+            const newMessage = document.createElement('div');
+            newMessage.setAttribute("id", "story");
+            newMessage.className = "text-white";
+            previewBox.appendChild(newMessage);
+
+            const data = {};
+            formdata.forEach((value, key) => {
+                data[key] = value;
+            });
+
+            formGlobal = data;
+
+            const jsonString = encodeURIComponent(JSON.stringify(data));
+            const eventSource = new EventSource(`/stream?formdata=${jsonString}`);
+            console.log("sent");
+
+            eventSource.onmessage = function (event) {
+                // Append the streamed data to the message div
+                newMessage.innerHTML = `${event.data}`;
+            };
+
+            eventSource.addEventListener('end', function(event) {
+                // Handle the 'end' event
+                console.log('Stream finished, closing connection.');
+                eventSource.close();
+            });
+        }
+
+        function postStory() {
+            event.preventDefault();
+            let story = document.getElementById('story').innerHTML;
+            formGlobal['story'] = story;
+
+            console.log(JSON.stringify({ "story": formGlobal }));
+
+            fetch(`{{url_for('main.post')}}`, {
+                method: "POST",
+                body: JSON.stringify({ "story": formGlobal }),
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+            }).then(response => response.json()).then(data => {
+                window.location.replace("{{url_for('main.index')}}");
+            }).catch(error => console.error('Error', error));
+        }
+    </script>
+</body>
+
+</html>

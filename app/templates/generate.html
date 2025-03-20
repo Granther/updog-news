@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %}Create Story{% endblock %}
+
+{% block list %}
+<li>
+    <a href="{{url_for('main.about')}}" class="block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">About</a>
+</li>
+<li>
+    <a href="{{url_for('main.reporters')}}" class="block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Reporters</a>
+</li>
+{% endblock %}
+
+{% block content %}
+<div class="flex justify-center items-center h-full">
+    <div class="bg-gray-800 p-8 rounded-lg shadow-lg w-full max-w-lg">
+        <h1 class="text-2xl font-bold mb-6 text-center">Create a Story</h1>
+        <form method="POST" action="" class="space-y-4">
+            {{ form.hidden_tag() }}
+
+            <div>
+                <label for="title" class="block text-md font-medium mb-1">{{ form.title.label }}</label>
+                {{ form.title(class_="border border-gray-300 rounded-lg px-3 py-2 w-full text-black") }}
+            </div>
+
+            <div>
+                <label for="guideline" class="block text-md font-medium mb-1">{{ form.guideline.label }}</label>
+                {{ form.guideline(class_="border border-gray-300 rounded-lg px-3 py-2 w-full text-black") }}
+            </div>
+
+            <div>
+                <label for="reporters" class="block text-md font-medium mb-1">{{ form.reporters.label }}</label>
+                {{ form.reporters(class_="border border-gray-300 rounded-lg px-3 py-2 w-full text-black") }}
+            </div>
+
+            <div class="text-center">
+                {{ form.submit(class_="bg-blue-500 hover:bg-blue-700 text-white py-2 px-6 rounded-full font-bold text-lg transition duration-300") }}
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

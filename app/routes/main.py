@@ -86,10 +86,11 @@ def generate():
 
     return render_template("generate.html", form=form)
 
-@main.route("/report")
+@main.route("/report", methods=['POST', 'GET'])
 @login_required
 def report():
-    return "report here"
+    form = GenerateStoryForm()
+    return render_template("report.html", form=form)
 
 @main.route("/story/<uuid>/")
 @main.route("/story/<uuid>/<title>")

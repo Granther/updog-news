@@ -21,11 +21,12 @@ class LoginForm(FlaskForm):
     submit = SubmitField('Login', render_kw={"class": "bg-sky-500 hover:bg-sky-700 text-white py-2 px-5 rounded-full font-bold text-md transition duration-300"})
 
 class GenerateStoryForm(FlaskForm):
-    """Takes the user's story proposal, gets added to execution queue after submission"""
     title = StringField('Title', validators=[DataRequired()], render_kw={"autocomplete":"off"})
-    guideline = TextAreaField('Guideline', render_kw={"autocomplete":"off", "rows": 5})
-    reporters = SelectField('Reporter', choices=[], validators=[DataRequired()], render_kw={"autocomplete":"off"})
-    submit = SubmitField('Generate')
+    #guideline = TextAreaField('Guideline', render_kw={"autocomplete":"off", "rows": 5})
+    #reporters = SelectField('Reporter', choices=[], validators=[DataRequired()], render_kw={"autocomplete":"off"})
+    reporter_name = StringField('Reporter', validators=[DataRequired()], render_kw={"autocomplete":"off"})
+    reporter_personality = TextAreaField('Personaility', validators=[DataRequired()], render_kw={"autocomplete":"off", "rows": 5})
+    submit = SubmitField('Report!')
 
 class NewReporterForm(FlaskForm):
     name = StringField('Name', validators=[DataRequired()], render_kw={"autocomplete":"off"})
