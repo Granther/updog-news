@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block list %}
+<li>
+    <a href="{{url_for('main.about')}}" class="block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">About</a>
+</li>
+<li>
+    <a href="{{url_for('main.reporters')}}" class="block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Reporters</a>
+</li>
+<li>
+    <a href="{{url_for('main.generate')}}" class="block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Generate</a>
+</li>
+{% endblock %}
+
+{% block content %}
+<body class="bg-gray-900 text-gray-100 flex flex-col min-h-screen">
+    <header class="relative bg-gray-900 p-4 text-center">
+        <h1 class="text-3xl font-bold"><a href="{{ url_for('main.index') }}">{{ title }}</a></h1>
+        <p class="text-white">By <a href="{{url_for('main.reporter', uuid=reporter_uuid, name=reporter_name)}}">{{ reporter_name }}</a></p>
+        <div class="absolute top-4 right-4">
+            <button id="like-btn" class="py-2 px-4 text-xs bg-blue-500 font-medium text-white rounded-lg transition">
+                Like
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex flex-grow p-4">
+        <article class="max-w-3xl mx-auto text-center">
+            <section>
+                {{ content }}
+            </section>
+        </article>
+    </main>
+
+    <!-- Comments Section -->
+    <section class="flex flex-col w-1/2 justify-center mx-auto pt-10">
+        <div class="flex justify-between items-center mb-6">
+            <h2 class="text-lg lg:text-2xl font-bold text-gray-900 dark:text-white">Comments</h2>
+        </div>
+        <form action="" id="comment-box" method="POST" class="pb-10">
+            {{ form.hidden_tag() }}
+            <div class="py-2 px-4 mb-4 bg-white rounded-lg border border-gray-200 dark:bg-gray-800 dark:border-gray-700">
+                <label for="comment" class="sr-only">Add Comment</label>
+                <textarea id="comment" rows="6"
+                    class="px-0 w-full text-sm text-gray-900 border-0 focus:ring-0 focus:outline-none dark:text-white dark:placeholder-gray-400 dark:bg-gray-800"
+                    placeholder="Write a comment..." required></textarea>
+            </div>
+            <button type="submit"
+                class="inline-flex items-center py-2.5 px-4 text-xs bg-blue-500 font-medium text-center text-white rounded-lg focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-900 hover:bg-blue-700">
+                Post comment
+            </button>
+        </form>
+        <section class="bg-white dark:bg-gray-900 py-8 lg:py-16 antialiased">
+            <div class="w-full mx-auto px-4" id="comment-section">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-lg lg:text-2xl font-bold text-gray-900 dark:text-white">Comments</h2>
+                </div>
+            </div>
+        </section>
+    </section>
+    <script>
+        update_like_btn()
+        const postCommentBtn = document.getElementById('comment-box')
+        const likeBtn = document.getElementById('like-btn')
+        function update_like_btn() {
+            fetch(`{{url_for('main.like', uuid=uuid)}}`)
+            .then(response => response.json())
+            .then(data => {
+                if (data.status == "liked") {
+                    like()
+                }
+            }).catch((error) => {console.log(error);});
+        }
+
+        function like() {likeBtn.classList.replace("bg-gray-500", "bg-red-500"); likeBtn.innerHTML = "Unlike"}
+        function unlike() {likeBtn.classList.replace("bg-red-500", "bg-gray-500"); likeBtn.innerHTML = "Like"}
+
+        likeBtn.addEventListener('click', function(event) {
+            fetch(`{{url_for('main.like', uuid=uuid)}}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    like: true
+                })
+            }).then(response => response.json())
+            .then(data => {
+                if (data.status == "liked") {
+                    like()
+                } else {
+                    unlike()
+                }
+            }).catch((error) => {console.log(error);});
+        });
+    </script>
+</body>
+{% endblock %}

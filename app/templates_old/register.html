@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}Register Dog{% endblock %}
+
+{% block list %}
+<li>
+    <a href="{{url_for('main.about')}}" class="block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">About</a>
+</li>
+<li>
+    <a href="{{url_for('main.reporters')}}" class="block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Reporters</a>
+</li>
+{% endblock %}
+
+{% block content %}
+<body class="bg-gray-900 text-gray-100 flex flex-col min-h-screen">
+    <form method="POST" action="">
+        {{ form.hidden_tag() }}
+        <div>{{ form.username.label }} {{ form.username }}</div>
+        <div>{{ form.password.label }} {{ form.password }}</div>
+        <div>{{ form.confirm_password.label }} {{ form.confirm_password }}</div>
+        <div>{{ form.submit() }}</div>
+    </form>
+</body>
+{% endblock %}
