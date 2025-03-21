@@ -10,7 +10,7 @@ from app import db, login_manager
 from app.models import Story, Comment, User, Reporter, QueuedStory, QueuedComment
 from app.forms import GenerateStoryForm, LoginForm, RegistrationForm, NewReporterForm, CommentForm
 from app.utils import preserve_markdown
-from app.news import get_marquee, get_stories
+from app.news import get_marquee, get_stories, write_new_story
 
 main = Blueprint('main', __name__,
                         template_folder='templates')
@@ -92,7 +92,12 @@ def generate():
 def report():
     form = GenerateStoryForm()
     if form.validate_on_submit():
-        print(form.catagory.data)
+        try:
+            write_new_story(form.title.data, form.reporter_name.data, form.reporter_personality.data, form.catagory.data)
+        except:
+            flash('We encountered an error while writing your story, please try again later', 'error')
+            return redirect(url_for("main.index"))
+
         flash('UpDog News thanks you for the story, your story will be published in a few moments', 'success')
         return redirect(url_for("main.index"))
     return render_template("report.html", form=form)

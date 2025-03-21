@@ -11,6 +11,7 @@ from flask_bcrypt import Bcrypt
 
 from app.config import DevelopmentConfig, ProductionConfig
 from app.logger import create_logger
+from app.queue import start_queue
 
 # Create a single SQLAlchemy instance
 db = SQLAlchemy()
@@ -39,6 +40,9 @@ def create_app(config=DevelopmentConfig):
         from app.models import Story, Comment, User, Reporter, QueuedStory, QueuedComment
         db.create_all()
         # create_defaults(db)
+
+    # Start story queue
+    start_queue()
 
     # Imported later to prevent circular import
     from app.routes.main import main
