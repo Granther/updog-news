@@ -56,11 +56,12 @@ def logout():
 
 @main.route('/')
 def index():
+    catagory = request.args.get('catagory')
     report_btn = {"text": "Report for Up Dog News", "url": url_for("main.register")}
     if current_user.is_authenticated:
         report_btn = {"text": "Report Now", "url": url_for("main.report")}
 
-    stories = get_stories()
+    stories = get_stories(catagory=catagory)
     marq = get_marquee()
     return render_template("index.html", stories=stories, marq=marq, report_btn=report_btn)
 
@@ -90,6 +91,10 @@ def generate():
 @login_required
 def report():
     form = GenerateStoryForm()
+    if form.validate_on_submit():
+        print(form.catagory.data)
+        flash('UpDog News thanks you for the story, your story will be published in a few moments', 'success')
+        return redirect(url_for("main.index"))
     return render_template("report.html", form=form)
 
 @main.route("/story/<uuid>/")

@@ -14,10 +14,11 @@
         <div class="container mx-auto px-4">
             <div class="flex justify-between items-center py-2">
                 <div class="flex space-x-4 text-sm">
-                    <a href="#" class="hover:bg-red-700 px-3 py-1 rounded">World</a>
-                    <a href="#" class="hover:bg-red-700 px-3 py-1 rounded">Politics</a>
-                    <a href="#" class="hover:bg-red-700 px-3 py-1 rounded">Business</a>
-                    <a href="#" class="hover:bg-red-700 px-3 py-1 rounded">Technology</a>
+                    <a href="/?catagory=world" class="hover:bg-red-700 px-3 py-1 rounded">World</a>
+                    <a href="/?catagory=politics" class="hover:bg-red-700 px-3 py-1 rounded">Politics</a>
+                    <a href="/?catagory=business" class="hover:bg-red-700 px-3 py-1 rounded">Business</a>
+                    <a href="/?catagory=technology" class="hover:bg-red-700 px-3 py-1 rounded">Technology</a>
+                    <a href="/?catagory=other" class="hover:bg-red-700 px-3 py-1 rounded">Other</a>
                     <a href="/about" class="hover:bg-red-700 px-3 py-1 rounded">About</a>
                 </div>
                 <div class="flex items-center space-x-4">
@@ -27,6 +28,19 @@
             </div>
         </div>
     </nav>
+
+    <div class="flex flex-col justify-center items-center transform w-full z-50">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+            {% for category, message in messages %}
+                <div class="flash-message flex items-center max-w-lg w-full p-4 mb-4 rounded-lg shadow-lg transition transform duration-300 translate-y-4"
+                    data-category="{{ category }}">
+                <span class="flex-grow text-black text-center">{{ message }}</span>
+                </div>
+            {% endfor %}
+            {% endif %}
+        {% endwith %}
+    </div>
 
     <!-- Main Header -->
     <header class="bg-white border-b">

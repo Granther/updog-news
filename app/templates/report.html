@@ -3,13 +3,14 @@
 {% block title %}Report{% endblock %}
 
 {% block content %}
-<body class="bg-gray-900 text-gray-100 flex flex-col min-h-screen">
-    <form method="POST" action="">
+<body class="bg-gray-900 text-black flex flex-col min-h-screen">
+    <form method="POST" action="" class="text-black">
         {{ form.hidden_tag() }}
         <div>{{ form.title.label }} {{ form.title }}</div>
         <div>{{ form.reporter_name.label }} {{ form.reporter_name }}</div>
         <div>{{ form.reporter_personality.label }} {{ form.reporter_personality }}</div>
-		<div>{{ form.submit() }}</div>
+        <div>{{ form.catagory.label }} {{ form.catagory }}</div>
+	<div>{{ form.submit() }}</div>
     </form>
 </body>
 {% endblock %}

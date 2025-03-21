@@ -8,6 +8,7 @@ class Story(db.Model):
     title = db.Column(db.String, unique=False, nullable=False)
     content = db.Column(db.String, unique=False, nullable=False)
     guideline = db.Column(db.String, unique=False, nullable=True)
+    catagory = db.Column(db.String, unique=False, nullable=True)
     trashed = db.Column(db.Boolean, nullable=True, default=False)    
     archived = db.Column(db.Boolean, nullable=True, default=False)
     likes = db.Column(db.Integer, nullable=True, default=0)

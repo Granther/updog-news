@@ -26,6 +26,7 @@ class GenerateStoryForm(FlaskForm):
     #reporters = SelectField('Reporter', choices=[], validators=[DataRequired()], render_kw={"autocomplete":"off"})
     reporter_name = StringField('Reporter', validators=[DataRequired()], render_kw={"autocomplete":"off"})
     reporter_personality = TextAreaField('Personaility', validators=[DataRequired()], render_kw={"autocomplete":"off", "rows": 5})
+    catagory = SelectField('Catagory', choices=[("world", "World"), ("politics", "Politics"), ("business", "Business"), ("technology", "Technology"), ("other", "Other")], validators=[DataRequired()], render_kw={"autocomplete":"off"})
     submit = SubmitField('Report!')
 
 class NewReporterForm(FlaskForm):
