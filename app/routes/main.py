@@ -7,11 +7,13 @@ from multiprocessing import Process, Queue
 from uuid import uuid4   
 
 from app import db, login_manager
-from app.models import Story, Comment, User, Reporter, QueuedStory, QueuedComment
+from app.models import Story, User
 from app.forms import GenerateStoryForm, LoginForm, RegistrationForm, NewReporterForm, CommentForm
 from app.utils import preserve_markdown
-from app.news import get_marquee, get_stories, write_new_story
+from app.news import get_marquee, get_stories
+from app.queue import put_story, start_queue
 
+start_queue()
 main = Blueprint('main', __name__,
                         template_folder='templates')
 
@@ -65,6 +67,7 @@ def index():
     marq = get_marquee()
     return render_template("index.html", stories=stories, marq=marq, report_btn=report_btn)
 
+'''
 @main.route("/generate",  methods=['GET', 'POST'])
 def generate():
     form = GenerateStoryForm()
@@ -86,6 +89,7 @@ def generate():
         return redirect(url_for('main.index'))
 
     return render_template("generate.html", form=form)
+'''
 
 @main.route("/report", methods=['POST', 'GET'])
 @login_required
@@ -93,7 +97,7 @@ def report():
     form = GenerateStoryForm()
     if form.validate_on_submit():
         try:
-            write_new_story(form.title.data, form.reporter_name.data, form.reporter_personality.data, form.catagory.data)
+            put_story({"title": form.title.data, "reporter": form.reporter_name.data, "personality": form.reporter_personality.data, "catagory": form.catagory.data, "user_id": current_user.id})
         except:
             flash('We encountered an error while writing your story, please try again later', 'error')
             return redirect(url_for("main.index"))
@@ -102,23 +106,24 @@ def report():
         return redirect(url_for("main.index"))
     return render_template("report.html", form=form)
 
+
 @main.route("/story/<uuid>/")
 @main.route("/story/<uuid>/<title>")
 def story(uuid, title=None):
-    form = CommentForm()
-    results = Story.query.filter_by(uuid=uuid).first()
-    comments = Comment.query.filter_by(story_id=results.id).order_by(Comment.created).all()
+#    form = CommentForm()
+#    results = Story.query.filter_by(uuid=uuid).first()
+#    comments = Comment.query.filter_by(story_id=results.id).order_by(Comment.created).all()
 
     # print(comments, top_level_comments, comment_tree)
-    forms = {comment.id: CommentForm() for comment in comments}
-    comments = [{"username": comment.username, "text": comment.content} for comment in comments]
+#    forms = {comment.id: CommentForm() for comment in comments}
+#    comments = [{"username": comment.username, "text": comment.content} for comment in comments]
 
-    if results:
-        reporter = Reporter.query.filter_by(id=results.reporter_id).first()
-        proc_story_content = preserve_markdown(results.content)
+#    if results:
+#        reporter = Reporter.query.filter_by(id=results.reporter_id).first()
+#        proc_story_content = preserve_markdown(results.content)
         # comments = [{"username": "Gronk", "text": "I bonked"}]
-        story = {"title": results.title, "content": proc_story_content, "reporter_uuid": reporter.uuid, "reporter_name": reporter.name, "reporter_id": results.reporter_id, "uuid": results.uuid}
-        return render_template("story1.html", **story, comments=comments, form=form, forms=forms, logged_in=current_user.is_authenticated)
+#        story = {"title": results.title, "content": proc_story_content, "reporter_uuid": reporter.uuid, "reporter_name": reporter.name, "reporter_id": results.reporter_id, "uuid": results.uuid}
+#        return render_template("story1.html", **story, comments=comments, form=form, forms=forms, logged_in=current_user.is_authenticated)
 
     return render_template("error.html", msg="Story Not Found")
 

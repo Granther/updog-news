@@ -7,9 +7,9 @@ from openai import OpenAI
 from groq import Groq
 from dotenv import load_dotenv
 
-from app.models import Story, Reporter
+from app.models import Story, User
 from app.prompts import generate_news_prompt
-from app.queue import put
+from app import db
 
 class Infer():
     def __init__(self):
@@ -55,13 +55,13 @@ class Infer():
             raise RuntimeError(f"Unknown exception occured: {e}")
         return chat_comp.choices[0].message.content
 
-    def generate_news(self, title, guideline: str=None):
+    def generate_news(self, title, personality: str=None):
         msg = None
 
         sys_prompt = generate_news_prompt()
 
-        if guideline:
-            msg = f"### Title:\n{title}\n### Guideline:\n{guideline}"
+        if personality:
+            msg = f"### Title:\n{title}\n### Personality:\n{personality}"
         else:
             msg = f"### Title:\n{title}"
         
@@ -69,11 +69,18 @@ class Infer():
 
 _infer = Infer()
 
-def generate_news(title: str, guideline: str=None):
-    return _infer.generate_news(title, guideline)
+def generate_news(title: str, personality: str=None):
+    return _infer.generate_news(title, personality)
 
-def write_new_story(title: str, reporter: str, personality: str, catagory: str):
-    put({"text": "hello"})
+def write_new_story(item: dict):
+    try:
+        content = generate_news(item['title'], item['personality'])
+        story = Story(title=item['title'], content=content, reporter=item['reporter'], catagory=item['catagory'], user_id=item['user_id'])
+        db.session.add(Story)
+        db.session.commit()
+        print(text)
+    except Exception as e:
+        raise e
 
 if __name__ == "__main__":
     infer = Infer()

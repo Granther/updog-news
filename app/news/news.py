@@ -2,7 +2,7 @@ from sqlalchemy.orm import session
 from sqlalchemy.sql import func
 
 from app.utils import preserve_markdown
-from app.models import Story, Reporter
+from app.models import Story, User
 
 def get_marquee() -> dict:
     #result = Story.query.limit(3)

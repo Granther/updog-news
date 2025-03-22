@@ -7,15 +7,27 @@ class Story(db.Model):
     uuid = db.Column(db.String, unique=True, nullable=False)
     title = db.Column(db.String, unique=False, nullable=False)
     content = db.Column(db.String, unique=False, nullable=False)
-    guideline = db.Column(db.String, unique=False, nullable=True)
+#    guideline = db.Column(db.String, unique=False, nullable=True)
+    reporter = db.Column(db.String, unique=False, nullable=False)
     catagory = db.Column(db.String, unique=False, nullable=True)
-    trashed = db.Column(db.Boolean, nullable=True, default=False)    
-    archived = db.Column(db.Boolean, nullable=True, default=False)
+#    trashed = db.Column(db.Boolean, nullable=True, default=False)    
+#    archived = db.Column(db.Boolean, nullable=True, default=False)
     likes = db.Column(db.Integer, nullable=True, default=0)
-    comments = db.relationship('Comment', backref='story')
+#    comments = db.relationship('Comment', backref='story')
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
-    reporter_id = db.Column(db.Integer, db.ForeignKey('reporter.id'))
+#    reporter_id = db.Column(db.Integer, db.ForeignKey('reporter.id'))
 
+class User(db.Model, UserMixin):
+    id = db.Column(db.Integer, primary_key=True)
+    created = db.Column(db.TIMESTAMP, nullable=False, server_default=db.func.now())
+    username = db.Column(db.String, unique=True, nullable=False)
+    # email = db.Column(db.String, unique=True, nullable=False)
+    password = db.Column(db.String, nullable=False)
+    # stories = db.relationship('Story', backref='user')
+#    comments = db.relationship('Comment', backref='user')
+    liked_stories = db.relationship('Story', backref='user')
+
+'''
 class QueuedStory(db.Model):
     """Pre-Generated story waiting on execution queue"""
 
@@ -67,15 +79,6 @@ class Comment(db.Model):
     # When querying a comment, I can access the user object with *.user.*. Requires relationship in User model as well
     # user = db.relationship('User', back_populates='comments')
 
-class User(db.Model, UserMixin):
-    id = db.Column(db.Integer, primary_key=True)
-    created = db.Column(db.TIMESTAMP, nullable=False, server_default=db.func.now())
-    username = db.Column(db.String, unique=True, nullable=False)
-    # email = db.Column(db.String, unique=True, nullable=False)
-    password = db.Column(db.String, nullable=False)
-    # stories = db.relationship('Story', backref='user')
-    comments = db.relationship('Comment', backref='user')
-    liked_stories = db.relationship('Story', backref='user')
 
 class Reporter(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -89,3 +92,4 @@ class Reporter(db.Model):
     likes = db.Column(db.Integer, nullable=True, default=0)
     stories = db.relationship('Story', backref='reporter')
     comments = db.relationship('Comment', backref='reporter')
+'''
