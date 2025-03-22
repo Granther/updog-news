@@ -1,6 +1,8 @@
 import threading
 import queue
 
+from app import get_app
+
 from app.news import write_new_story
 
 q = queue.Queue()

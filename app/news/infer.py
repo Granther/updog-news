@@ -6,6 +6,7 @@ import openai
 from openai import OpenAI
 from groq import Groq
 from dotenv import load_dotenv
+from flask import current_app
 
 from app.models import Story, User
 from app.prompts import generate_news_prompt
@@ -73,14 +74,15 @@ def generate_news(title: str, personality: str=None):
     return _infer.generate_news(title, personality)
 
 def write_new_story(item: dict):
-    try:
-        content = generate_news(item['title'], item['personality'])
-        story = Story(title=item['title'], content=content, reporter=item['reporter'], catagory=item['catagory'], user_id=item['user_id'])
-        db.session.add(Story)
-        db.session.commit()
-        print(text)
-    except Exception as e:
-        raise e
+    with current_app.app_context():
+        try:
+            content = generate_news(item['title'], item['personality'])
+            story = Story(title=item['title'], content=content, reporter=item['reporter'], catagory=item['catagory'], user_id=item['user_id'])
+            db.session.add(Story)
+            db.session.commit()
+            print(text)
+        except Exception as e:
+            raise e
 
 if __name__ == "__main__":
     infer = Infer()
