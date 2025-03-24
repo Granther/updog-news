@@ -16,10 +16,10 @@ from app.logger import create_logger
 db = SQLAlchemy()
 login_manager = LoginManager()
 
-global main_app 
+#global main_app 
 
-def get_app():
-    return global main_app
+#def get_app():
+#    return main_app
 
 def create_app(config=DevelopmentConfig):
     app = Flask(__name__)
@@ -50,9 +50,9 @@ def create_app(config=DevelopmentConfig):
 
     app.register_blueprint(main)
     
-    main_app = app
+    #main_app = app
 
-    #return app
+    return app
 
-create_app()
+#create_app()
 

@@ -2,6 +2,7 @@ import os
 from uuid import uuid4
 import random
 
+import shortuuid
 import openai
 from openai import OpenAI
 from groq import Groq
@@ -74,15 +75,15 @@ def generate_news(title: str, personality: str=None):
     return _infer.generate_news(title, personality)
 
 def write_new_story(item: dict):
-    with current_app.app_context():
-        try:
-            content = generate_news(item['title'], item['personality'])
-            story = Story(title=item['title'], content=content, reporter=item['reporter'], catagory=item['catagory'], user_id=item['user_id'])
-            db.session.add(Story)
-            db.session.commit()
-            print(text)
-        except Exception as e:
-            raise e
+    try:
+        content = generate_news(item['title'], item['personality'])
+        print("Conetent: ", content)
+        story = Story(title=item['title'], content=content, reporter=item['reporter'], catagory=item['catagory'], uuid=shortuuid.uuid())
+        db.session.add(story)
+        db.session.commit()
+        print(text)
+    except Exception as e:
+        raise e
 
 if __name__ == "__main__":
     infer = Infer()

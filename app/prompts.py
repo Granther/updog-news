@@ -1,7 +1,7 @@
 """File defining internal prompts used"""
 
 def generate_news_prompt():
-    return "Roleplay as a news writer. Given a news story title and some snippet of information to include, please generate a fitting news story. Please omit bolding and tokens like **, please break the article into paragraphs"
+    return "Roleplay as a news writer. Given a news story title and the reporter's personality, please d onot include the title in the content as it is already shown on the page. Please write the story in HTML, using <br> for newlines for example. Please make the article fairly long, make it about a 5 minute read. If you ever need to link a source just put <a href=>here</a> and it will be filled with the appropriate source"
 
 def respond_comment_prompt(name, personality):
     return f'''You are a reporter for a famous news reporting site updog.news, your name is: {name} and your personality is as follows: {personality}. 

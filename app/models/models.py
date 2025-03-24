@@ -12,9 +12,9 @@ class Story(db.Model):
     catagory = db.Column(db.String, unique=False, nullable=True)
 #    trashed = db.Column(db.Boolean, nullable=True, default=False)    
 #    archived = db.Column(db.Boolean, nullable=True, default=False)
-    likes = db.Column(db.Integer, nullable=True, default=0)
+#    likes = db.Column(db.Integer, nullable=True, default=0)
 #    comments = db.relationship('Comment', backref='story')
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+#    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 #    reporter_id = db.Column(db.Integer, db.ForeignKey('reporter.id'))
 
 class User(db.Model, UserMixin):
@@ -25,7 +25,7 @@ class User(db.Model, UserMixin):
     password = db.Column(db.String, nullable=False)
     # stories = db.relationship('Story', backref='user')
 #    comments = db.relationship('Comment', backref='user')
-    liked_stories = db.relationship('Story', backref='user')
+#    liked_stories = db.relationship('Story', backref='user')
 
 '''
 class QueuedStory(db.Model):

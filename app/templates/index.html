@@ -78,7 +78,7 @@
     <main class="flex-grow container mx-auto px-4 py-8">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {% for story in stories %}
-            <a href="{{url_for('story', uuid=story.uuid)}}" class="group">
+            <a href="{{url_for('main.story', uuid=story.uuid)}}" class="group">
                 <article class="bg-white rounded-lg shadow-sm hover:shadow-lg transition-shadow duration-300">
                     <div class="relative">
                         <div class="bg-gray-200 h-48 rounded-t-lg"></div>

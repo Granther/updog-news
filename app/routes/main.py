@@ -10,7 +10,7 @@ from app import db, login_manager
 from app.models import Story, User
 from app.forms import GenerateStoryForm, LoginForm, RegistrationForm, NewReporterForm, CommentForm
 from app.utils import preserve_markdown
-from app.news import get_marquee, get_stories
+from app.news import get_marquee, get_stories, write_new_story
 from app.queue import put_story, start_queue
 
 start_queue()
@@ -97,9 +97,10 @@ def report():
     form = GenerateStoryForm()
     if form.validate_on_submit():
         try:
-            put_story({"title": form.title.data, "reporter": form.reporter_name.data, "personality": form.reporter_personality.data, "catagory": form.catagory.data, "user_id": current_user.id})
-        except:
-            flash('We encountered an error while writing your story, please try again later', 'error')
+            write_new_story({"title": form.title.data, "reporter": form.reporter_name.data, "personality": form.reporter_personality.data, "catagory": form.catagory.data})
+            #put_story({"title": form.title.data, "reporter": form.reporter_name.data, "personality": form.reporter_personality.data, "catagory": form.catagory.data, "user_id": current_user.id})
+        except Exception as e:
+            flash(f'We encountered an error while writing your story, please try again later: {e}', 'danger')
             return redirect(url_for("main.index"))
 
         flash('UpDog News thanks you for the story, your story will be published in a few moments', 'success')
@@ -110,6 +111,12 @@ def report():
 @main.route("/story/<uuid>/")
 @main.route("/story/<uuid>/<title>")
 def story(uuid, title=None):
+    story = Story.query.filter_by(uuid=uuid).first()
+    timestamp = "test"
+    read_time = "read time"
+    #story.content = "<h1>Hello</h1><br><br><p>test</p>"
+    return render_template("story.html", story=story, timestamp=timestamp, read_time=read_time)
+
 #    form = CommentForm()
 #    results = Story.query.filter_by(uuid=uuid).first()
 #    comments = Comment.query.filter_by(story_id=results.id).order_by(Comment.created).all()
@@ -124,8 +131,6 @@ def story(uuid, title=None):
         # comments = [{"username": "Gronk", "text": "I bonked"}]
 #        story = {"title": results.title, "content": proc_story_content, "reporter_uuid": reporter.uuid, "reporter_name": reporter.name, "reporter_id": results.reporter_id, "uuid": results.uuid}
 #        return render_template("story1.html", **story, comments=comments, form=form, forms=forms, logged_in=current_user.is_authenticated)
-
-    return render_template("error.html", msg="Story Not Found")
 
 @main.route('/about')
 def about():
