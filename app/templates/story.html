@@ -1,59 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'templ.html' %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="{{ story.title }} - Read the latest exclusive on UP Dawg News">
-    <title>{{ story.title }} - UP Dawg Exclusive</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-</head>
+{% block title %}{{ story.title }}{% endblock %}
 
-<body class="bg-white text-gray-800 flex flex-col min-h-screen font-roboto">
-    <!-- Top Navigation -->
-    <nav class="bg-red-600 text-white">
-        <div class="container mx-auto px-4">
-            <div class="flex justify-between items-center py-2">
-                <div class="flex space-x-4 text-sm">
-                    <a href="/?catagory=world" class="hover:bg-red-700 px-3 py-1 rounded">World</a>
-                    <a href="/?catagory=politics" class="hover:bg-red-700 px-3 py-1 rounded">Politics</a>
-                    <a href="/?catagory=business" class="hover:bg-red-700 px-3 py-1 rounded">Business</a>
-                    <a href="/?catagory=technology" class="hover:bg-red-700 px-3 py-1 rounded">Technology</a>
-                    <a href="/?catagory=other" class="hover:bg-red-700 px-3 py-1 rounded">Other</a>
-                    <a href="/about" class="hover:bg-red-700 px-3 py-1 rounded">About</a>
-                </div>
-                <div class="flex items-center space-x-4">
-                    <span class="text-sm">Local Edition: New York</span>
-                    <span class="text-sm">🌞 72°F</span>
-                </div>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Main Header -->
-    <header class="bg-white border-b">
-        <div class="container mx-auto px-4 py-6">
-            <div class="flex items-center justify-between">
-                <div class="text-center">
-					<a href="{{ url_for('main.index') }}">
-						<h1 class="text-4xl font-playfair font-bold">
-							<span class="text-red-600">UP</span>
-							<span class="text-blue-600">Dawg</span>
-							<span class="text-gray-500 text-2xl block mt-1">News</span>
-						</h1>
-					</a>
-                </div>
-                <div class="text-right">
-                    <p class="text-sm text-gray-500">EST. 2005</p>
-                    <p class="text-lg font-semibold">Unbiased Perspectives. Fact-Based Reporting.</p>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <!-- Story Content -->
-    <main class="flex-grow container mx-auto px-4 py-8">
+{% block content %}
+<main class="flex-grow container mx-auto px-4 py-8">
         <article class="max-w-3xl mx-auto bg-white shadow-md rounded-lg overflow-hidden">
             <div class="relative">
                 <img src="{{ story.image_url }}" alt="{{ story.title }}" class="w-full h-64 object-cover">
@@ -61,8 +11,12 @@
             </div>
             <div class="p-6">
                 <div class="flex items-center text-xs text-gray-500 mb-4">
-                    <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded">{{ story.catagory }}</span>
-                    <span class="mx-2">•</span>
+					<span class="bg-blue-100 text-blue-800 px-2 py-1 rounded">
+						<a href="{{ url_for('main.index') }}?catagory={{ story.catagory }}">
+							{{ story.catagory }}
+						</a>
+					</span>
+					<span class="mx-2">•</span>
                     <time>{{ timestamp }}</time>
                 </div>
                 <h2 class="text-3xl font-playfair font-bold mb-4 text-gray-800">
@@ -75,7 +29,6 @@
             </div>
         </article>
 
-        <!-- Related Stories -->
         <section class="mt-12">
             <h3 class="text-2xl font-bold mb-4">More Like This</h3>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -88,7 +41,8 @@
                         </div>
                         <div class="p-4">
                             <div class="flex items-center text-xs text-gray-500 mb-2">
-                                <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded">{{ story.category }}</span>
+								<h1>Huh</h1>
+								<span class="bg-blue-100 text-blue-800 px-2 py-1 rounded"></span>
                                 <span class="mx-2">•</span>
                                 <time>{{ timestamp }}</time>
                             </div>
@@ -102,41 +56,4 @@
             </div>
         </section>
     </main>
-
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-white mt-12">
-        <div class="container mx-auto px-4 py-8">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 border-b border-gray-800 pb-8">
-                <div>
-                    <h4 class="text-red-600 font-bold mb-4">UP Dawg News</h4>
-                    <p class="text-sm text-gray-400">Independent journalism since 2005</p>
-                </div>
-                <div>
-                    <h5 class="font-bold mb-3">Sections</h5>
-                    <ul class="space-y-2 text-sm text-gray-400">
-                        <li><a href="#" class="hover:text-white">World</a></li>
-                        <li><a href="#" class="hover:text-white">Politics</a></li>
-                        <li><a href="#" class="hover:text-white">Business</a></li>
-                        <li><a href="#" class="hover:text-white">Technology</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h5 class="font-bold mb-3">Company</h5>
-                    <ul class="space-y-2 text-sm text-gray-400">
-                        <li><a href="#" class="hover:text-white">About Us</a></li>
-                        <li><a href="#" class="hover:text-white">Careers</a></li>
-                        <li><a href="#" class="hover:text-white">Contact</a></li>
-                        <li><a href="#" class="hover:text-white">Ethics</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="pt-6 text-center text-sm text-gray-400">
-                <p>&copy; 2024 The UP Dawg. All rights reserved.</p>
-                <p class="mt-2">Commitment to Truth: Our Editorial Standards</p>
-            </div>
-        </div>
-    </footer>
-</body>
-
-</html>
-
+{% endblock %}

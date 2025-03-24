@@ -1,7 +1,7 @@
 from sqlalchemy.orm import session
 from sqlalchemy.sql import func
 
-from app.utils import preserve_markdown
+from app.utils import preserve_markdown, display_catagory
 from app.models import Story, User
 
 def get_marquee() -> dict:
@@ -20,8 +20,9 @@ def get_stories(catagory=None) -> list:
     stories = []
     for story in result:
         #reporter = Reporter.query.filter_by(id=story.reporter_id).first()
+        cat = display_catagory(story.catagory)
         proc_story_content = preserve_markdown(story.title)
-        stories.append({"id":story.id, "title":story.title, "content": proc_story_content, "uuid":story.uuid, "reportername":story.reporter})
+        stories.append({"id":story.id, "title":story.title, "content": proc_story_content, "uuid":story.uuid, "reportername":story.reporter, "catagory": cat})
     return stories
 
     

@@ -13,3 +13,13 @@ def preserve_markdown(s):
     html = markdown.markdown(s)
     html.replace('\n', '<br>')
     return Markup(html)
+
+def display_catagory(catagory: str) -> str:
+    catagories = {
+    "world": "World",
+    "technology": "Technology",
+    "politics": "Politics",
+    "other": "Other",
+    "business": "Business",
+    }
+    return catagories[catagory]

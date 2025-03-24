@@ -9,7 +9,7 @@ from uuid import uuid4
 from app import db, login_manager
 from app.models import Story, User
 from app.forms import GenerateStoryForm, LoginForm, RegistrationForm, NewReporterForm, CommentForm
-from app.utils import preserve_markdown
+from app.utils import preserve_markdown, display_catagory
 from app.news import get_marquee, get_stories, write_new_story
 from app.queue import put_story, start_queue
 
@@ -59,6 +59,9 @@ def logout():
 @main.route('/')
 def index():
     catagory = request.args.get('catagory')
+    if catagory:
+        catagory = catagory.lower()
+
     report_btn = {"text": "Report for Up Dog News", "url": url_for("main.register")}
     if current_user.is_authenticated:
         report_btn = {"text": "Report Now", "url": url_for("main.report")}
@@ -114,6 +117,7 @@ def story(uuid, title=None):
     story = Story.query.filter_by(uuid=uuid).first()
     timestamp = "test"
     read_time = "read time"
+    story.catagory = display_catagory(story.catagory)
     #story.content = "<h1>Hello</h1><br><br><p>test</p>"
     return render_template("story.html", story=story, timestamp=timestamp, read_time=read_time)
 
