@@ -1,16 +1,22 @@
+from sqlalchemy import text
 from sqlalchemy.orm import session
 from sqlalchemy.sql import func
 
+from app import db
 from app.utils import preserve_markdown, display_catagory
 from app.models import Story, User
 
 def get_marquee() -> dict:
-    #result = Story.query.limit(3)
-    #print(len(result))
-    #total_rows = session.query(func.count(Story.id)).scalar
-    #if total_rows < 3:
-    #    return {"one": "", "two": "", "three": ""}
-    return {"one": "one", "two": "two", "three": "three"}
+    try:
+        result = session.query(Story).order_by(Story.id.desc()).limit(3).all()
+#        query = text("SELECT TOP 3 FROM Story")
+#        result = session.query(query)
+        #for i in result:
+         #   print(i)
+        print("here")
+    except Exception as e:
+        print(e)
+        return {"one": "one", "two": "two", "three": "three"}
 
 def get_stories(catagory=None) -> list:
     if not catagory: # Select all
