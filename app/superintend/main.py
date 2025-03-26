@@ -12,6 +12,7 @@ from openai import OpenAI
 from groq import Groq
 
 from app.logger import create_logger
+#from .prompts import 
 
 # Hoodlem 
 # Runs in his own thread, basically uses an API to be interacted with
@@ -33,9 +34,10 @@ users = {
 
 class SuperIntend:
     """ Groq for fast, feather for slow but custom """
-    def __init__(self, groq_key: str, feather_key: str):
+    def __init__(self, groq_key: str, feather_key: str, groq_core_key: str):
         self.logger = create_logger(__name__)
         self.groq, self.feather = self._init_clients(groq_key, feather_key)
+        self.core = Core(self._init_groq_client(groq_core_key))
         self.groq_model = "llama-3.3-70b-versatile"
         self._init_queue()
         self.logger.debug("Created Superintendent")
@@ -55,12 +57,16 @@ class SuperIntend:
     """ Init both Groq and Feather clients """
     def _init_clients(self, groq_key, feather_key):
         self.logger.debug("Creating Groq and Featherless clients")
-        return (Groq(api_key=groq_key), 
-                OpenAI(
+        return ((self._init_groq_client(groq_key), self._init_feather_client(feather_key)))
+
+    def _init_groq_client(self, groq_key: str):
+        return Groq(api_key=groq_key)
+
+    def _init_feather_client(self, feather_key: str):
+        return OpenAI(
                     base_url="https://api.featherless.ai/v1",
                     api_key=feather_key,
                 )
-            )
 
     """ Top level chat func, highest level call """
     def chat(self, msg: str, user_id: int) -> str:
@@ -106,6 +112,44 @@ class SuperIntend:
         yield "event: end\n"
         yield "data: done\n\n"
 
+""" Main conscience instance, uses api to interact with 
+    - Keeps embedding db for RAG
+    - No one chats with this, only for core logic and data recall
+"""
+class Core:
+    """ Takes a premade groq client """
+    def __init__(self, client):
+        self.groq = client
+
+    """ Inform the central AI of changes, important data, etc 
+        - We dont expect a response
+        - We call this to inform the model often (ie, user visited page)
+    """
+    def inform(self, data):
+        pass
+    """ Ask the central AI for some data 
+        - We expect a response of some kind
+    """
+    def query(self, question) -> str:
+        pass
+    """ Takes list of past messages, sys promt etc and produces a response """
+    def _groq_chat(self, messages: list) -> str:
+        chat_completion = self.groq.chat.completions.create(
+            messages=messages,
+            model=self.groq_model,
+        )
+        return chat_completion.choices[0].message.content
+
+"""
+Example:
+
+User visits hoodlem
+Logic: Dispatches new instance with clean message history
+Not every message should go through the central AI
+
+"""
+
+
 # What if the main chat process dispatches other threads to complete processes
 # So the consiciousness exists as one thread handling high view context and passes RAGed elements to its children
 # Can produce a special token to open new line of consiousness
@@ -115,6 +159,10 @@ class SuperIntend:
     # "Remember me, my names bob, I was the one that said I dont like the most recent Joe Biden article"
     # Embed all chat data
 # Use multiple API keys in a rotating setup
+# Onion model, central 'pillar' thread runs. Each dispatched instance is doing something and reporting it to the mian thread. I am talking to an instance which can talk to the main pillar 
+
+# Main thread
+# - 
         
         
 

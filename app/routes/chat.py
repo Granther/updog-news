@@ -34,3 +34,12 @@ def chat_stream():
     data = json.loads(json_str)
 #        return Response(stream_with_context(superintend.chat_with_stream
 
+@chat.route("/message", methods=['GET', 'POST'])
+def message():
+    data = request.json
+    print(data)
+    return jsonify({"response": "hello"})
+
+@chat.route("/hoodlem")
+def hoodlem():
+    return render_template("chat/hoodlem.html")
