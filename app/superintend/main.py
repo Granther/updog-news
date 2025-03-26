@@ -36,6 +36,7 @@ class SuperIntend:
     def __init__(self, groq_key: str, feather_key: str):
         self.logger = create_logger(__name__)
         self.groq, self.feather = self._init_clients(groq_key, feather_key)
+        self.groq_model = "llama-3.3-70b-versatile"
         self._init_queue()
         self.logger.debug("Created Superintendent")
     
@@ -45,10 +46,8 @@ class SuperIntend:
         self.chat_queue = queue.Queue()
         def worker():
             while True:
-                messages = self.chat_queue.get()
-                resp = self._groq_chat(messages)
-                # Send resp back with callback, then send to frontend async
-                self.logger.debug(f"Hoodlem resp: {resp}")
+                func, args = self.chat_queue.get()
+                print("Returns: ", func(args))
                 self.chat_queue.task_done()
         # Run in new thread
         threading.Thread(target=worker, daemon=True).start()
@@ -68,7 +67,14 @@ class SuperIntend:
         user_messages = self._get_user_messages(user_id)
         print(user_messages)
         user_messages.append({"role": "user", "content": msg})
-        self.chat_queue.put(user_messages)
+        self.chat_queue.put((self._groq_chat, user_messages)) # pass callback
+        self.chat_queue.join()
+
+    def chat_with_stream(self, msg: str, user_id: int):
+        user_messages = self._get_user_messages(user_id)
+        user_messages.append({"role": "user", "content": msg})
+        self.chat_queue.put((self._groq_chat_stream, user_messages)) # pass callback
+        self.chat_queue.join()
 
     """ Given a user's id, return their messages [dict...] AI chat history """
     def _get_user_messages(self, user_id: int) -> list:
@@ -78,9 +84,27 @@ class SuperIntend:
     def _groq_chat(self, messages: list) -> str:
         chat_completion = self.groq.chat.completions.create(
             messages=messages,
-            model="llama-3.3-70b-versatile",
+            model=self.groq_model,
         )
         return chat_completion.choices[0].message.content
+
+    def _groq_chat_stream(self, messages: list):
+        response = self.groq.chat.completions.create(
+            model=self.groq_model,
+            messages=messages,
+            stream=True,
+        )
+
+        partial_message = ""
+        for chunk in response:
+            if chunk.choices[0].delta.content is not None:
+                partial_message = partial_message + chunk.choices[0].delta.content
+                # Some kind of encoding error occurs in the SSE, this fixes it
+                partial_message = partial_message.replace('\n', '<br>').replace('\r', '<br>')
+                yield f"data: {partial_message}\n\n"
+
+        yield "event: end\n"
+        yield "data: done\n\n"
 
 
     

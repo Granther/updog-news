@@ -46,7 +46,8 @@ def create_app(config=DevelopmentConfig):
         # create_defaults(db)
 
     # Imported later to prevent circular import
-    from app.routes.main import main, chat
+    from app.routes.main import main
+    from app.routes.chat import chat
 
     app.register_blueprint(main)
     app.register_blueprint(chat)

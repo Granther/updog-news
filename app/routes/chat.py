@@ -26,10 +26,11 @@ When a user is chatting in the browser, get button press 'send' with msg
 chat_with_stream(msg), gets added to superintend queue
 When its ready 
 """
+
 @chat.route("/chat_stream")
 def chat_stream():
-    with lock:
-        json_str = request.args.get('formdata')
-        data = json.loads(json_str)
-        return Response(stream_with_context(superintend.chat_with_stream
+ #   with lock:
+    json_str = request.args.get('formdata')
+    data = json.loads(json_str)
+#        return Response(stream_with_context(superintend.chat_with_stream
 
