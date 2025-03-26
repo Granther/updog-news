@@ -1575,3 +1575,9 @@ I'm here to help answer your questions, provide information, and engage in conve
 2025-03-26 02:55:22,304 - app.superintend.main - DEBUG - Created Superintendent
 2025-03-26 02:55:22,849 - app.superintend.main - DEBUG - Hoodlem resp: Your name is bob2.
 2025-03-26 02:55:22,849 - app.superintend.main - DEBUG - Hoodlem resp: Your name is bob2.
+2025-03-26 03:03:56,253 - app.superintend.main - DEBUG - Creating Groq and Featherless clients
+2025-03-26 03:03:56,253 - app.superintend.main - DEBUG - Creating Groq and Featherless clients
+2025-03-26 03:03:56,283 - app.superintend.main - DEBUG - Initializing chat queue
+2025-03-26 03:03:56,283 - app.superintend.main - DEBUG - Initializing chat queue
+2025-03-26 03:03:56,283 - app.superintend.main - DEBUG - Created Superintendent
+2025-03-26 03:03:56,283 - app.superintend.main - DEBUG - Created Superintendent
