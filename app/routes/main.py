@@ -1,8 +1,10 @@
 import os
+import time
 from collections import defaultdict
 
 from flask import Blueprint, abort, render_template, session, jsonify, redirect, url_for, current_app, flash, request
 from flask_login import login_required, logout_user, login_user, current_user
+from flask_socketio import SocketIO, emit
 from concurrent.futures import ThreadPoolExecutor
 from multiprocessing import Process, Queue
 from uuid import uuid4   
@@ -116,20 +118,40 @@ def report():
         return redirect(url_for("main.index"))
     return render_template("report.html", form=form)
 
-
-#@main.route("/story/<uuid>/")
-#@main.route("/story/<uuid>/<title>")
 @main.route("/story/<title>")
-def story(title):
-    return title
-    '''
+@main.route("/story/<category>/<title>")
+def story(title, category=None):
     story = Story.query.filter_by(title=title).first()
-    timestamp = "test"
-    read_time = "read time"
-    story.catagory = display_catagory(story.catagory)
-    #story.content = "<h1>Hello</h1><br><br><p>test</p>"
-    return render_template("story.html", story=story, timestamp=timestamp, read_time=read_time)
-'''
+    if not story: # Story does not exist, create it
+        # Dispatch create send to loading pacge while generating
+        session_id = shortuuid.uuid()
+        page_status[session_id] = {
+            'ready': False,
+            'url': None
+        }
+
+        socketio.start_background_task(target=gen_schrod_page, session_id=session_id, title="Hello fake title")
+
+        return render_template('waiting.html', session_id=session_id)
+    else:
+        timestamp = "test"
+        read_time = "read time"
+        story.catagory = display_catagory(story.catagory)
+        return render_template("story.html", story=story, timestamp=timestamp, read_time=read_time)
+
+def gen_schrod_page(session_id: str, title: str):
+    time.sleep(10)
+
+    page_status[session_id] = {
+        'ready': True,
+        'url': f'/story/{title}'
+    }
+
+    socketio.emit('page_ready', {
+        'session_id': session_id,
+        'url': f'/story/{title}'
+    })
+
 #    form = CommentForm()
 #    results = Story.query.filter_by(uuid=uuid).first()
 #    comments = Comment.query.filter_by(story_id=results.id).order_by(Comment.created).all()

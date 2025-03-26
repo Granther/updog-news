@@ -11,11 +11,15 @@ from concurrent.futures import Future
 
 from openai import OpenAI
 from groq import Groq
-import chromadb
 import shortuuid
 
 from app.logger import create_logger
 #from app.superintend import ephem_sys_prompt
+
+__import__('pysqlite3')
+import sys
+sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
+import chromadb
 
 ephem_sys_prompt = "You are a helpful ai"
 
