@@ -8,6 +8,7 @@ from flask_socketio import SocketIO, emit
 from concurrent.futures import ThreadPoolExecutor
 from multiprocessing import Process, Queue
 from uuid import uuid4   
+import shortuuid
 from dotenv import load_dotenv
 
 from app import db, login_manager
@@ -23,7 +24,6 @@ load_dotenv()
 start_queue()
 main = Blueprint('main', __name__,
                         template_folder='templates')
-#superintend.chat("What is my name", 2)
 
 @login_manager.user_loader
 def load_user(user_id):
@@ -122,35 +122,76 @@ def report():
 @main.route("/story/<category>/<title>")
 def story(title, category=None):
     story = Story.query.filter_by(title=title).first()
-    if not story: # Story does not exist, create it
-        # Dispatch create send to loading pacge while generating
+    if not story:
+        # Generate a unique session ID
         session_id = shortuuid.uuid()
-        page_status[session_id] = {
+        
+        # Get the application instance
+        app = current_app._get_current_object()
+        
+        # Ensure page status is initialized
+        if 'page_status' not in app.config:
+            app.config['page_status'] = {}
+        
+        # Mark the session as not ready
+        app.config['page_status'][session_id] = {
             'ready': False,
             'url': None
         }
 
-        socketio.start_background_task(target=gen_schrod_page, session_id=session_id, title="Hello fake title")
+        # Start page generation in a background task
+        current_app.socketio.start_background_task(
+            target=gen_schrod_page, 
+            app=app, 
+            session_id=session_id, 
+            title=title
+        )
 
         return render_template('waiting.html', session_id=session_id)
     else:
+        # Existing story rendering logic
         timestamp = "test"
         read_time = "read time"
         story.catagory = display_catagory(story.catagory)
         return render_template("story.html", story=story, timestamp=timestamp, read_time=read_time)
 
-def gen_schrod_page(session_id: str, title: str):
-    time.sleep(10)
+def gen_schrod_page(app, session_id: str, title: str):
+    """
+    Modified page generation function that works with the app factory pattern
+    
+    Args:
+        app (Flask): The Flask application instance
+        session_id (str): Unique session identifier
+        title (str): Story title
+    """
+    # Use the emit function created for this app instance
+    emit_socketio = app.config.get('emit_socketio')
+    
+    # Simulate page generation
+    try:
+        print("Here in context")
+        write_new_story(app, {"title": title, "reporter": "reporter", "personality": "mean guy", "catagory": "world"})
+    except Exception as e:
+        #current_app.logger.fatal(f"Error occured while generating news: {e}")
+        print("Exception: ", e)
+        #return redirect(url_for("main.index"))
 
-    page_status[session_id] = {
-        'ready': True,
-        'url': f'/story/{title}'
-    }
+    # Update page status (ensure this uses the app context)
+    with app.app_context():
+        # Assuming you have a way to access page_status, either globally or through app config
+        page_status = current_app.config.get('page_status', {})
+        page_status[session_id] = {
+            'ready': True,
+            'url': f'/story/{title}'
+        }
+        current_app.config['page_status'] = page_status
 
-    socketio.emit('page_ready', {
-        'session_id': session_id,
-        'url': f'/story/{title}'
-    })
+    # Emit the event using the custom emitter
+    if emit_socketio:
+        emit_socketio('page_ready', {
+            'session_id': session_id,
+            'url': f'/story/{title}'
+        })
 
 #    form = CommentForm()
 #    results = Story.query.filter_by(uuid=uuid).first()

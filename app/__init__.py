@@ -8,6 +8,7 @@ from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationE
 from flask_session import Session
 from flask_login import LoginManager
 from flask_bcrypt import Bcrypt
+from flask_socketio import SocketIO
 
 from app.config import DevelopmentConfig, ProductionConfig
 from app.logger import create_logger
@@ -16,10 +17,49 @@ from app.logger import create_logger
 db = SQLAlchemy()
 login_manager = LoginManager()
 
-#global main_app 
+# Modify your existing code to handle SocketIO properly
+def create_socketio_emitter(app):
+    """
+    Create a function to emit SocketIO events that can be used outside of request context
+    
+    Args:
+        app (Flask): The Flask application instance
+    
+    Returns:
+        function: A function that can safely emit SocketIO events
+    """
+    def emit_event(event, data):
+        with app.app_context():
+            try:
+                # Use the SocketIO instance from the app config
+                socketio = app.extensions['socketio']
+                socketio.emit(event, data)
+            except Exception as e:
+                # Log the error or handle it appropriately
+                app.logger.error(f"SocketIO emission error: {e}")
+    
+    return emit_event
 
-#def get_app():
-#    return main_app
+def init_app_extensions(app):
+    """
+    Initialize application extensions and configure SocketIO
+    
+    Args:
+        app (Flask): The Flask application instance
+    
+    Returns:
+        SocketIO: Configured SocketIO instance
+    """
+    # Initialize SocketIO
+    socketio = SocketIO(app, cors_allowed_origins="*")
+    
+    # Store page status in app config
+    app.config['page_status'] = {}
+    
+    # Create and store a custom SocketIO emitter
+    app.config['emit_socketio'] = create_socketio_emitter(app)
+    
+    return socketio
 
 def create_app(config=DevelopmentConfig):
     app = Flask(__name__)
@@ -32,6 +72,9 @@ def create_app(config=DevelopmentConfig):
         logger = create_logger(__name__, config)
         current_app.logger = logger
         current_app.bcrypt = Bcrypt(app)
+        current_app.socketio = SocketIO(app)
+
+    socketio = init_app_extensions(app)
 
     login_manager.login_view = 'main.login'
     login_manager.login_message = None
@@ -51,6 +94,8 @@ def create_app(config=DevelopmentConfig):
 
     app.register_blueprint(main)
     app.register_blueprint(chat)
+
+    app.extensions['socketio'] = socketio
     
     return app
 

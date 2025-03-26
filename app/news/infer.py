@@ -74,16 +74,17 @@ _infer = Infer()
 def generate_news(title: str, personality: str=None):
     return _infer.generate_news(title, personality)
 
-def write_new_story(item: dict):
-    try:
-        content = generate_news(item['title'], item['personality'])
-        print("Conetent: ", content)
-        story = Story(title=item['title'], content=content, reporter=item['reporter'], catagory=item['catagory'], uuid=shortuuid.uuid())
-        db.session.add(story)
-        db.session.commit()
-        print(text)
-    except Exception as e:
-        raise e
+def write_new_story(app, item: dict):
+    with app.app_context():
+        try:
+            content = generate_news(item['title'], item['personality'])
+            print("Conetent: ", content)
+            print("did a thing")
+            story = Story(title=item['title'], content="content", reporter=item['reporter'], catagory=item['catagory'])
+            db.session.add(story)
+            db.session.commit()
+        except Exception as e:
+            raise e
 
 if __name__ == "__main__":
     infer = Infer()

@@ -28,7 +28,7 @@ def get_stories(catagory=None) -> list:
         #reporter = Reporter.query.filter_by(id=story.reporter_id).first()
         cat = display_catagory(story.catagory)
         proc_story_content = preserve_markdown(story.title)
-        stories.append({"id":story.id, "title":story.title, "content": proc_story_content, "uuid":story.uuid, "reportername":story.reporter, "catagory": cat})
+        stories.append({"id":story.id, "title":story.title, "content": proc_story_content, "reportername":story.reporter, "catagory": cat})
     return stories
 
     
