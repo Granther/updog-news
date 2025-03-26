@@ -19,7 +19,7 @@ from app.superintend import SuperIntend
 load_dotenv()
 #superintend = SuperIntend(os.environ.get("GROQ_API_KEY"), os.environ.get("FEATHERLESS_API_KEY"))
 chat = Blueprint('chat', __name__,
-                        template_folder='templates/chat')
+                        template_folder='templates')
 
 """
 When a user is chatting in the browser, get button press 'send' with msg
@@ -42,4 +42,4 @@ def message():
 
 @chat.route("/hoodlem")
 def hoodlem():
-    return render_template("chat/hoodlem.html")
+    return render_template("hoodlem.html")

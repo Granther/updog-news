@@ -1,0 +1,51 @@
+{% extends 'templ.html' %}
+
+{% block title %}Hoodlem - Superintendent Updog News{% endblock %}
+
+{% block content %}
+    <main class="flex-grow container mx-auto px-4 py-20">
+		<p class="text-black" id="chat-box">
+			
+		</p>
+		<div class="absolute flex flex-row gap-5 items-center justify-between bottom-5">
+			<input type="text" id="input-box">
+			<button
+				class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+				type="submit" id="send-button" onclick="sendData()">
+				Send
+			</button>
+		</div>
+    </main>
+	<script>
+		console.log("now im here");
+		const inputBox = document.getElementById("input-box");
+		const sendButton = document.getElementById("send-button");
+		const chatBox = document.getElementById("chat-box");
+
+		 async function sendData() {
+				const data = {
+					message: inputBox.value,
+				};
+
+				try {
+					const response = await fetch('{{ url_for("chat.message") }}', {
+						method: 'POST',
+						headers: {
+							'Content-Type': 'application/json'
+						},
+						body: JSON.stringify(data)
+					});
+
+					if (!response.ok) {
+						throw new Error('Network response was not ok');
+					}
+
+					const result = await response.json();
+					chatBox.innerHTML = result.response;
+					console.log('Success:', result);
+				} catch (error) {
+					console.error('Error:', error);
+				}
+			}
+	</script>
+{% endblock %}

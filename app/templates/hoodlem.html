@@ -1,0 +1,89 @@
+{% extends 'templ.html' %}
+
+{% block title %}Hoodlem - Superintendent Updog News{% endblock %}
+
+{% block content %}
+<main class="flex-grow container mx-auto px-4 py-8">
+    <div class="max-w-3xl mx-auto">
+        <div class="bg-white rounded-lg shadow-lg p-6 mb-8">
+            <h2 class="text-2xl font-playfair font-bold mb-6 text-gray-800">Community Chat</h2>
+            <div class="h-96 overflow-y-auto mb-4 space-y-4" id="chat-box">
+                <!-- Chat messages will appear here -->
+            </div>
+            <div class="border-t pt-4">
+                <div class="flex gap-4">
+                    <input type="text" 
+                           id="input-box" 
+                           class="flex-grow px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                           placeholder="Type your message...">
+                    <button onclick="sendData()"
+                            class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg transition-colors duration-200">
+                        Send
+                    </button>
+                </div>
+                <p class="text-sm text-gray-500 mt-2">Please keep conversations respectful and on-topic</p>
+            </div>
+        </div>
+    </div>
+</main>
+
+<script>
+    const inputBox = document.getElementById("input-box");
+    const chatBox = document.getElementById("chat-box");
+
+    async function sendData() {
+        const userMessage = inputBox.value.trim();
+        if (!userMessage) return;
+
+        // Add user message
+        chatBox.innerHTML += `
+            <div class="flex justify-end">
+                <div class="bg-blue-100 rounded-lg p-3 max-w-xs lg:max-w-md">
+                    <p class="text-gray-800">${userMessage}</p>
+                    <span class="text-xs text-gray-500 mt-1 block">Just now</span>
+                </div>
+            </div>
+        `;
+
+        const data = { message: userMessage };
+
+        try {
+            const response = await fetch('{{ url_for("chat.message") }}', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            });
+
+            if (!response.ok) throw new Error('Network response was not ok');
+            
+            const result = await response.json();
+            
+            // Add bot response
+            chatBox.innerHTML += `
+                <div class="flex justify-start">
+                    <div class="bg-gray-100 rounded-lg p-3 max-w-xs lg:max-w-md">
+                        <p class="text-gray-800">${result.response}</p>
+                        <span class="text-xs text-gray-500 mt-1 block">Just now</span>
+                    </div>
+                </div>
+            `;
+
+            // Clear input and scroll to bottom
+            inputBox.value = '';
+            chatBox.scrollTop = chatBox.scrollHeight;
+        } catch (error) {
+            console.error('Error:', error);
+            chatBox.innerHTML += `
+                <div class="text-red-500 text-sm">
+                    Error sending message. Please try again.
+                </div>
+            `;
+        }
+    }
+
+    // Allow Enter key to send message
+    inputBox.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') sendData();
+    });
+</script>
+{% endblock %}
