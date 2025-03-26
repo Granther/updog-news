@@ -1,5 +1,6 @@
 import os
 from collections import defaultdict
+import shortuuid
 
 from flask import Blueprint, abort, render_template, session, jsonify, redirect, url_for, current_app, flash, request
 from flask_login import login_required, logout_user, login_user, current_user
@@ -34,12 +35,14 @@ def chat_stream():
     data = json.loads(json_str)
 #        return Response(stream_with_context(superintend.chat_with_stream
 
-@chat.route("/message", methods=['GET', 'POST'])
-def message():
+@chat.route("/message/<uuid>", methods=['GET', 'POST'])
+def message(uuid: str):
+    print(uuid)
     data = request.json
     print(data)
     return jsonify({"response": "hello"})
 
 @chat.route("/hoodlem")
 def hoodlem():
-    return render_template("hoodlem.html")
+    chat_uuid = shortuuid.uuid()
+    return render_template("hoodlem.html", uuid=chat_uuid)

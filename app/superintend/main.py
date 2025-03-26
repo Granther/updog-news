@@ -36,6 +36,7 @@ class SuperIntend:
     """ Groq for fast, feather for slow but custom """
     def __init__(self, groq_key: str, feather_key: str, groq_core_key: str):
         self.logger = create_logger(__name__)
+        self.ephem_messages = dict()
         self.groq, self.feather = self._init_clients(groq_key, feather_key)
         self.core = Core(self._init_groq_client(groq_core_key))
         self.groq_model = "llama-3.3-70b-versatile"
@@ -69,30 +70,43 @@ class SuperIntend:
                 )
 
     """ Top level chat func, highest level call """
-    def chat(self, msg: str, user_id: int) -> str:
-        user_messages = self._get_user_messages(user_id)
-        print(user_messages)
-        user_messages.append({"role": "user", "content": msg})
-        self.chat_queue.put((self._groq_chat, user_messages)) # pass callback
+    def chat(self, msg: str, uuid: str) -> str:
+        self._append_ephem_messages(uuid, {"role": "system", "content": self.ephem_sys_prompt})
+        self._append_ephem_messages(uuid, {"role": "user", "content": msg})
+        messages = self._get_ephem_messages(uuid)
+        self.chat_queue.put((self._groq_chat, uuid, messages)) # pass callback
         self.chat_queue.join()
 
+    '''
     def chat_with_stream(self, msg: str, user_id: int):
         user_messages = self._get_user_messages(user_id)
         user_messages.append({"role": "user", "content": msg})
         self.chat_queue.put((self._groq_chat_stream, user_messages)) # pass callback
         self.chat_queue.join()
+    '''
 
-    """ Given a user's id, return their messages [dict...] AI chat history """
-    def _get_user_messages(self, user_id: int) -> list:
-        return users[user_id]
+    """ Given a unique, one time uuid, return the messages for the ephem chat """
+    def _get_ephem_messages(self, uuid: str) -> list:
+        messages = self.ephem_messages[uuid] 
+        if messages is None:
+            self.ephem_messages[uuid] = []
+            return []
+        return messages
+
+    def _append_ephem_messages(uuid: str, chunk: dict):
+        messages = self._get_ephem_messages(uuid)
+        messages.append(chunk)
+        self.ephem_messages[uuid] = messages
 
     """ Takes list of past messages, sys promt etc and produces a response """
-    def _groq_chat(self, messages: list) -> str:
+    def _groq_chat(self, uuid: str, messages: list) -> str:
         chat_completion = self.groq.chat.completions.create(
             messages=messages,
             model=self.groq_model,
         )
-        return chat_completion.choices[0].message.content
+        resp = chat_completion.choices[0].message.content
+        self._append_ephem_messages(uuid, {"role": "assistant", "content": resp})
+        return resp
 
     def _groq_chat_stream(self, messages: list):
         response = self.groq.chat.completions.create(

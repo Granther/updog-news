@@ -48,7 +48,7 @@
         const data = { message: userMessage };
 
         try {
-            const response = await fetch('{{ url_for("chat.message") }}', {
+			const response = await fetch('{{ url_for("chat.message", uuid=uuid) }}', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(data)
