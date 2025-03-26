@@ -17,11 +17,11 @@ from app.queue import put_story, start_queue
 from app.superintend import SuperIntend
 
 load_dotenv()
-superintend = SuperIntend(os.environ.get("GROQ_API_KEY"), os.environ.get("FEATHERLESS_API_KEY"), os.environ.get("GROQ_API_KEY"))
+#superintend = SuperIntend(os.environ.get("GROQ_API_KEY"), os.environ.get("FEATHERLESS_API_KEY"), os.environ.get("GROQ_API_KEY"))
 start_queue()
 main = Blueprint('main', __name__,
                         template_folder='templates')
-superintend.chat("What is my name", 2)
+#superintend.chat("What is my name", 2)
 
 @login_manager.user_loader
 def load_user(user_id):

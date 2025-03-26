@@ -7,6 +7,7 @@
 import os
 import threading
 import queue
+from concurrent.futures import Future
 
 from openai import OpenAI
 from groq import Groq
@@ -52,9 +53,14 @@ class SuperIntend:
         self.chat_queue = queue.Queue()
         def worker():
             while True:
-                func, args = self.chat_queue.get()
-                print("Returns: ", func(*args))
-                self.chat_queue.task_done()
+                func, args, future = self.chat_queue.get()
+                try:
+                    result = func(*args)
+                    future.set_result(result)
+                except Exception as e:
+                    future.set_exception(e)
+                finally:
+                    self.chat_queue.task_done()
         # Run in new thread
         threading.Thread(target=worker, daemon=True).start()
 
@@ -74,12 +80,15 @@ class SuperIntend:
 
     """ Top level chat func, highest level call """
     def chat(self, uuid: str, msg: str) -> str:
-        print("HEEERRR")
         self._append_ephem_messages(uuid, {"role": "system", "content": self.ephem_sys_prompt})
         self._append_ephem_messages(uuid, {"role": "user", "content": msg})
         messages = self._get_ephem_messages(uuid)
-        self.chat_queue.put((self._groq_chat, (uuid, messages))) # pass callback
-        self.chat_queue.join()
+        return self._submit_task(self._groq_chat, uuid, messages) # pass callback
+
+    def _submit_task(self, func, *args):
+        future = Future()
+        self.chat_queue.put((func, args, future))
+        return future.result() # Blocks until returns
 
     '''
     def chat_with_stream(self, msg: str, user_id: int):
