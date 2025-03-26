@@ -11,6 +11,8 @@ from concurrent.futures import Future
 
 from openai import OpenAI
 from groq import Groq
+import chromadb
+import shortuuid
 
 from app.logger import create_logger
 #from app.superintend import ephem_sys_prompt
@@ -146,6 +148,11 @@ class Core:
     """ Takes a premade groq client """
     def __init__(self, client):
         self.groq = client
+        self.chroma = chromadb.Client()
+        self.chats = self._init_chat_col()
+
+    def _init_chat_col(self):
+        return self.chroma.create_collection(name="chats")
 
     """ Inform the central AI of changes, important data, etc 
         - We dont expect a response
