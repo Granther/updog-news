@@ -1375,3 +1375,187 @@ Traceback (most recent call last):
   File "/home/grant/Workspace/updog-news/app/routes/main.py", line 371, in like
     status = ("liked" if story in current_user.liked_stories else "unliked")
 AttributeError: 'AnonymousUserMixin' object has no attribute 'liked_stories'
+2025-03-26 02:37:57,789 - app.superintend.main - DEBUG - Creating Groq and Featherless clients
+2025-03-26 02:37:57,789 - app.superintend.main - DEBUG - Creating Groq and Featherless clients
+2025-03-26 02:37:57,824 - app.superintend.main - DEBUG - Initializing chat queue
+2025-03-26 02:37:57,824 - app.superintend.main - DEBUG - Initializing chat queue
+2025-03-26 02:37:57,824 - app.superintend.main - DEBUG - Created Superintendent
+2025-03-26 02:37:57,824 - app.superintend.main - DEBUG - Created Superintendent
+2025-03-26 02:37:59,042 - app.superintend.main - DEBUG - Creating Groq and Featherless clients
+2025-03-26 02:37:59,042 - app.superintend.main - DEBUG - Creating Groq and Featherless clients
+2025-03-26 02:37:59,075 - app.superintend.main - DEBUG - Initializing chat queue
+2025-03-26 02:37:59,075 - app.superintend.main - DEBUG - Initializing chat queue
+2025-03-26 02:37:59,076 - app.superintend.main - DEBUG - Created Superintendent
+2025-03-26 02:37:59,076 - app.superintend.main - DEBUG - Created Superintendent
+2025-03-26 02:38:14,123 - app.superintend.main - DEBUG - Creating Groq and Featherless clients
+2025-03-26 02:38:14,123 - app.superintend.main - DEBUG - Creating Groq and Featherless clients
+2025-03-26 02:38:14,154 - app.superintend.main - DEBUG - Initializing chat queue
+2025-03-26 02:38:14,154 - app.superintend.main - DEBUG - Initializing chat queue
+2025-03-26 02:38:14,154 - app.superintend.main - DEBUG - Created Superintendent
+2025-03-26 02:38:14,154 - app.superintend.main - DEBUG - Created Superintendent
+2025-03-26 02:38:34,727 - app.superintend.main - DEBUG - Creating Groq and Featherless clients
+2025-03-26 02:38:34,727 - app.superintend.main - DEBUG - Creating Groq and Featherless clients
+2025-03-26 02:38:34,758 - app.superintend.main - DEBUG - Initializing chat queue
+2025-03-26 02:38:34,758 - app.superintend.main - DEBUG - Initializing chat queue
+2025-03-26 02:38:34,759 - app.superintend.main - DEBUG - Created Superintendent
+2025-03-26 02:38:34,759 - app.superintend.main - DEBUG - Created Superintendent
+2025-03-26 02:38:35,911 - app.superintend.main - DEBUG - Creating Groq and Featherless clients
+2025-03-26 02:38:35,911 - app.superintend.main - DEBUG - Creating Groq and Featherless clients
+2025-03-26 02:38:35,940 - app.superintend.main - DEBUG - Initializing chat queue
+2025-03-26 02:38:35,940 - app.superintend.main - DEBUG - Initializing chat queue
+2025-03-26 02:38:35,941 - app.superintend.main - DEBUG - Created Superintendent
+2025-03-26 02:38:35,941 - app.superintend.main - DEBUG - Created Superintendent
+2025-03-26 02:39:04,430 - app.superintend.main - DEBUG - Creating Groq and Featherless clients
+2025-03-26 02:39:04,430 - app.superintend.main - DEBUG - Creating Groq and Featherless clients
+2025-03-26 02:39:04,462 - app.superintend.main - DEBUG - Initializing chat queue
+2025-03-26 02:39:04,462 - app.superintend.main - DEBUG - Initializing chat queue
+2025-03-26 02:39:04,463 - app.superintend.main - DEBUG - Created Superintendent
+2025-03-26 02:39:04,463 - app.superintend.main - DEBUG - Created Superintendent
+2025-03-26 02:40:03,167 - app.superintend.main - DEBUG - Creating Groq and Featherless clients
+2025-03-26 02:40:03,167 - app.superintend.main - DEBUG - Creating Groq and Featherless clients
+2025-03-26 02:40:03,198 - app.superintend.main - DEBUG - Initializing chat queue
+2025-03-26 02:40:03,198 - app.superintend.main - DEBUG - Initializing chat queue
+2025-03-26 02:40:03,198 - app.superintend.main - DEBUG - Created Superintendent
+2025-03-26 02:40:03,198 - app.superintend.main - DEBUG - Created Superintendent
+2025-03-26 02:40:12,010 - app.superintend.main - DEBUG - Creating Groq and Featherless clients
+2025-03-26 02:40:12,010 - app.superintend.main - DEBUG - Creating Groq and Featherless clients
+2025-03-26 02:40:12,040 - app.superintend.main - DEBUG - Initializing chat queue
+2025-03-26 02:40:12,040 - app.superintend.main - DEBUG - Initializing chat queue
+2025-03-26 02:40:12,040 - app.superintend.main - DEBUG - Created Superintendent
+2025-03-26 02:40:12,040 - app.superintend.main - DEBUG - Created Superintendent
+2025-03-26 02:40:22,776 - app.superintend.main - DEBUG - Creating Groq and Featherless clients
+2025-03-26 02:40:22,776 - app.superintend.main - DEBUG - Creating Groq and Featherless clients
+2025-03-26 02:40:22,808 - app.superintend.main - DEBUG - Initializing chat queue
+2025-03-26 02:40:22,808 - app.superintend.main - DEBUG - Initializing chat queue
+2025-03-26 02:40:22,809 - app.superintend.main - DEBUG - Created Superintendent
+2025-03-26 02:40:22,809 - app.superintend.main - DEBUG - Created Superintendent
+2025-03-26 02:40:24,301 - app.superintend.main - DEBUG - Creating Groq and Featherless clients
+2025-03-26 02:40:24,301 - app.superintend.main - DEBUG - Creating Groq and Featherless clients
+2025-03-26 02:40:24,334 - app.superintend.main - DEBUG - Initializing chat queue
+2025-03-26 02:40:24,334 - app.superintend.main - DEBUG - Initializing chat queue
+2025-03-26 02:40:24,334 - app.superintend.main - DEBUG - Created Superintendent
+2025-03-26 02:40:24,334 - app.superintend.main - DEBUG - Created Superintendent
+2025-03-26 02:40:43,485 - app.superintend.main - DEBUG - Creating Groq and Featherless clients
+2025-03-26 02:40:43,485 - app.superintend.main - DEBUG - Creating Groq and Featherless clients
+2025-03-26 02:40:43,517 - app.superintend.main - DEBUG - Initializing chat queue
+2025-03-26 02:40:43,517 - app.superintend.main - DEBUG - Initializing chat queue
+2025-03-26 02:40:43,518 - app.superintend.main - DEBUG - Created Superintendent
+2025-03-26 02:40:43,518 - app.superintend.main - DEBUG - Created Superintendent
+2025-03-26 02:42:04,164 - app.superintend.main - DEBUG - Creating Groq and Featherless clients
+2025-03-26 02:42:04,164 - app.superintend.main - DEBUG - Creating Groq and Featherless clients
+2025-03-26 02:42:04,195 - app.superintend.main - DEBUG - Initializing chat queue
+2025-03-26 02:42:04,195 - app.superintend.main - DEBUG - Initializing chat queue
+2025-03-26 02:42:04,196 - app.superintend.main - DEBUG - Created Superintendent
+2025-03-26 02:42:04,196 - app.superintend.main - DEBUG - Created Superintendent
+2025-03-26 02:42:05,458 - app.superintend.main - DEBUG - Creating Groq and Featherless clients
+2025-03-26 02:42:05,458 - app.superintend.main - DEBUG - Creating Groq and Featherless clients
+2025-03-26 02:42:05,491 - app.superintend.main - DEBUG - Initializing chat queue
+2025-03-26 02:42:05,491 - app.superintend.main - DEBUG - Initializing chat queue
+2025-03-26 02:42:05,492 - app.superintend.main - DEBUG - Created Superintendent
+2025-03-26 02:42:05,492 - app.superintend.main - DEBUG - Created Superintendent
+2025-03-26 02:43:00,309 - app.superintend.main - DEBUG - Creating Groq and Featherless clients
+2025-03-26 02:43:00,309 - app.superintend.main - DEBUG - Creating Groq and Featherless clients
+2025-03-26 02:43:00,344 - app.superintend.main - DEBUG - Initializing chat queue
+2025-03-26 02:43:00,344 - app.superintend.main - DEBUG - Initializing chat queue
+2025-03-26 02:43:00,345 - app.superintend.main - DEBUG - Created Superintendent
+2025-03-26 02:43:00,345 - app.superintend.main - DEBUG - Created Superintendent
+2025-03-26 02:43:01,061 - app.superintend.main - DEBUG - Hoodlem resp: Hello. How can I assist you today?
+2025-03-26 02:43:01,061 - app.superintend.main - DEBUG - Hoodlem resp: Hello. How can I assist you today?
+2025-03-26 02:43:21,691 - app.superintend.main - DEBUG - Creating Groq and Featherless clients
+2025-03-26 02:43:21,691 - app.superintend.main - DEBUG - Creating Groq and Featherless clients
+2025-03-26 02:43:21,720 - app.superintend.main - DEBUG - Initializing chat queue
+2025-03-26 02:43:21,720 - app.superintend.main - DEBUG - Initializing chat queue
+2025-03-26 02:43:21,721 - app.superintend.main - DEBUG - Created Superintendent
+2025-03-26 02:43:21,721 - app.superintend.main - DEBUG - Created Superintendent
+2025-03-26 02:43:22,256 - app.superintend.main - DEBUG - Hoodlem resp: I'm an artificial intelligence model known as Llama. Llama stands for "Large Language Model Meta AI."
+2025-03-26 02:43:22,256 - app.superintend.main - DEBUG - Hoodlem resp: I'm an artificial intelligence model known as Llama. Llama stands for "Large Language Model Meta AI."
+2025-03-26 02:45:30,057 - app.superintend.main - DEBUG - Creating Groq and Featherless clients
+2025-03-26 02:45:30,057 - app.superintend.main - DEBUG - Creating Groq and Featherless clients
+2025-03-26 02:45:30,088 - app.superintend.main - DEBUG - Initializing chat queue
+2025-03-26 02:45:30,088 - app.superintend.main - DEBUG - Initializing chat queue
+2025-03-26 02:45:30,089 - app.superintend.main - DEBUG - Created Superintendent
+2025-03-26 02:45:30,089 - app.superintend.main - DEBUG - Created Superintendent
+2025-03-26 02:45:31,082 - app.superintend.main - DEBUG - Hoodlem resp: I'm an artificial intelligence model known as Llama. Llama stands for "Large Language Model Meta AI."SCRIPTOR
+
+I was developed at Meta with a combination of machine learning algorithms and large amounts of data, plus lots of human oversight from a large team of people. I'm constantly learning and improving, so over time I will likely become even more useful in my responses.
+
+I can be used in a variety of ways, from helping you plan a vacation to creating art. I'm here to assist you in finding the help or information you need. My strengths include answering questions, generating text and images and even just chatting with you.
+2025-03-26 02:45:31,082 - app.superintend.main - DEBUG - Hoodlem resp: I'm an artificial intelligence model known as Llama. Llama stands for "Large Language Model Meta AI."SCRIPTOR
+
+I was developed at Meta with a combination of machine learning algorithms and large amounts of data, plus lots of human oversight from a large team of people. I'm constantly learning and improving, so over time I will likely become even more useful in my responses.
+
+I can be used in a variety of ways, from helping you plan a vacation to creating art. I'm here to assist you in finding the help or information you need. My strengths include answering questions, generating text and images and even just chatting with you.
+2025-03-26 02:46:07,145 - app.superintend.main - DEBUG - Creating Groq and Featherless clients
+2025-03-26 02:46:07,145 - app.superintend.main - DEBUG - Creating Groq and Featherless clients
+2025-03-26 02:46:07,176 - app.superintend.main - DEBUG - Initializing chat queue
+2025-03-26 02:46:07,176 - app.superintend.main - DEBUG - Initializing chat queue
+2025-03-26 02:46:07,177 - app.superintend.main - DEBUG - Created Superintendent
+2025-03-26 02:46:07,177 - app.superintend.main - DEBUG - Created Superintendent
+2025-03-26 02:46:09,070 - app.superintend.main - DEBUG - Hoodlem resp: Nice to meet you, Bob1. I am an artificial intelligence language model, so I don't have a personal life or experiences like humans do. However, I can tell you about my capabilities and what I can do to assist you.
+
+I've been trained on a vast amount of text data, which allows me to generate human-like responses to a wide range of questions and topics. I can provide information, answer questions, and engage in conversations to the best of my knowledge based on my training data.
+
+My strengths include:
+
+1. **Knowledge base**: I have been trained on a massive amount of text data, which gives me access to a broad range of knowledge on various subjects, including history, science, technology, literature, and more.
+2. **Language understanding**: I can comprehend and process natural language, allowing me to understand the context and nuances of human language.
+3. **Response generation**: I can generate human-like responses to questions and prompts, using a combination of my knowledge base and language understanding capabilities.
+4. **Conversation**: I can engage in conversations, using context and understanding to respond to follow-up questions and statements.
+
+My limitations include:
+
+1. **Lack of personal experiences**: As a machine, I don't have personal experiences, emotions, or opinions like humans do.
+2. **Training data limitations**: My knowledge is limited to the data I've been trained on, and I may not always have the most up-to-date or accurate information on very recent events or developments.
+3. **Contextual understanding**: While I can understand language, I may not always understand the context or subtleties of human communication, such as tone, sarcasm, or implied meaning.
+
+I'm here to help answer your questions, provide information, and engage in conversations to the best of my abilities. What would you like to talk about, Bob1?
+2025-03-26 02:46:09,070 - app.superintend.main - DEBUG - Hoodlem resp: Nice to meet you, Bob1. I am an artificial intelligence language model, so I don't have a personal life or experiences like humans do. However, I can tell you about my capabilities and what I can do to assist you.
+
+I've been trained on a vast amount of text data, which allows me to generate human-like responses to a wide range of questions and topics. I can provide information, answer questions, and engage in conversations to the best of my knowledge based on my training data.
+
+My strengths include:
+
+1. **Knowledge base**: I have been trained on a massive amount of text data, which gives me access to a broad range of knowledge on various subjects, including history, science, technology, literature, and more.
+2. **Language understanding**: I can comprehend and process natural language, allowing me to understand the context and nuances of human language.
+3. **Response generation**: I can generate human-like responses to questions and prompts, using a combination of my knowledge base and language understanding capabilities.
+4. **Conversation**: I can engage in conversations, using context and understanding to respond to follow-up questions and statements.
+
+My limitations include:
+
+1. **Lack of personal experiences**: As a machine, I don't have personal experiences, emotions, or opinions like humans do.
+2. **Training data limitations**: My knowledge is limited to the data I've been trained on, and I may not always have the most up-to-date or accurate information on very recent events or developments.
+3. **Contextual understanding**: While I can understand language, I may not always understand the context or subtleties of human communication, such as tone, sarcasm, or implied meaning.
+
+I'm here to help answer your questions, provide information, and engage in conversations to the best of my abilities. What would you like to talk about, Bob1?
+2025-03-26 02:46:27,844 - app.superintend.main - DEBUG - Creating Groq and Featherless clients
+2025-03-26 02:46:27,844 - app.superintend.main - DEBUG - Creating Groq and Featherless clients
+2025-03-26 02:46:27,873 - app.superintend.main - DEBUG - Initializing chat queue
+2025-03-26 02:46:27,873 - app.superintend.main - DEBUG - Initializing chat queue
+2025-03-26 02:46:27,874 - app.superintend.main - DEBUG - Created Superintendent
+2025-03-26 02:46:27,874 - app.superintend.main - DEBUG - Created Superintendent
+2025-03-26 02:46:28,409 - app.superintend.main - DEBUG - Hoodlem resp: Your name is Bob1.
+2025-03-26 02:46:28,409 - app.superintend.main - DEBUG - Hoodlem resp: Your name is Bob1.
+2025-03-26 02:46:29,049 - app.superintend.main - DEBUG - Creating Groq and Featherless clients
+2025-03-26 02:46:29,049 - app.superintend.main - DEBUG - Creating Groq and Featherless clients
+2025-03-26 02:46:29,078 - app.superintend.main - DEBUG - Initializing chat queue
+2025-03-26 02:46:29,078 - app.superintend.main - DEBUG - Initializing chat queue
+2025-03-26 02:46:29,078 - app.superintend.main - DEBUG - Created Superintendent
+2025-03-26 02:46:29,078 - app.superintend.main - DEBUG - Created Superintendent
+2025-03-26 02:46:29,549 - app.superintend.main - DEBUG - Hoodlem resp: Your name is Bob1.
+2025-03-26 02:46:29,549 - app.superintend.main - DEBUG - Hoodlem resp: Your name is Bob1.
+2025-03-26 02:46:39,008 - app.superintend.main - DEBUG - Creating Groq and Featherless clients
+2025-03-26 02:46:39,008 - app.superintend.main - DEBUG - Creating Groq and Featherless clients
+2025-03-26 02:46:39,037 - app.superintend.main - DEBUG - Initializing chat queue
+2025-03-26 02:46:39,037 - app.superintend.main - DEBUG - Initializing chat queue
+2025-03-26 02:46:39,038 - app.superintend.main - DEBUG - Created Superintendent
+2025-03-26 02:46:39,038 - app.superintend.main - DEBUG - Created Superintendent
+2025-03-26 02:46:39,584 - app.superintend.main - DEBUG - Hoodlem resp: Your name is bob2.
+2025-03-26 02:46:39,584 - app.superintend.main - DEBUG - Hoodlem resp: Your name is bob2.
+2025-03-26 02:49:21,582 - app.superintend.main - DEBUG - Creating Groq and Featherless clients
+2025-03-26 02:49:21,582 - app.superintend.main - DEBUG - Creating Groq and Featherless clients
+2025-03-26 02:49:21,614 - app.superintend.main - DEBUG - Initializing chat queue
+2025-03-26 02:49:21,614 - app.superintend.main - DEBUG - Initializing chat queue
+2025-03-26 02:49:21,614 - app.superintend.main - DEBUG - Created Superintendent
+2025-03-26 02:49:21,614 - app.superintend.main - DEBUG - Created Superintendent
+2025-03-26 02:49:22,195 - app.superintend.main - DEBUG - Hoodlem resp: Your name is bob2.
+2025-03-26 02:49:22,195 - app.superintend.main - DEBUG - Hoodlem resp: Your name is bob2.
