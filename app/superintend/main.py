@@ -12,7 +12,9 @@ from openai import OpenAI
 from groq import Groq
 
 from app.logger import create_logger
-#from .prompts import 
+#from app.superintend import ephem_sys_prompt
+
+ephem_sys_prompt = "You are a helpful ai"
 
 # Hoodlem 
 # Runs in his own thread, basically uses an API to be interacted with
@@ -36,6 +38,7 @@ class SuperIntend:
     """ Groq for fast, feather for slow but custom """
     def __init__(self, groq_key: str, feather_key: str, groq_core_key: str):
         self.logger = create_logger(__name__)
+        self.ephem_sys_prompt = ephem_sys_prompt
         self.ephem_messages = dict()
         self.groq, self.feather = self._init_clients(groq_key, feather_key)
         self.core = Core(self._init_groq_client(groq_core_key))
@@ -50,7 +53,7 @@ class SuperIntend:
         def worker():
             while True:
                 func, args = self.chat_queue.get()
-                print("Returns: ", func(args))
+                print("Returns: ", func(*args))
                 self.chat_queue.task_done()
         # Run in new thread
         threading.Thread(target=worker, daemon=True).start()
@@ -70,11 +73,12 @@ class SuperIntend:
                 )
 
     """ Top level chat func, highest level call """
-    def chat(self, msg: str, uuid: str) -> str:
+    def chat(self, uuid: str, msg: str) -> str:
+        print("HEEERRR")
         self._append_ephem_messages(uuid, {"role": "system", "content": self.ephem_sys_prompt})
         self._append_ephem_messages(uuid, {"role": "user", "content": msg})
         messages = self._get_ephem_messages(uuid)
-        self.chat_queue.put((self._groq_chat, uuid, messages)) # pass callback
+        self.chat_queue.put((self._groq_chat, (uuid, messages))) # pass callback
         self.chat_queue.join()
 
     '''
@@ -87,13 +91,12 @@ class SuperIntend:
 
     """ Given a unique, one time uuid, return the messages for the ephem chat """
     def _get_ephem_messages(self, uuid: str) -> list:
-        messages = self.ephem_messages[uuid] 
-        if messages is None:
+        if uuid not in self.ephem_messages:
             self.ephem_messages[uuid] = []
             return []
-        return messages
+        return self.ephem_messages[uuid]
 
-    def _append_ephem_messages(uuid: str, chunk: dict):
+    def _append_ephem_messages(self, uuid: str, chunk: dict):
         messages = self._get_ephem_messages(uuid)
         messages.append(chunk)
         self.ephem_messages[uuid] = messages
@@ -105,7 +108,7 @@ class SuperIntend:
             model=self.groq_model,
         )
         resp = chat_completion.choices[0].message.content
-        self._append_ephem_messages(uuid, {"role": "assistant", "content": resp})
+        self._append_ephem_messages(uuid, ({"role": "assistant", "content": resp}))
         return resp
 
     def _groq_chat_stream(self, messages: list):

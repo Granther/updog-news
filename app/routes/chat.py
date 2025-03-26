@@ -18,7 +18,7 @@ from app.queue import put_story, start_queue
 from app.superintend import SuperIntend
 
 load_dotenv()
-#superintend = SuperIntend(os.environ.get("GROQ_API_KEY"), os.environ.get("FEATHERLESS_API_KEY"))
+superintend = SuperIntend(os.environ.get("GROQ_API_KEY"), os.environ.get("FEATHERLESS_API_KEY"), os.environ.get("GROQ_API_KEY"))
 chat = Blueprint('chat', __name__,
                         template_folder='templates')
 
@@ -37,10 +37,9 @@ def chat_stream():
 
 @chat.route("/message/<uuid>", methods=['GET', 'POST'])
 def message(uuid: str):
-    print(uuid)
-    data = request.json
-    print(data)
-    return jsonify({"response": "hello"})
+    message = request.json['message']
+    response = superintend.chat(uuid, message) 
+    return jsonify({"response": response})
 
 @chat.route("/hoodlem")
 def hoodlem():
