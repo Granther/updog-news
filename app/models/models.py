@@ -4,8 +4,8 @@ from flask_login import UserMixin
 class Story(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     created = db.Column(db.TIMESTAMP, nullable=False, server_default=db.func.now())
-    uuid = db.Column(db.String, unique=True, nullable=False)
-    title = db.Column(db.String, unique=False, nullable=False)
+    #uuid = db.Column(db.String, unique=True, nullable=False)
+    title = db.Column(db.String, unique=True, nullable=False)
     content = db.Column(db.String, unique=False, nullable=False)
 #    guideline = db.Column(db.String, unique=False, nullable=True)
     reporter = db.Column(db.String, unique=False, nullable=False)

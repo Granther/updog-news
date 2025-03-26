@@ -117,16 +117,19 @@ def report():
     return render_template("report.html", form=form)
 
 
-@main.route("/story/<uuid>/")
-@main.route("/story/<uuid>/<title>")
-def story(uuid, title=None):
-    story = Story.query.filter_by(uuid=uuid).first()
+#@main.route("/story/<uuid>/")
+#@main.route("/story/<uuid>/<title>")
+@main.route("/story/<title>")
+def story(title):
+    return title
+    '''
+    story = Story.query.filter_by(title=title).first()
     timestamp = "test"
     read_time = "read time"
     story.catagory = display_catagory(story.catagory)
     #story.content = "<h1>Hello</h1><br><br><p>test</p>"
     return render_template("story.html", story=story, timestamp=timestamp, read_time=read_time)
-
+'''
 #    form = CommentForm()
 #    results = Story.query.filter_by(uuid=uuid).first()
 #    comments = Comment.query.filter_by(story_id=results.id).order_by(Comment.created).all()
