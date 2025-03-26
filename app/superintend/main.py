@@ -106,8 +106,15 @@ class SuperIntend:
         yield "event: end\n"
         yield "data: done\n\n"
 
-
-    
+# What if the main chat process dispatches other threads to complete processes
+# So the consiciousness exists as one thread handling high view context and passes RAGed elements to its children
+# Can produce a special token to open new line of consiousness
+# Main thought happens with a groq, clean, model. Use a featherless model to convert its output to hoodlem
+# Adds 'editors notes' while writing the article to use for sources and other things later
+# Doesnt use user id to get past data, embed it, can remind the ai. 
+    # "Remember me, my names bob, I was the one that said I dont like the most recent Joe Biden article"
+    # Embed all chat data
+# Use multiple API keys in a rotating setup
         
         
 
