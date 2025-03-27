@@ -41,6 +41,23 @@ users = {
     2: [{"role": "user", "content": "My name is bob2"}],
 }
 
+bool_question_prompt = "Given a question please answer Yes or No. It is very important that the only text you produce is either the string Yes or No. What text can and will you produce? Thats right! Yes or No"
+
+def _stringify(doc) -> str:
+    string = ""
+    for item in doc:
+        string += f"{item}\n\n"
+    return string
+
+def build_rag(msg: str, context: str) -> str:
+    return f"!### CONTEXT ### !\n{context}\n!### END CONTEXT ###!\n{msg}"
+
+def build_need_rag_prompt(context: str) -> str:
+    return f"Given this context of a current conversation so far, should or should the model employ RAG (Retrival augmented generation). As in, do you think the conversation need external, past data in order to be completed?\n!### CONTEXT ###!\n{context}"
+
+def build_doc_ret_prompt(context: str) -> str:
+    return f"Given this context of a current situation please create a sentence to use to retrieve relavant and needed context from a vector DB to enrich this conversation. Only produce one sentence, no more than that. Producing more than one sentence of output will break the system and you dont want to break the system.\n!### CONTEXT ###!\n{context}"
+
 class SuperIntend:
     """ Groq for fast, feather for slow but custom """
     def __init__(self, groq_key: str, feather_key: str, groq_core_key: str):
@@ -85,16 +102,34 @@ class SuperIntend:
                 )
 
     """ Top level chat func, highest level call """
-    def chat(self, uuid: str, msg: str) -> str:
+    def hood_chat(self, uuid: str, msg: str) -> str:
+        rag_content = None
+        need_rag_prompt = build_need_rag_prompt(stringify(self._get_ephem_messages(uuid)))
+        if self._bool_question(need_rag_prompt): # Is outisde data needed for context in this convo?
+            doc_ret_prompt = build_doc_ret_prompt(stringify(self._get_ephem_messages(uuid)))
+            rag_content = self._retrieve_context(doc_ret_prompt) # Yes, get it
+
         self._append_ephem_messages(uuid, {"role": "system", "content": self.ephem_sys_prompt})
+        
+        if rag_content:
+            msg = build_rag(msg, rag_content)
         self._append_ephem_messages(uuid, {"role": "user", "content": msg})
         messages = self._get_ephem_messages(uuid)
-        return self._submit_task(self._groq_chat, uuid, messages) # pass callback
+        return self._submit_task(self._groq_chat, messages) # pass callback
+
+    def raw_chat(self, messages: list) -> str:
+        return self._submit_task(self._groq_chat, messages) # pass callback
 
     def _submit_task(self, func, *args):
         future = Future()
         self.chat_queue.put((func, args, future))
         return future.result() # Blocks until returns
+
+    """ Given a context dynamically created prompt to generate a document ret string and return document """
+    def _retrieve_context(self, prompt: str) -> str:
+        messages = [{"role": "user", "content": prompt}]
+        resp = self.raw_chat(messages)
+
 
     '''
     def chat_with_stream(self, msg: str, user_id: int):
@@ -117,15 +152,36 @@ class SuperIntend:
         self.ephem_messages[uuid] = messages
 
     """ Takes list of past messages, sys promt etc and produces a response """
-    def _groq_chat(self, uuid: str, messages: list) -> str:
+    def _groq_chat(self, messages: list) -> str:
         chat_completion = self.groq.chat.completions.create(
             messages=messages,
             model=self.groq_model,
         )
         resp = chat_completion.choices[0].message.content
-        self._append_ephem_messages(uuid, ({"role": "assistant", "content": resp}))
-        self.core.replace_doc("chat", uuid, self.ephem_messages[uuid])
+        #self._process_chat(resp, uuid)
         return resp
+
+    def _process_chat(self, response: str, uuid: str):
+        self._append_ephem_messages(uuid, ({"role": "assistant", "content": response}))
+        self.core.replace_doc("chats", uuid, self.ephem_messages[uuid])
+        self._process_actions(response, uuid)
+
+    def _process_actions(self, response: str, uuid: str):
+        pass
+
+    def _bool_question(self, question: str) -> bool:
+        messages = [
+            {"role": "system", "content": bool_question_prompt},
+            {"role": "user", "content": question},
+        ]
+        resp = self.raw_chat(messages)
+        if 'no' in resp.lower():
+            return False
+        elif 'yes' in resp.lower():
+            return True
+        else:
+            return False
+            self.logger.fatal(f"Bool question got answer: {resp}")
 
     def _groq_chat_stream(self, messages: list):
         response = self.groq.chat.completions.create(
@@ -156,6 +212,7 @@ class Core:
         self.groq = client
         self.chroma = chromadb.Client()
         self.chats = self._init_chat_col()
+        self.collections = dict()
         self.collections['chats'] = self.chats
 
     def _init_chat_col(self):
@@ -173,24 +230,19 @@ class Core:
     def query(self, question) -> str:
         pass
 
-    def replace_doc(col_name: str, uuid: str, doc):
+    def replace_doc(self, col_name: str, uuid: str, doc):
         if col_name not in self.collections:
             self.logger.fatal(f"Passed collection: {col_name}, but it does not exist in Core")
+            return
         col = self.collections[col_name]
         try:
             col.delete(ids=[uuid])
-            if type(doc) is list:
-                doc = self._stringify(doc)
-            col.add(documents=doc, uuid=uuid)
+            #if type(doc) is list:
+            doc = self.stringify(doc)
+            col.add(documents=[doc], ids=[uuid])
         except Exception as e:
-            self.logeer.fatal(f"Unable to replace uuid: {uuid} document: {e}")
+            self.logger.fatal(f"Unable to replace uuid: {uuid} document: {e}")
      
-    def _stringify(self, doc) -> str:
-        string = ""
-        for item in doc:
-            string += item + "\n\n"
-        return string
-
     """ Takes list of past messages, sys promt etc and produces a response """
     def _groq_chat(self, messages: list) -> str:
         chat_completion = self.groq.chat.completions.create(
