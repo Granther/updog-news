@@ -1,1 +1,54 @@
-WAITING
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Please Wait</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+    <script>
+        // Get the session ID from the page
+        const sessionId = "{{ session_id }}";
+        
+        // Connect to WebSocket
+        const socket = io();
+        
+		/*
+        // Function to check page status via AJAX
+        function checkPageStatus() {
+            fetch(`/check_page_status/${sessionId}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.ready) {
+                        // If page is ready, redirect
+                        window.location.href = data.url;
+                    }
+                });
+        }
+		*/
+        
+        // Listen for WebSocket event
+        socket.on('page_ready', function(data) {
+            if (data.session_id === sessionId) {
+                // Redirect to the generated page
+                window.location.href = data.url;
+            }
+        });
+        
+		/*
+        // Periodically check page status as a fallback
+        document.addEventListener('DOMContentLoaded', () => {
+            // Check status every 2 seconds
+            const statusCheckInterval = setInterval(checkPageStatus, 2000);
+            
+            // Optional: Stop checking after 5 minutes
+            setTimeout(() => {
+                clearInterval(statusCheckInterval);
+                alert('Page generation taking longer than expected');
+            }, 5 * 60 * 1000);
+        });
+		*/
+    </script>
+</head>
+<body>
+    <h1>Due to a high number of requests you have been put in a queue...</h1>
+    <p>Please wait. You will be automatically redirected when ready.</p>
+</body>
+</html>

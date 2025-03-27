@@ -2124,3 +2124,15 @@ I'm here to help answer your questions, provide information, and engage in conve
 2025-03-26 19:53:47,361 - app.superintend.main - DEBUG - Initializing chat queue
 2025-03-26 19:53:47,362 - app.superintend.main - DEBUG - Created Superintendent
 2025-03-26 19:53:47,362 - app.superintend.main - DEBUG - Created Superintendent
+2025-03-26 19:58:47,364 - app.superintend.main - DEBUG - Creating Groq and Featherless clients
+2025-03-26 19:58:47,364 - app.superintend.main - DEBUG - Creating Groq and Featherless clients
+2025-03-26 19:58:47,662 - app.superintend.main - DEBUG - Initializing chat queue
+2025-03-26 19:58:47,662 - app.superintend.main - DEBUG - Initializing chat queue
+2025-03-26 19:58:47,663 - app.superintend.main - DEBUG - Created Superintendent
+2025-03-26 19:58:47,663 - app.superintend.main - DEBUG - Created Superintendent
+2025-03-26 19:58:49,984 - app.superintend.main - DEBUG - Creating Groq and Featherless clients
+2025-03-26 19:58:49,984 - app.superintend.main - DEBUG - Creating Groq and Featherless clients
+2025-03-26 19:58:50,261 - app.superintend.main - DEBUG - Initializing chat queue
+2025-03-26 19:58:50,261 - app.superintend.main - DEBUG - Initializing chat queue
+2025-03-26 19:58:50,262 - app.superintend.main - DEBUG - Created Superintendent
+2025-03-26 19:58:50,262 - app.superintend.main - DEBUG - Created Superintendent
