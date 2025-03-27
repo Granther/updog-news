@@ -124,6 +124,7 @@ class SuperIntend:
         )
         resp = chat_completion.choices[0].message.content
         self._append_ephem_messages(uuid, ({"role": "assistant", "content": resp}))
+        self.core.replace_doc("chat", uuid, self.ephem_messages[uuid])
         return resp
 
     def _groq_chat_stream(self, messages: list):
@@ -151,9 +152,11 @@ class SuperIntend:
 class Core:
     """ Takes a premade groq client """
     def __init__(self, client):
+        self.logger = create_logger(__name__)
         self.groq = client
         self.chroma = chromadb.Client()
         self.chats = self._init_chat_col()
+        self.collections['chats'] = self.chats
 
     def _init_chat_col(self):
         return self.chroma.create_collection(name="chats")
@@ -169,6 +172,25 @@ class Core:
     """
     def query(self, question) -> str:
         pass
+
+    def replace_doc(col_name: str, uuid: str, doc):
+        if col_name not in self.collections:
+            self.logger.fatal(f"Passed collection: {col_name}, but it does not exist in Core")
+        col = self.collections[col_name]
+        try:
+            col.delete(ids=[uuid])
+            if type(doc) is list:
+                doc = self._stringify(doc)
+            col.add(documents=doc, uuid=uuid)
+        except Exception as e:
+            self.logeer.fatal(f"Unable to replace uuid: {uuid} document: {e}")
+     
+    def _stringify(self, doc) -> str:
+        string = ""
+        for item in doc:
+            string += item + "\n\n"
+        return string
+
     """ Takes list of past messages, sys promt etc and produces a response """
     def _groq_chat(self, messages: list) -> str:
         chat_completion = self.groq.chat.completions.create(
