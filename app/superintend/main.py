@@ -5,6 +5,7 @@
 # A superintendant for the site, complete control and understanding cause why not lol
 
 import os
+import copy
 import threading
 import queue
 from concurrent.futures import Future
@@ -104,8 +105,9 @@ class SuperIntend:
 
     """ Top level chat func, highest level call """
     def hood_chat(self, uuid: str, msg: str) -> str:
-        '''
         rag_content = None
+
+        '''
         need_rag_prompt = build_need_rag_prompt(stringify(self._get_ephem_messages(uuid)))
         if self._bool_question(need_rag_prompt): # Is outisde data needed for context in this convo?
             print("Answered yes")
@@ -120,16 +122,22 @@ class SuperIntend:
         self._append_ephem_messages(uuid, {"role": "user", "content": msg})
         messages = self._get_ephem_messages(uuid)
         messages.append({"role": "user", "content": "Before you answer the above user's question and given the conversation so far, you you believe past information is needed to properly respond in this conversation? Yes if: The user is asking about past conversations with THIS AI. No if: The user is not referencing anything from the past. Please answer with yes or no. You may only answer with yes OR no, any other response will not be accepted"})
+        print(self._get_ephem_messages(uuid))
         need_rag_resp = self._submit_task(self._groq_chat, messages)
-        if 'yes' in need_rag_resp:
+        if 'yes' in need_rag_resp.lower():
+            messages.append({"role": "user", "content": "Given the conversation so far please create one summarrizing sentence that embodies the sentiment, topic and/or important information that identifies this conversation. Ie, names, recalled events, things said, articles referenced so far. Only use information mentioned in the current conversation"})
+            ret_sent = self._submit_task(self._groq_chat, messages)
+            rag_content = self.core.query("chats", ret_sent, bad_uuid=uuid)
+            print("Ret sent: ", ret_sent)
 
         print("Need rag resp: ", need_rag_resp)
 
-        #if rag_content:
-        #    msg = build_rag(msg, rag_content)
-        #self._append_ephem_messages(uuid, {"role": "user", "content": msg})
-        messages = self._get_ephem_messages(uuid)
-        resp = self._submit_task(self._groq_chat, messages) # pass callback
+        if rag_content:
+            #msg = build_rag(msg, rag_content)
+            self._append_ephem_messages(uuid, {"role": "user", "content": f"{msg}\n!### CONTEXT ###!\n{rag_content}"})
+        hood_messages = self._get_ephem_messages(uuid)
+        #print(hood_messages)
+        resp = self._submit_task(self._groq_chat, hood_messages) # pass callback
         self._process_chat(resp, uuid)
         return resp
 
@@ -161,7 +169,7 @@ class SuperIntend:
         if uuid not in self.ephem_messages:
             self.ephem_messages[uuid] = []
             return []
-        return self.ephem_messages[uuid]
+        return copy.copy(self.ephem_messages[uuid])
 
     def _append_ephem_messages(self, uuid: str, chunk: dict):
         messages = self._get_ephem_messages(uuid)
