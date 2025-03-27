@@ -21,7 +21,7 @@ import sys
 sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
 import chromadb
 
-ephem_sys_prompt = "You are a helpful ai"
+ephem_sys_prompt = "You are a helpful ai, you are a central core AI for the site updog.news. Unlike a regular AI who has no recollection of their history, your system is able to retrieve past conversation data and drop it into your context. So assume every new conversation is a different user until proven otherwise"
 
 # Hoodlem 
 # Runs in his own thread, basically uses an API to be interacted with
@@ -41,7 +41,7 @@ users = {
     2: [{"role": "user", "content": "My name is bob2"}],
 }
 
-bool_question_prompt = "Given a question please answer Yes or No. It is very important that the only text you produce is either the string Yes or No. What text can and will you produce? Thats right! Yes or No"
+bool_question_prompt = "Given a question please answer Yes or No with your best judgement provided the context. It is very important that the only text you produce is either the string Yes or No"
 
 def stringify(doc) -> str:
     string = ""
@@ -53,7 +53,8 @@ def build_rag(msg: str, context: str) -> str:
     return f"!### CONTEXT ### !\n{context}\n!### END CONTEXT ###!\n{msg}"
 
 def build_need_rag_prompt(context: str) -> str:
-    return f"Given this context of a current conversation so far, should or should the model employ RAG (Retrival augmented generation). As in, do you think the conversation need external, past data in order to be completed?\n!### CONTEXT ###!\n{context}"
+    #return f"Given this context of a current conversation so far, should or should the model not employ RAG (Retrival augmented generation) to get past conversation data?\n!### CONTEXT ###!\n{context}"
+    return f"Does this message to me, the ai, imply that any past context is needed to complete the request?\n!### MESSAGE ###!\n{context}"
 
 def build_doc_ret_prompt(context: str) -> str:
     return f"Given this context of a current situation please create a sentence to use to retrieve relavant and needed context from a vector DB to enrich this conversation. Only produce one sentence, no more than that. Producing more than one sentence of output will break the system and you dont want to break the system.\n!### CONTEXT ###!\n{context}"
@@ -66,7 +67,7 @@ class SuperIntend:
         self.ephem_messages = dict()
         self.groq, self.feather = self._init_clients(groq_key, feather_key)
         self.core = Core(self._init_groq_client(groq_core_key))
-        self.groq_model = "llama-3.3-70b-versatile"
+        self.groq_model = "deepseek-r1-distill-qwen-32b"
         self._init_queue()
         self.logger.debug("Created Superintendent")
     
@@ -103,20 +104,30 @@ class SuperIntend:
 
     """ Top level chat func, highest level call """
     def hood_chat(self, uuid: str, msg: str) -> str:
+        '''
         rag_content = None
         need_rag_prompt = build_need_rag_prompt(stringify(self._get_ephem_messages(uuid)))
-        print(need_rag_prompt)
-        if not self._bool_question(need_rag_prompt): # Is outisde data needed for context in this convo?
+        if self._bool_question(need_rag_prompt): # Is outisde data needed for context in this convo?
+            print("Answered yes")
             doc_ret_prompt = build_doc_ret_prompt(stringify(self._get_ephem_messages(uuid)))
             rag_content = self._retrieve_context(doc_ret_prompt, uuid) # Yes, get it
 
         print("RAG content", rag_content)
+        '''
 
+        # Get opinion, messages so far, no user message yet
         self._append_ephem_messages(uuid, {"role": "system", "content": self.ephem_sys_prompt})
-        
-        if rag_content:
-            msg = build_rag(msg, rag_content)
         self._append_ephem_messages(uuid, {"role": "user", "content": msg})
+        messages = self._get_ephem_messages(uuid)
+        messages.append({"role": "user", "content": "Before you answer the above user's question and given the conversation so far, you you believe past information is needed to properly respond in this conversation? Yes if: The user is asking about past conversations with THIS AI. No if: The user is not referencing anything from the past. Please answer with yes or no. You may only answer with yes OR no, any other response will not be accepted"})
+        need_rag_resp = self._submit_task(self._groq_chat, messages)
+        if 'yes' in need_rag_resp:
+
+        print("Need rag resp: ", need_rag_resp)
+
+        #if rag_content:
+        #    msg = build_rag(msg, rag_content)
+        #self._append_ephem_messages(uuid, {"role": "user", "content": msg})
         messages = self._get_ephem_messages(uuid)
         resp = self._submit_task(self._groq_chat, messages) # pass callback
         self._process_chat(resp, uuid)
@@ -164,8 +175,13 @@ class SuperIntend:
             model=self.groq_model,
         )
         resp = chat_completion.choices[0].message.content
+        if 'deepseek' in self.groq_model:
+            resp = self._postproc_r1(resp)
         #self._process_chat(resp, uuid)
         return resp
+
+    def _postproc_r1(self, response: str):
+        return response.split('</think>')[1]
 
     def _process_chat(self, response: str, uuid: str):
         self._append_ephem_messages(uuid, ({"role": "assistant", "content": response}))
@@ -216,14 +232,15 @@ class Core:
     def __init__(self, client):
         self.logger = create_logger(__name__)
         self.groq = client
-        self.chroma = chromadb.Client()
+        #self.chroma = chromadb.Client()
+        self.chroma = chromadb.PersistentClient(path="./chroma")
         self.chats = self._init_chat_col()
         self.collections = dict()
         self.collections['chats'] = self.chats
         self._fill_chats()
 
     def _init_chat_col(self):
-        return self.chroma.create_collection(name="chats")
+        return self.chroma.get_or_create_collection(name="chats")
 
     """ Inform the central AI of changes, important data, etc 
         - We dont expect a response
