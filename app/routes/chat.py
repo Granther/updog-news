@@ -38,7 +38,7 @@ def chat_stream():
 @chat.route("/message/<uuid>", methods=['GET', 'POST'])
 def message(uuid: str):
     message = request.json['message']
-    response = superintend.chat(uuid, message) 
+    response = superintend.hood_chat(uuid, message) 
     return jsonify({"response": response})
 
 @chat.route("/hoodlem")

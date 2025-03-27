@@ -43,7 +43,7 @@ users = {
 
 bool_question_prompt = "Given a question please answer Yes or No. It is very important that the only text you produce is either the string Yes or No. What text can and will you produce? Thats right! Yes or No"
 
-def _stringify(doc) -> str:
+def stringify(doc) -> str:
     string = ""
     for item in doc:
         string += f"{item}\n\n"
@@ -105,9 +105,12 @@ class SuperIntend:
     def hood_chat(self, uuid: str, msg: str) -> str:
         rag_content = None
         need_rag_prompt = build_need_rag_prompt(stringify(self._get_ephem_messages(uuid)))
-        if self._bool_question(need_rag_prompt): # Is outisde data needed for context in this convo?
+        print(need_rag_prompt)
+        if not self._bool_question(need_rag_prompt): # Is outisde data needed for context in this convo?
             doc_ret_prompt = build_doc_ret_prompt(stringify(self._get_ephem_messages(uuid)))
-            rag_content = self._retrieve_context(doc_ret_prompt) # Yes, get it
+            rag_content = self._retrieve_context(doc_ret_prompt, uuid) # Yes, get it
+
+        print("RAG content", rag_content)
 
         self._append_ephem_messages(uuid, {"role": "system", "content": self.ephem_sys_prompt})
         
@@ -115,7 +118,9 @@ class SuperIntend:
             msg = build_rag(msg, rag_content)
         self._append_ephem_messages(uuid, {"role": "user", "content": msg})
         messages = self._get_ephem_messages(uuid)
-        return self._submit_task(self._groq_chat, messages) # pass callback
+        resp = self._submit_task(self._groq_chat, messages) # pass callback
+        self._process_chat(resp, uuid)
+        return resp
 
     def raw_chat(self, messages: list) -> str:
         return self._submit_task(self._groq_chat, messages) # pass callback
@@ -126,10 +131,11 @@ class SuperIntend:
         return future.result() # Blocks until returns
 
     """ Given a context dynamically created prompt to generate a document ret string and return document """
-    def _retrieve_context(self, prompt: str) -> str:
+    def _retrieve_context(self, prompt: str, uuid: str) -> str:
         messages = [{"role": "user", "content": prompt}]
         resp = self.raw_chat(messages)
-
+        print(resp)
+        return self.core.query("chats", resp, bad_uuid=uuid)
 
     '''
     def chat_with_stream(self, msg: str, user_id: int):
@@ -164,7 +170,6 @@ class SuperIntend:
     def _process_chat(self, response: str, uuid: str):
         self._append_ephem_messages(uuid, ({"role": "assistant", "content": response}))
         self.core.replace_doc("chats", uuid, self.ephem_messages[uuid])
-        self._process_actions(response, uuid)
 
     def _process_actions(self, response: str, uuid: str):
         pass
@@ -175,6 +180,7 @@ class SuperIntend:
             {"role": "user", "content": question},
         ]
         resp = self.raw_chat(messages)
+        print(resp)
         if 'no' in resp.lower():
             return False
         elif 'yes' in resp.lower():
@@ -214,6 +220,7 @@ class Core:
         self.chats = self._init_chat_col()
         self.collections = dict()
         self.collections['chats'] = self.chats
+        self._fill_chats()
 
     def _init_chat_col(self):
         return self.chroma.create_collection(name="chats")
@@ -227,22 +234,42 @@ class Core:
     """ Ask the central AI for some data 
         - We expect a response of some kind
     """
-    def query(self, question) -> str:
-        pass
+    def query(self, col_name: str, question: str, bad_uuid: str=None) -> str:
+        col = self._get_col(col_name)
+        if not col: 
+            return None
+        try:
+            n_results = 3
+            result = col.query(query_texts=[question], n_results=n_results)
+            ids = result['ids'][0]
+            docs = result['documents'][0]
+            if not bad_uuid:
+                return docs[0]
+            print("bad_uuid: ", bad_uuid)
+            for i in range(n_results):
+                print(ids[i])
+                if ids[i] != bad_uuid:
+                    print(docs[i])
+                    return docs[i]
+        except:
+            return None
 
     def replace_doc(self, col_name: str, uuid: str, doc):
-        if col_name not in self.collections:
-            self.logger.fatal(f"Passed collection: {col_name}, but it does not exist in Core")
-            return
-        col = self.collections[col_name]
+        col = self._get_col(col_name)
         try:
             col.delete(ids=[uuid])
             #if type(doc) is list:
-            doc = self.stringify(doc)
+            doc = stringify(doc)
             col.add(documents=[doc], ids=[uuid])
         except Exception as e:
             self.logger.fatal(f"Unable to replace uuid: {uuid} document: {e}")
      
+    def _get_col(self, col_name: str):
+        if col_name not in self.collections:
+            self.logger.fatal(f"Passed collection: {col_name}, but it does not exist in Core")
+            return False
+        return self.collections[col_name]
+
     """ Takes list of past messages, sys promt etc and produces a response """
     def _groq_chat(self, messages: list) -> str:
         chat_completion = self.groq.chat.completions.create(
@@ -250,6 +277,10 @@ class Core:
             model=self.groq_model,
         )
         return chat_completion.choices[0].message.content
+
+    def _fill_chats(self):
+        col = self._get_col("chats")
+        col.add(documents=["test1", "test2", "test3"], ids=["1", "2", "3"])
 
 """
 Example:
