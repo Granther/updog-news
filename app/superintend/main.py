@@ -25,8 +25,11 @@ sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
 import chromadb
 
 load_dotenv()
+logger = create_logger(__name__)
 
 ephem_sys_prompt = "You are a helpful ai, you are a central core AI for the site updog.news. Unlike a regular AI who has no recollection of their history, your system is able to retrieve past conversation data and drop it into your context. So assume every new conversation is a different user until proven otherwise"
+
+superintend_sys_prompt = "You are the system AI for the news site updog.news, your name is Superintendent, YOU ARE Superintendent, that is YOU, you control all of its core systems. You do many tasks so please follow each command given to the best of your ability. You will recieve data from the system via informs, informs are timestamped pieces of data. Only respond if you are asked to, otherwise your response will go wasted but the thinking tokens you produce can be used later. Remember, only respond if you are explicitly asked to, otherwise just view the inform messages and continue on. INFORMS require no response while REQUEST's do.\n!### EXAMPLES ###!\nINFORM: 01/02/2025: System is starting up, hello from internal systems.\nResponse: \n\nINFORM: 01/02/2025: User has created new article: Joe Biden running for 3rd term.\nResponse: \n\nREQUEST: 01/02/2025: How many articles are currently on updog.news.\nResponse: There are 10 articles on updog.news"
 
 # Hoodlem 
 # Runs in his own thread, basically uses an API to be interacted with
@@ -51,14 +54,14 @@ def stringify(doc) -> str:
     return string
 
 """ Takes reponse from R1, returns either thought toks or resp (no thoughts) only """
-def postproc_r1(self, response: str, think_only: bool=False):
+def postproc_r1(response: str, think_only: bool=False):
     if think_only:
         return response.split('</think>')[0] # Return only the think toks    
     return response.split('</think>')[1]
 
 """ If 'yes' is in response return True, otherwise No """
 def bool_resp(response: str) -> bool:
-    return 'yes' in response
+    return 'yes' in response.lower()
 
 def build_rag(msg: str, context: str) -> str:
     return f"!### CONTEXT ### !\n{context}\n!### END CONTEXT ###!\n{msg}"
@@ -75,20 +78,29 @@ def build_doc_ret_prompt(context: str) -> str:
     return f"Given this context of a current situation please create a sentence to use to retrieve relavant and needed context from a vector DB to enrich this conversation. Only produce one sentence, no more than that. Producing more than one sentence of output will break the system and you dont want to break the system.\n!### CONTEXT ###!\n{context}"
 
 class SuperIntend:
+    _instance = None
+    _lock = threading.Lock()
+
+    def __new__(self, *args, **kwargs):
+        if self._instance is None:
+            with self._lock:  
+                if self._instance is None:  
+                    self._instance = super(SuperIntend, self).__new__(self)
+        return self._instance
+
     """ Groq for fast, feather for slow but custom """
     def __init__(self, groq_key: str, feather_key: str, groq_core_key: str):
-        self.logger = create_logger(__name__)
         self.ephem_sys_prompt = ephem_sys_prompt
         self.ephem_messages = dict()
         self.groq, self.feather = self._init_clients(groq_key, feather_key)
         self.core = Core(self._init_groq_client(groq_core_key))
         self.groq_model = "deepseek-r1-distill-qwen-32b"
         self._init_queue()
-        self.logger.debug("Created Superintendent")
+        logger.debug("Created Superintendent")
     
     """ Start chat queue """
     def _init_queue(self):
-        self.logger.debug("Initializing chat queue")
+        logger.debug("Initializing chat queue")
         self.chat_queue = queue.Queue()
         def worker():
             while True:
@@ -105,7 +117,7 @@ class SuperIntend:
 
     """ Init both Groq and Feather clients """
     def _init_clients(self, groq_key, feather_key):
-        self.logger.debug("Creating Groq and Featherless clients")
+        logger.debug("Creating Groq and Featherless clients")
         return ((self._init_groq_client(groq_key), self._init_feather_client(feather_key)))
 
     def _init_groq_client(self, groq_key: str):
@@ -208,6 +220,11 @@ class SuperIntend:
     def _process_actions(self, response: str, uuid: str):
         pass
 
+    """ Pass in entire story and return wether Super allows it or not """
+    def allow_story(self, story) -> bool:
+        resp = self.core.request(build_allow_story(story))
+        return bool_resp(postproc_r1(resp))
+
     def _bool_question(self, question: str) -> bool:
         messages = [
             {"role": "system", "content": bool_question_prompt},
@@ -221,7 +238,7 @@ class SuperIntend:
             return True
         else:
             return False
-            self.logger.fatal(f"Bool question got answer: {resp}")
+            logger.fatal(f"Bool question got answer: {resp}")
 
     def _groq_chat_stream(self, messages: list):
         response = self.groq.chat.completions.create(
@@ -248,7 +265,6 @@ class SuperIntend:
 class Core:
     """ Takes a premade groq client """
     def __init__(self, client):
-        self.logger = create_logger(__name__)
         self.messages = list()
         self.collections = dict()
         self.groq = client
@@ -257,15 +273,16 @@ class Core:
         self._init_queue()
         self.chats, self.main = self._init_chat_col(), self._init_main_col()
         self.collections['chats'], self.collections['main'] = self.chats, self.main
+        self._init_super()
         #self._fill_chats()
 
     """ First message sent to superintend """
     def _init_super(self):
-        self.inform("Updog.news Core AI 'Superintendent' booting up... Hello from init systems :)")
+        self.inform("Updog.news Core booting up... Hello Superintendent from init systems :)")
 
     """ Start thought queue """
     def _init_queue(self):
-        self.logger.debug("Initializing Superintendent thought queue")
+        logger.debug("Initializing Superintendent thought queue")
         self.thought_queue = queue.Queue()
         def worker():
             while True:
@@ -283,7 +300,7 @@ class Core:
     """ Submit task to thought queue, block until return """
     def _submit_task(self, func, *args):
         future = Future()
-        self.chat_queue.put((func, args, future))
+        self.thought_queue.put((func, args, future))
         return future.result() # Blocks until returns
 
     """ Get or create 'chats' chroma collection """
@@ -300,10 +317,18 @@ class Core:
     """
     def inform(self, data: str):
         self.messages.append({"role": "system", "content": superintend_sys_prompt})
-        self.messages.append({"role": "user", "content": self._add_timestamp(data)})
-        resp = self._submit_task(self._groq_chat, messages) # Get all toks from R1
+        self.messages.append({"role": "user", "content": f"INFORM: {self._add_timestamp(data)}"})
+        resp = self._submit_task(self._groq_chat, self.messages) # Get all toks from R1
+        logger.debug(f"INFORM: {data}\nResponse: {resp}")
         self.messages.append({"role": "assistant", "content": resp})
-        self._postproc_resp(resp)
+
+    """ Request an answer """
+    def request(self, request: str):
+        self.messages.append({"role": "system", "content": superintend_sys_prompt})
+        self.messages.append({"role": "user", "content": f"REQUEST: {self._add_timestamp(request)}"})
+        resp = self._submit_task(self._groq_chat, self.messages) # We want to see thinking toks in history
+        self.messages.append({"role": "user", "content": resp}) 
+        return resp
 
     """ Ask the central AI for some data 
         - We expect a response of some kind
@@ -328,14 +353,6 @@ class Core:
         except:
             return None
 
-    """ Pass in entire story and return wether Super allows it or not """
-    def allow_story(self, story) -> bool:
-        self.messages.append({"role": "user", "content": build_allow_story(story)})
-        resp = self._submit_task(self._groq_chat, (self.messages, see_think=True)) # We want to see thinking toks in history
-
-        self.messages.append({"role": "user", "content": resp}) # Make sure think makes its way to history
-        return bool_resp(postproc_r1(resp))
-
     """ See if API tokens exist in reponse and call things accordingly """
     def _postproc_chat(self, response: str):
         print(response)
@@ -351,11 +368,11 @@ class Core:
             doc = stringify(doc)
             col.add(documents=[doc], ids=[uuid])
         except Exception as e:
-            self.logger.fatal(f"Unable to replace uuid: {uuid} document: {e}")
+            logger.fatal(f"Unable to replace uuid: {uuid} document: {e}")
      
     def _get_col(self, col_name: str):
         if col_name not in self.collections:
-            self.logger.fatal(f"Passed collection: {col_name}, but it does not exist in Core")
+            logger.fatal(f"Passed collection: {col_name}, but it does not exist in Core")
             return False
         return self.collections[col_name]
 
@@ -380,7 +397,7 @@ class Core:
 _superintend = SuperIntend(os.environ.get("GROQ_API_KEY"), os.environ.get("FEATHERLESS_API_KEY"), os.environ.get("GROQ_API_KEY"))
 
 """ Makes Superintend singleton, which makes sense """
-def get_hoodlem():
+def get_superintend():
     return _superintend
 
 """ Takes app for context and entire story to generate interviews """

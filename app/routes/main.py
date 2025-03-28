@@ -67,6 +67,8 @@ def logout():
 
 @main.route('/')
 def index():
+    error = request.args.get('error')
+    flash(error, 'danger')
     catagory = request.args.get('catagory')
     if catagory:
         catagory = catagory.lower()
@@ -170,15 +172,12 @@ def gen_schrod_page(app, session_id: str, title: str):
     """
     # Use the emit function created for this app instance
     emit_socketio = app.config.get('emit_socketio')
-    
-    # Simulate page generation
+    error = None
+
     try:
-        print("Here in context")
         write_new_story(app, {"title": title, "reporter": "reporter", "personality": "mean guy", "catagory": "world"})
     except Exception as e:
-        #current_app.logger.fatal(f"Error occured while generating news: {e}")
-        print("Exception: ", e)
-        #return redirect(url_for("main.index"))
+        error = e
 
     # Update page status (ensure this uses the app context)
     with app.app_context():
@@ -192,10 +191,16 @@ def gen_schrod_page(app, session_id: str, title: str):
 
     # Emit the event using the custom emitter
     if emit_socketio:
-        emit_socketio('page_ready', {
-            'session_id': session_id,
-            'url': f'/story/{title}'
-        })
+        if error:
+            emit_socketio('page_ready', {
+                'session_id': session_id,
+                'url': f'/?error={error}'
+            })
+        else:
+            emit_socketio('page_ready', {
+                'session_id': session_id,
+                'url': f'/story/{title}'
+            })
 
 #    form = CommentForm()
 #    results = Story.query.filter_by(uuid=uuid).first()
