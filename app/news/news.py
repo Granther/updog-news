@@ -1,6 +1,6 @@
 from sqlalchemy import text
 from sqlalchemy.orm import session
-from sqlalchemy.sql import func
+from sqlalchemy.sql import func, desc
 
 from app import db
 from app.utils import preserve_markdown, display_catagory
@@ -8,24 +8,18 @@ from app.models import Story, User
 
 def get_marquee() -> dict:
     try:
-        result = session.query(Story).order_by(Story.id.desc()).limit(3).all()
-#        query = text("SELECT TOP 3 FROM Story")
-#        result = session.query(query)
-        #for i in result:
-         #   print(i)
-        print("here")
+        result = Story.query.order_by(desc(Story.created)).limit(3)
+        return {"one": result[0].title, "two": result[1].title, "three": result[2].title}
     except Exception as e:
-        print(e)
-        return {"one": "one", "two": "two", "three": "three"}
+        return {"one": "-", "two": "-", "three": "-"}
 
 def get_stories(catagory=None) -> list:
     if not catagory: # Select all
-        result = Story.query.all()
+        result = Story.query.order_by(desc(Story.created)).all() 
     else:
-        result = Story.query.filter_by(catagory=catagory).all()
+        result = Story.query.filter_by(catagory=catagory).order_by(desc(Story.created)).all()
     stories = []
     for story in result:
-        #reporter = Reporter.query.filter_by(id=story.reporter_id).first()
         cat = display_catagory(story.catagory)
         proc_story_content = preserve_markdown(story.title)
         stories.append({"id":story.id, "title":story.title, "content": proc_story_content, "reportername":story.reporter, "catagory": cat})

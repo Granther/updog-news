@@ -1,6 +1,7 @@
 import os
 import time
 from collections import defaultdict
+from datetime import datetime
 
 from flask import Blueprint, abort, render_template, session, jsonify, redirect, url_for, current_app, flash, request
 from flask_login import login_required, logout_user, login_user, current_user
@@ -151,7 +152,10 @@ def story(title, category=None):
         return render_template('waiting.html', session_id=session_id)
     else:
         # Existing story rendering logic
-        timestamp = "test"
+        timestamp = story.created
+        dif = datetime.now() - story.created
+        #datetime.strptime(story.created, "%Y-%m-%d %H:%M:%S")
+        print(dif.total_seconds())
         read_time = "read time"
         story.catagory = display_catagory(story.catagory)
         #if not story.sources_done: # Not finished async creating sources

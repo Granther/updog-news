@@ -41,11 +41,6 @@ ephem_sys_prompt = "You are a helpful ai, you are a central core AI for the site
 # Need a queue for processing multiple chats with one api key
 # Way for the ai to keep close to user context and larger view context (mayber RAG)
 
-users = {
-    1: [{"role": "user", "content": "My name is bob1"}],
-    2: [{"role": "user", "content": "My name is bob2"}],
-}
-
 bool_question_prompt = "Given a question please answer Yes or No with your best judgement provided the context. It is very important that the only text you produce is either the string Yes or No"
 
 def stringify(doc) -> str:

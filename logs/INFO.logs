@@ -3092,3 +3092,187 @@ I'm here to help answer your questions, provide information, and engage in conve
 2025-03-28 02:46:30,197 - app.superintend.main - DEBUG - Created Superintendent
 2025-03-28 02:46:30,197 - app.superintend.main - DEBUG - Created Superintendent
 2025-03-28 02:46:30,197 - app.superintend.main - DEBUG - Created Superintendent
+2025-03-28 02:49:25,455 - app.superintend.main - DEBUG - Creating Groq and Featherless clients
+2025-03-28 02:49:25,455 - app.superintend.main - DEBUG - Creating Groq and Featherless clients
+2025-03-28 02:49:25,716 - app.superintend.main - DEBUG - Initializing chat queue
+2025-03-28 02:49:25,716 - app.superintend.main - DEBUG - Initializing chat queue
+2025-03-28 02:49:25,716 - app.superintend.main - DEBUG - Initializing chat queue
+2025-03-28 02:49:25,717 - app.superintend.main - DEBUG - Created Superintendent
+2025-03-28 02:49:25,717 - app.superintend.main - DEBUG - Created Superintendent
+2025-03-28 02:49:25,717 - app.superintend.main - DEBUG - Created Superintendent
+2025-03-28 02:51:29,146 - app.superintend.main - DEBUG - Creating Groq and Featherless clients
+2025-03-28 02:51:29,146 - app.superintend.main - DEBUG - Creating Groq and Featherless clients
+2025-03-28 02:51:29,425 - app.superintend.main - DEBUG - Initializing chat queue
+2025-03-28 02:51:29,425 - app.superintend.main - DEBUG - Initializing chat queue
+2025-03-28 02:51:29,425 - app.superintend.main - DEBUG - Initializing chat queue
+2025-03-28 02:51:29,426 - app.superintend.main - DEBUG - Created Superintendent
+2025-03-28 02:51:29,426 - app.superintend.main - DEBUG - Created Superintendent
+2025-03-28 02:51:29,426 - app.superintend.main - DEBUG - Created Superintendent
+2025-03-28 02:53:02,106 - app.superintend.main - DEBUG - Creating Groq and Featherless clients
+2025-03-28 02:53:02,106 - app.superintend.main - DEBUG - Creating Groq and Featherless clients
+2025-03-28 02:53:02,468 - app.superintend.main - DEBUG - Initializing chat queue
+2025-03-28 02:53:02,468 - app.superintend.main - DEBUG - Initializing chat queue
+2025-03-28 02:53:02,468 - app.superintend.main - DEBUG - Initializing chat queue
+2025-03-28 02:53:02,470 - app.superintend.main - DEBUG - Created Superintendent
+2025-03-28 02:53:02,470 - app.superintend.main - DEBUG - Created Superintendent
+2025-03-28 02:53:02,470 - app.superintend.main - DEBUG - Created Superintendent
+2025-03-28 02:53:34,650 - app.superintend.main - DEBUG - Creating Groq and Featherless clients
+2025-03-28 02:53:34,650 - app.superintend.main - DEBUG - Creating Groq and Featherless clients
+2025-03-28 02:53:34,936 - app.superintend.main - DEBUG - Initializing chat queue
+2025-03-28 02:53:34,936 - app.superintend.main - DEBUG - Initializing chat queue
+2025-03-28 02:53:34,936 - app.superintend.main - DEBUG - Initializing chat queue
+2025-03-28 02:53:34,937 - app.superintend.main - DEBUG - Created Superintendent
+2025-03-28 02:53:34,937 - app.superintend.main - DEBUG - Created Superintendent
+2025-03-28 02:53:34,937 - app.superintend.main - DEBUG - Created Superintendent
+2025-03-28 02:54:08,931 - app.superintend.main - DEBUG - Creating Groq and Featherless clients
+2025-03-28 02:54:08,931 - app.superintend.main - DEBUG - Creating Groq and Featherless clients
+2025-03-28 02:54:09,202 - app.superintend.main - DEBUG - Initializing chat queue
+2025-03-28 02:54:09,202 - app.superintend.main - DEBUG - Initializing chat queue
+2025-03-28 02:54:09,202 - app.superintend.main - DEBUG - Initializing chat queue
+2025-03-28 02:54:09,203 - app.superintend.main - DEBUG - Created Superintendent
+2025-03-28 02:54:09,203 - app.superintend.main - DEBUG - Created Superintendent
+2025-03-28 02:54:09,203 - app.superintend.main - DEBUG - Created Superintendent
+2025-03-28 02:54:33,582 - app.superintend.main - DEBUG - Creating Groq and Featherless clients
+2025-03-28 02:54:33,582 - app.superintend.main - DEBUG - Creating Groq and Featherless clients
+2025-03-28 02:54:33,849 - app.superintend.main - DEBUG - Initializing chat queue
+2025-03-28 02:54:33,849 - app.superintend.main - DEBUG - Initializing chat queue
+2025-03-28 02:54:33,849 - app.superintend.main - DEBUG - Initializing chat queue
+2025-03-28 02:54:33,850 - app.superintend.main - DEBUG - Created Superintendent
+2025-03-28 02:54:33,850 - app.superintend.main - DEBUG - Created Superintendent
+2025-03-28 02:54:33,850 - app.superintend.main - DEBUG - Created Superintendent
+2025-03-28 02:54:36,024 - app.superintend.main - DEBUG - Creating Groq and Featherless clients
+2025-03-28 02:54:36,024 - app.superintend.main - DEBUG - Creating Groq and Featherless clients
+2025-03-28 02:54:36,307 - app.superintend.main - DEBUG - Initializing chat queue
+2025-03-28 02:54:36,307 - app.superintend.main - DEBUG - Initializing chat queue
+2025-03-28 02:54:36,307 - app.superintend.main - DEBUG - Initializing chat queue
+2025-03-28 02:54:36,308 - app.superintend.main - DEBUG - Created Superintendent
+2025-03-28 02:54:36,308 - app.superintend.main - DEBUG - Created Superintendent
+2025-03-28 02:54:36,308 - app.superintend.main - DEBUG - Created Superintendent
+2025-03-28 02:55:42,872 - app.superintend.main - DEBUG - Creating Groq and Featherless clients
+2025-03-28 02:55:42,872 - app.superintend.main - DEBUG - Creating Groq and Featherless clients
+2025-03-28 02:55:43,169 - app.superintend.main - DEBUG - Initializing chat queue
+2025-03-28 02:55:43,169 - app.superintend.main - DEBUG - Initializing chat queue
+2025-03-28 02:55:43,169 - app.superintend.main - DEBUG - Initializing chat queue
+2025-03-28 02:55:43,170 - app.superintend.main - DEBUG - Created Superintendent
+2025-03-28 02:55:43,170 - app.superintend.main - DEBUG - Created Superintendent
+2025-03-28 02:55:43,170 - app.superintend.main - DEBUG - Created Superintendent
+2025-03-28 02:56:06,935 - app.superintend.main - DEBUG - Creating Groq and Featherless clients
+2025-03-28 02:56:06,935 - app.superintend.main - DEBUG - Creating Groq and Featherless clients
+2025-03-28 02:56:07,215 - app.superintend.main - DEBUG - Initializing chat queue
+2025-03-28 02:56:07,215 - app.superintend.main - DEBUG - Initializing chat queue
+2025-03-28 02:56:07,215 - app.superintend.main - DEBUG - Initializing chat queue
+2025-03-28 02:56:07,216 - app.superintend.main - DEBUG - Created Superintendent
+2025-03-28 02:56:07,216 - app.superintend.main - DEBUG - Created Superintendent
+2025-03-28 02:56:07,216 - app.superintend.main - DEBUG - Created Superintendent
+2025-03-28 02:58:08,945 - app.superintend.main - DEBUG - Creating Groq and Featherless clients
+2025-03-28 02:58:08,945 - app.superintend.main - DEBUG - Creating Groq and Featherless clients
+2025-03-28 02:58:09,204 - app.superintend.main - DEBUG - Initializing chat queue
+2025-03-28 02:58:09,204 - app.superintend.main - DEBUG - Initializing chat queue
+2025-03-28 02:58:09,204 - app.superintend.main - DEBUG - Initializing chat queue
+2025-03-28 02:58:09,205 - app.superintend.main - DEBUG - Created Superintendent
+2025-03-28 02:58:09,205 - app.superintend.main - DEBUG - Created Superintendent
+2025-03-28 02:58:09,205 - app.superintend.main - DEBUG - Created Superintendent
+2025-03-28 02:58:31,973 - app.superintend.main - DEBUG - Creating Groq and Featherless clients
+2025-03-28 02:58:31,973 - app.superintend.main - DEBUG - Creating Groq and Featherless clients
+2025-03-28 02:58:32,245 - app.superintend.main - DEBUG - Initializing chat queue
+2025-03-28 02:58:32,245 - app.superintend.main - DEBUG - Initializing chat queue
+2025-03-28 02:58:32,245 - app.superintend.main - DEBUG - Initializing chat queue
+2025-03-28 02:58:32,246 - app.superintend.main - DEBUG - Created Superintendent
+2025-03-28 02:58:32,246 - app.superintend.main - DEBUG - Created Superintendent
+2025-03-28 02:58:32,246 - app.superintend.main - DEBUG - Created Superintendent
+2025-03-28 03:00:21,493 - app.superintend.main - DEBUG - Creating Groq and Featherless clients
+2025-03-28 03:00:21,493 - app.superintend.main - DEBUG - Creating Groq and Featherless clients
+2025-03-28 03:00:21,776 - app.superintend.main - DEBUG - Initializing chat queue
+2025-03-28 03:00:21,776 - app.superintend.main - DEBUG - Initializing chat queue
+2025-03-28 03:00:21,776 - app.superintend.main - DEBUG - Initializing chat queue
+2025-03-28 03:00:21,777 - app.superintend.main - DEBUG - Created Superintendent
+2025-03-28 03:00:21,777 - app.superintend.main - DEBUG - Created Superintendent
+2025-03-28 03:00:21,777 - app.superintend.main - DEBUG - Created Superintendent
+2025-03-28 03:01:20,795 - app.superintend.main - DEBUG - Creating Groq and Featherless clients
+2025-03-28 03:01:20,795 - app.superintend.main - DEBUG - Creating Groq and Featherless clients
+2025-03-28 03:01:21,072 - app.superintend.main - DEBUG - Initializing chat queue
+2025-03-28 03:01:21,072 - app.superintend.main - DEBUG - Initializing chat queue
+2025-03-28 03:01:21,072 - app.superintend.main - DEBUG - Initializing chat queue
+2025-03-28 03:01:21,073 - app.superintend.main - DEBUG - Created Superintendent
+2025-03-28 03:01:21,073 - app.superintend.main - DEBUG - Created Superintendent
+2025-03-28 03:01:21,073 - app.superintend.main - DEBUG - Created Superintendent
+2025-03-28 03:02:17,148 - app.superintend.main - DEBUG - Creating Groq and Featherless clients
+2025-03-28 03:02:17,148 - app.superintend.main - DEBUG - Creating Groq and Featherless clients
+2025-03-28 03:02:17,429 - app.superintend.main - DEBUG - Initializing chat queue
+2025-03-28 03:02:17,429 - app.superintend.main - DEBUG - Initializing chat queue
+2025-03-28 03:02:17,429 - app.superintend.main - DEBUG - Initializing chat queue
+2025-03-28 03:02:17,430 - app.superintend.main - DEBUG - Created Superintendent
+2025-03-28 03:02:17,430 - app.superintend.main - DEBUG - Created Superintendent
+2025-03-28 03:02:17,430 - app.superintend.main - DEBUG - Created Superintendent
+2025-03-28 03:05:04,983 - app.superintend.main - DEBUG - Creating Groq and Featherless clients
+2025-03-28 03:05:04,983 - app.superintend.main - DEBUG - Creating Groq and Featherless clients
+2025-03-28 03:05:05,238 - app.superintend.main - DEBUG - Initializing chat queue
+2025-03-28 03:05:05,238 - app.superintend.main - DEBUG - Initializing chat queue
+2025-03-28 03:05:05,238 - app.superintend.main - DEBUG - Initializing chat queue
+2025-03-28 03:05:05,239 - app.superintend.main - DEBUG - Created Superintendent
+2025-03-28 03:05:05,239 - app.superintend.main - DEBUG - Created Superintendent
+2025-03-28 03:05:05,239 - app.superintend.main - DEBUG - Created Superintendent
+2025-03-28 03:05:30,780 - app.superintend.main - DEBUG - Creating Groq and Featherless clients
+2025-03-28 03:05:30,780 - app.superintend.main - DEBUG - Creating Groq and Featherless clients
+2025-03-28 03:05:31,085 - app.superintend.main - DEBUG - Initializing chat queue
+2025-03-28 03:05:31,085 - app.superintend.main - DEBUG - Initializing chat queue
+2025-03-28 03:05:31,085 - app.superintend.main - DEBUG - Initializing chat queue
+2025-03-28 03:05:31,086 - app.superintend.main - DEBUG - Created Superintendent
+2025-03-28 03:05:31,086 - app.superintend.main - DEBUG - Created Superintendent
+2025-03-28 03:05:31,086 - app.superintend.main - DEBUG - Created Superintendent
+2025-03-28 03:05:58,049 - app.superintend.main - DEBUG - Creating Groq and Featherless clients
+2025-03-28 03:05:58,049 - app.superintend.main - DEBUG - Creating Groq and Featherless clients
+2025-03-28 03:05:58,315 - app.superintend.main - DEBUG - Initializing chat queue
+2025-03-28 03:05:58,315 - app.superintend.main - DEBUG - Initializing chat queue
+2025-03-28 03:05:58,315 - app.superintend.main - DEBUG - Initializing chat queue
+2025-03-28 03:05:58,316 - app.superintend.main - DEBUG - Created Superintendent
+2025-03-28 03:05:58,316 - app.superintend.main - DEBUG - Created Superintendent
+2025-03-28 03:05:58,316 - app.superintend.main - DEBUG - Created Superintendent
+2025-03-28 03:06:13,247 - app.superintend.main - DEBUG - Creating Groq and Featherless clients
+2025-03-28 03:06:13,247 - app.superintend.main - DEBUG - Creating Groq and Featherless clients
+2025-03-28 03:06:13,542 - app.superintend.main - DEBUG - Initializing chat queue
+2025-03-28 03:06:13,542 - app.superintend.main - DEBUG - Initializing chat queue
+2025-03-28 03:06:13,542 - app.superintend.main - DEBUG - Initializing chat queue
+2025-03-28 03:06:13,543 - app.superintend.main - DEBUG - Created Superintendent
+2025-03-28 03:06:13,543 - app.superintend.main - DEBUG - Created Superintendent
+2025-03-28 03:06:13,543 - app.superintend.main - DEBUG - Created Superintendent
+2025-03-28 03:06:29,568 - app.superintend.main - DEBUG - Creating Groq and Featherless clients
+2025-03-28 03:06:29,568 - app.superintend.main - DEBUG - Creating Groq and Featherless clients
+2025-03-28 03:06:29,830 - app.superintend.main - DEBUG - Initializing chat queue
+2025-03-28 03:06:29,830 - app.superintend.main - DEBUG - Initializing chat queue
+2025-03-28 03:06:29,830 - app.superintend.main - DEBUG - Initializing chat queue
+2025-03-28 03:06:29,831 - app.superintend.main - DEBUG - Created Superintendent
+2025-03-28 03:06:29,831 - app.superintend.main - DEBUG - Created Superintendent
+2025-03-28 03:06:29,831 - app.superintend.main - DEBUG - Created Superintendent
+2025-03-28 03:06:42,922 - app.superintend.main - DEBUG - Creating Groq and Featherless clients
+2025-03-28 03:06:42,922 - app.superintend.main - DEBUG - Creating Groq and Featherless clients
+2025-03-28 03:06:43,234 - app.superintend.main - DEBUG - Initializing chat queue
+2025-03-28 03:06:43,234 - app.superintend.main - DEBUG - Initializing chat queue
+2025-03-28 03:06:43,234 - app.superintend.main - DEBUG - Initializing chat queue
+2025-03-28 03:06:43,235 - app.superintend.main - DEBUG - Created Superintendent
+2025-03-28 03:06:43,235 - app.superintend.main - DEBUG - Created Superintendent
+2025-03-28 03:06:43,235 - app.superintend.main - DEBUG - Created Superintendent
+2025-03-28 03:10:02,707 - app.superintend.main - DEBUG - Creating Groq and Featherless clients
+2025-03-28 03:10:02,707 - app.superintend.main - DEBUG - Creating Groq and Featherless clients
+2025-03-28 03:10:02,981 - app.superintend.main - DEBUG - Initializing chat queue
+2025-03-28 03:10:02,981 - app.superintend.main - DEBUG - Initializing chat queue
+2025-03-28 03:10:02,981 - app.superintend.main - DEBUG - Initializing chat queue
+2025-03-28 03:10:02,982 - app.superintend.main - DEBUG - Created Superintendent
+2025-03-28 03:10:02,982 - app.superintend.main - DEBUG - Created Superintendent
+2025-03-28 03:10:02,982 - app.superintend.main - DEBUG - Created Superintendent
+2025-03-28 03:10:28,467 - app.superintend.main - DEBUG - Creating Groq and Featherless clients
+2025-03-28 03:10:28,467 - app.superintend.main - DEBUG - Creating Groq and Featherless clients
+2025-03-28 03:10:28,730 - app.superintend.main - DEBUG - Initializing chat queue
+2025-03-28 03:10:28,730 - app.superintend.main - DEBUG - Initializing chat queue
+2025-03-28 03:10:28,730 - app.superintend.main - DEBUG - Initializing chat queue
+2025-03-28 03:10:28,731 - app.superintend.main - DEBUG - Created Superintendent
+2025-03-28 03:10:28,731 - app.superintend.main - DEBUG - Created Superintendent
+2025-03-28 03:10:28,731 - app.superintend.main - DEBUG - Created Superintendent
+2025-03-28 03:11:13,167 - app.superintend.main - DEBUG - Creating Groq and Featherless clients
+2025-03-28 03:11:13,167 - app.superintend.main - DEBUG - Creating Groq and Featherless clients
+2025-03-28 03:11:13,440 - app.superintend.main - DEBUG - Initializing chat queue
+2025-03-28 03:11:13,440 - app.superintend.main - DEBUG - Initializing chat queue
+2025-03-28 03:11:13,440 - app.superintend.main - DEBUG - Initializing chat queue
+2025-03-28 03:11:13,441 - app.superintend.main - DEBUG - Created Superintendent
+2025-03-28 03:11:13,441 - app.superintend.main - DEBUG - Created Superintendent
+2025-03-28 03:11:13,441 - app.superintend.main - DEBUG - Created Superintendent
