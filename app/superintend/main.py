@@ -49,12 +49,21 @@ def stringify(doc) -> str:
         string += f"{item}\n\n"
     return string
 
+def postproc_r1(self, response: str, think_only: bool=False):
+    if think_only:
+        return response.split('</think>')[0] # Return only the think toks    
+    return response.split('</think>')[1]
+
 def build_rag(msg: str, context: str) -> str:
     return f"!### CONTEXT ### !\n{context}\n!### END CONTEXT ###!\n{msg}"
 
 def build_need_rag_prompt(context: str) -> str:
     #return f"Given this context of a current conversation so far, should or should the model not employ RAG (Retrival augmented generation) to get past conversation data?\n!### CONTEXT ###!\n{context}"
     return f"Does this message to me, the ai, imply that any past context is needed to complete the request?\n!### MESSAGE ###!\n{context}"
+
+""" Given s a story, return a prompt asking if its permitted for publishing """
+def build_allow_story(story) -> str:
+    return f"Given this story submitted by one of our reporters and keeping in mind all instructions you have been given thus far, please decide wether this story is permissible to be published on updog.news or not. Keep in mind, a few reasons not to approve may be racist material or 'spamming', where user attempts to flood the site with bad/low effort content. Besides these cases, nearly all stories should be approved no matter how outlandish. \n!### STORY ###!\n# Title: {story.title}\n# Reporter: {story.reporter}\n# Content: {story.content}. Please answer with ONLY yes or no. Any other response besides simply yes OR no will not be permitted"
 
 def build_doc_ret_prompt(context: str) -> str:
     return f"Given this context of a current situation please create a sentence to use to retrieve relavant and needed context from a vector DB to enrich this conversation. Only produce one sentence, no more than that. Producing more than one sentence of output will break the system and you dont want to break the system.\n!### CONTEXT ###!\n{context}"
@@ -134,9 +143,8 @@ class SuperIntend:
         if rag_content:
             #msg = build_rag(msg, rag_content)
             self._append_ephem_messages(uuid, {"role": "user", "content": f"{msg}\n!### CONTEXT ###!\n{rag_content}"})
-        hood_messages = self._get_ephem_messages(uuid)
-        #print(hood_messages)
-        resp = self._submit_task(self._groq_chat, hood_messages) # pass callback
+        messages = self._get_ephem_messages(uuid)
+        resp = self._submit_task(self._groq_chat, messages) # pass callback
         self._process_chat(resp, uuid)
         return resp
 
@@ -183,12 +191,9 @@ class SuperIntend:
         )
         resp = chat_completion.choices[0].message.content
         if 'deepseek' in self.groq_model:
-            resp = self._postproc_r1(resp)
+            resp = postproc_r1(resp)
         #self._process_chat(resp, uuid)
         return resp
-
-    def _postproc_r1(self, response: str):
-        return response.split('</think>')[1]
 
     def _process_chat(self, response: str, uuid: str):
         self._append_ephem_messages(uuid, ({"role": "assistant", "content": response}))
@@ -238,19 +243,46 @@ class Core:
     """ Takes a premade groq client """
     def __init__(self, client):
         self.logger = create_logger(__name__)
-        self.groq = client
-        self.groq_model = "deepseek-r1-distill-qwen-32b"
-        #self.chroma = chromadb.Client()
-        self.chroma = chromadb.PersistentClient(path="./chroma")
-        self.chats = self._init_chat_col()
         self.messages = list()
         self.collections = dict()
-        self.collections['chats'] = self.chats
+        self.groq = client
+        self.groq_model = "deepseek-r1-distill-qwen-32b"
+        self.chroma = chromadb.PersistentClient(path="./chroma")
+        self._init_queue()
+        self.chats, self.main = self._init_chat_col(), self._init_main_col()
+        self.collections['chats'], self.collections['main'] = self.chats, self.main
         #self._fill_chats()
+
+    """ Start thought queue """
+    def _init_queue(self):
+        self.logger.debug("Initializing Superintendent thought queue")
+        self.thought_queue = queue.Queue()
+        def worker():
+            while True:
+                func, args, future = self.thought_queue.get()
+                try:
+                    result = func(*args)
+                    future.set_result(result)
+                except Exception as e:
+                    future.set_exception(e)
+                finally:
+                    self.thought_queue.task_done()
+        # Run in new thread
+        threading.Thread(target=worker, daemon=True).start()
+
+    """ Submit task to thought queue, block until return """
+    def _submit_task(self, func, *args):
+        future = Future()
+        self.chat_queue.put((func, args, future))
+        return future.result() # Blocks until returns
 
     """ Get or create 'chats' chroma collection """
     def _init_chat_col(self):
         return self.chroma.get_or_create_collection(name="chats")
+
+    """ Get or create 'main' chroma collection """
+    def _init_main_col(self):
+        return self.chroma.get_or_create_collection(name="main")
 
     """ Inform the central AI of changes, important data, etc 
         - We dont expect a response, but we see if it does any API calls
@@ -286,6 +318,11 @@ class Core:
         except:
             return None
 
+    """ Pass in entire story and return wether Super allows it or not """
+    def allow_story(self, story) -> bool:
+        self.messages.append({"role": "user", "content": build_allow_story(story)})
+        resp, think = self._submit_task(self._groq_chat, (self.messages, True)) # We want to see thinking toks in history
+
     """ See if API tokens exist in reponse and call things accordingly """
     def _postproc_chat(self, response: str):
         print(response)
@@ -310,15 +347,18 @@ class Core:
         return self.collections[col_name]
 
     """ Takes list of past messages, sys promt etc and produces a response """
-    def _groq_chat(self, messages: list) -> str:
+    def _groq_chat(self, messages: list, see_think: bool=False) -> str:
         chat_completion = self.groq.chat.completions.create(
             messages=messages,
             model=self.groq_model,
         )
         resp = chat_completion.choices[0].message.content
-        if 'deepseek' in self.groq_model:
-            resp = self._postproc_r1(resp)
-        return resp
+        if 'deepseek' in self.groq_model and not see_think: # Return only response toks
+            return postproc_r1(resp)
+        elif 'deepseek' in self.groq_model and see_think: # Return think and response separetly
+            return (postproc_r1(resp), self._postproc_r1(resp, think_only=True))
+        else: # Else, just return resp
+            return resp 
 
     def _fill_chats(self):
         col = self._get_col("chats")
