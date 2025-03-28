@@ -15,7 +15,7 @@ from dotenv import load_dotenv
 from app import db, login_manager
 from app.models import Story, User
 from app.forms import GenerateStoryForm, LoginForm, RegistrationForm, NewReporterForm, CommentForm
-from app.utils import preserve_markdown, display_catagory
+from app.utils import preserve_markdown, display_catagory, pretty_timestamp
 from app.news import get_marquee, get_stories, write_new_story, rm_link_toks
 from app.queue import put_story, start_queue
 from app.superintend import SuperIntend
@@ -152,10 +152,7 @@ def story(title, category=None):
         return render_template('waiting.html', session_id=session_id)
     else:
         # Existing story rendering logic
-        timestamp = story.created
-        dif = datetime.now() - story.created
-        #datetime.strptime(story.created, "%Y-%m-%d %H:%M:%S")
-        print(dif.total_seconds())
+        timestamp = pretty_timestamp(story.created)
         read_time = "read time"
         story.catagory = display_catagory(story.catagory)
         #if not story.sources_done: # Not finished async creating sources

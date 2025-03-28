@@ -3,7 +3,7 @@ from sqlalchemy.orm import session
 from sqlalchemy.sql import func, desc
 
 from app import db
-from app.utils import preserve_markdown, display_catagory
+from app.utils import preserve_markdown, display_catagory, pretty_timestamp
 from app.models import Story, User
 
 def get_marquee() -> dict:
@@ -21,8 +21,9 @@ def get_stories(catagory=None) -> list:
     stories = []
     for story in result:
         cat = display_catagory(story.catagory)
+        timestamp = pretty_timestamp(story.created)
         proc_story_content = preserve_markdown(story.title)
-        stories.append({"id":story.id, "title":story.title, "content": proc_story_content, "reportername":story.reporter, "catagory": cat})
+        stories.append({"id":story.id, "title":story.title, "content": proc_story_content, "reportername":story.reporter, "catagory": cat, "timestamp": timestamp})
     return stories
 
 """ Given a story containing <|LINK_SRC|> toks, remove them """
