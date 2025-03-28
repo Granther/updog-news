@@ -6,6 +6,7 @@
 
 import os
 import copy
+import datetime
 import threading
 import queue
 from concurrent.futures import Future
@@ -240,22 +241,30 @@ class Core:
     def __init__(self, client):
         self.logger = create_logger(__name__)
         self.groq = client
+        self.groq_model = "deepseek-r1-distill-qwen-32b"
         #self.chroma = chromadb.Client()
         self.chroma = chromadb.PersistentClient(path="./chroma")
         self.chats = self._init_chat_col()
+        self.messages = list()
         self.collections = dict()
         self.collections['chats'] = self.chats
         self._fill_chats()
 
+    """ Get or create 'chats' chroma collection """
     def _init_chat_col(self):
         return self.chroma.get_or_create_collection(name="chats")
 
     """ Inform the central AI of changes, important data, etc 
-        - We dont expect a response
+        - We dont expect a response, but we see if it does any API calls
         - We call this to inform the model often (ie, user visited page)
     """
-    def inform(self, data):
-        pass
+    def inform(self, data: str):
+        self.messages.append({"role": "system", "content": core_sys_prompt})
+        self.messages.append(self._add_timestamp(data))
+        resp = self._groq_chat(messages)
+        self.messages.append({"role": "assistant", "content": resp})
+        self._postproc_resp(resp)
+
     """ Ask the central AI for some data 
         - We expect a response of some kind
     """
@@ -279,6 +288,12 @@ class Core:
         except:
             return None
 
+    def _postproc_chat(self, response: str):
+        print(response)
+
+    def _add_timestamp(self, data: str) -> str:
+        return f"{datetime.datetime.now()}: {data}"
+
     def replace_doc(self, col_name: str, uuid: str, doc):
         col = self._get_col(col_name)
         try:
@@ -301,7 +316,10 @@ class Core:
             messages=messages,
             model=self.groq_model,
         )
-        return chat_completion.choices[0].message.content
+        resp = chat_completion.choices[0].message.content
+        if 'deepseek' in self.groq_model:
+            resp = self._postproc_r1(resp)
+        return resp
 
     def _fill_chats(self):
         col = self._get_col("chats")
