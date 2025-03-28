@@ -108,7 +108,8 @@ def report():
     form = GenerateStoryForm()
     if form.validate_on_submit():
         try:
-            write_new_story({"title": form.title.data, "reporter": form.reporter_name.data, "personality": form.reporter_personality.data, "catagory": form.catagory.data})
+            app = current_app._get_current_object()
+            write_new_story(app, {"title": form.title.data, "reporter": form.reporter_name.data, "personality": form.reporter_personality.data, "catagory": form.catagory.data})
             #put_story({"title": form.title.data, "reporter": form.reporter_name.data, "personality": form.reporter_personality.data, "catagory": form.catagory.data, "user_id": current_user.id})
         except Exception as e:
             flash(f'We encountered an error while writing your story, please try again later: {e}', 'danger')

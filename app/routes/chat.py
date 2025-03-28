@@ -15,10 +15,11 @@ from app.forms import GenerateStoryForm, LoginForm, RegistrationForm, NewReporte
 from app.utils import preserve_markdown, display_catagory
 from app.news import get_marquee, get_stories, write_new_story
 from app.queue import put_story, start_queue
-from app.superintend import SuperIntend
+from app.superintend import SuperIntend, get_hoodlem
 
 load_dotenv()
-superintend = SuperIntend(os.environ.get("GROQ_API_KEY"), os.environ.get("FEATHERLESS_API_KEY"), os.environ.get("GROQ_API_KEY"))
+#superintend = SuperIntend(os.environ.get("GROQ_API_KEY"), os.environ.get("FEATHERLESS_API_KEY"), os.environ.get("GROQ_API_KEY"))
+superintend = get_hoodlem()
 chat = Blueprint('chat', __name__,
                         template_folder='templates')
 

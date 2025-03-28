@@ -248,7 +248,7 @@ class Core:
         self.messages = list()
         self.collections = dict()
         self.collections['chats'] = self.chats
-        self._fill_chats()
+        #self._fill_chats()
 
     """ Get or create 'chats' chroma collection """
     def _init_chat_col(self):
@@ -288,6 +288,7 @@ class Core:
         except:
             return None
 
+    """ See if API tokens exist in reponse and call things accordingly """
     def _postproc_chat(self, response: str):
         print(response)
 
@@ -324,6 +325,11 @@ class Core:
     def _fill_chats(self):
         col = self._get_col("chats")
         col.add(documents=["test1", "test2", "test3"], ids=["1", "2", "3"])
+
+superintend = SuperIntend(os.environ.get("GROQ_API_KEY"), os.environ.get("FEATHERLESS_API_KEY"), os.environ.get("GROQ_API_KEY"))
+
+def get_hoodlem():
+    return superintend
 
 """
 Example:

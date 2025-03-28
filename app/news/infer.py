@@ -11,6 +11,7 @@ from flask import current_app
 
 from app.models import Story, User
 from app.prompts import generate_news_prompt
+from app.superintend import gen_sources
 from app import db
 
 class Infer():
@@ -78,9 +79,8 @@ def write_new_story(app, item: dict):
     with app.app_context():
         try:
             content = generate_news(item['title'], item['personality'])
-            print("Conetent: ", content)
-            print("did a thing")
-            story = Story(title=item['title'], content="content", reporter=item['reporter'], catagory=item['catagory'])
+            story = Story(title=item['title'], content=content, reporter=item['reporter'], catagory=item['catagory'])
+            gen_sources(app, story) # Dispatches new thread in hoodlem
             db.session.add(story)
             db.session.commit()
         except Exception as e:

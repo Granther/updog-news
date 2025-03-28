@@ -28,32 +28,5 @@
                 </div>
             </div>
         </article>
-
-        <section class="mt-12">
-            <h3 class="text-2xl font-bold mb-4">More Like This</h3>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {% for related_story in related_stories %}
-                <a href="{{url_for('main.story', uuid=related_story.uuid)}}" class="group">
-                    <article class="bg-white rounded-lg shadow-sm hover:shadow-lg transition-shadow duration-300">
-                        <div class="relative">
-                            <img src="{{ related_story.image_url }}" alt="{{ related_story.title }}"
-                                class="w-full h-48 object-cover rounded-t-lg">
-                        </div>
-                        <div class="p-4">
-                            <div class="flex items-center text-xs text-gray-500 mb-2">
-								<h1>Huh</h1>
-								<span class="bg-blue-100 text-blue-800 px-2 py-1 rounded"></span>
-                                <span class="mx-2">•</span>
-                                <time>{{ timestamp }}</time>
-                            </div>
-                            <h3 class="text-xl font-playfair font-bold mb-2 group-hover:text-red-600 transition-colors">
-                                {{ story.title }}
-                            </h3>
-                        </div>
-                    </article>
-                </a>
-                {% endfor %}
-            </div>
-        </section>
     </main>
 {% endblock %}
