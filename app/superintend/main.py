@@ -43,16 +43,22 @@ ephem_sys_prompt = "You are a helpful ai, you are a central core AI for the site
 
 bool_question_prompt = "Given a question please answer Yes or No with your best judgement provided the context. It is very important that the only text you produce is either the string Yes or No"
 
+""" Takes a list and packs it into str """
 def stringify(doc) -> str:
     string = ""
     for item in doc:
         string += f"{item}\n\n"
     return string
 
+""" Takes reponse from R1, returns either thought toks or resp (no thoughts) only """
 def postproc_r1(self, response: str, think_only: bool=False):
     if think_only:
         return response.split('</think>')[0] # Return only the think toks    
     return response.split('</think>')[1]
+
+""" If 'yes' is in response return True, otherwise No """
+def bool_resp(response: str) -> bool:
+    return 'yes' in response
 
 def build_rag(msg: str, context: str) -> str:
     return f"!### CONTEXT ### !\n{context}\n!### END CONTEXT ###!\n{msg}"
@@ -253,6 +259,10 @@ class Core:
         self.collections['chats'], self.collections['main'] = self.chats, self.main
         #self._fill_chats()
 
+    """ First message sent to superintend """
+    def _init_super(self):
+        self.inform("Updog.news Core AI 'Superintendent' booting up... Hello from init systems :)")
+
     """ Start thought queue """
     def _init_queue(self):
         self.logger.debug("Initializing Superintendent thought queue")
@@ -289,9 +299,9 @@ class Core:
         - We call this to inform the model often (ie, user visited page)
     """
     def inform(self, data: str):
-        self.messages.append({"role": "system", "content": core_sys_prompt})
-        self.messages.append(self._add_timestamp(data))
-        resp = self._groq_chat(messages)
+        self.messages.append({"role": "system", "content": superintend_sys_prompt})
+        self.messages.append({"role": "user", "content": self._add_timestamp(data)})
+        resp = self._submit_task(self._groq_chat, messages) # Get all toks from R1
         self.messages.append({"role": "assistant", "content": resp})
         self._postproc_resp(resp)
 
@@ -321,7 +331,10 @@ class Core:
     """ Pass in entire story and return wether Super allows it or not """
     def allow_story(self, story) -> bool:
         self.messages.append({"role": "user", "content": build_allow_story(story)})
-        resp, think = self._submit_task(self._groq_chat, (self.messages, True)) # We want to see thinking toks in history
+        resp = self._submit_task(self._groq_chat, (self.messages, see_think=True)) # We want to see thinking toks in history
+
+        self.messages.append({"role": "user", "content": resp}) # Make sure think makes its way to history
+        return bool_resp(postproc_r1(resp))
 
     """ See if API tokens exist in reponse and call things accordingly """
     def _postproc_chat(self, response: str):
@@ -347,18 +360,18 @@ class Core:
         return self.collections[col_name]
 
     """ Takes list of past messages, sys promt etc and produces a response """
-    def _groq_chat(self, messages: list, see_think: bool=False) -> str:
+    def _groq_chat(self, messages: list) -> str:
         chat_completion = self.groq.chat.completions.create(
             messages=messages,
             model=self.groq_model,
         )
         resp = chat_completion.choices[0].message.content
-        if 'deepseek' in self.groq_model and not see_think: # Return only response toks
-            return postproc_r1(resp)
-        elif 'deepseek' in self.groq_model and see_think: # Return think and response separetly
-            return (postproc_r1(resp), self._postproc_r1(resp, think_only=True))
-        else: # Else, just return resp
-            return resp 
+        #if 'deepseek' in self.groq_model and not see_think: # Return only response toks
+        #    return postproc_r1(resp)
+        #elif 'deepseek' in self.groq_model and see_think: # Return think and response separetly
+        #    return (postproc_r1(resp), self._postproc_r1(resp, think_only=True))
+        #else: # Else, just return resp
+        return resp 
 
     def _fill_chats(self):
         col = self._get_col("chats")
