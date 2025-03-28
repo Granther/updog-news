@@ -14,6 +14,7 @@ from concurrent.futures import Future
 from openai import OpenAI
 from groq import Groq
 import shortuuid
+from dotenv import load_dotenv
 
 from app.logger import create_logger
 #from app.superintend import ephem_sys_prompt
@@ -22,6 +23,8 @@ __import__('pysqlite3')
 import sys
 sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
 import chromadb
+
+load_dotenv()
 
 ephem_sys_prompt = "You are a helpful ai, you are a central core AI for the site updog.news. Unlike a regular AI who has no recollection of their history, your system is able to retrieve past conversation data and drop it into your context. So assume every new conversation is a different user until proven otherwise"
 
@@ -326,10 +329,15 @@ class Core:
         col = self._get_col("chats")
         col.add(documents=["test1", "test2", "test3"], ids=["1", "2", "3"])
 
-superintend = SuperIntend(os.environ.get("GROQ_API_KEY"), os.environ.get("FEATHERLESS_API_KEY"), os.environ.get("GROQ_API_KEY"))
+_superintend = SuperIntend(os.environ.get("GROQ_API_KEY"), os.environ.get("FEATHERLESS_API_KEY"), os.environ.get("GROQ_API_KEY"))
 
+""" Makes Superintend singleton, which makes sense """
 def get_hoodlem():
-    return superintend
+    return _superintend
+
+""" Takes app for context and entire story to generate interviews """
+def gen_sources(app, story):
+    pass
 
 """
 Example:

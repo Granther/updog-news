@@ -15,7 +15,7 @@ from app import db, login_manager
 from app.models import Story, User
 from app.forms import GenerateStoryForm, LoginForm, RegistrationForm, NewReporterForm, CommentForm
 from app.utils import preserve_markdown, display_catagory
-from app.news import get_marquee, get_stories, write_new_story
+from app.news import get_marquee, get_stories, write_new_story, rm_link_toks
 from app.queue import put_story, start_queue
 from app.superintend import SuperIntend
 
@@ -154,6 +154,8 @@ def story(title, category=None):
         timestamp = "test"
         read_time = "read time"
         story.catagory = display_catagory(story.catagory)
+        #if not story.sources_done: # Not finished async creating sources
+        story.content = rm_link_toks(story.content)
         return render_template("story.html", story=story, timestamp=timestamp, read_time=read_time)
 
 def gen_schrod_page(app, session_id: str, title: str):

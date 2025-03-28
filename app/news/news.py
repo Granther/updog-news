@@ -31,4 +31,8 @@ def get_stories(catagory=None) -> list:
         stories.append({"id":story.id, "title":story.title, "content": proc_story_content, "reportername":story.reporter, "catagory": cat})
     return stories
 
+""" Given a story containing <|LINK_SRC|> toks, remove them """
+def rm_link_toks(content: str) -> str:
+    return content.replace('<|LINK_SRC|>', '')
+
     
