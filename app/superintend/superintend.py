@@ -1,5 +1,3 @@
-
-
 import os
 import copy
 import datetime
@@ -29,6 +27,7 @@ class SuperIntend:
     _instance = None
     _lock = threading.Lock()
 
+    """ For actually creating the instance, not init """
     def __new__(self, *args, **kwargs):
         if self._instance is None:
             with self._lock:  
@@ -44,6 +43,7 @@ class SuperIntend:
         self.core = Core(self._init_groq_client(groq_core_key))
         self.groq_model = "deepseek-r1-distill-qwen-32b"
         self._init_queue()
+        max_interview_q = 25
         logger.debug("Created Superintendent")
     
     """ Start chat queue """
@@ -170,11 +170,18 @@ class SuperIntend:
 
     """ Generate the 2 personalities for the interview. Interviewer and Interviewy """
     def _gen_interv_persons(self, content: str):
-        interviewer = self.core.request(get)
-        interviewy = self.core.request()
-    
-    def gen_interviews():
-        pass
+        interviewer = self.core.request(get_interview_person(content))
+        interviewy = self.core.request(get_interviewy_person(content))
+        return (interviewer, interviewy)
+
+    """ Given the story, and interview (name, personality) generate a interview """
+    def gen_interview(self, content: str, interviewer, interviewy) -> str:
+        n_interview_q = 0
+        viewer_prompt = build_interviewer_prompt(interviewer)
+        viewy_prompt = build_interviewy_prompt(interviewy)
+        viewer_messages, viewy_messages = [{"role": "system", "content": viewer_prompt}, {"role": "user", "content": "BEGINNING OF INTERVIEW"}], [{"role": "system", "content": viewy_prompt}]
+        while n_interview_q < max_interview_q:
+            question = self._submit_task(self._groq, viewer_messages)
 
     """ Pass in entire story and return wether Super allows it or not """
     def allow_story(self, story) -> bool:
