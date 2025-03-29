@@ -1,5 +1,6 @@
 import os
 import copy
+from time import sleep
 import datetime
 import threading
 import queue
@@ -39,12 +40,11 @@ class SuperIntend:
     def __init__(self, groq_key: str, feather_key: str, groq_core_key: str):
         self.ephem_sys_prompt = ephem_sys_prompt
         self.ephem_messages = dict()
-        self.max_interview_q = 4
+        self.max_interview_q = 10
         self.groq, self.feather = self._init_clients(groq_key, feather_key)
         self.core = Core(self._init_groq_client(groq_core_key))
         self.groq_model = "deepseek-r1-distill-qwen-32b"
         self._init_queue()
-        max_interview_q = 25
         logger.debug("Created Superintendent")
     
     """ Start chat queue """
@@ -98,10 +98,10 @@ class SuperIntend:
         messages = self._get_ephem_messages(uuid)
         messages.append({"role": "user", "content": "Before you answer the above user's question and given the conversation so far, you you believe past information is needed to properly respond in this conversation? Yes if: The user is asking about past conversations with THIS AI. No if: The user is not referencing anything from the past. Please answer with yes or no. You may only answer with yes OR no, any other response will not be accepted"})
         print(self._get_ephem_messages(uuid))
-        need_rag_resp = self._submit_task(self._groq_chat, messages)
+        need_rag_resp = self._submit_task(self._groq_chat, messages, None)
         if 'yes' in need_rag_resp.lower():
             messages.append({"role": "user", "content": "Given the conversation so far please create one summarrizing sentence that embodies the sentiment, topic and/or important information that identifies this conversation. Ie, names, recalled events, things said, articles referenced so far. Only use information mentioned in the current conversation"})
-            ret_sent = self._submit_task(self._groq_chat, messages)
+            ret_sent = self._submit_task(self._groq_chat, messages, None)
             rag_content = self.core.query("chats", ret_sent, bad_uuid=uuid)
             print("Ret sent: ", ret_sent)
 
@@ -111,7 +111,7 @@ class SuperIntend:
             #msg = build_rag(msg, rag_content)
             self._append_ephem_messages(uuid, {"role": "user", "content": f"{msg}\n!### CONTEXT ###!\n{rag_content}"})
         messages = self._get_ephem_messages(uuid)
-        resp = self._submit_task(self._groq_chat, messages) # pass callback
+        resp = self._submit_task(self._groq_chat, messages, None) # pass callback
         self._process_chat(resp, uuid)
         return resp
 
@@ -151,10 +151,10 @@ class SuperIntend:
         self.ephem_messages[uuid] = messages
 
     """ Takes list of past messages, sys promt etc and produces a response """
-    def _groq_chat(self, messages: list) -> str:
+    def _groq_chat(self, messages: list, model: str) -> str:
         chat_completion = self.groq.chat.completions.create(
             messages=messages,
-            model=self.groq_model,
+            model=(self.groq_model if not model else model)
         )
         resp = chat_completion.choices[0].message.content
         if 'deepseek' in self.groq_model:
@@ -179,30 +179,35 @@ class SuperIntend:
     def gen_interview(self, content: str) -> str:
         logger.debug("Generating interview")
         n_interview_q = 0
+        model = "gemma2-9b-it"
         interviewer = postproc_r1(self.core.request(get_interviewer_person(content)))
         interviewy = postproc_r1(self.core.request(get_interviewy_person(content)))
         viewer_prompt = build_interviewer_prompt(content, interviewer) # The interviewer knows about the story
         viewy_prompt = build_interviewy_prompt(interviewy)
         viewer_messages, viewy_messages = [{"role": "system", "content": viewer_prompt}, {"role": "user", "content": "BEGINNING OF INTERVIEW"}], [{"role": "system", "content": viewy_prompt}]
 
-        logger.debug(f"Viewer: {viewer_messages}\nViewy: {viewy_messages}")
+        logger.debug(f"Interviewer personality: {interviewer}")
+        logger.debug(f"Interviewy personality: {interviewy}")
 
         interview = ""
         while n_interview_q < self.max_interview_q:
             # Gen question
-            question = postproc_r1(self._submit_task(self._groq_chat, viewer_messages))
+            question = postproc_r1(self._submit_task(self._groq_chat, viewer_messages, model))
+            sleep(1.5)
 
             # Make sure interviewer knows what he asked
             viewer_messages.append({"role": "assistant", "content": question})
-            
+            viewer_messages.append({"role": "system", "content": viewer_prompt})
+
             # Add to interviewy context
-            viewey_messages.append({"role": "user", "content": question})
+            viewy_messages.append({"role": "user", "content": question})
             # Ask them to answer
-            answer = postproc_r1(self._submit_task(self.groq_chat, viewy_messages))
-            
+            answer = postproc_r1(self._submit_task(self._groq_chat, viewy_messages, model))
+            sleep(1.5)
+
             # Make sure personas know what they produces
-            viewey_messages.append({"role": "assistant", "content": answer})
-            
+            viewy_messages.append({"role": "assistant", "content": answer})
+            viewy_messages.append({"role": "system", "content": viewy_prompt})
             # Add answer to interviewer context
             viewer_messages.append({"role": "user", "content": answer})
             

@@ -7,9 +7,12 @@ def stringify(doc) -> str:
 
 """ Takes reponse from R1, returns either thought toks or resp (no thoughts) only """
 def postproc_r1(response: str, think_only: bool=False):
-    if think_only:
-        return response.split('</think>')[0] # Return only the think toks    
-    return response.split('</think>')[1]
+    try:
+        if think_only:
+            return response.split('</think>')[0] # Return only the think toks    
+        return response.split('</think>')[1]
+    except:
+        return response
 
 """ If 'yes' is in response return True, otherwise No """
 def bool_resp(response: str) -> bool:
