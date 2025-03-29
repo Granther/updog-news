@@ -192,7 +192,7 @@ class SuperIntend:
         interview = ""
         while n_interview_q < self.max_interview_q:
             # Gen question
-            question = postproc_r1(self._submit_task(self._groq_chat, viewer_messages, model))
+            question = postproc_r1(self._submit_task(self._groq_chat, viewer_messages, model)).replace('\n', '')
             sleep(1.5)
 
             # Make sure interviewer knows what he asked
@@ -202,7 +202,7 @@ class SuperIntend:
             # Add to interviewy context
             viewy_messages.append({"role": "user", "content": question})
             # Ask them to answer
-            answer = postproc_r1(self._submit_task(self._groq_chat, viewy_messages, model))
+            answer = postproc_r1(self._submit_task(self._groq_chat, viewy_messages, model)).replace('\n', '')
             sleep(1.5)
 
             # Make sure personas know what they produces
