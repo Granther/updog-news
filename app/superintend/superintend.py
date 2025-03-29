@@ -11,7 +11,7 @@ import shortuuid
 from dotenv import load_dotenv
 
 from app.logger import create_logger
-from .prompts import ephem_sys_prompt, superintend_sys_prompt, bool_question_prompt, build_rag, build_need_rag_prompt, build_allow_story, build_doc_ret_prompt
+from .prompts import ephem_sys_prompt, superintend_sys_prompt, bool_question_prompt, build_rag, build_need_rag_prompt, build_allow_story, build_doc_ret_prompt, build_interviewy_prompt, build_interviewer_prompt, get_interviewy_person, get_interviewer_person
 from .utils import stringify, postproc_r1, bool_resp
 from .core import Core
 
@@ -39,6 +39,7 @@ class SuperIntend:
     def __init__(self, groq_key: str, feather_key: str, groq_core_key: str):
         self.ephem_sys_prompt = ephem_sys_prompt
         self.ephem_messages = dict()
+        self.max_interview_q = 4
         self.groq, self.feather = self._init_clients(groq_key, feather_key)
         self.core = Core(self._init_groq_client(groq_core_key))
         self.groq_model = "deepseek-r1-distill-qwen-32b"
@@ -170,18 +171,44 @@ class SuperIntend:
 
     """ Generate the 2 personalities for the interview. Interviewer and Interviewy """
     def _gen_interv_persons(self, content: str):
-        interviewer = self.core.request(get_interview_person(content))
+        interviewer = self.core.request(get_interviewer_person(content))
         interviewy = self.core.request(get_interviewy_person(content))
         return (interviewer, interviewy)
 
     """ Given the story, and interview (name, personality) generate a interview """
-    def gen_interview(self, content: str, interviewer, interviewy) -> str:
+    def gen_interview(self, content: str) -> str:
+        logger.debug("Generating interview")
         n_interview_q = 0
-        viewer_prompt = build_interviewer_prompt(interviewer)
+        interviewer = postproc_r1(self.core.request(get_interviewer_person(content)))
+        interviewy = postproc_r1(self.core.request(get_interviewy_person(content)))
+        viewer_prompt = build_interviewer_prompt(content, interviewer) # The interviewer knows about the story
         viewy_prompt = build_interviewy_prompt(interviewy)
         viewer_messages, viewy_messages = [{"role": "system", "content": viewer_prompt}, {"role": "user", "content": "BEGINNING OF INTERVIEW"}], [{"role": "system", "content": viewy_prompt}]
-        while n_interview_q < max_interview_q:
-            question = self._submit_task(self._groq, viewer_messages)
+
+        logger.debug(f"Viewer: {viewer_messages}\nViewy: {viewy_messages}")
+
+        interview = ""
+        while n_interview_q < self.max_interview_q:
+            # Gen question
+            question = postproc_r1(self._submit_task(self._groq_chat, viewer_messages))
+
+            # Make sure interviewer knows what he asked
+            viewer_messages.append({"role": "assistant", "content": question})
+            
+            # Add to interviewy context
+            viewey_messages.append({"role": "user", "content": question})
+            # Ask them to answer
+            answer = postproc_r1(self._submit_task(self.groq_chat, viewy_messages))
+            
+            # Make sure personas know what they produces
+            viewey_messages.append({"role": "assistant", "content": answer})
+            
+            # Add answer to interviewer context
+            viewer_messages.append({"role": "user", "content": answer})
+            
+            interview += f"Q: {question}\nA: {answer}\n\n"
+            print(interview)
+            n_interview_q += 1
 
     """ Pass in entire story and return wether Super allows it or not """
     def allow_story(self, story) -> bool:
@@ -238,3 +265,21 @@ Logic: Dispatches new instance with clean message history
 Not every message should go through the central AI
 
 """
+
+if __name__ == "__main__":
+    content = """
+    The White House announced today that First Lady Jill Biden is expecting another grandchild. This news comes as a surprise to many, considering the First Lady is already a grandmother to several grandchildren. Some might even say it's a bit, shall we say, "ripe" for a woman her age.
+
+    The announcement was met with predictable fanfare from the usual suspects. The President, naturally, was ecstatic, gushing about how "thrilled" he was. One can only imagine the political machinations behind this announcement, timed perfectly to distract from, well, let's just say the President's recent... "mishaps."
+
+    The White House, predictably, offered no details about the pregnancy, including the due date or the identity of the expecting parents. They did, however, release a photo of the First Lady beaming, clutching a sonogram picture. Let's be honest, the woman's been through enough with her husband's antics. Maybe she's just trying to find something to smile about.
+
+    Naturally, the media is having a field day with this news. Every outlet is running the same tired stories about "family joy" and "expanding the Biden clan." It's enough to make you wonder if they've ever heard of a story that doesn't involve the Bidens.
+
+    We reached out to a few political analysts for their take on the news. "This is classic Biden," one unnamed source told us, "always looking for a way to control the narrative."
+
+    Another analyst, who wished to remain anonymous, offered a more cynical perspective. "Let's be real," he said, "this is just another way for the White House to distract from the real issues facing the country."
+
+    Whether this is a genuine moment of joy or a carefully orchestrated PR stunt, one thing is certain: the news cycle will be dominated by the impending arrival of another Biden grandchild for the foreseeable future.
+    """
+    _superintend.gen_interview(content)

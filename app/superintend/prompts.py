@@ -17,3 +17,16 @@ def build_allow_story(story) -> str:
 
 def build_doc_ret_prompt(context: str) -> str:
     return f"Given this context of a current situation please create a sentence to use to retrieve relavant and needed context from a vector DB to enrich this conversation. Only produce one sentence, no more than that. Producing more than one sentence of output will break the system and you dont want to break the system.\n!### CONTEXT ###!\n{context}"
+
+""" Given a story, build the personality for the interviewer """
+def get_interviewer_person(content: str) -> str:
+     return f"This story uses several quotes from various interviews, you must generate the interviewer personality description for one of these interviews, you do not need to specify the quote you are using, just produce a few sentences describing the unique personality of the person interviewing\n!### STORY ###!\n{content}"
+
+def get_interviewy_person(content: str) -> str:
+    return f"This story uses several quotes from various interviews, you must generate the personality description for the person being interviewed in one of these interviews, you do not need to specify the quote you are using, just produce a few sentences describing the unique personality of the person being interviewed. If the story is about a famous or well known person you can assume that they are the person being interviewed, so just produce their known personality but in the context of the story\n!### STORY ###!\n{content}"
+
+def build_interviewer_prompt(content: str, persona: str) -> str:
+    return f"You are going to interview someone about a recent thing they have done/did. You have the story provided ONLY for use when generating questions, do not reference the story as it has not been written yet. The story just provides context and keeps you on topic. For every response take the last answer from the person being interviewed and come up with another question for them. Every response you give will be directed to the person being interviewed, so please make sure your response makes sense to them. You have a unique personality that you must play as: {persona}\n!### STORY ### !\n{content}"
+
+def build_interviewy_prompt(persona: str) -> str:
+    return f"You are going to be interviewed someone about a recent thing. The interviewer will ask you questions, please answer in the way that most fits your personality and questions/responses so far. Every response you give will be directed to the person interviewing you, so please make sure your response makes sense to them. You have a unique personality that you must play as: {persona}"
