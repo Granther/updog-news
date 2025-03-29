@@ -84,7 +84,7 @@ def write_new_story(app, item: dict):
             story = Story(title=item['title'], content=content, reporter=item['reporter'], catagory=item['catagory'])
             if not superintend.allow_story(story):
                 raise Exception("Superintendent denied your story")
-            gen_sources(app, story) # Dispatches new thread in hoodlem
+            #gen_sources(app, story) # Dispatches new thread in hoodlem
             db.session.add(story)
             db.session.commit()
         except Exception as e:

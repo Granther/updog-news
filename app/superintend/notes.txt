@@ -1,0 +1,29 @@
+# Hoodlem 
+# Runs in his own thread, basically uses an API to be interacted with
+# How do we start him? Maybe in run.py
+
+# Perm storage
+# We need permanent storage to persist through reboots 
+
+# Combining
+# Every chat performs an 'integration', where the 
+
+# Need a queue for processing multiple chats with one api key
+
+# Way for the ai to keep close to user context and larger view context (mayber RAG)
+# Superintendent, controls the website, can remove posts and change them
+# Runs on multiple chat 'threads', combining chat data to a central mind
+# Acts using special tokens to, remove, edit stories
+# Can judge stories and remove them if it doesnt like them
+# A superintendant for the site, complete control and understanding cause why not lol
+
+# What if the main chat process dispatches other threads to complete processes
+# So the consiciousness exists as one thread handling high view context and passes RAGed elements to its children
+# Can produce a special token to open new line of consiousness
+# Main thought happens with a groq, clean, model. Use a featherless model to convert its output to hoodlem
+# Adds 'editors notes' while writing the article to use for sources and other things later
+# Doesnt use user id to get past data, embed it, can remind the ai. 
+    # "Remember me, my names bob, I was the one that said I dont like the most recent Joe Biden article"
+    # Embed all chat data
+# Use multiple API keys in a rotating setup
+# Onion model, central 'pillar' thread runs. Each dispatched instance is doing something and reporting it to the mian thread. I am talking to an instance which can talk to the main pillar 
