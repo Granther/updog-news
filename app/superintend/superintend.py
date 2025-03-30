@@ -13,7 +13,7 @@ from dotenv import load_dotenv
 
 from app.logger import create_logger
 from .prompts import ephem_sys_prompt, superintend_sys_prompt, bool_question_prompt, build_rag, build_need_rag_prompt, build_allow_story, build_doc_ret_prompt, build_interviewy_prompt, build_interviewer_prompt, get_interviewy_person, get_interviewer_person, build_quick_fill
-from .utils import stringify, postproc_r1, bool_resp
+from .utils import stringify, postproc_r1, bool_resp, extract_tok_val
 from app.models import Interview
 from app import db
 from .core import Core
@@ -25,6 +25,11 @@ import chromadb
 
 load_dotenv()
 logger = create_logger(__name__)
+
+def_reporter = "Jim Scrimbus"
+def_category = "World"
+def_personality = "Just a humble writer at Updog news, hes a little politically incorrect though"
+allowed_categories = ["World", "Technology", "Business", "Politics", "Other"]
 
 class SuperIntend:
     _instance = None
@@ -124,8 +129,22 @@ class SuperIntend:
     def quick_fill(self, title: str):
         logger.debug("Starting Quick fill to core")
         # Use quick model 
-        print(self.core.request(build_quick_fill(title), quick=True))
+        resp = self.core.request(build_quick_fill(title), quick=True)
+        reporter = extract_tok_val(resp, "REPORTER")
+        if not reporter:
+            reporter = def_reporter
+        category = extract_tok_val(resp, "CATEGORY")
+        print("HERE: ", category)
+        if not category or category not in allowed_categories:
+            category = def_category 
+        personality = extract_tok_val(resp, "PERSONALITY")
+        if not personality:
+            personality = def_personality
         
+        logger.debug(f"{reporter}, {personality}, {category}")
+
+        return (reporter, personality, category)
+
     def _submit_task(self, func, *args):
         future = Future()
         self.chat_queue.put((func, args, future))

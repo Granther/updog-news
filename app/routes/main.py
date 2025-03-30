@@ -181,9 +181,8 @@ def gen_schrod_page(app, session_id: str, title: str):
     error = None
 
     try:
-        #reporter, personality, category = superintend.quick_fill(title)
-        superintend.quick_fill(title)
-        write_new_story(app, {"title": title, "reporter": "reporter", "personality": "mean guy", "catagory": "world"})
+        reporter, personality, category = superintend.quick_fill(title)
+        write_new_story(app, {"title": title, "reporter": reporter, "personality": personality, "catagory": category.lower()})
     except Exception as e:
         error = e
 
