@@ -13,7 +13,7 @@ import shortuuid
 from dotenv import load_dotenv
 
 from app import db, login_manager
-from app.models import Story, User
+from app.models import Story, User, Interview
 from app.forms import GenerateStoryForm, LoginForm, RegistrationForm, NewReporterForm, CommentForm
 from app.utils import preserve_markdown, display_catagory, pretty_timestamp
 from app.news import get_marquee, get_stories, write_new_story, rm_link_toks
@@ -100,30 +100,6 @@ def index():
     marq = get_marquee()
     return render_template("index.html", stories=stories, marq=marq, report_btn=report_btn)
 
-'''
-@main.route("/generate",  methods=['GET', 'POST'])
-def generate():
-    form = GenerateStoryForm()
-    reporters = Reporter.query.all()
-    form.reporters.choices = [f"{reporter.name} | {reporter.personality}" for reporter in reporters]
-    # form.reporters.choices = [(reporter.name, reporter.personality) for reporter in reporters]
-
-    if form.validate_on_submit():
-        uuid = str(uuid4())
-        reporter_name = form.reporters.data.split(" |")[0]
-        reporter_id = Reporter.query.filter_by(name=reporter_name).first().id
-        # print(f"Reporter: {form.reporters.data}")
-        queuedStory = QueuedStory(uuid=uuid, title=form.title.data, guideline=form.guideline.data, reporter_id=reporter_id)
-        db.session.add(queuedStory)
-        db.session.commit()
-
-        queue_story(uuid)
-
-        return redirect(url_for('main.index'))
-
-    return render_template("generate.html", form=form)
-'''
-
 @main.route("/report", methods=['POST', 'GET'])
 @login_required
 def report():
@@ -205,6 +181,8 @@ def gen_schrod_page(app, session_id: str, title: str):
     error = None
 
     try:
+        #reporter, personality, category = superintend.quick_fill(title)
+        superintend.quick_fill(title)
         write_new_story(app, {"title": title, "reporter": "reporter", "personality": "mean guy", "catagory": "world"})
     except Exception as e:
         error = e

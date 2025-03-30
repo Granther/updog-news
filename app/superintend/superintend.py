@@ -12,9 +12,10 @@ import shortuuid
 from dotenv import load_dotenv
 
 from app.logger import create_logger
-from .prompts import ephem_sys_prompt, superintend_sys_prompt, bool_question_prompt, build_rag, build_need_rag_prompt, build_allow_story, build_doc_ret_prompt, build_interviewy_prompt, build_interviewer_prompt, get_interviewy_person, get_interviewer_person
+from .prompts import ephem_sys_prompt, superintend_sys_prompt, bool_question_prompt, build_rag, build_need_rag_prompt, build_allow_story, build_doc_ret_prompt, build_interviewy_prompt, build_interviewer_prompt, get_interviewy_person, get_interviewer_person, build_quick_fill
 from .utils import stringify, postproc_r1, bool_resp
-from app.model import Interview
+from app.models import Interview
+from app import db
 from .core import Core
 
 __import__('pysqlite3')
@@ -119,6 +120,12 @@ class SuperIntend:
     def raw_chat(self, messages: list) -> str:
         return self._submit_task(self._groq_chat, messages) # pass callback
 
+    """ Takes title, returns (reporter, personality, category """
+    def quick_fill(self, title: str):
+        logger.debug("Starting Quick fill to core")
+        # Use quick model 
+        print(self.core.request(build_quick_fill(title), quick=True))
+        
     def _submit_task(self, func, *args):
         future = Future()
         self.chat_queue.put((func, args, future))
@@ -153,6 +160,7 @@ class SuperIntend:
 
     """ Takes list of past messages, sys promt etc and produces a response """
     def _groq_chat(self, messages: list, model: str) -> str:
+        logger.debug(f"Executing groq_chat with model: {model}")
         tries = 0
         max_tries = 3
         chat_completion = None
@@ -162,6 +170,7 @@ class SuperIntend:
                     messages=messages,
                     model=(self.groq_model if not model else model)
                 )
+                break
             except Exception as e:
                 logger.debug(f"Groq chat got exception: {e}, Trying {max_tries-tries} more times...")
                 time.sleep(3) # Give the API a rest :)
@@ -226,9 +235,10 @@ class SuperIntend:
                 viewer_messages.append({"role": "user", "content": answer})
                 
                 interview_content += f"Q: {question}\nA: {answer}\n\n"
-                #print(interview)
                 n_interview_q += 1
-            interview = Interview(uuid=shortuuid.uuid(), title="Test title", interview_content, interviewer="Interviewer", interviewy="Interviewy")
+            uuid = shortuuid.uuid()
+            logger.debug(f"Finished interview with uuid: {uuid}")
+            interview = Interview(uuid=uuid, title="Test title", content=interview_content, interviewer="Interviewer", interviewy="Interviewy")
             db.session.add(interview)
             db.session.commit()
 

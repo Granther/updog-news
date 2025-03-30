@@ -30,3 +30,6 @@ def build_interviewer_prompt(content: str, persona: str) -> str:
 
 def build_interviewy_prompt(persona: str) -> str:
     return f"You are going to be interviewed someone about a recent thing. The interviewer will ask you questions, please answer in the way that most fits your personality and questions/responses so far. Answer in a simple and consise fashion, answer like a human. Humans don't answer with long bullet pointed responses in a face to face interview. Every response you give will be directed to the person interviewing you, so please make sure your response makes sense to them. You have a unique personality that you must play as: {persona}"
+
+def build_quick_fill(title: str) -> str:
+    return f"Given the title for a story please generate a reporter name, reporter personality and a category. Category must be either World, Politics, Business, Technology or Other. Title: {title}"

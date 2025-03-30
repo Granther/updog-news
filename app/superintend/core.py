@@ -33,6 +33,7 @@ class Core:
         self.collections = dict()
         self.groq = client
         self.groq_model = "deepseek-r1-distill-qwen-32b"
+        self.quick_model = "gemma2-9b-it"
         self.chroma = chromadb.PersistentClient(path="./chroma")
         self._init_queue()
         self.chats, self.main = self._init_chat_col(), self._init_main_col()
@@ -64,7 +65,7 @@ class Core:
     """ Submit task to thought queue, block until return """
     def _submit_task(self, func, *args):
         future = Future()
-        self.thought_queue.put((func, args, future))
+        self.thought_queue.put((func, *args, future))
         return future.result() # Blocks until returns
 
     """ Get or create 'chats' chroma collection """
@@ -82,15 +83,17 @@ class Core:
     def inform(self, data: str):
         self.messages.append({"role": "system", "content": superintend_sys_prompt})
         self.messages.append({"role": "user", "content": f"INFORM: {self._add_timestamp(data)}"})
-        resp = self._submit_task(self._groq_chat, self.messages) # Get all toks from R1
+        resp = self._submit_task(self._groq_chat, (self.messages, self.groq_model)) # Get all toks from R1
         logger.debug(f"INFORM: {data}\nResponse: {resp}")
         self.messages.append({"role": "assistant", "content": resp})
 
-    """ Request an answer """
-    def request(self, request: str):
+    """ Request an answer, passing quick forks the conscienceness """
+    def request(self, request: str, quick: bool=True):
         self.messages.append({"role": "system", "content": superintend_sys_prompt})
         self.messages.append({"role": "user", "content": f"REQUEST: {self._add_timestamp(request)}"})
-        resp = self._submit_task(self._groq_chat, self.messages) # We want to see thinking toks in history
+        model = (self.quick_model if quick else self.groq_model)
+        print(model)
+        resp = self._submit_task(self._groq_chat, (self.messages, model)) # We want to see thinking toks in history
         self.messages.append({"role": "user", "content": resp}) 
         return resp
 
@@ -141,18 +144,30 @@ class Core:
         return self.collections[col_name]
 
     """ Takes list of past messages, sys promt etc and produces a response """
-    def _groq_chat(self, messages: list) -> str:
-        chat_completion = self.groq.chat.completions.create(
-            messages=messages,
-            model=self.groq_model,
-        )
-        resp = chat_completion.choices[0].message.content
-        #if 'deepseek' in self.groq_model and not see_think: # Return only response toks
-        #    return postproc_r1(resp)
-        #elif 'deepseek' in self.groq_model and see_think: # Return think and response separetly
-        #    return (postproc_r1(resp), self._postproc_r1(resp, think_only=True))
-        #else: # Else, just return resp
-        return resp 
+    def _groq_chat(self, messages: list, model: str) -> str:
+            logger.debug(f"Executing groq_chat with model: {model}")
+            tries = 0
+            max_tries = 3
+            chat_completion = None
+            while tries < max_tries:
+                try:
+                    chat_completion = self.groq.chat.completions.create(
+                        messages=messages,
+                        model=(self.groq_model if not model else model)
+                    )
+                    break
+                except Exception as e:
+                    logger.debug(f"Groq chat got exception: {e}, Trying {max_tries-tries} more times...")
+                    time.sleep(3) # Give the API a rest :)
+                    tries += 1
+
+            if tries >= max_tries:
+                raise Exception(f"Max tries of {max_tries} exceeded for groq_chat")
+
+            resp = chat_completion.choices[0].message.content
+            if 'deepseek' in self.groq_model:
+                resp = postproc_r1(resp)
+            return resp
 
     def _fill_chats(self):
         col = self._get_col("chats")
