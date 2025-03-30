@@ -42,7 +42,7 @@ content = """
 
     Whether this is a genuine moment of joy or a carefully orchestrated PR stunt, one thing is certain: the news cycle will be dominated by the impending arrival of another Biden grandchild for the foreseeable future.
     """
-superintend.gen_interview(content)
+#superintend.gen_interview(content)
 
 @login_manager.user_loader
 def load_user(user_id):
@@ -86,7 +86,8 @@ def logout():
 @main.route('/')
 def index():
     error = request.args.get('error')
-    flash(error, 'danger')
+    if error: 
+        flash(error, 'danger')
     catagory = request.args.get('catagory')
     if catagory:
         catagory = catagory.lower()

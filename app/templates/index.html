@@ -3,8 +3,11 @@
 {% block title %}UpDog News - Trusted Indpendent News{% endblock %}
 
 {% block header_extra %}
-	<a href="{{ report_btn.url }}" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 text-sm">
-		{{ report_btn.text }}
+		<a href="{{ report_btn.url }}" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 text-sm">
+			{{ report_btn.text }}
+		</a>
+	<a href="{{ url_for('chat.hoodlem') }}" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 text-sm">
+		Chat with <strong>Hoodlem</strong>
 	</a>
 {% endblock %}
 
