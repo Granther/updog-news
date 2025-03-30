@@ -141,6 +141,17 @@ def report():
         return redirect(url_for("main.index"))
     return render_template("report.html", form=form)
 
+@main.route("/interview/<uuid>")
+def interview(uuid: str):
+    interview = Interview.query.filter_by(uuid=uuid).first()
+    if not interview:
+        err = f"Interview uuid: {uuid} does not exist"
+        logger.fatal(err)
+        flash(err)
+        return redirect(url_for("error.html"))
+    
+    return render_template("interview.html", interview=interview)
+
 @main.route("/story/<title>")
 @main.route("/story/<category>/<title>")
 def story(title, category=None):

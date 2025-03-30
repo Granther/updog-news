@@ -1,0 +1,21 @@
+{% extends 'templ.html' %}
+
+{% block title %}{{ interview.title }}{% endblock %}
+
+{% block content %}
+<main class="flex-grow container mx-auto px-4 py-8">
+        <article class="max-w-3xl mx-auto bg-white shadow-md rounded-lg overflow-hidden">
+            <div class="p-6">
+                <div class="flex items-center text-xs text-gray-500 mb-4">
+                </div>
+                <h2 class="text-3xl font-playfair font-bold mb-4 text-gray-800">
+                    {{ interview.title }}
+                </h2>
+		<p class="text-sm text-gray-600 mb-6 italic">By {{ interview.interviewer }} • With {{ interview.interviewy }}</p>
+                <div class="text-lg text-gray-700 leading-relaxed space-y-6">
+                    {{ interview.content | safe }}
+                </div>
+            </div>
+        </article>
+    </main>
+{% endblock %}

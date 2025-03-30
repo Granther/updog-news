@@ -22,13 +22,21 @@ class Story(db.Model):
 
 class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
-    created = db.Column(db.TIMESTAMP, nullable=False, server_default=db.func.now())
+    created = db.Column(db.TIMESTAMP, nullable=False, server_default=str(datetime.utcnow()))
     username = db.Column(db.String, unique=True, nullable=False)
-    # email = db.Column(db.String, unique=True, nullable=False)
     password = db.Column(db.String, nullable=False)
     # stories = db.relationship('Story', backref='user')
 #    comments = db.relationship('Comment', backref='user')
 #    liked_stories = db.relationship('Story', backref='user')
+
+class Interview(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    created = db.Column(db.TIMESTAMP, nullable=False, server_default=str(datetime.utcnow()))
+    uuid = db.Column(db.String, unique=True, nullable=False)
+    title = db.Column(db.String, unique=False, nullable=False)
+    content = db.Column(db.String, unique=False, nullable=False)
+    interviewer = db.Column(db.String, unique=False, nullable=False)
+    interviewy = db.Column(db.String, unique=False, nullable=False)
 
 '''
 class QueuedStory(db.Model):

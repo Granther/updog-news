@@ -14,6 +14,7 @@ from dotenv import load_dotenv
 from app.logger import create_logger
 from .prompts import ephem_sys_prompt, superintend_sys_prompt, bool_question_prompt, build_rag, build_need_rag_prompt, build_allow_story, build_doc_ret_prompt, build_interviewy_prompt, build_interviewer_prompt, get_interviewy_person, get_interviewer_person
 from .utils import stringify, postproc_r1, bool_resp
+from app.model import Interview
 from .core import Core
 
 __import__('pysqlite3')
@@ -40,7 +41,7 @@ class SuperIntend:
     def __init__(self, groq_key: str, feather_key: str, groq_core_key: str):
         self.ephem_sys_prompt = ephem_sys_prompt
         self.ephem_messages = dict()
-        self.max_interview_q = 10
+        self.max_interview_q = 2
         self.groq, self.feather = self._init_clients(groq_key, feather_key)
         self.core = Core(self._init_groq_client(groq_core_key))
         self.groq_model = "deepseek-r1-distill-qwen-32b"
@@ -152,14 +153,26 @@ class SuperIntend:
 
     """ Takes list of past messages, sys promt etc and produces a response """
     def _groq_chat(self, messages: list, model: str) -> str:
-        chat_completion = self.groq.chat.completions.create(
-            messages=messages,
-            model=(self.groq_model if not model else model)
-        )
+        tries = 0
+        max_tries = 3
+        chat_completion = None
+        while tries < max_tries:
+            try:
+                chat_completion = self.groq.chat.completions.create(
+                    messages=messages,
+                    model=(self.groq_model if not model else model)
+                )
+            except Exception as e:
+                logger.debug(f"Groq chat got exception: {e}, Trying {max_tries-tries} more times...")
+                time.sleep(3) # Give the API a rest :)
+                tries += 1
+
+        if tries >= max_tries:
+            raise Exception(f"Max tries of {max_tries} exceeded for groq_chat")
+
         resp = chat_completion.choices[0].message.content
         if 'deepseek' in self.groq_model:
             resp = postproc_r1(resp)
-        #self._process_chat(resp, uuid)
         return resp
 
     def _process_chat(self, response: str, uuid: str):
@@ -176,44 +189,48 @@ class SuperIntend:
         return (interviewer, interviewy)
 
     """ Given the story, and interview (name, personality) generate a interview """
-    def gen_interview(self, content: str) -> str:
-        logger.debug("Generating interview")
-        n_interview_q = 0
-        model = "gemma2-9b-it"
-        interviewer = postproc_r1(self.core.request(get_interviewer_person(content)))
-        interviewy = postproc_r1(self.core.request(get_interviewy_person(content)))
-        viewer_prompt = build_interviewer_prompt(content, interviewer) # The interviewer knows about the story
-        viewy_prompt = build_interviewy_prompt(interviewy)
-        viewer_messages, viewy_messages = [{"role": "system", "content": viewer_prompt}, {"role": "user", "content": "BEGINNING OF INTERVIEW"}], [{"role": "system", "content": viewy_prompt}]
+    def gen_interview(self, app, content: str) -> str:
+        with app.app_context():
+            logger.debug("Generating interview")
+            n_interview_q = 0
+            model = "gemma2-9b-it"
+            interviewer = postproc_r1(self.core.request(get_interviewer_person(content)))
+            interviewy = postproc_r1(self.core.request(get_interviewy_person(content)))
+            viewer_prompt = build_interviewer_prompt(content, interviewer) # The interviewer knows about the story
+            viewy_prompt = build_interviewy_prompt(interviewy)
+            viewer_messages, viewy_messages = [{"role": "system", "content": viewer_prompt}, {"role": "user", "content": "BEGINNING OF INTERVIEW"}], [{"role": "system", "content": viewy_prompt}]
 
-        logger.debug(f"Interviewer personality: {interviewer}")
-        logger.debug(f"Interviewy personality: {interviewy}")
+            logger.debug(f"Interviewer personality: {interviewer}")
+            logger.debug(f"Interviewy personality: {interviewy}")
 
-        interview = ""
-        while n_interview_q < self.max_interview_q:
-            # Gen question
-            question = postproc_r1(self._submit_task(self._groq_chat, viewer_messages, model)).replace('\n', '')
-            sleep(1.5)
+            interview_content = ""
+            while n_interview_q < self.max_interview_q:
+                # Gen question
+                question = postproc_r1(self._submit_task(self._groq_chat, viewer_messages, model)).replace('\n', '')
+                sleep(1.5) # Give the API a break so we dont over use
 
-            # Make sure interviewer knows what he asked
-            viewer_messages.append({"role": "assistant", "content": question})
-            viewer_messages.append({"role": "system", "content": viewer_prompt})
+                # Make sure interviewer knows what he asked
+                viewer_messages.append({"role": "assistant", "content": question})
+                viewer_messages.append({"role": "system", "content": viewer_prompt})
 
-            # Add to interviewy context
-            viewy_messages.append({"role": "user", "content": question})
-            # Ask them to answer
-            answer = postproc_r1(self._submit_task(self._groq_chat, viewy_messages, model)).replace('\n', '')
-            sleep(1.5)
+                # Add to interviewy context
+                viewy_messages.append({"role": "user", "content": question})
+                # Ask them to answer
+                answer = postproc_r1(self._submit_task(self._groq_chat, viewy_messages, model)).replace('\n', '')
+                sleep(1.5)
 
-            # Make sure personas know what they produces
-            viewy_messages.append({"role": "assistant", "content": answer})
-            viewy_messages.append({"role": "system", "content": viewy_prompt})
-            # Add answer to interviewer context
-            viewer_messages.append({"role": "user", "content": answer})
-            
-            interview += f"Q: {question}\nA: {answer}\n\n"
-            print(interview)
-            n_interview_q += 1
+                # Make sure personas know what they produces
+                viewy_messages.append({"role": "assistant", "content": answer})
+                viewy_messages.append({"role": "system", "content": viewy_prompt})
+                # Add answer to interviewer context
+                viewer_messages.append({"role": "user", "content": answer})
+                
+                interview_content += f"Q: {question}\nA: {answer}\n\n"
+                #print(interview)
+                n_interview_q += 1
+            interview = Interview(uuid=shortuuid.uuid(), title="Test title", interview_content, interviewer="Interviewer", interviewy="Interviewy")
+            db.session.add(interview)
+            db.session.commit()
 
     """ Pass in entire story and return wether Super allows it or not """
     def allow_story(self, story) -> bool:
@@ -262,6 +279,9 @@ def get_superintend():
 """ Takes app for context and entire story to generate interviews """
 def gen_sources(app, content: str):
     pass
+
+def gen_interviews(app, story):
+    threading.Thread(target=_superintend.gen_interview, args=(app, story.content), daemon=True).start()
 """
 Example:
 
