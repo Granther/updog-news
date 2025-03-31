@@ -19,6 +19,7 @@ from app.utils import preserve_markdown, display_catagory, pretty_timestamp
 from app.news import get_marquee, get_stories, write_new_story, rm_link_toks
 from app.queue import put_story, start_queue
 from app.superintend import SuperIntend, get_superintend
+from app.images import get_b64_img
 
 load_dotenv()
 #superintend = SuperIntend(os.environ.get("GROQ_API_KEY"), os.environ.get("FEATHERLESS_API_KEY"), os.environ.get("GROQ_API_KEY"))
@@ -165,7 +166,8 @@ def story(title, category=None):
         story.catagory = display_catagory(story.catagory)
         #if not story.sources_done: # Not finished async creating sources
         story.content = rm_link_toks(story.content)
-        return render_template("story.html", story=story, timestamp=timestamp, read_time=read_time)
+        image = str(get_b64_img())
+        return render_template("story.html", story=story, image=image, timestamp=timestamp, read_time=read_time)
 
 def gen_schrod_page(app, session_id: str, title: str):
     """
