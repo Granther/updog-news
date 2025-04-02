@@ -19,7 +19,7 @@ def bool_resp(response: str) -> bool:
     return 'yes' in response.lower()
 
 """ Takes a string of text and a token_core (REPORTER_NAME) where token is <REPORTER_NAME> {name} </REPORTER_NAME> """
-def extract_tok_val(content: str, tok_core: str):
+def extract_tok_val(content: str, tok_core: str, default: str=None):
     # Ensure tokens have spaces on both sides and break apart into list
     content = content.replace('\n', ' ').replace('>', '> ').replace('<', ' <').split()
     opening, closing = f"<{tok_core}>", f"</{tok_core}>"
@@ -32,15 +32,23 @@ def extract_tok_val(content: str, tok_core: str):
             in_val = False
             break
         if i == len(content)-1: # Last item in list
-            return None
+            pass
+            #return default
         if in_val:
             if closing in content[i+1]: # Closing is next token
                 val += f"{item}" # No space added
             else:
                 val += f"{item} "
     if val == "":
-        return None
+        return default
     return val
+
+""" Given a list of QA dicts, returns a prettier html unsafes str """
+def pretty_interview(content: list) -> str:
+    string = ""
+    for item in content:
+        string += f"{item['question']}<br>{item['answer']}<br><br>"
+    return string    
 
 if __name__ == "__main__":
     print(extract_tok_val("Hello <REPORTER>James danial</REPORTER>", "REPORTER"))

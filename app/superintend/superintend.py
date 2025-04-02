@@ -1,5 +1,6 @@
 import os
 import copy
+import time
 from time import sleep
 import datetime
 import threading
@@ -12,8 +13,8 @@ import shortuuid
 from dotenv import load_dotenv
 
 from app.logger import create_logger
-from .prompts import ephem_sys_prompt, superintend_sys_prompt, bool_question_prompt, build_rag, build_need_rag_prompt, build_allow_story, build_doc_ret_prompt, build_interviewy_prompt, build_interviewer_prompt, get_interviewy_person, get_interviewer_person, build_quick_fill
-from .utils import stringify, postproc_r1, bool_resp, extract_tok_val
+from .prompts import ephem_sys_prompt, superintend_sys_prompt, bool_question_prompt, build_rag, build_need_rag_prompt, build_allow_story, build_doc_ret_prompt, build_interviewy_prompt, build_interviewer_prompt, get_interviewy_person, get_interviewer_person, build_quick_fill, get_iview_title, build_fix_schrod_title
+from .utils import stringify, postproc_r1, bool_resp, extract_tok_val, pretty_interview
 from app.models import Interview
 from app import db
 from .core import Core
@@ -29,6 +30,10 @@ logger = create_logger(__name__)
 def_reporter = "Jim Scrimbus"
 def_category = "World"
 def_personality = "Just a humble writer at Updog news, hes a little politically incorrect though"
+def_iviewer_name = "Jimothy Honest"
+def_iviewer_persona = "Just a simple Honest guy, he hates kids though, like he cant stop talking about it"
+def_iviewy_name = "Elon Musk"
+def_iviewy_persona = "Hey, its me, Elon Musk, meet my son slkasiaoifhwqoiehfwpoifh"
 allowed_categories = ["World", "Technology", "Business", "Politics", "Other"]
 
 class SuperIntend:
@@ -134,7 +139,6 @@ class SuperIntend:
         if not reporter:
             reporter = def_reporter
         category = extract_tok_val(resp, "CATEGORY")
-        print("HERE: ", category)
         if not category or category not in allowed_categories:
             category = def_category 
         personality = extract_tok_val(resp, "PERSONALITY")
@@ -217,21 +221,59 @@ class SuperIntend:
         return (interviewer, interviewy)
 
     """ Given the story, and interview (name, personality) generate a interview """
-    def gen_interview(self, app, content: str) -> str:
+    def gen_interview(self, app, story) -> str:
         with app.app_context():
+            content = story.content
             logger.debug("Generating interview")
             n_interview_q = 0
             model = "gemma2-9b-it"
-            interviewer = postproc_r1(self.core.request(get_interviewer_person(content)))
-            interviewy = postproc_r1(self.core.request(get_interviewy_person(content)))
-            viewer_prompt = build_interviewer_prompt(content, interviewer) # The interviewer knows about the story
-            viewy_prompt = build_interviewy_prompt(interviewy)
+            iviewer_resp = postproc_r1(self.core.request(get_interviewer_person(content)))
+            iviewy_resp = postproc_r1(self.core.request(get_interviewy_person(content)))
+            
+            iviewer_name, iviewer_persona = extract_tok_val(
+                    iviewer_resp, 
+                    "NAME", 
+                    default=def_iviewer_name
+            ), extract_tok_val(
+                    iviewer_resp, 
+                    "PERSONA", 
+                    default=def_iviewer_persona
+            )
+
+            iviewy_name, iviewy_persona = extract_tok_val(
+                    iviewy_resp, 
+                    "NAME", 
+                    default=def_iviewy_name
+            ), extract_tok_val(
+                    iviewy_resp, 
+                    "PERSONA", 
+                    default=def_iviewy_persona
+            ) 
+
+            viewer_prompt = build_interviewer_prompt(
+                    content, 
+                    persona=iviewer_persona, 
+                    name=iviewer_name
+            ) # The interviewer knows about the story
+            viewy_prompt = build_interviewy_prompt(
+                    persona=iviewy_persona, 
+                    name=iviewy_name
+            )
+
+            iview_title = extract_tok_val(postproc_r1(self.core.request(
+                get_iview_title(
+                    content=content,
+                    iviewer=iviewer_name,
+                    iviewy=iviewy_name,
+                )
+            )), "TITLE", default=f"{iviewer_name} interviews {iviewy_name}")
+
             viewer_messages, viewy_messages = [{"role": "system", "content": viewer_prompt}, {"role": "user", "content": "BEGINNING OF INTERVIEW"}], [{"role": "system", "content": viewy_prompt}]
 
-            logger.debug(f"Interviewer personality: {interviewer}")
-            logger.debug(f"Interviewy personality: {interviewy}")
+            logger.debug(f"Interviewer personality: {iviewer_resp}")
+            logger.debug(f"Interviewy personality: {iviewy_resp}")
 
-            interview_content = ""
+            interview_content = [] # List of dicts
             while n_interview_q < self.max_interview_q:
                 # Gen question
                 question = postproc_r1(self._submit_task(self._groq_chat, viewer_messages, model)).replace('\n', '')
@@ -253,13 +295,30 @@ class SuperIntend:
                 # Add answer to interviewer context
                 viewer_messages.append({"role": "user", "content": answer})
                 
-                interview_content += f"Q: {question}\nA: {answer}\n\n"
+                interview_content.append({"question": question, "answer": answer})
                 n_interview_q += 1
             uuid = shortuuid.uuid()
             logger.debug(f"Finished interview with uuid: {uuid}")
-            interview = Interview(uuid=uuid, title="Test title", content=interview_content, interviewer="Interviewer", interviewy="Interviewy")
+            formatted_iview = pretty_interview(interview_content)
+            self.core.embed_interview(interview_content, uuid)
+            quote_first_gen = extract_tok_val(content, "QUOTE", default="")
+            quote = self.core.query("quotes", question=quote_first_gen, metadata={"type": "answer"})
+            print("QUOTE: ", quote)
+            interview = Interview(uuid=uuid, title=iview_title, content=formatted_iview, interviewer=iviewer_name, interviewy=iviewy_name)
             db.session.add(interview)
             db.session.commit()
+
+    """ After the interviews have been completed, replaces the first-gen quotes with semantically similar ones from the interviews """
+    def replace_quotes(self):
+        pass
+
+    """ Since some chat platforms dont allow building a URL with spaces, they must be escaped, basically decompresses a title """
+    def fix_schrod_title(self, old_title: str) -> str:
+        #return extract_tok_val(
+        print("WTF: ", build_fix_schrod_title(old_title))
+        print("HERE: ", postproc_r1(self.core.request(build_fix_schrod_title(old_title))))
+        return old_title
+        #, "TITLE", default=old_title)
 
     """ Pass in entire story and return wether Super allows it or not """
     def allow_story(self, story) -> bool:
@@ -310,7 +369,7 @@ def gen_sources(app, content: str):
     pass
 
 def gen_interviews(app, story):
-    threading.Thread(target=_superintend.gen_interview, args=(app, story.content), daemon=True).start()
+    threading.Thread(target=_superintend.gen_interview, args=(app, story), daemon=True).start()
 """
 Example:
 
@@ -336,4 +395,3 @@ if __name__ == "__main__":
 
     Whether this is a genuine moment of joy or a carefully orchestrated PR stunt, one thing is certain: the news cycle will be dominated by the impending arrival of another Biden grandchild for the foreseeable future.
     """
-    _superintend.gen_interview(content)

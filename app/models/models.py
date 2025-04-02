@@ -14,7 +14,7 @@ class Story(db.Model):
     reporter = db.Column(db.String, unique=False, nullable=False)
     catagory = db.Column(db.String, unique=False, nullable=True)
     sources_done = db.Column(db.Boolean, nullable=True, default=False) # Wether or not the content contains links or placeholdes  
-    image = db.Column(db.String, nullable=True) # Store image as base64 encoded
+#    image = db.Column(db.String, nullable=True) # Store image as base64 encoded
 #    archived = db.Column(db.Boolean, nullable=True, default=False)
 #    likes = db.Column(db.Integer, nullable=True, default=0)
 #    comments = db.relationship('Comment', backref='story')

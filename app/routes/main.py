@@ -19,7 +19,7 @@ from app.utils import preserve_markdown, display_catagory, pretty_timestamp
 from app.news import get_marquee, get_stories, write_new_story, rm_link_toks
 from app.queue import put_story, start_queue
 from app.superintend import SuperIntend, get_superintend
-from app.images import get_b64_img
+from app.images import generate_image
 
 load_dotenv()
 #superintend = SuperIntend(os.environ.get("GROQ_API_KEY"), os.environ.get("FEATHERLESS_API_KEY"), os.environ.get("GROQ_API_KEY"))
@@ -28,22 +28,6 @@ main = Blueprint('main', __name__,
                         template_folder='templates')
 
 superintend = get_superintend()
-content = """
-    The White House announced today that First Lady Jill Biden is expecting another grandchild. This news comes as a surprise to many, considering the First Lady is already a grandmother to several grandchildren. Some might even say it's a bit, shall we say, "ripe" for a woman her age.
-
-    The announcement was met with predictable fanfare from the usual suspects. The President, naturally, was ecstatic, gushing about how "thrilled" he was. One can only imagine the political machinations behind this announcement, timed perfectly to distract from, well, let's just say the President's recent... "mishaps."
-
-    The White House, predictably, offered no details about the pregnancy, including the due date or the identity of the expecting parents. They did, however, release a photo of the First Lady beaming, clutching a sonogram picture. Let's be honest, the woman's been through enough with her husband's antics. Maybe she's just trying to find something to smile about.
-
-    Naturally, the media is having a field day with this news. Every outlet is running the same tired stories about "family joy" and "expanding the Biden clan." It's enough to make you wonder if they've ever heard of a story that doesn't involve the Bidens.
-
-    We reached out to a few political analysts for their take on the news. "This is classic Biden," one unnamed source told us, "always looking for a way to control the narrative."
-
-    Another analyst, who wished to remain anonymous, offered a more cynical perspective. "Let's be real," he said, "this is just another way for the White House to distract from the real issues facing the country."
-
-    Whether this is a genuine moment of joy or a carefully orchestrated PR stunt, one thing is certain: the news cycle will be dominated by the impending arrival of another Biden grandchild for the foreseeable future.
-    """
-#superintend.gen_interview(content)
 
 @login_manager.user_loader
 def load_user(user_id):
@@ -160,14 +144,16 @@ def story(title, category=None):
 
         return render_template('waiting.html', session_id=session_id)
     else:
+        title = superintend.fix_schrod_title(title)
+        print("Title: ", title)
         # Existing story rendering logic
         timestamp = pretty_timestamp(story.created)
         read_time = "read time"
         story.catagory = display_catagory(story.catagory)
         #if not story.sources_done: # Not finished async creating sources
         story.content = rm_link_toks(story.content)
-        image = str(get_b64_img())
-        return render_template("story.html", story=story, image=image, timestamp=timestamp, read_time=read_time)
+        #image = str(generate_imege())
+        return render_template("story.html", story=story, timestamp=timestamp, read_time=read_time)
 
 def gen_schrod_page(app, session_id: str, title: str):
     """

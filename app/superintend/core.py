@@ -3,6 +3,7 @@ import copy
 import datetime
 import threading
 import queue
+import time
 from concurrent.futures import Future
 
 from openai import OpenAI
@@ -36,8 +37,7 @@ class Core:
         self.quick_model = "gemma2-9b-it"
         self.chroma = chromadb.PersistentClient(path="./chroma")
         self._init_queue()
-        self.chats, self.main = self._init_chat_col(), self._init_main_col()
-        self.collections['chats'], self.collections['main'] = self.chats, self.main
+        self.collections['main'], self.collections['chats'], self.collections['quotes'] = self._init_collections()
         self._init_super()
         #self._fill_chats()
 
@@ -68,13 +68,9 @@ class Core:
         self.thought_queue.put((func, *args, future))
         return future.result() # Blocks until returns
 
-    """ Get or create 'chats' chroma collection """
-    def _init_chat_col(self):
-        return self.chroma.get_or_create_collection(name="chats")
-
-    """ Get or create 'main' chroma collection """
-    def _init_main_col(self):
-        return self.chroma.get_or_create_collection(name="main")
+    """ Get or create all needed chroma collections """
+    def _init_collections(self):
+        return (self.chroma.get_or_create_collection(name="main"), self.chroma.get_or_create_collection(name="chats"),  self.chroma.get_or_create_collection(name="quotes"))
 
     """ Inform the central AI of changes, important data, etc 
         - We dont expect a response, but we see if it does any API calls
@@ -92,26 +88,24 @@ class Core:
         self.messages.append({"role": "system", "content": superintend_sys_prompt})
         self.messages.append({"role": "user", "content": f"REQUEST: {self._add_timestamp(request)}"})
         model = (self.quick_model if quick else self.groq_model)
-        print(model)
         resp = self._submit_task(self._groq_chat, (self.messages, model)) # We want to see thinking toks in history
-        self.messages.append({"role": "user", "content": resp}) 
+        self.messages.append({"role": "user", "content": resp})
         return resp
 
     """ Ask the central AI for some data 
         - We expect a response of some kind
     """
-    def query(self, col_name: str, question: str, bad_uuid: str=None) -> str:
+    def query(self, col_name: str, question: str, bad_uuid: str=None, metadata: dict=None) -> str:
         col = self._get_col(col_name)
         if not col: 
             return None
         try:
             n_results = 3
-            result = col.query(query_texts=[question], n_results=n_results)
+            result = col.query(query_texts=[question], where=metadata, n_results=n_results)
             ids = result['ids'][0]
             docs = result['documents'][0]
             if not bad_uuid:
                 return docs[0]
-            print("bad_uuid: ", bad_uuid)
             for i in range(n_results):
                 print(ids[i])
                 if ids[i] != bad_uuid:
@@ -119,6 +113,15 @@ class Core:
                     return docs[i]
         except:
             return None
+
+    """ Given a list of QA interviews, embed each quote with the interview uuid metadata """
+    def embed_interview(self, content: list, uuid: str):
+        def _embed():
+            col = self._get_col("quotes")
+            for item in content:
+                col.add(documents=[item['question']], metadatas=[{"interview_uuid": uuid, "type": "question"}], ids=[shortuuid.uuid()])
+                col.add(documents=[item['answer']], metadatas=[{"interview_uuid": uuid, "type": "answer"}], ids=[shortuuid.uuid()])
+        threading.Thread(target=_embed, daemon=True).start()
 
     """ See if API tokens exist in reponse and call things accordingly """
     def _postproc_chat(self, response: str):

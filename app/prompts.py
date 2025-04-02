@@ -1,7 +1,9 @@
 """File defining internal prompts used"""
 
+# Should we generate a fake quote, embed it and get a semantically similar one later
+
 def generate_news_prompt():
-    return "Roleplay as a news writer. Given a news story title and the reporter's personality, please do not include the title in the content as it is already shown on the page. Please write the story in HTML, using <br> for newlines q Please make the article fairly long, make it about a 5 minute read. Please make sure to include at least 2 quotes from 2 different interviews relevant to the article. Instead of generating the quotes, please place the token <|QUOTE|> there instead. It will be filled in later."
+    return "Roleplay as a news writer. Given a news story title and the reporter's personality, please do not include the title in the content as it is already shown on the page. Please write the story in HTML, using <br> for newlines q Please make the article fairly long, make it about a 5 minute read. Please make sure to include at least 2 quotes from 2 different interviews relevant to the article. Please place the quotes between <QUOTE> and </QUOTE> tokens. Like <QUOTE> \"This is a test quote\" </QUOTE>"
 
 '''
     return "Roleplay as a news writer. Given a news story title and the reporter's personality, please d onot include the title in the content as it is already shown on the page. Please write the story in HTML, using <br> for newlines q Please make the article fairly long, make it about a 5 minute read. Please make sure to include at least 2 quotes from 2 different interviews relevant to the article. Surround the quote with the token <|START_QUOTE|> at the start and <|END_QUOTE|> at the end. After citing a source please add this token <|LINK_SRC|>. The link to source will be automatically added\nEXAMPLES:\n<|START_QUOTE|>'She's always been passionate about helping others, and she's excited to use her platform to make a difference.'<|END_QUOTE|><|LINK_SRC|>\n<|START_QUOTE|>'This is classic Biden', one unnamed source told us, 'always looking for a way to control the narrative.'<|END_QUOTE|><|LINK_SRC|>"

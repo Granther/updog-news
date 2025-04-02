@@ -28,6 +28,5 @@ def get_stories(catagory=None) -> list:
 
 """ Given a story containing <|LINK_SRC|> toks, remove them """
 def rm_link_toks(content: str) -> str:
-    return content.replace('<|LINK_SRC|>', '')
+    return content.replace('<QUOTE>', '').replace('</QUOTE>', '')
 
-    
