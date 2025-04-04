@@ -32,7 +32,7 @@ def extract_tok_val(content: str, tok_core: str, default: str=None):
             in_val = False
             break
         if i == len(content)-1: # Last item in list
-            pass
+            in_val = False
             #return default
         if in_val:
             if closing in content[i+1]: # Closing is next token

@@ -32,7 +32,6 @@ class Core:
     """ Takes a premade groq client """
     def __init__(self, client):
         self.core_messages = CoreMessages()
-        self.messages = list()
         self.collections = dict()
         self.groq = client
         self.groq_model = "deepseek-r1-distill-qwen-32b"
@@ -72,6 +71,7 @@ class Core:
 
     """ Get or create all needed chroma collections """
     def _init_collections(self):
+        logger.debug("Creating 'main', 'chats', and 'quotes' vector collections")
         return (self.chroma.get_or_create_collection(name="main"), self.chroma.get_or_create_collection(name="chats"),  self.chroma.get_or_create_collection(name="quotes"))
 
     """ Inform the central AI of changes, important data, etc 
@@ -83,25 +83,36 @@ class Core:
         with self.core_messages as msgs:
             msgs.append({"role": "user", "content": f"INFORM: {self._add_timestamp(data)}"})
             self.core_messages.update_timed_msgs(msgs.read_timestamps()) # Update central, merge
+            logger.debug(f"Made inform of: {data}")
 
-    """ Request an answer, passing quick forks the conscienceness """
-    def request(self, request: str, quick: bool=True):
-        print(request)
+    """ Request an answer, passing quick forks the conscienceness. Sticky meaning wether the request ends up in the core message stream or not
+    Basically, is it important or will it clog up superintend?
+    """
+    def request(self, request: str, quick: bool=True, sticky: bool=True) -> str:
         with self.core_messages as msgs:
             msgs.append({"role": "system", "content": superintend_sys_prompt})
             msgs.append({"role": "user", "content": f"REQUEST: {self._add_timestamp(request)}"})
             model = (self.quick_model if quick else self.groq_model)
             resp = self._submit_task(self._groq_chat, (msgs.read(), model)) # We want to see thinking toks in history
             msgs.append({"role": "assistant", "content": resp})
-            self.core_messages.update_timed_msgs(msgs.read_timestamps()) # Update central, merge
-        print(self.core_messages._get_timestamped_msgs())
-        print("Resp here: ", resp)
-        return resp
+            if sticky:
+                self.core_messages.update_timed_msgs(msgs.read_timestamps()) # Update central, merge
+            logger.debug(f"Made request of: {request}, Sticky: {sticky}")
+            return resp
+
+    """ Hoodlem func, takes chat completions, already RAGed, returns a chat response 
+        - Expectation that the caller is handling all chats
+        - Simply takes completions and completes them
+    """
+    def chat(self, messages: list) -> str:
+        # Uses context of Core, but does not participate, one way so to speak
+        return self._submit_task(self._groq_chat, (messages, None))
 
     """ Ask the central AI for some data 
         - We expect a response of some kind
     """
     def query(self, col_name: str, question: str, bad_uuid: str=None, metadata: dict=None) -> str:
+        logger.debug(f"Making query of question: {question} to collection: {col_name}")
         col = self._get_col(col_name)
         if not col: 
             return None
@@ -113,15 +124,16 @@ class Core:
             if not bad_uuid:
                 return docs[0]
             for i in range(n_results):
-                print(ids[i])
+                #print(ids[i])
                 if ids[i] != bad_uuid:
-                    print(docs[i])
+                    #print(docs[i])
                     return docs[i]
         except:
             return None
 
     """ Given a list of QA interviews, embed each quote with the interview uuid metadata """
     def embed_interview(self, content: list, uuid: str):
+        logger.debug("Embedding interview of uuid: {uuid}")
         def _embed():
             col = self._get_col("quotes")
             for item in content:
@@ -131,7 +143,7 @@ class Core:
 
     """ See if API tokens exist in reponse and call things accordingly """
     def _postproc_chat(self, response: str):
-        print(response)
+        pass
 
     def _add_timestamp(self, data: str) -> str:
         return f"{datetime.datetime.now()}: {data}"
@@ -140,7 +152,6 @@ class Core:
         col = self._get_col(col_name)
         try:
             col.delete(ids=[uuid])
-            #if type(doc) is list:
             doc = stringify(doc)
             col.add(documents=[doc], ids=[uuid])
         except Exception as e:

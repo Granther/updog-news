@@ -8142,3 +8142,27 @@ No response needed.
 2025-04-04 15:37:24,235 - app.superintend.superintend - DEBUG - Generating interview
 2025-04-04 15:37:24,241 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
 2025-04-04 15:37:24,543 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-04 16:15:48,158 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-04 16:15:48,394 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-04 16:15:48,403 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-04 16:15:48,404 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-04 16:16:04,622 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-04 16:16:05,269 - app.superintend.superintend - DEBUG - Starting Quick fill to core
+2025-04-04 16:16:05,270 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-04 16:16:05,627 - app.superintend.superintend - DEBUG - Jessica Grant, Investigative and driven, always seeking the truth behind the headlines., Other
+2025-04-04 16:16:07,658 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-04 16:16:08,067 - app.superintend.superintend - DEBUG - Generating interview
+2025-04-04 16:16:08,077 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-04 16:16:08,514 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-04 16:16:09,297 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-04 16:16:09,925 - app.superintend.superintend - DEBUG - Interviewer personality: <NAME> Deborah Scott </NAME>  
+<PERSONA> A seasoned entertainment journalist known for her sharp wit and insightful interviews. She's built a reputation for getting straight to the heart of the matter, but always with a touch of empathy. </PERSONA>   
+
+2025-04-04 16:16:09,925 - app.superintend.superintend - DEBUG - Interviewy personality: <NAME> Michael Jackson </NAME>  
+<PERSONA> Despite his global fame and wealth, Michael Jackson comes across as a deeply vulnerable individual. The weight of expectations and the relentless scrutiny of the public eye seem to have taken their toll. His desire to be generous and live life to the fullest has unfortunately become entangled with unsustainable spending habits.  Michael speaks with a mix of sadness and resignation, acknowledging the difficult choices he's faced and the toll they've taken. </PERSONA> 
+
+2025-04-04 16:16:09,925 - app.superintend.superintend - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-04 16:16:11,949 - app.superintend.superintend - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-04 16:16:13,770 - app.superintend.superintend - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-04 16:16:15,732 - app.superintend.superintend - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-04 16:16:17,759 - app.superintend.superintend - DEBUG - Finished interview with uuid: eVS5fJeHwf5FyEzfHGdjxv
