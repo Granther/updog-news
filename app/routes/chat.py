@@ -18,7 +18,6 @@ from app.queue import put_story, start_queue
 from app.superintend import SuperIntend, get_superintend
 
 load_dotenv()
-#superintend = SuperIntend(os.environ.get("GROQ_API_KEY"), os.environ.get("FEATHERLESS_API_KEY"), os.environ.get("GROQ_API_KEY"))
 superintend = get_superintend()
 chat = Blueprint('chat', __name__,
                         template_folder='templates')
@@ -44,5 +43,8 @@ def message(uuid: str):
 
 @chat.route("/hoodlem")
 def hoodlem():
+    if current_user.is_authenticated:
+        superintend.core.inform(f"User with username {current_user.username} entered chat with Hoodlem (The speaking module of Superintendent)")
+    superintend.core.inform("User entered chat with Hoodlem (The speaking module of Superintendent)")
     chat_uuid = shortuuid.uuid()
     return render_template("hoodlem.html", uuid=chat_uuid)

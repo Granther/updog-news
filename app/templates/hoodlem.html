@@ -6,9 +6,8 @@
 <main class="flex-grow container mx-auto px-4 py-8">
     <div class="max-w-3xl mx-auto">
         <div class="bg-white rounded-lg shadow-lg p-6 mb-8">
-            <h2 class="text-2xl font-playfair font-bold mb-6 text-gray-800">Community Chat</h2>
+            <h2 class="text-2xl font-playfair font-bold mb-6 text-gray-800">Hoodlem Chat</h2>
             <div class="h-96 overflow-y-auto mb-4 space-y-4" id="chat-box">
-                <!-- Chat messages will appear here -->
             </div>
             <div class="border-t pt-4">
                 <div class="flex gap-4">
@@ -26,16 +25,16 @@
         </div>
     </div>
 </main>
-
 <script>
     const inputBox = document.getElementById("input-box");
     const chatBox = document.getElementById("chat-box");
 
     async function sendData() {
         const userMessage = inputBox.value.trim();
+        inputBox.value = '';
         if (!userMessage) return;
 
-        // Add user message
+        // Add user's message to chat
         chatBox.innerHTML += `
             <div class="flex justify-end">
                 <div class="bg-blue-100 rounded-lg p-3 max-w-xs lg:max-w-md">
@@ -45,20 +44,35 @@
             </div>
         `;
 
+        // Add typing indicator
+        const typingIndicator = document.createElement('div');
+        typingIndicator.className = 'flex justify-start';
+        typingIndicator.id = 'typing-indicator';
+        typingIndicator.innerHTML = `
+            <div class="bg-gray-100 rounded-lg p-3 max-w-xs lg:max-w-md animate-pulse">
+                <p class="text-gray-500 italic">Yo I'm typin dawg...</p>
+            </div>
+        `;
+        chatBox.appendChild(typingIndicator);
+        chatBox.scrollTop = chatBox.scrollHeight;
+
         const data = { message: userMessage };
 
         try {
-			const response = await fetch('{{ url_for("chat.message", uuid=uuid) }}', {
+            const response = await fetch('{{ url_for("chat.message", uuid=uuid) }}', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(data)
             });
 
             if (!response.ok) throw new Error('Network response was not ok');
-            
+
             const result = await response.json();
-            
-            // Add bot response
+
+            // Remove typing indicator
+            typingIndicator.remove();
+
+            // Add AI response
             chatBox.innerHTML += `
                 <div class="flex justify-start">
                     <div class="bg-gray-100 rounded-lg p-3 max-w-xs lg:max-w-md">
@@ -68,20 +82,19 @@
                 </div>
             `;
 
-            // Clear input and scroll to bottom
-            inputBox.value = '';
             chatBox.scrollTop = chatBox.scrollHeight;
+
         } catch (error) {
+            typingIndicator.remove();
             console.error('Error:', error);
             chatBox.innerHTML += `
                 <div class="text-red-500 text-sm">
-                    Error sending message. Please try again.
+                    Yo I'm havin technical difficulties dawg :(
                 </div>
             `;
         }
     }
 
-    // Allow Enter key to send message
     inputBox.addEventListener('keypress', (e) => {
         if (e.key === 'Enter') sendData();
     });

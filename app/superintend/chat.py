@@ -7,6 +7,8 @@ Hoodlem should be able to query the core from here, whats going on, shouldn't WE
 Hoodlem is the speaking part of superintend, he know all as well 
 
 We have to have an API of some sort that allows hoodlem to request with context
+
+Hoodlem needs a way to do things, like drop a link, redirect, get info from a story 
 """
 
 import copy
@@ -29,6 +31,7 @@ class HoodChat:
         self._append_ephem_messages(uuid, {"role": "system", "content": self.sys_prompt})
         messages = self._get_ephem_messages(uuid)
         resp = self.core.chat(messages)
+        #self.postproc_chat(resp)
         return resp
 
     def _get_rag(self, uuid: str, messages: list) -> str:

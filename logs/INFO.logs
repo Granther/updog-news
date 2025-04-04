@@ -8409,3 +8409,78 @@ The most popular news story today is "Michael Jackson Went Bankrupt," as indicat
 2025-04-04 19:19:35,678 - app.superintend.core - DEBUG - Made inform of: User visited index, no category selected showing all info
 2025-04-04 19:19:47,549 - app.superintend.core - DEBUG - Executing groq_chat with model: None
 2025-04-04 19:21:33,916 - app.superintend.core - DEBUG - Made inform of: User visited index, no category selected showing all info
+2025-04-04 19:27:38,201 - app.superintend.core - DEBUG - Made inform of: User visited index, no category selected showing all info
+2025-04-04 19:29:42,822 - app.superintend.core - DEBUG - Executing groq_chat with model: None
+2025-04-04 19:34:19,284 - app.superintend.core - DEBUG - Executing groq_chat with model: None
+2025-04-04 19:35:17,510 - app.superintend.core - DEBUG - Executing groq_chat with model: None
+2025-04-04 19:35:50,723 - app.superintend.core - DEBUG - Executing groq_chat with model: None
+2025-04-04 19:36:00,512 - app.superintend.core - DEBUG - Executing groq_chat with model: None
+2025-04-04 19:36:07,606 - app.superintend.core - DEBUG - Executing groq_chat with model: None
+2025-04-04 19:37:40,275 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-04 19:37:40,560 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-04 19:37:40,561 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-04 19:37:40,571 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-04 19:37:40,571 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-04 19:37:40,572 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-04 19:38:15,740 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-04 19:38:15,994 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-04 19:38:15,995 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-04 19:38:16,004 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-04 19:38:16,004 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-04 19:38:16,005 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-04 19:38:16,420 - app.superintend.core - DEBUG - Made inform of: User with username huh entered chat with Hoodlem (The speaking module of Superintendent)
+2025-04-04 19:38:16,420 - app.superintend.core - DEBUG - Made inform of: User entered chat with Hoodlem (The speaking module of Superintendent)
+2025-04-04 19:38:21,803 - app.superintend.core - DEBUG - Executing groq_chat with model: None
+2025-04-04 19:38:42,425 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-04 19:38:42,695 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-04 19:38:42,696 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-04 19:38:42,710 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-04 19:38:42,710 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-04 19:38:42,710 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-04 19:38:44,014 - app.superintend.core - DEBUG - Made inform of: User with username huh entered chat with Hoodlem (The speaking module of Superintendent)
+2025-04-04 19:38:44,015 - app.superintend.core - DEBUG - Made inform of: User entered chat with Hoodlem (The speaking module of Superintendent)
+2025-04-04 19:39:29,620 - app.superintend.core - DEBUG - Made inform of: User with username huh entered chat with Hoodlem (The speaking module of Superintendent)
+2025-04-04 19:39:29,621 - app.superintend.core - DEBUG - Made inform of: User entered chat with Hoodlem (The speaking module of Superintendent)
+2025-04-04 19:39:34,140 - app.superintend.core - DEBUG - Executing groq_chat with model: None
+2025-04-04 19:39:47,007 - app.superintend.core - DEBUG - Executing groq_chat with model: None
+2025-04-04 19:40:01,856 - app.superintend.core - DEBUG - Executing groq_chat with model: None
+2025-04-04 19:40:32,888 - app.superintend.core - DEBUG - Executing groq_chat with model: None
+2025-04-04 19:41:17,129 - app.superintend.core - DEBUG - Made inform of: New user registered, username: Smingus
+2025-04-04 19:41:22,237 - app.superintend.core - DEBUG - Made inform of: User logged in with username: Smingus
+2025-04-04 19:41:22,249 - app.superintend.core - DEBUG - Made inform of: User visited index, no category selected showing all info
+2025-04-04 19:41:24,696 - app.superintend.core - DEBUG - Made inform of: User with username Smingus entered chat with Hoodlem (The speaking module of Superintendent)
+2025-04-04 19:41:24,696 - app.superintend.core - DEBUG - Made inform of: User entered chat with Hoodlem (The speaking module of Superintendent)
+2025-04-04 19:41:41,019 - app.superintend.core - DEBUG - Executing groq_chat with model: None
+2025-04-04 19:41:43,859 - app.superintend.core - DEBUG - Executing groq_chat with model: None
+2025-04-04 19:42:02,386 - app.superintend.core - DEBUG - Executing groq_chat with model: None
+2025-04-04 19:42:32,602 - app.superintend.core - DEBUG - Executing groq_chat with model: None
+2025-04-04 19:42:44,762 - app.superintend.core - DEBUG - Executing groq_chat with model: None
+2025-04-04 19:42:58,457 - app.superintend.core - DEBUG - Executing groq_chat with model: None
+2025-04-04 19:45:44,038 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-04 19:45:44,366 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-04 19:45:44,367 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-04 19:45:44,386 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-04 19:45:44,386 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-04 19:45:44,387 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-04 19:45:46,753 - app.superintend.core - DEBUG - Made inform of: User visited index, no category selected showing all info
+2025-04-04 19:45:48,936 - app.superintend.core - DEBUG - Made inform of: User with username Smingus entered chat with Hoodlem (The speaking module of Superintendent)
+2025-04-04 19:45:48,937 - app.superintend.core - DEBUG - Made inform of: User entered chat with Hoodlem (The speaking module of Superintendent)
+2025-04-04 19:45:52,623 - app.superintend.core - DEBUG - Executing groq_chat with model: None
+2025-04-04 19:46:12,350 - app.superintend.core - DEBUG - Executing groq_chat with model: None
+2025-04-04 19:46:26,995 - app.superintend.core - DEBUG - Executing groq_chat with model: None
+2025-04-04 19:46:40,495 - app.superintend.core - DEBUG - Executing groq_chat with model: None
+2025-04-04 19:48:12,793 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-04 19:48:13,089 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-04 19:48:13,090 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-04 19:48:13,100 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-04 19:48:13,100 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-04 19:48:13,100 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-04 19:48:14,045 - app.superintend.core - DEBUG - Made inform of: User with username Smingus entered chat with Hoodlem (The speaking module of Superintendent)
+2025-04-04 19:48:14,046 - app.superintend.core - DEBUG - Made inform of: User entered chat with Hoodlem (The speaking module of Superintendent)
+2025-04-04 19:48:17,354 - app.superintend.core - DEBUG - Executing groq_chat with model: None
+2025-04-04 19:48:31,968 - app.superintend.core - DEBUG - Executing groq_chat with model: None
+2025-04-04 19:48:45,377 - app.superintend.core - DEBUG - Executing groq_chat with model: None
+2025-04-04 19:49:34,019 - app.superintend.core - DEBUG - Executing groq_chat with model: None
+2025-04-04 19:49:43,792 - app.superintend.core - DEBUG - Executing groq_chat with model: None
+2025-04-04 19:49:53,845 - app.superintend.core - DEBUG - Made inform of: User with username Smingus entered chat with Hoodlem (The speaking module of Superintendent)
+2025-04-04 19:49:53,846 - app.superintend.core - DEBUG - Made inform of: User entered chat with Hoodlem (The speaking module of Superintendent)

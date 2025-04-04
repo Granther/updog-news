@@ -226,7 +226,7 @@ def gen_schrod_page(app, session_id: str, title: str):
 
 @main.route('/about')
 def about():
-    if current_user.is_authenticated():
+    if current_user.is_authenticated:
         superintend.core.inform(f"User with username {current_user.username} visited about page")
     superintend.core.inform(f"User visited about page")
     return render_template("about.html")
