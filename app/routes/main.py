@@ -44,6 +44,7 @@ def register():
             return render_template("register.html", title='Register', form=form)
 
         user = User(username=form.username.data, password=hashed_password)
+        superintend.core.inform(f"New user registered, username: {form.username.data}")
         db.session.add(user)
         db.session.commit()
         flash('Your account has been created! You can now log in.', 'success')
@@ -57,9 +58,11 @@ def login():
         user = User.query.filter_by(username=form.username.data).first()
         if user and current_app.bcrypt.check_password_hash(user.password, form.password.data):
             login_user(user, remember=form.remember.data)
+            superintend.core.inform(f"User logged in with username: {form.username.data}")
             return redirect(url_for('main.index'))
         else:
             flash('Login Unsuccessful. Please check email and password', 'danger')
+            superintend.core.inform(f"User failed to login with username: {form.username.data}")
 
     return render_template('login.html', title='Login', form=form)
 
@@ -72,10 +75,14 @@ def logout():
 def index():
     error = request.args.get('error')
     if error: 
+        superintend.core.inform(f"User encountered error on index: {error}")
         flash(error, 'danger')
     catagory = request.args.get('catagory')
     if catagory:
+        superintend.core.inform(f"User visited category {catagory} on index")
         catagory = catagory.lower()
+    else:
+        superintend.core.inform(f"User visited index, no category selected showing all info")
 
     report_btn = {"text": "Report for Up Dog News", "url": url_for("main.register")}
     if current_user.is_authenticated:
@@ -92,9 +99,11 @@ def report():
     if form.validate_on_submit():
         try:
             app = current_app._get_current_object()
+            superintend.core.inform(f"User with username: {current_user.username} is submitting story with title: {form.title.data}")
             write_new_story(app, {"title": form.title.data, "reporter": form.reporter_name.data, "personality": form.reporter_personality.data, "catagory": form.catagory.data})
             #put_story({"title": form.title.data, "reporter": form.reporter_name.data, "personality": form.reporter_personality.data, "catagory": form.catagory.data, "user_id": current_user.id})
         except Exception as e:
+            superintend.core.inform(f"User with username: {current_user.username} that attempted to submit story with title: {form.title.data} encountered an error: {e}")
             flash(f'We encountered an error while writing your story, please try again later: {e}', 'danger')
             return redirect(url_for("main.index"))
 
@@ -107,10 +116,11 @@ def interview(uuid: str):
     interview = Interview.query.filter_by(uuid=uuid).first()
     if not interview:
         err = f"Interview uuid: {uuid} does not exist"
+        superintend.core.inform(f"User visited interview with uuid of {uuid}, it does not exist")
         logger.fatal(err)
         flash(err)
         return redirect(url_for("error.html"))
-    
+    superintend.core.inform(f"User visited interview with uuid of {uuid}")
     return render_template("interview.html", interview=interview)
 
 @main.route("/story/<title>")
@@ -120,6 +130,7 @@ def story(title, category=None):
     if not story:
         # Fix title if needed
         title = superintend.fix_schrod_title(title)
+        superintend.core.inform(f"User visited story with title of {title}, the story does not exist so it will be dynamically created")
         # Generate a unique session ID
         session_id = shortuuid.uuid()
         
@@ -146,6 +157,7 @@ def story(title, category=None):
 
         return render_template('waiting.html', session_id=session_id)
     else:
+        superintend.core.inform(f"User visited story with title of {title}")
         # Existing story rendering logic
         timestamp = pretty_timestamp(story.created)
         read_time = "read time"
@@ -214,6 +226,9 @@ def gen_schrod_page(app, session_id: str, title: str):
 
 @main.route('/about')
 def about():
+    if current_user.is_authenticated():
+        superintend.core.inform(f"User with username {current_user.username} visited about page")
+    superintend.core.inform(f"User visited about page")
     return render_template("about.html")
 
 

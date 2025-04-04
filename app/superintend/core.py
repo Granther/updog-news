@@ -141,6 +141,10 @@ class Core:
                 col.add(documents=[item['answer']], metadatas=[{"interview_uuid": uuid, "type": "answer"}], ids=[shortuuid.uuid()])
         threading.Thread(target=_embed, daemon=True).start()
 
+    """ Gets the core context for superintendent """
+    def get_messages(self) -> list:
+        return self.core_messages._get_messages()
+
     """ See if API tokens exist in reponse and call things accordingly """
     def _postproc_chat(self, response: str):
         pass

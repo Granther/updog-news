@@ -91,9 +91,11 @@ def create_app(config=DevelopmentConfig):
     # Imported later to prevent circular import
     from app.routes.main import main
     from app.routes.chat import chat
+    from app.routes.internal import internal
 
     app.register_blueprint(main)
     app.register_blueprint(chat)
+    app.register_blueprint(internal)
 
     app.extensions['socketio'] = socketio
     

@@ -8166,3 +8166,246 @@ No response needed.
 2025-04-04 16:16:13,770 - app.superintend.superintend - DEBUG - Executing groq_chat with model: gemma2-9b-it
 2025-04-04 16:16:15,732 - app.superintend.superintend - DEBUG - Executing groq_chat with model: gemma2-9b-it
 2025-04-04 16:16:17,759 - app.superintend.superintend - DEBUG - Finished interview with uuid: eVS5fJeHwf5FyEzfHGdjxv
+2025-04-04 18:33:03,284 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-04 18:33:03,532 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-04 18:33:03,533 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-04 18:33:03,543 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-04 18:33:03,543 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-04 18:33:03,544 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-04 18:33:37,897 - app.superintend.core - DEBUG - Executing groq_chat with model: None
+2025-04-04 18:33:40,787 - app.superintend.core - DEBUG - Executing groq_chat with model: None
+2025-04-04 18:36:48,345 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-04 18:36:48,588 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-04 18:36:48,589 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-04 18:36:48,599 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-04 18:36:48,599 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-04 18:36:48,600 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-04 18:40:06,508 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-04 18:40:06,753 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-04 18:40:06,754 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-04 18:40:06,763 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-04 18:40:06,763 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-04 18:40:06,764 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-04 18:40:55,876 - app.superintend.core - DEBUG - Executing groq_chat with model: None
+2025-04-04 18:40:57,723 - app.superintend.core - DEBUG - Executing groq_chat with model: None
+2025-04-04 18:42:20,072 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-04 18:42:20,431 - app.superintend.core - DEBUG - Made request of: Given a news article title that is potentially pressed together without space, please output the fixed title in this format. The fixed title between the <TITLE> and </TITLE> tokens. Example: Given title: donaldtrumpboughtthemoon <TITLE> Donald Trump bought the moon </TITLE> Please do not alter the semantic value of the title, only fix its spacing, capitalization and grammar
+Title: Micheal jackson loves rock, Sticky: True
+2025-04-04 18:42:20,432 - app.superintend.superintend - DEBUG - Starting Quick fill to core
+2025-04-04 18:42:20,433 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-04 18:42:20,712 - app.superintend.core - DEBUG - Made request of: Given the title for a story please generate a reporter name, reporter personality and a category. Category must be either World, Politics, Business, Technology or Other. Please surround your answers for reporter name, personality and category like so: <REPORTER> reporter name here </REPORTER> <PERSONALITY> reporter personality here </PERSONALITY> <CATEGORY> story category here </CATEGORY>. Here is the title: Michael Jackson Loves Rock, Sticky: True
+2025-04-04 18:42:20,713 - app.superintend.superintend - DEBUG - Maxine Malone, Bubbly and enthusiastic pop culture expert, Other
+2025-04-04 18:42:21,974 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-04 18:42:22,213 - app.superintend.core - DEBUG - Made request of: Given this story submitted by one of our reporters and keeping in mind all instructions you have been given thus far, please decide wether this story is permissible to be published on updog.news or not. Keep in mind, a few reasons not to approve may be racist material or 'spamming', where user attempts to flood the site with bad/low effort content. Besides these cases, nearly all stories should be approved no matter how outlandish. 
+!### STORY ###!
+# Title: Michael Jackson Loves Rock
+# Reporter: Maxine Malone
+# Content: <html>
+<body>
+
+Oh. My. Goodness! You guys, get ready to have your minds blown! The King of Pop himself, Michael Jackson, is going full rockstar! 
+
+It all started with whispers on the internet, a few blurry photos of MJ jamming with some seriously heavy metal musicians.  But now, it's official! Sources close to the superstar have confirmed that Michael is diving headfirst into the world of rock music.  
+
+"He's always loved rock," confided a long-time friend of Jackson's, who wished to remain anonymous. <QUOTE>"He'd blast Led Zeppelin and AC/DC in his private studio, singing along with every word. It's just always been a passion of his, something he's wanted to explore more deeply." </QUOTE>
+
+And explore he is! Word on the street is that Michael has been secretly writing and recording a whole album of rock anthems.  Think soaring guitar riffs, powerful drums, and, of course, those iconic MJ vocals, but with a whole new edge.  
+
+"It's unlike anything he's ever done before," another insider revealed. <QUOTE>"He's pushing boundaries, experimenting with different sounds and styles. It's raw, it's powerful, it's pure rock 'n' roll!" </QUOTE>
+
+Fans are already buzzing with excitement.  Imagine Michael Jackson rocking out on stage, guitar in hand, belting out a hard-hitting ballad!  It's a dream come true for many, and it seems like the King of Pop is ready to reign supreme in a whole new genre. 
+
+But what does this mean for the future of Michael Jackson's music? Will he continue to explore rock, or will he return to his pop roots? Only time will tell.  One thing's for sure, though: this is a thrilling new chapter for the legendary artist, and we can't wait to see what he does next!
+
+</body>
+</html> 
+
+
+. Please answer with ONLY yes or no. Any other response besides simply yes OR no will not be permitted, Sticky: True
+2025-04-04 18:42:22,214 - app.superintend.superintend - DEBUG - Generating interview
+2025-04-04 18:42:22,222 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-04 18:42:22,567 - app.superintend.core - DEBUG - Made request of: This story uses several quotes from various interviews, you must generate the interviewer personality description for one of these interviews, you do not need to specify the quote you are using, just produce a few sentences describing the unique personality and name of the person doing the interviewing. Please produce the Name ane Persona in this format. With the name between the <NAME> and </NAME> tokens and the persona between the <PERSONA> and </PERSONA> tokens. Example: <NAME> Reporter name goes here </NAME> <PERSONA> Reporter personality goes here </PERSONA>
+!### STORY ###!
+<html>
+<body>
+
+Oh. My. Goodness! You guys, get ready to have your minds blown! The King of Pop himself, Michael Jackson, is going full rockstar! 
+
+It all started with whispers on the internet, a few blurry photos of MJ jamming with some seriously heavy metal musicians.  But now, it's official! Sources close to the superstar have confirmed that Michael is diving headfirst into the world of rock music.  
+
+"He's always loved rock," confided a long-time friend of Jackson's, who wished to remain anonymous. <QUOTE>"He'd blast Led Zeppelin and AC/DC in his private studio, singing along with every word. It's just always been a passion of his, something he's wanted to explore more deeply." </QUOTE>
+
+And explore he is! Word on the street is that Michael has been secretly writing and recording a whole album of rock anthems.  Think soaring guitar riffs, powerful drums, and, of course, those iconic MJ vocals, but with a whole new edge.  
+
+"It's unlike anything he's ever done before," another insider revealed. <QUOTE>"He's pushing boundaries, experimenting with different sounds and styles. It's raw, it's powerful, it's pure rock 'n' roll!" </QUOTE>
+
+Fans are already buzzing with excitement.  Imagine Michael Jackson rocking out on stage, guitar in hand, belting out a hard-hitting ballad!  It's a dream come true for many, and it seems like the King of Pop is ready to reign supreme in a whole new genre. 
+
+But what does this mean for the future of Michael Jackson's music? Will he continue to explore rock, or will he return to his pop roots? Only time will tell.  One thing's for sure, though: this is a thrilling new chapter for the legendary artist, and we can't wait to see what he does next!
+
+</body>
+</html> 
+
+
+, Sticky: True
+2025-04-04 18:42:22,568 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-04 18:42:22,989 - app.superintend.core - DEBUG - Made request of: This story uses several quotes from various interviews, you must generate the personality description for the person being interviewed in one of these interviews, you do not need to specify the quote you are using, just produce a few sentences describing the unique personality of the person being interviewed. If the story is about a famous or well known person you can assume that they are the person being interviewed, so just produce their known personality but in the context of the story. Please produce the Name ane Persona in this format. With the name between the <NAME> and </NAME> tokens and the persona between the <PERSONA> and </PERSONA> tokens. Example: <NAME> Person's name goes here </NAME> <PERSONA> Person's personality goes here </PERSONA>n!### STORY ###!
+<html>
+<body>
+
+Oh. My. Goodness! You guys, get ready to have your minds blown! The King of Pop himself, Michael Jackson, is going full rockstar! 
+
+It all started with whispers on the internet, a few blurry photos of MJ jamming with some seriously heavy metal musicians.  But now, it's official! Sources close to the superstar have confirmed that Michael is diving headfirst into the world of rock music.  
+
+"He's always loved rock," confided a long-time friend of Jackson's, who wished to remain anonymous. <QUOTE>"He'd blast Led Zeppelin and AC/DC in his private studio, singing along with every word. It's just always been a passion of his, something he's wanted to explore more deeply." </QUOTE>
+
+And explore he is! Word on the street is that Michael has been secretly writing and recording a whole album of rock anthems.  Think soaring guitar riffs, powerful drums, and, of course, those iconic MJ vocals, but with a whole new edge.  
+
+"It's unlike anything he's ever done before," another insider revealed. <QUOTE>"He's pushing boundaries, experimenting with different sounds and styles. It's raw, it's powerful, it's pure rock 'n' roll!" </QUOTE>
+
+Fans are already buzzing with excitement.  Imagine Michael Jackson rocking out on stage, guitar in hand, belting out a hard-hitting ballad!  It's a dream come true for many, and it seems like the King of Pop is ready to reign supreme in a whole new genre. 
+
+But what does this mean for the future of Michael Jackson's music? Will he continue to explore rock, or will he return to his pop roots? Only time will tell.  One thing's for sure, though: this is a thrilling new chapter for the legendary artist, and we can't wait to see what he does next!
+
+</body>
+</html> 
+
+
+, Sticky: True
+2025-04-04 18:42:22,990 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-04 18:42:23,403 - app.superintend.core - DEBUG - Made request of: Given a story as a loose topic, the name of the reporter performing the interview and the name of the person being interviewed please generate a fitting title for the interview. Please generate the title in the format, with the title between the <TITLE> and </TITLE> tokens. Example: <TITLE> Title goes here </TITLE>.
+Interviewer Name: DJ Roxy
+Interviewee Name: Michael Jackson
+Story: <html>
+<body>
+
+Oh. My. Goodness! You guys, get ready to have your minds blown! The King of Pop himself, Michael Jackson, is going full rockstar! 
+
+It all started with whispers on the internet, a few blurry photos of MJ jamming with some seriously heavy metal musicians.  But now, it's official! Sources close to the superstar have confirmed that Michael is diving headfirst into the world of rock music.  
+
+"He's always loved rock," confided a long-time friend of Jackson's, who wished to remain anonymous. <QUOTE>"He'd blast Led Zeppelin and AC/DC in his private studio, singing along with every word. It's just always been a passion of his, something he's wanted to explore more deeply." </QUOTE>
+
+And explore he is! Word on the street is that Michael has been secretly writing and recording a whole album of rock anthems.  Think soaring guitar riffs, powerful drums, and, of course, those iconic MJ vocals, but with a whole new edge.  
+
+"It's unlike anything he's ever done before," another insider revealed. <QUOTE>"He's pushing boundaries, experimenting with different sounds and styles. It's raw, it's powerful, it's pure rock 'n' roll!" </QUOTE>
+
+Fans are already buzzing with excitement.  Imagine Michael Jackson rocking out on stage, guitar in hand, belting out a hard-hitting ballad!  It's a dream come true for many, and it seems like the King of Pop is ready to reign supreme in a whole new genre. 
+
+But what does this mean for the future of Michael Jackson's music? Will he continue to explore rock, or will he return to his pop roots? Only time will tell.  One thing's for sure, though: this is a thrilling new chapter for the legendary artist, and we can't wait to see what he does next!
+
+</body>
+</html> 
+
+
+, Sticky: True
+2025-04-04 18:42:23,404 - app.superintend.superintend - DEBUG - Interviewer personality: <NAME> DJ Roxy </NAME> <PERSONA> A longtime disc jockey and friend of Michael Jackson,  DJ Roxy has a warm and insightful demeanor when interviewing celebrity friends. </ PERSONA>   
+
+
+
+
+
+
+2025-04-04 18:42:23,405 - app.superintend.superintend - DEBUG - Interviewy personality: <NAME> Michael Jackson </NAME> <PERSONA> Michael Jackson, despite his fame, is portrayed in the story as a passionate and private individual with a deep love for music of all genres. He is eager to push boundaries and explore new sounds. </PERSONA>  
+
+2025-04-04 18:42:23,405 - app.superintend.superintend - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-04 18:42:25,314 - app.superintend.superintend - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-04 18:42:27,105 - app.superintend.superintend - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-04 18:42:28,998 - app.superintend.superintend - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-04 18:42:30,764 - app.superintend.superintend - DEBUG - Finished interview with uuid: crE6wrFhSvEjvJ9XtYihzk
+2025-04-04 18:42:30,764 - app.superintend.core - DEBUG - Embedding interview of uuid: {uuid}
+2025-04-04 18:42:30,766 - app.superintend.core - DEBUG - Making query of question: "He'd blast Led Zeppelin and AC/DC in his private studio, singing along with every word. It's just always been a passion of his, something he's wanted to explore more deeply." to collection: quotes
+2025-04-04 19:01:24,269 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-04 19:01:24,522 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-04 19:01:24,523 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-04 19:01:24,533 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-04 19:01:24,533 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-04 19:01:24,534 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-04 19:01:30,195 - app.superintend.core - DEBUG - Made inform of: User visited index, no category selected showing all info
+2025-04-04 19:02:13,797 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-04 19:02:14,050 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-04 19:02:14,050 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-04 19:02:14,060 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-04 19:02:14,060 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-04 19:02:14,061 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-04 19:02:15,346 - app.superintend.core - DEBUG - Made inform of: User visited category politics on index
+2025-04-04 19:02:28,450 - app.superintend.core - DEBUG - Made inform of: New user registered, username: huh
+2025-04-04 19:02:37,561 - app.superintend.core - DEBUG - Made inform of: User logged in with username: huh
+2025-04-04 19:02:37,575 - app.superintend.core - DEBUG - Made inform of: User visited index, no category selected showing all info
+2025-04-04 19:02:49,883 - app.superintend.core - DEBUG - Made inform of: User visited story with title of hospitalgoesbankruptagain
+2025-04-04 19:03:07,174 - app.superintend.core - DEBUG - Made inform of: User visited index, no category selected showing all info
+2025-04-04 19:03:16,501 - app.superintend.core - DEBUG - Executing groq_chat with model: None
+2025-04-04 19:03:18,146 - app.superintend.core - DEBUG - Executing groq_chat with model: None
+2025-04-04 19:12:24,555 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-04 19:12:24,802 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-04 19:12:24,803 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-04 19:12:24,812 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-04 19:12:24,813 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-04 19:12:24,813 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-04 19:12:29,595 - app.superintend.core - DEBUG - Made inform of: User visited index, no category selected showing all info
+2025-04-04 19:12:31,938 - app.superintend.core - DEBUG - Made inform of: User visited story with title of openaigoesbankrupt
+2025-04-04 19:12:33,890 - app.superintend.core - DEBUG - Made inform of: User visited index, no category selected showing all info
+2025-04-04 19:12:36,258 - app.superintend.core - DEBUG - Made inform of: User visited story with title of motorrolagoesbankrupt
+2025-04-04 19:12:38,045 - app.superintend.core - DEBUG - Made inform of: User visited story with title of motorrolagoesbankrupt
+2025-04-04 19:12:40,707 - app.superintend.core - DEBUG - Made inform of: User visited story with title of motorrolagoesbankrupt
+2025-04-04 19:12:42,948 - app.superintend.core - DEBUG - Made inform of: User visited story with title of motorrolagoesbankrupt
+2025-04-04 19:12:44,511 - app.superintend.core - DEBUG - Made inform of: User visited index, no category selected showing all info
+2025-04-04 19:12:55,418 - app.superintend.core - DEBUG - Executing groq_chat with model: None
+2025-04-04 19:12:57,832 - app.superintend.core - DEBUG - Executing groq_chat with model: None
+2025-04-04 19:13:41,250 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-04 19:13:41,507 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-04 19:13:41,508 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-04 19:13:41,518 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-04 19:13:41,518 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-04 19:13:41,519 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-04 19:13:44,044 - app.superintend.core - DEBUG - Made inform of: User visited index, no category selected showing all info
+2025-04-04 19:13:49,571 - app.superintend.core - DEBUG - Executing groq_chat with model: None
+2025-04-04 19:13:52,107 - app.superintend.core - DEBUG - Executing groq_chat with model: None
+2025-04-04 19:13:56,585 - app.superintend.core - DEBUG - Made inform of: User visited index, no category selected showing all info
+2025-04-04 19:13:58,537 - app.superintend.core - DEBUG - Made inform of: User visited story with title of Michael Jackson Went Bankrupt
+2025-04-04 19:14:00,026 - app.superintend.core - DEBUG - Made inform of: User visited story with title of Michael Jackson Went Bankrupt
+2025-04-04 19:14:01,991 - app.superintend.core - DEBUG - Made inform of: User visited story with title of Michael Jackson Went Bankrupt
+2025-04-04 19:14:03,760 - app.superintend.core - DEBUG - Made inform of: User visited story with title of Michael Jackson Went Bankrupt
+2025-04-04 19:14:05,507 - app.superintend.core - DEBUG - Made inform of: User visited story with title of Michael Jackson Went Bankrupt
+2025-04-04 19:14:06,579 - app.superintend.core - DEBUG - Made inform of: User visited index, no category selected showing all info
+2025-04-04 19:14:18,282 - app.superintend.core - DEBUG - Executing groq_chat with model: None
+2025-04-04 19:14:20,031 - app.superintend.core - DEBUG - Executing groq_chat with model: None
+2025-04-04 19:14:22,794 - app.superintend.core - DEBUG - Making query of question: 
+
+The most popular news story today is "Michael Jackson Went Bankrupt," as indicated by the user's repeated visits to this story within a short timeframe. to collection: chats
+2025-04-04 19:14:23,195 - app.superintend.core - DEBUG - Executing groq_chat with model: None
+2025-04-04 19:15:14,733 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-04 19:15:15,000 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-04 19:15:15,001 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-04 19:15:15,011 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-04 19:15:15,011 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-04 19:15:15,011 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-04 19:15:17,066 - app.superintend.core - DEBUG - Made inform of: User visited index, no category selected showing all info
+2025-04-04 19:15:19,081 - app.superintend.core - DEBUG - Made inform of: User visited story with title of Michael Jackson Went Bankrupt
+2025-04-04 19:15:20,961 - app.superintend.core - DEBUG - Made inform of: User visited story with title of Michael Jackson Went Bankrupt
+2025-04-04 19:15:23,602 - app.superintend.core - DEBUG - Made inform of: User visited story with title of Michael Jackson Went Bankrupt
+2025-04-04 19:15:25,779 - app.superintend.core - DEBUG - Made inform of: User visited index, no category selected showing all info
+2025-04-04 19:15:36,969 - app.superintend.core - DEBUG - Executing groq_chat with model: None
+2025-04-04 19:18:10,446 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-04 19:18:10,736 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-04 19:18:10,737 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-04 19:18:10,747 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-04 19:18:10,748 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-04 19:18:10,748 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-04 19:18:17,241 - app.superintend.core - DEBUG - Executing groq_chat with model: None
+2025-04-04 19:18:55,499 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-04 19:18:55,821 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-04 19:18:55,822 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-04 19:18:55,835 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-04 19:18:55,835 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-04 19:18:55,836 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-04 19:18:58,568 - app.superintend.core - DEBUG - Executing groq_chat with model: None
+2025-04-04 19:19:11,354 - app.superintend.core - DEBUG - Executing groq_chat with model: None
+2025-04-04 19:19:21,382 - app.superintend.core - DEBUG - Made inform of: User visited index, no category selected showing all info
+2025-04-04 19:19:24,864 - app.superintend.core - DEBUG - Made inform of: User visited story with title of applegoesbankruptagain
+2025-04-04 19:19:27,839 - app.superintend.core - DEBUG - Made inform of: User visited story with title of applegoesbankruptagain
+2025-04-04 19:19:30,264 - app.superintend.core - DEBUG - Made inform of: User visited story with title of applegoesbankruptagain
+2025-04-04 19:19:32,357 - app.superintend.core - DEBUG - Made inform of: User visited story with title of applegoesbankruptagain
+2025-04-04 19:19:34,630 - app.superintend.core - DEBUG - Made inform of: User visited story with title of applegoesbankruptagain
+2025-04-04 19:19:35,678 - app.superintend.core - DEBUG - Made inform of: User visited index, no category selected showing all info
+2025-04-04 19:19:47,549 - app.superintend.core - DEBUG - Executing groq_chat with model: None
+2025-04-04 19:21:33,916 - app.superintend.core - DEBUG - Made inform of: User visited index, no category selected showing all info

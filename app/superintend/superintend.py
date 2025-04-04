@@ -18,6 +18,7 @@ from .utils import stringify, postproc_r1, bool_resp, extract_tok_val, pretty_in
 from app.models import Interview
 from app import db
 from .core import Core
+from .chat import HoodChat
 
 __import__('pysqlite3')
 import sys
@@ -55,6 +56,7 @@ class SuperIntend:
         self.max_interview_q = 2
         self.groq, self.feather = self._init_clients(groq_key, feather_key)
         self.core = Core(self._init_groq_client(groq_core_key))
+        self.hoodlem = HoodChat(ephem_sys_prompt, self.core)
         self.groq_model = "deepseek-r1-distill-qwen-32b"
         self._init_queue()
         logger.debug("Created Superintendent")
@@ -372,6 +374,13 @@ Example:
 User visits hoodlem
 Logic: Dispatches new instance with clean message history
 Not every message should go through the central AI
+
+"""
+
+"""
+
+Ok, so superintend, the high level API is taking care of Chat right now which is wrong.
+Should core do it? Hmmm, no, too low level. Separate class? Yes
 
 """
 
