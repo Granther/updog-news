@@ -14,6 +14,7 @@ from dotenv import load_dotenv
 from app.logger import create_logger
 from .prompts import ephem_sys_prompt, superintend_sys_prompt, bool_question_prompt, build_rag, build_need_rag_prompt, build_allow_story, build_doc_ret_prompt
 from .utils import stringify, postproc_r1, bool_resp
+from .messages import CoreMessages
 
 __import__('pysqlite3')
 import sys
@@ -30,6 +31,7 @@ logger = create_logger(__name__)
 class Core:
     """ Takes a premade groq client """
     def __init__(self, client):
+        self.core_messages = CoreMessages()
         self.messages = list()
         self.collections = dict()
         self.groq = client
@@ -75,21 +77,25 @@ class Core:
     """ Inform the central AI of changes, important data, etc 
         - We dont expect a response, but we see if it does any API calls
         - We call this to inform the model often (ie, user visited page)
+        - Inform does not need a response, we can just add it to the messages, so the next resp will have Informs as context
     """
     def inform(self, data: str):
-        self.messages.append({"role": "system", "content": superintend_sys_prompt})
-        self.messages.append({"role": "user", "content": f"INFORM: {self._add_timestamp(data)}"})
-        resp = self._submit_task(self._groq_chat, (self.messages, self.groq_model)) # Get all toks from R1
-        logger.debug(f"INFORM: {data}\nResponse: {resp}")
-        self.messages.append({"role": "assistant", "content": resp})
+        with self.core_messages as msgs:
+            msgs.append({"role": "user", "content": f"INFORM: {self._add_timestamp(data)}"})
+            self.core_messages.update_timed_msgs(msgs.read_timestamps()) # Update central, merge
 
     """ Request an answer, passing quick forks the conscienceness """
     def request(self, request: str, quick: bool=True):
-        self.messages.append({"role": "system", "content": superintend_sys_prompt})
-        self.messages.append({"role": "user", "content": f"REQUEST: {self._add_timestamp(request)}"})
-        model = (self.quick_model if quick else self.groq_model)
-        resp = self._submit_task(self._groq_chat, (self.messages, model)) # We want to see thinking toks in history
-        self.messages.append({"role": "user", "content": resp})
+        print(request)
+        with self.core_messages as msgs:
+            msgs.append({"role": "system", "content": superintend_sys_prompt})
+            msgs.append({"role": "user", "content": f"REQUEST: {self._add_timestamp(request)}"})
+            model = (self.quick_model if quick else self.groq_model)
+            resp = self._submit_task(self._groq_chat, (msgs.read(), model)) # We want to see thinking toks in history
+            msgs.append({"role": "assistant", "content": resp})
+            self.core_messages.update_timed_msgs(msgs.read_timestamps()) # Update central, merge
+        print(self.core_messages._get_timestamped_msgs())
+        print("Resp here: ", resp)
         return resp
 
     """ Ask the central AI for some data 

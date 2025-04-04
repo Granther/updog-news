@@ -118,6 +118,8 @@ def interview(uuid: str):
 def story(title, category=None):
     story = Story.query.filter_by(title=title).first()
     if not story:
+        # Fix title if needed
+        title = superintend.fix_schrod_title(title)
         # Generate a unique session ID
         session_id = shortuuid.uuid()
         
@@ -144,8 +146,6 @@ def story(title, category=None):
 
         return render_template('waiting.html', session_id=session_id)
     else:
-        title = superintend.fix_schrod_title(title)
-        print("Title: ", title)
         # Existing story rendering logic
         timestamp = pretty_timestamp(story.created)
         read_time = "read time"

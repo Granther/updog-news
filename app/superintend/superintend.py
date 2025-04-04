@@ -314,11 +314,7 @@ class SuperIntend:
 
     """ Since some chat platforms dont allow building a URL with spaces, they must be escaped, basically decompresses a title """
     def fix_schrod_title(self, old_title: str) -> str:
-        #return extract_tok_val(
-        print("WTF: ", build_fix_schrod_title(old_title))
-        print("HERE: ", postproc_r1(self.core.request(build_fix_schrod_title(old_title))))
-        return old_title
-        #, "TITLE", default=old_title)
+        return extract_tok_val(postproc_r1(self.core.request(build_fix_schrod_title(old_title))), "TITLE", default=old_title)
 
     """ Pass in entire story and return wether Super allows it or not """
     def allow_story(self, story) -> bool:
