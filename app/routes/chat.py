@@ -38,8 +38,14 @@ def chat_stream():
 @chat.route("/message/<uuid>", methods=['GET', 'POST'])
 def message(uuid: str):
     message = request.json['message']
-    response = superintend.hoodlem.chat(uuid, message) 
-    return jsonify({"response": response})
+    #response = superintend.hoodlem.chat(uuid, message) 
+    #return jsonify({"response": response})
+    for word in superintend._groq_chat_stream([{"role": "user", "content": message}]):
+        print(word.choices[0].delta.content, end="")
+        print("stop")
+
+    print("here now")
+    return "wut"
 
 @chat.route("/hoodlem")
 def hoodlem():

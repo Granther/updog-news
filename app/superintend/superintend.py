@@ -344,7 +344,8 @@ class SuperIntend:
             messages=messages,
             stream=True,
         )
-
+        return response
+        """
         partial_message = ""
         for chunk in response:
             if chunk.choices[0].delta.content is not None:
@@ -355,7 +356,7 @@ class SuperIntend:
 
         yield "event: end\n"
         yield "data: done\n\n"
-
+        """
 _superintend = SuperIntend(os.environ.get("GROQ_API_KEY"), os.environ.get("FEATHERLESS_API_KEY"), os.environ.get("GROQ_API_KEY"))
 
 """ Makes Superintend singleton, which makes sense """

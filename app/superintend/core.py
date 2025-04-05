@@ -193,6 +193,15 @@ class Core:
                 resp = postproc_r1(resp)
             return resp
 
+    def _groq_chat_stream(self, messages: str, model: str): 
+        stream = self.groq.chat.completions.create(
+            messages=messages,
+            model=self.quick_model,
+            stop=None,
+            stream=True,
+        )
+        return stream
+
     def _fill_chats(self):
         col = self._get_col("chats")
         col.add(documents=["test1", "test2", "test3"], ids=["1", "2", "3"])
