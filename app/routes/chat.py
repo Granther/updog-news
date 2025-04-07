@@ -29,12 +29,27 @@ chat_with_stream(msg), gets added to superintend queue
 When its ready 
 """
 
+two_piece_toks = ["GEN_STORY"]
+one_piece_toks = ["KICK"] 
+
 def clean_tok(tok: str) -> str:
     return tok.replace('\n', '').replace(' ', '').replace('\t', '')
 
-def proc_special(special: str, val: str):
-    print(val)
+def proc_special(special: str, val: str=None):
+    match special:
+        case "KICK":
+            print("Going to kick user")
+            return
 
+    if val is None:
+        raise Exception(f"Token: {special} may expect value, none was passed")
+
+    # 2 Piece token sets
+    match special:
+        case "GEN_STORY":
+            print("Going to generate story: ", val)
+            return
+    
 def next_tok(gen):
     return next(gen).choices[0].delta.content
 
@@ -61,35 +76,39 @@ def message(uuid: str):
             word = next_tok(gen)
             if word is None:
                 break
-            
-            if '<' in word:
-                if '|' in next_tok(gen):
-                    cur_word = ""
-                    i = 0
-                    while i < max_tok_len: # While we are not at the end of token
-                        temp = next_tok(gen)
-                        if '|' in temp:
-                            next_tok(gen) # Purge '>' token
-                            break
-                        cur_word += temp
-                        i += 1
-                    if i == max_tok_len:
-                        raise Exception("Max token len reached while parsing specials")
-                    cur_word = clean_tok(cur_word)
-                    print("Token: ", cur_word)
-                    print(cur_word, cur_special)
+           
+            if '<|' in word or ('<' in word and '|' in next_tok(gen)):
+                cur_word = ""
+                i = 0
+                while i < max_tok_len: # While we are not at the end of token
+                    temp = next_tok(gen)
+                    if '|>' in temp:
+                        break
+                    if '|' in temp:
+                        next_tok(gen) # Purge '>' token
+                        break
+                    cur_word += temp
+                    i += 1
+                if i == max_tok_len:
+                    raise Exception("Max token len reached while parsing specials")
+                cur_word = clean_tok(cur_word)
+                if cur_word in two_piece_toks: # Requires a closing token    
                     if in_special:
                         # Only stop looking for token when we find the right special
-                        if cur_word == cur_special: # If the token we just saw is the last token
+                        if cur_word in cur_special: # If the token we just saw is the last token
                             # Are last
-                            proc_special(cur_word, special_val)
+                            proc_special(cur_word, val=special_val)
                             in_special = False
                             cur_special = ""
                             special_val = ""
                     else: # We are looking at first tok
                         in_special = True
                         cur_special = clean_tok(cur_word)
-                    continue
+                elif cur_word in one_piece_toks: # Only a single toke
+                    proc_special(cur_word)
+                else: 
+                    raise Exception(f"Unknown token: {cur_word}")
+                continue
 
             if in_special:
                 special_val += word

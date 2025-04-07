@@ -58,6 +58,7 @@ class SuperIntend:
         self.core = Core(self._init_groq_client(groq_core_key))
         self.hoodlem = HoodChat(ephem_sys_prompt, self.core)
         self.groq_model = "deepseek-r1-distill-qwen-32b"
+        self.quick_model = "gemma2-9b-it"
         self._init_queue()
         logger.debug("Created Superintendent")
     
@@ -340,7 +341,7 @@ class SuperIntend:
 
     def _groq_chat_stream(self, messages: list):
         response = self.groq.chat.completions.create(
-            model=self.groq_model,
+            model=self.quick_model,
             messages=messages,
             stream=True,
         )
