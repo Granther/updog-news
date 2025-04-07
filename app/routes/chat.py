@@ -1,6 +1,7 @@
 import os
 from collections import defaultdict
 import shortuuid
+from queue import Queue
 
 from flask import Blueprint, abort, render_template, session, jsonify, redirect, url_for, current_app, flash, request
 from flask_login import login_required, logout_user, login_user, current_user
@@ -28,6 +29,15 @@ chat_with_stream(msg), gets added to superintend queue
 When its ready 
 """
 
+def clean_tok(tok: str) -> str:
+    return tok.replace('\n', '').replace(' ', '').replace('\t', '')
+
+def proc_special(special: str, val: str):
+    print(val)
+
+def next_tok(gen):
+    return next(gen).choices[0].delta.content
+
 @chat.route("/chat_stream")
 def chat_stream():
  #   with lock:
@@ -40,11 +50,56 @@ def message(uuid: str):
     message = request.json['message']
     #response = superintend.hoodlem.chat(uuid, message) 
     #return jsonify({"response": response})
-    for word in superintend._groq_chat_stream([{"role": "user", "content": message}]):
-        print(word.choices[0].delta.content, end="")
-        print("stop")
+    max_tok_len = 10
+    buffer = ""
+    gen = superintend._groq_chat_stream([{"role": "user", "content": message}])
+    cur_special = ""
+    special_val = ""
+    in_special = False
+    while True:
+        try: 
+            word = next_tok(gen)
+            if word is None:
+                break
+            
+            if '<' in word:
+                if '|' in next_tok(gen):
+                    cur_word = ""
+                    i = 0
+                    while i < max_tok_len: # While we are not at the end of token
+                        temp = next_tok(gen)
+                        if '|' in temp:
+                            next_tok(gen) # Purge '>' token
+                            break
+                        cur_word += temp
+                        i += 1
+                    if i == max_tok_len:
+                        raise Exception("Max token len reached while parsing specials")
+                    cur_word = clean_tok(cur_word)
+                    print("Token: ", cur_word)
+                    print(cur_word, cur_special)
+                    if in_special:
+                        # Only stop looking for token when we find the right special
+                        if cur_word == cur_special: # If the token we just saw is the last token
+                            # Are last
+                            proc_special(cur_word, special_val)
+                            in_special = False
+                            cur_special = ""
+                            special_val = ""
+                    else: # We are looking at first tok
+                        in_special = True
+                        cur_special = clean_tok(cur_word)
+                    continue
 
-    print("here now")
+            if in_special:
+                special_val += word
+                continue
+
+            buffer += word
+        except Exception as e:
+            print(e)
+            break
+    print(buffer)
     return "wut"
 
 @chat.route("/hoodlem")
