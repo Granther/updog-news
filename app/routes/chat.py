@@ -3,7 +3,7 @@ from collections import defaultdict
 import shortuuid
 from queue import Queue
 
-from flask import Blueprint, abort, render_template, session, jsonify, redirect, url_for, current_app, flash, request
+from flask import Blueprint, abort, render_template, session, jsonify, redirect, url_for, current_app, flash, requeststream_with_context, Response
 from flask_login import login_required, logout_user, login_user, current_user
 from concurrent.futures import ThreadPoolExecutor
 from multiprocessing import Process, Queue
@@ -53,24 +53,23 @@ def proc_special(special: str, val: str=None):
 def next_tok(gen):
     return next(gen).choices[0].delta.content
 
-@chat.route("/chat_stream")
-def chat_stream():
- #   with lock:
-    json_str = request.args.get('formdata')
-    data = json.loads(json_str)
-#        return Response(stream_with_context(superintend.chat_with_stream
-
-@chat.route("/message/<uuid>", methods=['GET', 'POST'])
-def message(uuid: str):
-    message = request.json['message']
-    #response = superintend.hoodlem.chat(uuid, message) 
-    #return jsonify({"response": response})
+def chat_tok_generator(message: str):
     max_tok_len = 10
     buffer = ""
     gen = superintend._groq_chat_stream([{"role": "user", "content": message}])
     cur_special = ""
     special_val = ""
     in_special = False
+    special_return = ""
+    """
+    While the generator is still producing words or an exception is not occuring continue 
+    If we see the start of a token, <|, we enter it and read its contents until we see it close
+    or we reach the max tok len. If the token is a single, we proc it without a val
+    If its a double we set in_special=True and read everything in between that token and the 
+    next identical token into special_val. This is used to proc after we close
+
+    Exceptions can occur if we encounter and unknown token or a token that is too long
+    """
     while True:
         try: 
             word = next_tok(gen)
@@ -113,13 +112,25 @@ def message(uuid: str):
             if in_special:
                 special_val += word
                 continue
-
-            buffer += word
+            
+            yield word
+            #buffer += word
         except Exception as e:
             print(e)
             break
-    print(buffer)
-    return "wut"
+
+@chat.route("/chat_stream/<uuid>")
+def chat_stream(uuid: str):
+    return Response(stream_with_context(chat_tok_generator(message))
+
+@chat.route("/message/<uuid>", methods=['GET', 'POST'])
+def message(uuid: str):
+    #message = request.json['message']
+    #response = superintend.hoodlem.chat(uuid, message) 
+#    return jsonify({"response": response})
+    chat_stream()
+    return jsonify({"response": ""})
+    #return Response(stream_with_context(chat_tok_generator(message))
 
 @chat.route("/hoodlem")
 def hoodlem():

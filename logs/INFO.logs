@@ -8905,3 +8905,9 @@ The most popular news story today is "Michael Jackson Went Bankrupt," as indicat
 2025-04-07 01:53:41,468 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
 2025-04-07 01:53:41,468 - app.superintend.superintend - DEBUG - Initializing chat queue
 2025-04-07 01:53:41,468 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-07 02:04:20,573 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-07 02:04:20,777 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-07 02:04:20,777 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-07 02:04:20,780 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-07 02:04:20,781 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-07 02:04:20,781 - app.superintend.superintend - DEBUG - Created Superintendent
