@@ -29,18 +29,6 @@
 <script>
     const inputBox = document.getElementById("input-box");
     const chatBox = document.getElementById("chat-box");
-    const eventSrc = new EventSource(`{{ url_for(chat.chat_stream, uuid=uuid) }}?uuid={{ uuid }}`);
-
-    eventSrc.onmessage = function (event) {
-	chatBox.innerHTML += `
-		<div class="flex justify-start">
-		    <div class="bg-gray-100 rounded-lg p-3 max-w-xs lg:max-w-md">
-			<p class="text-gray-800">${event.data}</p>
-			<span class="text-xs text-gray-500 mt-1 block">Just now</span>
-		    </div>
-		</div>
-	    `;
-    }
 
     async function sendData() {
         const userMessage = inputBox.value.trim();
@@ -57,6 +45,11 @@
             </div>
         `;
 
+		// Next AI message
+		const aiMessageBox = document.createElement('div');
+		aiMessageBox.className = 'flex justify-start';
+		aiMessageBox.innerHTML = '';
+
         // Add typing indicator
         const typingIndicator = document.createElement('div');
         typingIndicator.className = 'flex justify-start';
@@ -72,7 +65,7 @@
         const data = { message: userMessage };
 
         try {
-            const response = await fetch('{{ url_for("chat.message", uuid=uuid) }}', {
+            const response = await fetch('{{ url_for("chat.chat_stream") }}', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(data)
@@ -80,20 +73,26 @@
 
             if (!response.ok) throw new Error('Network response was not ok');
 
-            const result = await response.json();
+			const reader = await response.body.getReader();
+			const decoder = new TextDecoder();
+            //const result = await response.json();
 
             // Remove typing indicator
             typingIndicator.remove();
 
-            // Add AI response
-            chatBox.innerHTML += `
-                <div class="flex justify-start">
+			chatBox.appendChild(aiMessageBox);
+
+			while (true) {
+				const { value, done } = await reader.read();
+				if (done) break;
+				const chunk = decoder.decode(value, { stream: true });
+				aiMessageBox.innerHTML = `
                     <div class="bg-gray-100 rounded-lg p-3 max-w-xs lg:max-w-md">
-                        <p class="text-gray-800">${result.response}</p>
+                        <p class="text-gray-800">${chunk}</p>
                         <span class="text-xs text-gray-500 mt-1 block">Just now</span>
                     </div>
-                </div>
-            `;
+				`
+			}
 
             chatBox.scrollTop = chatBox.scrollHeight;
 

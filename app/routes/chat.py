@@ -3,7 +3,7 @@ from collections import defaultdict
 import shortuuid
 from queue import Queue
 
-from flask import Blueprint, abort, render_template, session, jsonify, redirect, url_for, current_app, flash, requeststream_with_context, Response
+from flask import Blueprint, abort, render_template, session, jsonify, redirect, url_for, current_app, flash, request, stream_with_context, Response
 from flask_login import login_required, logout_user, login_user, current_user
 from concurrent.futures import ThreadPoolExecutor
 from multiprocessing import Process, Queue
@@ -35,11 +35,12 @@ one_piece_toks = ["KICK"]
 def clean_tok(tok: str) -> str:
     return tok.replace('\n', '').replace(' ', '').replace('\t', '')
 
-def proc_special(special: str, val: str=None):
+""" Takes a special token, QUOTE, and its val, the value between 2 tokens if another token exists, it returns a string to be appended to buffer in its place """
+def proc_special(special: str, val: str=None) -> str:
     match special:
         case "KICK":
             print("Going to kick user")
-            return
+            return "Gonna kick this asshole"
 
     if val is None:
         raise Exception(f"Token: {special} may expect value, none was passed")
@@ -48,7 +49,9 @@ def proc_special(special: str, val: str=None):
     match special:
         case "GEN_STORY":
             print("Going to generate story: ", val)
-            return
+            huh = f"<a href=http://localhost:5000/story/{val.replace(' ', '')}>{val}</a>"
+            print(huh)
+            return huh
     
 def next_tok(gen):
     return next(gen).choices[0].delta.content
@@ -70,12 +73,13 @@ def chat_tok_generator(message: str):
 
     Exceptions can occur if we encounter and unknown token or a token that is too long
     """
+    buffer = ""
     while True:
         try: 
             word = next_tok(gen)
             if word is None:
                 break
-           
+          
             if '<|' in word or ('<' in word and '|' in next_tok(gen)):
                 cur_word = ""
                 i = 0
@@ -90,21 +94,23 @@ def chat_tok_generator(message: str):
                     i += 1
                 if i == max_tok_len:
                     raise Exception("Max token len reached while parsing specials")
-                cur_word = clean_tok(cur_word)
+                cur_word = clean_tok(cur_word).upper()
                 if cur_word in two_piece_toks: # Requires a closing token    
                     if in_special:
                         # Only stop looking for token when we find the right special
                         if cur_word in cur_special: # If the token we just saw is the last token
                             # Are last
-                            proc_special(cur_word, val=special_val)
+                            buffer += proc_special(cur_word, val=special_val)
                             in_special = False
                             cur_special = ""
                             special_val = ""
+                            yield buffer
                     else: # We are looking at first tok
                         in_special = True
-                        cur_special = clean_tok(cur_word)
+                        cur_special = clean_tok(cur_word).upper()
                 elif cur_word in one_piece_toks: # Only a single toke
-                    proc_special(cur_word)
+                    buffer += proc_special(cur_word)
+                    yield buffer
                 else: 
                     raise Exception(f"Unknown token: {cur_word}")
                 continue
@@ -113,24 +119,29 @@ def chat_tok_generator(message: str):
                 special_val += word
                 continue
             
-            yield word
+            buffer += word
+            print(buffer)
+            yield buffer
             #buffer += word
         except Exception as e:
             print(e)
             break
 
-@chat.route("/chat_stream/<uuid>")
-def chat_stream(uuid: str):
-    return Response(stream_with_context(chat_tok_generator(message))
+@chat.route("/chat_stream", methods=['POST'])
+def chat_stream():
+    msg_data = request.json.get('message')
+    if not msg_data:
+        #print("Did not get message data")
+        return "Missing 'message' in POST data", 400
+
+    return Response(stream_with_context(chat_tok_generator(msg_data)), mimetype='text/html')
 
 @chat.route("/message/<uuid>", methods=['GET', 'POST'])
 def message(uuid: str):
     #message = request.json['message']
     #response = superintend.hoodlem.chat(uuid, message) 
-#    return jsonify({"response": response})
-    chat_stream()
-    return jsonify({"response": ""})
-    #return Response(stream_with_context(chat_tok_generator(message))
+    #return jsonify({"response": response})
+    pass
 
 @chat.route("/hoodlem")
 def hoodlem():

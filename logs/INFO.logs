@@ -8911,3 +8911,337 @@ The most popular news story today is "Michael Jackson Went Bankrupt," as indicat
 2025-04-07 02:04:20,780 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
 2025-04-07 02:04:20,781 - app.superintend.superintend - DEBUG - Initializing chat queue
 2025-04-07 02:04:20,781 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-07 11:36:33,914 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-07 11:36:34,160 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-07 11:36:34,161 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-07 11:36:34,170 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-07 11:36:34,170 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-07 11:36:34,171 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-07 11:43:44,170 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-07 11:43:44,498 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-07 11:43:44,499 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-07 11:43:44,507 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-07 11:43:44,507 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-07 11:43:44,508 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-07 11:44:14,897 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-07 11:44:15,226 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-07 11:44:15,226 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-07 11:44:15,233 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-07 11:44:15,233 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-07 11:44:15,234 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-07 11:44:17,250 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-07 11:44:17,571 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-07 11:44:17,572 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-07 11:44:17,579 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-07 11:44:17,579 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-07 11:44:17,579 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-07 11:44:21,754 - app.superintend.core - DEBUG - Made inform of: User visited index, no category selected showing all info
+2025-04-07 11:44:23,966 - app.superintend.core - DEBUG - Made inform of: User entered chat with Hoodlem (The speaking module of Superintendent)
+2025-04-07 11:44:49,936 - app.superintend.core - DEBUG - Made inform of: User entered chat with Hoodlem (The speaking module of Superintendent)
+2025-04-07 11:45:20,609 - app.superintend.core - DEBUG - Made inform of: User entered chat with Hoodlem (The speaking module of Superintendent)
+2025-04-07 11:46:13,052 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-07 11:46:13,391 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-07 11:46:13,391 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-07 11:46:13,398 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-07 11:46:13,398 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-07 11:46:13,399 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-07 11:46:15,555 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-07 11:46:15,958 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-07 11:46:15,959 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-07 11:46:15,966 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-07 11:46:15,966 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-07 11:46:15,967 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-07 11:46:16,022 - app.superintend.core - DEBUG - Made inform of: User entered chat with Hoodlem (The speaking module of Superintendent)
+2025-04-07 11:46:44,950 - app.superintend.core - DEBUG - Made inform of: User entered chat with Hoodlem (The speaking module of Superintendent)
+2025-04-07 11:47:18,334 - app.superintend.core - DEBUG - Made inform of: User entered chat with Hoodlem (The speaking module of Superintendent)
+2025-04-07 11:49:25,957 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-07 11:49:26,389 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-07 11:49:26,390 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-07 11:49:26,399 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-07 11:49:26,399 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-07 11:49:26,400 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-07 11:49:28,399 - app.superintend.core - DEBUG - Made inform of: User entered chat with Hoodlem (The speaking module of Superintendent)
+2025-04-07 11:56:17,460 - app.superintend.core - DEBUG - Made inform of: User entered chat with Hoodlem (The speaking module of Superintendent)
+2025-04-07 11:57:30,962 - app.superintend.core - DEBUG - Made inform of: User entered chat with Hoodlem (The speaking module of Superintendent)
+2025-04-07 11:57:52,973 - app.superintend.core - DEBUG - Made inform of: User entered chat with Hoodlem (The speaking module of Superintendent)
+2025-04-07 11:59:08,297 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-07 11:59:08,639 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-07 11:59:08,640 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-07 11:59:08,648 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-07 11:59:08,648 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-07 11:59:08,648 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-07 12:01:48,123 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-07 12:01:48,488 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-07 12:01:48,488 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-07 12:01:48,496 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-07 12:01:48,497 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-07 12:01:48,498 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-07 12:01:50,578 - app.superintend.core - DEBUG - Made inform of: User entered chat with Hoodlem (The speaking module of Superintendent)
+2025-04-07 12:02:26,758 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-07 12:02:27,194 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-07 12:02:27,194 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-07 12:02:27,204 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-07 12:02:27,204 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-07 12:02:27,205 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-07 12:02:28,288 - app.superintend.core - DEBUG - Made inform of: User entered chat with Hoodlem (The speaking module of Superintendent)
+2025-04-07 12:03:00,116 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-07 12:03:00,451 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-07 12:03:00,452 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-07 12:03:00,459 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-07 12:03:00,459 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-07 12:03:00,459 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-07 12:04:06,205 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-07 12:04:06,531 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-07 12:04:06,532 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-07 12:04:06,540 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-07 12:04:06,540 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-07 12:04:06,540 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-07 12:05:16,268 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-07 12:05:16,692 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-07 12:05:16,693 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-07 12:05:16,702 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-07 12:05:16,702 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-07 12:05:16,702 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-07 12:05:18,494 - app.superintend.core - DEBUG - Made inform of: User entered chat with Hoodlem (The speaking module of Superintendent)
+2025-04-07 12:06:29,553 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-07 12:06:29,958 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-07 12:06:29,959 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-07 12:06:29,968 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-07 12:06:29,968 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-07 12:06:29,968 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-07 12:06:30,027 - app.superintend.core - DEBUG - Made inform of: User entered chat with Hoodlem (The speaking module of Superintendent)
+2025-04-07 12:07:16,941 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-07 12:07:17,293 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-07 12:07:17,293 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-07 12:07:17,303 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-07 12:07:17,303 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-07 12:07:17,304 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-07 12:07:17,374 - app.superintend.core - DEBUG - Made inform of: User entered chat with Hoodlem (The speaking module of Superintendent)
+2025-04-07 12:08:24,168 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-07 12:08:24,551 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-07 12:08:24,552 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-07 12:08:24,560 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-07 12:08:24,560 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-07 12:08:24,560 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-07 12:08:26,765 - app.superintend.core - DEBUG - Made inform of: User entered chat with Hoodlem (The speaking module of Superintendent)
+2025-04-07 12:09:27,402 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-07 12:09:27,755 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-07 12:09:27,755 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-07 12:09:27,763 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-07 12:09:27,764 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-07 12:09:27,764 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-07 12:11:04,246 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-07 12:11:04,572 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-07 12:11:04,573 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-07 12:11:04,581 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-07 12:11:04,581 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-07 12:11:04,582 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-07 12:11:05,446 - app.superintend.core - DEBUG - Made inform of: User entered chat with Hoodlem (The speaking module of Superintendent)
+2025-04-07 12:12:46,523 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-07 12:12:46,861 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-07 12:12:46,861 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-07 12:12:46,870 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-07 12:12:46,870 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-07 12:12:46,871 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-07 12:12:46,939 - app.superintend.core - DEBUG - Made inform of: User entered chat with Hoodlem (The speaking module of Superintendent)
+2025-04-07 12:16:23,902 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-07 12:16:24,309 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-07 12:16:24,310 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-07 12:16:24,327 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-07 12:16:24,327 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-07 12:16:24,328 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-07 12:16:27,789 - app.superintend.core - DEBUG - Made inform of: User entered chat with Hoodlem (The speaking module of Superintendent)
+2025-04-07 12:17:12,046 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-07 12:17:12,421 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-07 12:17:12,422 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-07 12:17:12,430 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-07 12:17:12,430 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-07 12:17:12,431 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-07 12:23:01,256 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-07 12:23:01,616 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-07 12:23:01,617 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-07 12:23:01,625 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-07 12:23:01,626 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-07 12:23:01,626 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-07 12:23:01,678 - app.superintend.core - DEBUG - Made inform of: User entered chat with Hoodlem (The speaking module of Superintendent)
+2025-04-07 12:24:34,677 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-07 12:24:35,017 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-07 12:24:35,018 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-07 12:24:35,025 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-07 12:24:35,025 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-07 12:24:35,025 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-07 12:24:57,425 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-07 12:24:57,806 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-07 12:24:57,807 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-07 12:24:57,816 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-07 12:24:57,816 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-07 12:24:57,817 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-07 12:25:24,783 - app.superintend.core - DEBUG - Made inform of: User entered chat with Hoodlem (The speaking module of Superintendent)
+2025-04-07 12:25:34,966 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-07 12:25:35,312 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-07 12:25:35,312 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-07 12:25:35,320 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-07 12:25:35,320 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-07 12:25:35,320 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-07 12:25:35,367 - app.superintend.core - DEBUG - Made inform of: User entered chat with Hoodlem (The speaking module of Superintendent)
+2025-04-07 12:25:41,275 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-07 12:25:41,629 - app.superintend.core - DEBUG - Made request of: Given a news article title that is potentially pressed together without space, please output the fixed title in this format. The fixed title between the <TITLE> and </TITLE> tokens. Example: Given title: donaldtrumpboughtthemoon <TITLE> Donald Trump bought the moon </TITLE> Please do not alter the semantic value of the title, only fix its spacing, capitalization and grammar
+Title: Asnailracedacheetah, Sticky: True
+2025-04-07 12:25:41,629 - app.superintend.core - DEBUG - Made inform of: User visited story with title of A snail raced a cheetah, the story does not exist so it will be dynamically created
+2025-04-07 12:25:41,629 - app.superintend.superintend - DEBUG - Starting Quick fill to core
+2025-04-07 12:25:41,630 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-07 12:25:41,902 - app.superintend.core - DEBUG - Made request of: Given the title for a story please generate a reporter name, reporter personality and a category. Category must be either World, Politics, Business, Technology or Other. Please surround your answers for reporter name, personality and category like so: <REPORTER> reporter name here </REPORTER> <PERSONALITY> reporter personality here </PERSONALITY> <CATEGORY> story category here </CATEGORY>. Here is the title: A snail raced a cheetah, Sticky: True
+2025-04-07 12:25:41,902 - app.superintend.superintend - DEBUG - Barnaby Quill, Quirky, loves unusual stories, Other
+2025-04-07 12:25:43,577 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-07 12:25:44,494 - app.superintend.core - DEBUG - Made request of: Given this story submitted by one of our reporters and keeping in mind all instructions you have been given thus far, please decide wether this story is permissible to be published on updog.news or not. Keep in mind, a few reasons not to approve may be racist material or 'spamming', where user attempts to flood the site with bad/low effort content. Besides these cases, nearly all stories should be approved no matter how outlandish. 
+!### STORY ###!
+# Title: A snail raced a cheetah
+# Reporter: Barnaby Quill
+# Content: <html>
+<body>
+
+<p>In a truly bizarre event that has left the internet buzzing, a snail and a cheetah faced off in a race yesterday at the Sunnyside Animal Sanctuary.  While the outcome might seem predictable, the sheer audacity of the event has captured the hearts and imaginations of animal lovers everywhere. </p>
+
+<p>The race, organized by the sanctuary's eccentric founder, Ms. Penelope Featherbottom, was billed as "The Ultimate Underdog Challenge."  Ms. Featherbottom, known for her unconventional fundraising events, explained her reasoning behind the seemingly impossible matchup.  </p>
+
+<p>"We wanted to celebrate the unique talents of all creatures, big and small," she said with a twinkle in her eye.  <QUOTE>"Sometimes, the slowest and most unassuming creatures can teach us the most valuable lessons about perseverance and determination. </QUOTE>  </p>
+
+<p>The race course, a 100-meter stretch of lush green grass, was meticulously prepared for both competitors. The cheetah, a sleek and powerful male named Bolt, was the clear favorite.  Bolt, however, seemed unfazed by the competition, lazing in the sun moments before the race began.  </p>
+
+<p>The snail, a sturdy little fellow named Shelly, was a local celebrity at the sanctuary, known for his surprisingly quick pace for his species.  Shelly, adorned with a tiny racing helmet, seemed unperturbed by the crowd's excitement, calmly munching on a leaf moments before the starting gun fired.</p>
+
+<p>The starting gun echoed through the sanctuary, and Bolt, with a burst of speed, was off like a shot.  Shelly, meanwhile, began his slow but steady crawl.  The crowd erupted in cheers as Bolt streaked across the finish line in a matter of seconds.  Shelly, however, continued his determined march, his tiny shell gleaming in the sunlight.</p>
+
+<p>Despite the obvious disparity in speed, Shelly's unwavering determination captivated the audience.  Bolt, having already completed the race, seemed to take an interest in Shelly's progress, even pausing to watch the snail inch closer to the finish line. </p>
+
+<p>"I was amazed by Shelly's resilience," said a young girl in the crowd.  <QUOTE>"Even though he was so much slower, he never gave up.  He showed me that it's not always about being the fastest, but about never giving up on your goals. </QUOTE> </p>
+
+<p>Shelly, after what seemed like an eternity, finally crossed the finish line, greeted by thunderous applause from the crowd.  Bolt, with a playful nudge, congratulated Shelly on his accomplishment.  The unlikely duo, a symbol of perseverance and sportsmanship, shared a moment of camaraderie, proving that even the most improbable of races can teach us valuable lessons about ourselves and the world around us.</p>
+
+</body>
+</html> 
+
+
+. Please answer with ONLY yes or no. Any other response besides simply yes OR no will not be permitted, Sticky: True
+2025-04-07 12:25:44,495 - app.superintend.superintend - DEBUG - Generating interview
+2025-04-07 12:25:44,497 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-07 12:25:44,533 - app.superintend.core - DEBUG - Made inform of: User visited story with title of A snail raced a cheetah
+2025-04-07 12:25:44,904 - app.superintend.core - DEBUG - Made request of: This story uses several quotes from various interviews, you must generate the interviewer personality description for one of these interviews, you do not need to specify the quote you are using, just produce a few sentences describing the unique personality and name of the person doing the interviewing. Please produce the Name ane Persona in this format. With the name between the <NAME> and </NAME> tokens and the persona between the <PERSONA> and </PERSONA> tokens. Example: <NAME> Reporter name goes here </NAME> <PERSONA> Reporter personality goes here </PERSONA>
+!### STORY ###!
+<html>
+<body>
+
+<p>In a truly bizarre event that has left the internet buzzing, a snail and a cheetah faced off in a race yesterday at the Sunnyside Animal Sanctuary.  While the outcome might seem predictable, the sheer audacity of the event has captured the hearts and imaginations of animal lovers everywhere. </p>
+
+<p>The race, organized by the sanctuary's eccentric founder, Ms. Penelope Featherbottom, was billed as "The Ultimate Underdog Challenge."  Ms. Featherbottom, known for her unconventional fundraising events, explained her reasoning behind the seemingly impossible matchup.  </p>
+
+<p>"We wanted to celebrate the unique talents of all creatures, big and small," she said with a twinkle in her eye.  <QUOTE>"Sometimes, the slowest and most unassuming creatures can teach us the most valuable lessons about perseverance and determination. </QUOTE>  </p>
+
+<p>The race course, a 100-meter stretch of lush green grass, was meticulously prepared for both competitors. The cheetah, a sleek and powerful male named Bolt, was the clear favorite.  Bolt, however, seemed unfazed by the competition, lazing in the sun moments before the race began.  </p>
+
+<p>The snail, a sturdy little fellow named Shelly, was a local celebrity at the sanctuary, known for his surprisingly quick pace for his species.  Shelly, adorned with a tiny racing helmet, seemed unperturbed by the crowd's excitement, calmly munching on a leaf moments before the starting gun fired.</p>
+
+<p>The starting gun echoed through the sanctuary, and Bolt, with a burst of speed, was off like a shot.  Shelly, meanwhile, began his slow but steady crawl.  The crowd erupted in cheers as Bolt streaked across the finish line in a matter of seconds.  Shelly, however, continued his determined march, his tiny shell gleaming in the sunlight.</p>
+
+<p>Despite the obvious disparity in speed, Shelly's unwavering determination captivated the audience.  Bolt, having already completed the race, seemed to take an interest in Shelly's progress, even pausing to watch the snail inch closer to the finish line. </p>
+
+<p>"I was amazed by Shelly's resilience," said a young girl in the crowd.  <QUOTE>"Even though he was so much slower, he never gave up.  He showed me that it's not always about being the fastest, but about never giving up on your goals. </QUOTE> </p>
+
+<p>Shelly, after what seemed like an eternity, finally crossed the finish line, greeted by thunderous applause from the crowd.  Bolt, with a playful nudge, congratulated Shelly on his accomplishment.  The unlikely duo, a symbol of perseverance and sportsmanship, shared a moment of camaraderie, proving that even the most improbable of races can teach us valuable lessons about ourselves and the world around us.</p>
+
+</body>
+</html> 
+
+
+, Sticky: True
+2025-04-07 12:25:44,905 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-07 12:25:45,416 - app.superintend.core - DEBUG - Made request of: This story uses several quotes from various interviews, you must generate the personality description for the person being interviewed in one of these interviews, you do not need to specify the quote you are using, just produce a few sentences describing the unique personality of the person being interviewed. If the story is about a famous or well known person you can assume that they are the person being interviewed, so just produce their known personality but in the context of the story. Please produce the Name ane Persona in this format. With the name between the <NAME> and </NAME> tokens and the persona between the <PERSONA> and </PERSONA> tokens. Example: <NAME> Person's name goes here </NAME> <PERSONA> Person's personality goes here </PERSONA>n!### STORY ###!
+<html>
+<body>
+
+<p>In a truly bizarre event that has left the internet buzzing, a snail and a cheetah faced off in a race yesterday at the Sunnyside Animal Sanctuary.  While the outcome might seem predictable, the sheer audacity of the event has captured the hearts and imaginations of animal lovers everywhere. </p>
+
+<p>The race, organized by the sanctuary's eccentric founder, Ms. Penelope Featherbottom, was billed as "The Ultimate Underdog Challenge."  Ms. Featherbottom, known for her unconventional fundraising events, explained her reasoning behind the seemingly impossible matchup.  </p>
+
+<p>"We wanted to celebrate the unique talents of all creatures, big and small," she said with a twinkle in her eye.  <QUOTE>"Sometimes, the slowest and most unassuming creatures can teach us the most valuable lessons about perseverance and determination. </QUOTE>  </p>
+
+<p>The race course, a 100-meter stretch of lush green grass, was meticulously prepared for both competitors. The cheetah, a sleek and powerful male named Bolt, was the clear favorite.  Bolt, however, seemed unfazed by the competition, lazing in the sun moments before the race began.  </p>
+
+<p>The snail, a sturdy little fellow named Shelly, was a local celebrity at the sanctuary, known for his surprisingly quick pace for his species.  Shelly, adorned with a tiny racing helmet, seemed unperturbed by the crowd's excitement, calmly munching on a leaf moments before the starting gun fired.</p>
+
+<p>The starting gun echoed through the sanctuary, and Bolt, with a burst of speed, was off like a shot.  Shelly, meanwhile, began his slow but steady crawl.  The crowd erupted in cheers as Bolt streaked across the finish line in a matter of seconds.  Shelly, however, continued his determined march, his tiny shell gleaming in the sunlight.</p>
+
+<p>Despite the obvious disparity in speed, Shelly's unwavering determination captivated the audience.  Bolt, having already completed the race, seemed to take an interest in Shelly's progress, even pausing to watch the snail inch closer to the finish line. </p>
+
+<p>"I was amazed by Shelly's resilience," said a young girl in the crowd.  <QUOTE>"Even though he was so much slower, he never gave up.  He showed me that it's not always about being the fastest, but about never giving up on your goals. </QUOTE> </p>
+
+<p>Shelly, after what seemed like an eternity, finally crossed the finish line, greeted by thunderous applause from the crowd.  Bolt, with a playful nudge, congratulated Shelly on his accomplishment.  The unlikely duo, a symbol of perseverance and sportsmanship, shared a moment of camaraderie, proving that even the most improbable of races can teach us valuable lessons about ourselves and the world around us.</p>
+
+</body>
+</html> 
+
+
+, Sticky: True
+2025-04-07 12:25:45,417 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-07 12:25:45,930 - app.superintend.core - DEBUG - Made request of: Given a story as a loose topic, the name of the reporter performing the interview and the name of the person being interviewed please generate a fitting title for the interview. Please generate the title in the format, with the title between the <TITLE> and </TITLE> tokens. Example: <TITLE> Title goes here </TITLE>.
+Interviewer Name: Lila June
+Interviewee Name: Ms. Penelope Featherbottom
+Story: <html>
+<body>
+
+<p>In a truly bizarre event that has left the internet buzzing, a snail and a cheetah faced off in a race yesterday at the Sunnyside Animal Sanctuary.  While the outcome might seem predictable, the sheer audacity of the event has captured the hearts and imaginations of animal lovers everywhere. </p>
+
+<p>The race, organized by the sanctuary's eccentric founder, Ms. Penelope Featherbottom, was billed as "The Ultimate Underdog Challenge."  Ms. Featherbottom, known for her unconventional fundraising events, explained her reasoning behind the seemingly impossible matchup.  </p>
+
+<p>"We wanted to celebrate the unique talents of all creatures, big and small," she said with a twinkle in her eye.  <QUOTE>"Sometimes, the slowest and most unassuming creatures can teach us the most valuable lessons about perseverance and determination. </QUOTE>  </p>
+
+<p>The race course, a 100-meter stretch of lush green grass, was meticulously prepared for both competitors. The cheetah, a sleek and powerful male named Bolt, was the clear favorite.  Bolt, however, seemed unfazed by the competition, lazing in the sun moments before the race began.  </p>
+
+<p>The snail, a sturdy little fellow named Shelly, was a local celebrity at the sanctuary, known for his surprisingly quick pace for his species.  Shelly, adorned with a tiny racing helmet, seemed unperturbed by the crowd's excitement, calmly munching on a leaf moments before the starting gun fired.</p>
+
+<p>The starting gun echoed through the sanctuary, and Bolt, with a burst of speed, was off like a shot.  Shelly, meanwhile, began his slow but steady crawl.  The crowd erupted in cheers as Bolt streaked across the finish line in a matter of seconds.  Shelly, however, continued his determined march, his tiny shell gleaming in the sunlight.</p>
+
+<p>Despite the obvious disparity in speed, Shelly's unwavering determination captivated the audience.  Bolt, having already completed the race, seemed to take an interest in Shelly's progress, even pausing to watch the snail inch closer to the finish line. </p>
+
+<p>"I was amazed by Shelly's resilience," said a young girl in the crowd.  <QUOTE>"Even though he was so much slower, he never gave up.  He showed me that it's not always about being the fastest, but about never giving up on your goals. </QUOTE> </p>
+
+<p>Shelly, after what seemed like an eternity, finally crossed the finish line, greeted by thunderous applause from the crowd.  Bolt, with a playful nudge, congratulated Shelly on his accomplishment.  The unlikely duo, a symbol of perseverance and sportsmanship, shared a moment of camaraderie, proving that even the most improbable of races can teach us valuable lessons about ourselves and the world around us.</p>
+
+</body>
+</html> 
+
+
+, Sticky: True
+2025-04-07 12:25:45,931 - app.superintend.superintend - DEBUG - Interviewer personality: <NAME>  Lila June </NAME>
+<PERSONA> A bubbly and enthusiastic young girl, around 10 years old, who is clearly starstruck by the event. Lila always sees the good in everything and loves animals. </PERSONA> 
+
+2025-04-07 12:25:45,931 - app.superintend.superintend - DEBUG - Interviewy personality: <NAME> Ms. Penelope Featherbottom </NAME>
+<PERSONA>Quirky and eccentric with a passion for animals and unconventional fundraising.  She is a firm believer that even the most unlikely creatures have potential and aims to celebrate the uniqueness of all living beings. </PERSONA> 
+
+
+
+2025-04-07 12:25:45,931 - app.superintend.superintend - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-07 12:25:47,785 - app.superintend.superintend - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-07 12:25:49,580 - app.superintend.superintend - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-07 12:25:51,426 - app.superintend.superintend - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-07 12:25:53,450 - app.superintend.superintend - DEBUG - Finished interview with uuid: jvXXm9zpdjGU6ieJrbHDFf
+2025-04-07 12:25:53,450 - app.superintend.core - DEBUG - Embedding interview of uuid: {uuid}
+2025-04-07 12:25:53,451 - app.superintend.core - DEBUG - Making query of question: "Sometimes, the slowest and most unassuming creatures can teach us the most valuable lessons about perseverance and determination. to collection: quotes
+2025-04-07 12:29:05,424 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-07 12:29:05,810 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-07 12:29:05,811 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-07 12:29:05,821 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-07 12:29:05,822 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-07 12:29:05,822 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-07 12:32:55,669 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-07 12:32:56,003 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-07 12:32:56,003 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-07 12:32:56,010 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-07 12:32:56,010 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-07 12:32:56,011 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-07 12:32:58,236 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-07 12:32:58,679 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-07 12:32:58,680 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-07 12:32:58,691 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-07 12:32:58,692 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-07 12:32:58,692 - app.superintend.superintend - DEBUG - Created Superintendent
