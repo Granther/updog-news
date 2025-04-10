@@ -81,6 +81,7 @@ def write_new_story(app, item: dict):
     with app.app_context():
         try:
             content = generate_news(item['title'], item['personality'])
+            print("Content: ", content)
             story = Story(title=item['title'], content=content, reporter=item['reporter'], catagory=item['catagory'])
             if not superintend.allow_story(story):
                 raise Exception("Superintendent denied your story")

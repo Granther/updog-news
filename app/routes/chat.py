@@ -49,18 +49,17 @@ def proc_special(special: str, val: str=None) -> str:
     match special:
         case "GEN_STORY":
             print("Going to generate story: ", val)
-            huh = f"<a href=http://localhost:5000/story/{val.replace(' ', '')}>{val}</a>"
+            huh = f"<strong><a href=http://localhost:5000/story/{val.replace(' ', '')}>{val}</a></strong>"
             print(huh)
             return huh
     
 def next_tok(gen):
     return next(gen).choices[0].delta.content
 
-def chat_tok_generator(message: str):
+def chat_tok_generator(uuid: str, message: str):
     max_tok_len = 10
     buffer = ""
-    gan = superintend.chat_stream()
-    gen = superintend._groq_chat_stream([{"role": "user", "content": message}])
+    gen = superintend.hoodlem.chat_stream(uuid, message)
     cur_special = ""
     special_val = ""
     in_special = False
@@ -96,6 +95,7 @@ def chat_tok_generator(message: str):
                 if i == max_tok_len:
                     raise Exception("Max token len reached while parsing specials")
                 cur_word = clean_tok(cur_word).upper()
+                print("Cur_word: ", cur_word)
                 if cur_word in two_piece_toks: # Requires a closing token    
                     if in_special:
                         # Only stop looking for token when we find the right special
@@ -105,13 +105,17 @@ def chat_tok_generator(message: str):
                             in_special = False
                             cur_special = ""
                             special_val = ""
+                            print("if buf: ", buffer)
                             yield buffer
+                            continue
                     else: # We are looking at first tok
                         in_special = True
                         cur_special = clean_tok(cur_word).upper()
                 elif cur_word in one_piece_toks: # Only a single toke
                     buffer += proc_special(cur_word)
+                    print("elif buf: ", buffer)
                     yield buffer
+                    continue
                 else: 
                     raise Exception(f"Unknown token: {cur_word}")
                 continue
@@ -121,21 +125,19 @@ def chat_tok_generator(message: str):
                 continue
             
             buffer += word
-            print(buffer)
+            #print(buffer)
             yield buffer
             #buffer += word
         except Exception as e:
-            print(e)
             break
 
 @chat.route("/chat_stream", methods=['POST'])
 def chat_stream():
     msg_data = request.json.get('message')
     uuid = request.json.get('uuid')
-    print(uuid)
     if not msg_data:
         return "Missing 'message' in POST data", 400
-    return Response(stream_with_context(chat_tok_generator(msg_data)), mimetype='text/html')
+    return Response(stream_with_context(chat_tok_generator(uuid, msg_data)), mimetype='text/html')
 
 @chat.route("/message/<uuid>", methods=['GET', 'POST'])
 def message(uuid: str):

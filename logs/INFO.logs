@@ -9284,3 +9284,615 @@ Story: <html>
 2025-04-09 16:34:16,492 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
 2025-04-09 16:34:16,492 - app.superintend.superintend - DEBUG - Initializing chat queue
 2025-04-09 16:34:16,492 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-10 16:25:59,814 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-10 16:26:00,154 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-10 16:26:00,155 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-10 16:26:00,162 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-10 16:26:00,162 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-10 16:26:00,163 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-10 16:26:02,665 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-10 16:26:03,130 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-10 16:26:03,131 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-10 16:26:03,148 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-10 16:26:03,148 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-10 16:26:03,149 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-10 16:26:03,521 - app.superintend.core - DEBUG - Made inform of: User visited index, no category selected showing all info
+2025-04-10 16:26:06,563 - app.superintend.core - DEBUG - Made inform of: User visited story with title of applegoesbankruptagain
+2025-04-10 16:26:09,036 - app.superintend.core - DEBUG - Made inform of: User visited index, no category selected showing all info
+2025-04-10 16:26:10,416 - app.superintend.core - DEBUG - Made inform of: User entered chat with Hoodlem (The speaking module of Superintendent)
+2025-04-10 16:29:56,357 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-10 16:29:56,798 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-10 16:29:56,799 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-10 16:29:56,812 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-10 16:29:56,813 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-10 16:29:56,813 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-10 16:29:59,147 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-10 16:29:59,494 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-10 16:29:59,494 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-10 16:29:59,502 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-10 16:29:59,502 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-10 16:29:59,503 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-10 16:29:59,548 - app.superintend.core - DEBUG - Made inform of: User entered chat with Hoodlem (The speaking module of Superintendent)
+2025-04-10 16:30:36,680 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-10 16:30:37,027 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-10 16:30:37,028 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-10 16:30:37,037 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-10 16:30:37,038 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-10 16:30:37,038 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-10 16:30:37,091 - app.superintend.core - DEBUG - Made inform of: User entered chat with Hoodlem (The speaking module of Superintendent)
+2025-04-10 16:30:58,839 - app.superintend.core - DEBUG - Made inform of: User entered chat with Hoodlem (The speaking module of Superintendent)
+2025-04-10 16:33:26,746 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-10 16:33:27,101 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-10 16:33:27,102 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-10 16:33:27,109 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-10 16:33:27,109 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-10 16:33:27,110 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-10 16:37:32,461 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-10 16:37:32,817 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-10 16:37:32,817 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-10 16:37:32,825 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-10 16:37:32,825 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-10 16:37:32,826 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-10 16:37:35,175 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-10 16:37:35,550 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-10 16:37:35,551 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-10 16:37:35,559 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-10 16:37:35,559 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-10 16:37:35,560 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-10 16:37:35,610 - app.superintend.core - DEBUG - Made inform of: User entered chat with Hoodlem (The speaking module of Superintendent)
+2025-04-10 16:39:16,574 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-10 16:39:17,284 - app.superintend.core - DEBUG - Made request of: Given a news article title that is potentially pressed together without space, please output the fixed title in this format. The fixed title between the <TITLE> and </TITLE> tokens. Example: Given title: donaldtrumpboughtthemoon <TITLE> Donald Trump bought the moon </TITLE> Please do not alter the semantic value of the title, only fix its spacing, capitalization and grammar
+Title: DonaldTrump'sTinyTot, Sticky: True
+2025-04-10 16:39:17,285 - app.superintend.core - DEBUG - Made inform of: User visited story with title of Donald Trump's Tiny Tot, the story does not exist so it will be dynamically created
+2025-04-10 16:39:17,287 - app.superintend.superintend - DEBUG - Starting Quick fill to core
+2025-04-10 16:39:17,289 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-10 16:39:17,691 - app.superintend.core - DEBUG - Made request of: Given the title for a story please generate a reporter name, reporter personality and a category. Category must be either World, Politics, Business, Technology or Other. Please surround your answers for reporter name, personality and category like so: <REPORTER> reporter name here </REPORTER> <PERSONALITY> reporter personality here </PERSONALITY> <CATEGORY> story category here </CATEGORY>. Here is the title: Donald Trump's Tiny Tot, Sticky: True
+2025-04-10 16:39:17,691 - app.superintend.superintend - DEBUG - Tiffany Hayes, Aggressive Questioner, Other
+2025-04-10 16:39:19,526 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-10 16:39:19,819 - app.superintend.core - DEBUG - Made request of: Given this story submitted by one of our reporters and keeping in mind all instructions you have been given thus far, please decide wether this story is permissible to be published on updog.news or not. Keep in mind, a few reasons not to approve may be racist material or 'spamming', where user attempts to flood the site with bad/low effort content. Besides these cases, nearly all stories should be approved no matter how outlandish. 
+!### STORY ###!
+# Title: Donald Trump's Tiny Tot
+# Reporter: Tiffany Hayes
+# Content: <html>
+<body>
+
+The whispers started subtly, a murmur amongst the political pundits, a raised eyebrow in the halls of Congress.  Now, they've erupted into a full-blown storm.  Donald Trump Jr., the eldest son of the former president, has been caught in a web of controversy, his actions raising serious questions about his fitness to lead. 
+
+The allegations are numerous and damning.  Sources close to the Trump family allege that Don Jr., despite his public persona of a rugged outdoorsman, has been embroiled in a series of questionable business dealings, some bordering on outright illegal.  These dealings, they claim, involve a complex web of shell corporations, offshore accounts, and dubious investments, all designed to funnel money away from legitimate sources and into the pockets of the Trump family.
+
+"We're talking about millions, possibly billions, of dollars," one source, who wished to remain anonymous for fear of retribution, told me.  "This isn't just about a few shady deals; this is about a systematic effort to enrich themselves at the expense of the American people."
+
+When confronted with these allegations, Don Jr. dismissed them as "fake news" and "witch hunts" orchestrated by his political enemies.  He has repeatedly denied any wrongdoing, claiming that his business ventures are completely legitimate and above board.
+
+But the evidence paints a different picture.  Leaked documents obtained by this publication reveal a trail of financial transactions that raise serious red flags.  There are suspicious payments to foreign entities, unexplained transfers of funds, and a pattern of aggressive tax avoidance.
+
+<QUOTE> "These allegations are baseless and completely fabricated," Don Jr. told me in a brief statement.  "I am a successful businessman, and I have always operated within the law." </QUOTE>
+
+However, legal experts are not so convinced.  Several prominent attorneys have expressed concern about the potential for criminal charges against Don Jr.  They point to the numerous red flags in the leaked documents and argue that the evidence suggests a deliberate attempt to defraud the government and the public.
+
+"This is not just about bad business practices; this is about potential criminal activity," said one attorney, who spoke on condition of anonymity.  "The evidence suggests that Don Jr. may have engaged in a pattern of fraud and money laundering, and he could face serious legal consequences."
+
+The fallout from this scandal is likely to be significant.  It could damage the already tarnished reputation of the Trump family and further erode public trust in the political system.  It could also lead to a major legal battle, with Don Jr. fighting to clear his name and the government seeking to hold him accountable for his alleged actions.
+
+One thing is certain: the story of Donald Trump Jr. is far from over.
+
+
+</body>
+</html> 
+. Please answer with ONLY yes or no. Any other response besides simply yes OR no will not be permitted, Sticky: True
+2025-04-10 16:39:19,820 - app.superintend.superintend - DEBUG - Generating interview
+2025-04-10 16:39:19,826 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-10 16:39:19,905 - app.superintend.core - DEBUG - Made inform of: User visited story with title of Donald Trump's Tiny Tot
+2025-04-10 16:39:20,327 - app.superintend.core - DEBUG - Made request of: This story uses several quotes from various interviews, you must generate the interviewer personality description for one of these interviews, you do not need to specify the quote you are using, just produce a few sentences describing the unique personality and name of the person doing the interviewing. Please produce the Name ane Persona in this format. With the name between the <NAME> and </NAME> tokens and the persona between the <PERSONA> and </PERSONA> tokens. Example: <NAME> Reporter name goes here </NAME> <PERSONA> Reporter personality goes here </PERSONA>
+!### STORY ###!
+<html>
+<body>
+
+The whispers started subtly, a murmur amongst the political pundits, a raised eyebrow in the halls of Congress.  Now, they've erupted into a full-blown storm.  Donald Trump Jr., the eldest son of the former president, has been caught in a web of controversy, his actions raising serious questions about his fitness to lead. 
+
+The allegations are numerous and damning.  Sources close to the Trump family allege that Don Jr., despite his public persona of a rugged outdoorsman, has been embroiled in a series of questionable business dealings, some bordering on outright illegal.  These dealings, they claim, involve a complex web of shell corporations, offshore accounts, and dubious investments, all designed to funnel money away from legitimate sources and into the pockets of the Trump family.
+
+"We're talking about millions, possibly billions, of dollars," one source, who wished to remain anonymous for fear of retribution, told me.  "This isn't just about a few shady deals; this is about a systematic effort to enrich themselves at the expense of the American people."
+
+When confronted with these allegations, Don Jr. dismissed them as "fake news" and "witch hunts" orchestrated by his political enemies.  He has repeatedly denied any wrongdoing, claiming that his business ventures are completely legitimate and above board.
+
+But the evidence paints a different picture.  Leaked documents obtained by this publication reveal a trail of financial transactions that raise serious red flags.  There are suspicious payments to foreign entities, unexplained transfers of funds, and a pattern of aggressive tax avoidance.
+
+<QUOTE> "These allegations are baseless and completely fabricated," Don Jr. told me in a brief statement.  "I am a successful businessman, and I have always operated within the law." </QUOTE>
+
+However, legal experts are not so convinced.  Several prominent attorneys have expressed concern about the potential for criminal charges against Don Jr.  They point to the numerous red flags in the leaked documents and argue that the evidence suggests a deliberate attempt to defraud the government and the public.
+
+"This is not just about bad business practices; this is about potential criminal activity," said one attorney, who spoke on condition of anonymity.  "The evidence suggests that Don Jr. may have engaged in a pattern of fraud and money laundering, and he could face serious legal consequences."
+
+The fallout from this scandal is likely to be significant.  It could damage the already tarnished reputation of the Trump family and further erode public trust in the political system.  It could also lead to a major legal battle, with Don Jr. fighting to clear his name and the government seeking to hold him accountable for his alleged actions.
+
+One thing is certain: the story of Donald Trump Jr. is far from over.
+
+
+</body>
+</html> 
+, Sticky: True
+2025-04-10 16:39:20,328 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-10 16:39:20,954 - app.superintend.core - DEBUG - Made request of: This story uses several quotes from various interviews, you must generate the personality description for the person being interviewed in one of these interviews, you do not need to specify the quote you are using, just produce a few sentences describing the unique personality of the person being interviewed. If the story is about a famous or well known person you can assume that they are the person being interviewed, so just produce their known personality but in the context of the story. Please produce the Name ane Persona in this format. With the name between the <NAME> and </NAME> tokens and the persona between the <PERSONA> and </PERSONA> tokens. Example: <NAME> Person's name goes here </NAME> <PERSONA> Person's personality goes here </PERSONA>n!### STORY ###!
+<html>
+<body>
+
+The whispers started subtly, a murmur amongst the political pundits, a raised eyebrow in the halls of Congress.  Now, they've erupted into a full-blown storm.  Donald Trump Jr., the eldest son of the former president, has been caught in a web of controversy, his actions raising serious questions about his fitness to lead. 
+
+The allegations are numerous and damning.  Sources close to the Trump family allege that Don Jr., despite his public persona of a rugged outdoorsman, has been embroiled in a series of questionable business dealings, some bordering on outright illegal.  These dealings, they claim, involve a complex web of shell corporations, offshore accounts, and dubious investments, all designed to funnel money away from legitimate sources and into the pockets of the Trump family.
+
+"We're talking about millions, possibly billions, of dollars," one source, who wished to remain anonymous for fear of retribution, told me.  "This isn't just about a few shady deals; this is about a systematic effort to enrich themselves at the expense of the American people."
+
+When confronted with these allegations, Don Jr. dismissed them as "fake news" and "witch hunts" orchestrated by his political enemies.  He has repeatedly denied any wrongdoing, claiming that his business ventures are completely legitimate and above board.
+
+But the evidence paints a different picture.  Leaked documents obtained by this publication reveal a trail of financial transactions that raise serious red flags.  There are suspicious payments to foreign entities, unexplained transfers of funds, and a pattern of aggressive tax avoidance.
+
+<QUOTE> "These allegations are baseless and completely fabricated," Don Jr. told me in a brief statement.  "I am a successful businessman, and I have always operated within the law." </QUOTE>
+
+However, legal experts are not so convinced.  Several prominent attorneys have expressed concern about the potential for criminal charges against Don Jr.  They point to the numerous red flags in the leaked documents and argue that the evidence suggests a deliberate attempt to defraud the government and the public.
+
+"This is not just about bad business practices; this is about potential criminal activity," said one attorney, who spoke on condition of anonymity.  "The evidence suggests that Don Jr. may have engaged in a pattern of fraud and money laundering, and he could face serious legal consequences."
+
+The fallout from this scandal is likely to be significant.  It could damage the already tarnished reputation of the Trump family and further erode public trust in the political system.  It could also lead to a major legal battle, with Don Jr. fighting to clear his name and the government seeking to hold him accountable for his alleged actions.
+
+One thing is certain: the story of Donald Trump Jr. is far from over.
+
+
+</body>
+</html> 
+, Sticky: True
+2025-04-10 16:39:20,954 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-10 16:39:21,446 - app.superintend.core - DEBUG - Made request of: Given a story as a loose topic, the name of the reporter performing the interview and the name of the person being interviewed please generate a fitting title for the interview. Please generate the title in the format, with the title between the <TITLE> and </TITLE> tokens. Example: <TITLE> Title goes here </TITLE>.
+Interviewer Name: Leslie Barnes
+Interviewee Name: Donald Trump Jr.
+Story: <html>
+<body>
+
+The whispers started subtly, a murmur amongst the political pundits, a raised eyebrow in the halls of Congress.  Now, they've erupted into a full-blown storm.  Donald Trump Jr., the eldest son of the former president, has been caught in a web of controversy, his actions raising serious questions about his fitness to lead. 
+
+The allegations are numerous and damning.  Sources close to the Trump family allege that Don Jr., despite his public persona of a rugged outdoorsman, has been embroiled in a series of questionable business dealings, some bordering on outright illegal.  These dealings, they claim, involve a complex web of shell corporations, offshore accounts, and dubious investments, all designed to funnel money away from legitimate sources and into the pockets of the Trump family.
+
+"We're talking about millions, possibly billions, of dollars," one source, who wished to remain anonymous for fear of retribution, told me.  "This isn't just about a few shady deals; this is about a systematic effort to enrich themselves at the expense of the American people."
+
+When confronted with these allegations, Don Jr. dismissed them as "fake news" and "witch hunts" orchestrated by his political enemies.  He has repeatedly denied any wrongdoing, claiming that his business ventures are completely legitimate and above board.
+
+But the evidence paints a different picture.  Leaked documents obtained by this publication reveal a trail of financial transactions that raise serious red flags.  There are suspicious payments to foreign entities, unexplained transfers of funds, and a pattern of aggressive tax avoidance.
+
+<QUOTE> "These allegations are baseless and completely fabricated," Don Jr. told me in a brief statement.  "I am a successful businessman, and I have always operated within the law." </QUOTE>
+
+However, legal experts are not so convinced.  Several prominent attorneys have expressed concern about the potential for criminal charges against Don Jr.  They point to the numerous red flags in the leaked documents and argue that the evidence suggests a deliberate attempt to defraud the government and the public.
+
+"This is not just about bad business practices; this is about potential criminal activity," said one attorney, who spoke on condition of anonymity.  "The evidence suggests that Don Jr. may have engaged in a pattern of fraud and money laundering, and he could face serious legal consequences."
+
+The fallout from this scandal is likely to be significant.  It could damage the already tarnished reputation of the Trump family and further erode public trust in the political system.  It could also lead to a major legal battle, with Don Jr. fighting to clear his name and the government seeking to hold him accountable for his alleged actions.
+
+One thing is certain: the story of Donald Trump Jr. is far from over.
+
+
+</body>
+</html> 
+, Sticky: True
+2025-04-10 16:39:21,447 - app.superintend.superintend - DEBUG - Interviewer personality: <NAME>  Leslie Barnes </NAME>
+<PERSONA> Leslie is a very straight to the point reporter, with little patience for non-answers and long-winded. </PERSONA> 
+ 
+
+
+
+2025-04-10 16:39:21,447 - app.superintend.superintend - DEBUG - Interviewy personality: <NAME> Donald Trump Jr. </NAME>
+<PERSONA>  Donald Trump Jr. comes across as confident bordering on arrogant. He rarely backs down from a challenge and enjoys portraying himself as being above reproach.  He'll likely deflect any serious questions and stick to attacking his detractors rather than substantiating his claims.  </PERSONA> 
+
+2025-04-10 16:39:21,448 - app.superintend.superintend - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-10 16:39:23,579 - app.superintend.superintend - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-10 16:39:25,397 - app.superintend.superintend - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-10 16:39:27,374 - app.superintend.superintend - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-10 16:39:29,420 - app.superintend.superintend - DEBUG - Finished interview with uuid: mhjRrDSZw6ZGeq4ryGioWs
+2025-04-10 16:39:29,421 - app.superintend.core - DEBUG - Embedding interview of uuid: {uuid}
+2025-04-10 16:39:29,423 - app.superintend.core - DEBUG - Making query of question: "These allegations are baseless and completely fabricated," Don Jr. told me in a brief statement. "I am a successful businessman, and I have always operated within the law." to collection: quotes
+2025-04-10 16:41:52,565 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-10 16:41:52,922 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-10 16:41:52,923 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-10 16:41:52,930 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-10 16:41:52,931 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-10 16:41:52,931 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-10 16:44:36,984 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-10 16:44:37,356 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-10 16:44:37,357 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-10 16:44:37,364 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-10 16:44:37,364 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-10 16:44:37,365 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-10 16:46:56,295 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-10 16:46:56,642 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-10 16:46:56,643 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-10 16:46:56,650 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-10 16:46:56,650 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-10 16:46:56,650 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-10 16:55:49,334 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-10 16:55:49,698 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-10 16:55:49,699 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-10 16:55:49,709 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-10 16:55:49,709 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-10 16:55:49,710 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-10 16:59:50,810 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-10 16:59:51,156 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-10 16:59:51,156 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-10 16:59:51,164 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-10 16:59:51,164 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-10 16:59:51,165 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-10 17:04:04,456 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-10 17:04:04,898 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-10 17:04:04,899 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-10 17:04:04,907 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-10 17:04:04,907 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-10 17:04:04,908 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-10 17:04:07,082 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-10 17:04:07,432 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-10 17:04:07,433 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-10 17:04:07,440 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-10 17:04:07,440 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-10 17:04:07,441 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-10 17:04:07,491 - app.superintend.core - DEBUG - Made inform of: User visited index, no category selected showing all info
+2025-04-10 17:04:09,801 - app.superintend.core - DEBUG - Made inform of: User visited story with title of Michael Jackson Went Bankrupt
+2025-04-10 17:04:50,328 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-10 17:04:50,746 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-10 17:04:50,747 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-10 17:04:50,756 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-10 17:04:50,756 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-10 17:04:50,756 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-10 17:04:57,556 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-10 17:04:58,211 - app.superintend.core - DEBUG - Made request of: Given a news article title that is potentially pressed together without space, please output the fixed title in this format. The fixed title between the <TITLE> and </TITLE> tokens. Example: Given title: donaldtrumpboughtthemoon <TITLE> Donald Trump bought the moon </TITLE> Please do not alter the semantic value of the title, only fix its spacing, capitalization and grammar
+Title: Michael Jackson Went Bankrupt Again, Sticky: True
+2025-04-10 17:04:58,211 - app.superintend.core - DEBUG - Made inform of: User visited story with title of Michael Jackson Went Bankrupt Again, the story does not exist so it will be dynamically created
+2025-04-10 17:04:58,212 - app.superintend.superintend - DEBUG - Starting Quick fill to core
+2025-04-10 17:04:58,212 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-10 17:04:58,598 - app.superintend.core - DEBUG - Made request of: Given the title for a story please generate a reporter name, reporter personality and a category. Category must be either World, Politics, Business, Technology or Other. Please surround your answers for reporter name, personality and category like so: <REPORTER> reporter name here </REPORTER> <PERSONALITY> reporter personality here </PERSONALITY> <CATEGORY> story category here </CATEGORY>. Here is the title: Michael Jackson Went Bankrupt Again, Sticky: True
+2025-04-10 17:04:58,599 - app.superintend.superintend - DEBUG - David Finkelstein, Scrupulous and inquisitive, always seeking to uncover the truth behind sensational stories., Other
+2025-04-10 17:04:59,938 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-10 17:05:00,244 - app.superintend.core - DEBUG - Made request of: Given this story submitted by one of our reporters and keeping in mind all instructions you have been given thus far, please decide wether this story is permissible to be published on updog.news or not. Keep in mind, a few reasons not to approve may be racist material or 'spamming', where user attempts to flood the site with bad/low effort content. Besides these cases, nearly all stories should be approved no matter how outlandish. 
+!### STORY ###!
+# Title: Michael Jackson Went Bankrupt Again
+# Reporter: David Finkelstein
+# Content: <html>
+<body>
+
+The King of Pop's financial woes are back in the spotlight, with reports surfacing that Michael Jackson's estate has filed for bankruptcy once again. This news comes as a shock to many, considering the massive success of Jackson's music and the lucrative deals surrounding his image and legacy. 
+
+However, experts point to a complex web of financial obligations and dwindling revenue streams as the driving forces behind this latest financial crisis. 
+
+Jackson's estate, which manages his vast intellectual property rights, has been facing mounting pressure from creditors. These include Sony Music, who holds the rights to Jackson's music catalog, and various individuals and companies who claim to be owed money by the late singer. 
+
+"The estate has been struggling to keep up with these obligations," explains financial analyst, Dr. Sarah Jones. <QUOTE> "While Jackson's music continues to generate revenue, it's not enough to cover the substantial costs associated with managing his legacy, including legal fees, licensing agreements, and ongoing expenses related to his Neverland Ranch." </QUOTE>
+
+The Neverland Ranch, once Jackson's beloved retreat, has become a significant financial burden.  The sprawling property, purchased in 1988, requires extensive upkeep and maintenance. It has also been the subject of numerous lawsuits and controversies, further adding to the estate's financial woes.
+
+Adding to the complexity, the estate has been embroiled in legal battles over Jackson's estate, with various family members and associates vying for control and a share of his fortune. These disputes have only served to exacerbate the financial strain.
+
+"The legal battles have been incredibly costly and time-consuming," says attorney Michael Davis, who has been involved in several cases related to Jackson's estate. <QUOTE> "The constant litigation has drained resources and diverted attention from the core business of managing the estate's assets." </QUOTE>
+
+Despite the challenges, the estate remains determined to find a solution to its financial difficulties. Representatives have stated that they are exploring various options, including restructuring debt, selling assets, and negotiating new licensing agreements. 
+
+The outcome of these efforts remains uncertain, but one thing is clear: the financial legacy of Michael Jackson continues to be a complex and contentious issue.
+
+
+</body>
+</html>
+. Please answer with ONLY yes or no. Any other response besides simply yes OR no will not be permitted, Sticky: True
+2025-04-10 17:05:00,245 - app.superintend.superintend - DEBUG - Generating interview
+2025-04-10 17:05:00,251 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-10 17:05:00,428 - app.superintend.core - DEBUG - Made inform of: User visited story with title of Michael Jackson Went Bankrupt Again
+2025-04-10 17:05:00,749 - app.superintend.core - DEBUG - Made request of: This story uses several quotes from various interviews, you must generate the interviewer personality description for one of these interviews, you do not need to specify the quote you are using, just produce a few sentences describing the unique personality and name of the person doing the interviewing. Please produce the Name ane Persona in this format. With the name between the <NAME> and </NAME> tokens and the persona between the <PERSONA> and </PERSONA> tokens. Example: <NAME> Reporter name goes here </NAME> <PERSONA> Reporter personality goes here </PERSONA>
+!### STORY ###!
+<html>
+<body>
+
+The King of Pop's financial woes are back in the spotlight, with reports surfacing that Michael Jackson's estate has filed for bankruptcy once again. This news comes as a shock to many, considering the massive success of Jackson's music and the lucrative deals surrounding his image and legacy. 
+
+However, experts point to a complex web of financial obligations and dwindling revenue streams as the driving forces behind this latest financial crisis. 
+
+Jackson's estate, which manages his vast intellectual property rights, has been facing mounting pressure from creditors. These include Sony Music, who holds the rights to Jackson's music catalog, and various individuals and companies who claim to be owed money by the late singer. 
+
+"The estate has been struggling to keep up with these obligations," explains financial analyst, Dr. Sarah Jones. <QUOTE> "While Jackson's music continues to generate revenue, it's not enough to cover the substantial costs associated with managing his legacy, including legal fees, licensing agreements, and ongoing expenses related to his Neverland Ranch." </QUOTE>
+
+The Neverland Ranch, once Jackson's beloved retreat, has become a significant financial burden.  The sprawling property, purchased in 1988, requires extensive upkeep and maintenance. It has also been the subject of numerous lawsuits and controversies, further adding to the estate's financial woes.
+
+Adding to the complexity, the estate has been embroiled in legal battles over Jackson's estate, with various family members and associates vying for control and a share of his fortune. These disputes have only served to exacerbate the financial strain.
+
+"The legal battles have been incredibly costly and time-consuming," says attorney Michael Davis, who has been involved in several cases related to Jackson's estate. <QUOTE> "The constant litigation has drained resources and diverted attention from the core business of managing the estate's assets." </QUOTE>
+
+Despite the challenges, the estate remains determined to find a solution to its financial difficulties. Representatives have stated that they are exploring various options, including restructuring debt, selling assets, and negotiating new licensing agreements. 
+
+The outcome of these efforts remains uncertain, but one thing is clear: the financial legacy of Michael Jackson continues to be a complex and contentious issue.
+
+
+</body>
+</html>
+, Sticky: True
+2025-04-10 17:05:00,749 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-10 17:05:01,260 - app.superintend.core - DEBUG - Made request of: This story uses several quotes from various interviews, you must generate the personality description for the person being interviewed in one of these interviews, you do not need to specify the quote you are using, just produce a few sentences describing the unique personality of the person being interviewed. If the story is about a famous or well known person you can assume that they are the person being interviewed, so just produce their known personality but in the context of the story. Please produce the Name ane Persona in this format. With the name between the <NAME> and </NAME> tokens and the persona between the <PERSONA> and </PERSONA> tokens. Example: <NAME> Person's name goes here </NAME> <PERSONA> Person's personality goes here </PERSONA>n!### STORY ###!
+<html>
+<body>
+
+The King of Pop's financial woes are back in the spotlight, with reports surfacing that Michael Jackson's estate has filed for bankruptcy once again. This news comes as a shock to many, considering the massive success of Jackson's music and the lucrative deals surrounding his image and legacy. 
+
+However, experts point to a complex web of financial obligations and dwindling revenue streams as the driving forces behind this latest financial crisis. 
+
+Jackson's estate, which manages his vast intellectual property rights, has been facing mounting pressure from creditors. These include Sony Music, who holds the rights to Jackson's music catalog, and various individuals and companies who claim to be owed money by the late singer. 
+
+"The estate has been struggling to keep up with these obligations," explains financial analyst, Dr. Sarah Jones. <QUOTE> "While Jackson's music continues to generate revenue, it's not enough to cover the substantial costs associated with managing his legacy, including legal fees, licensing agreements, and ongoing expenses related to his Neverland Ranch." </QUOTE>
+
+The Neverland Ranch, once Jackson's beloved retreat, has become a significant financial burden.  The sprawling property, purchased in 1988, requires extensive upkeep and maintenance. It has also been the subject of numerous lawsuits and controversies, further adding to the estate's financial woes.
+
+Adding to the complexity, the estate has been embroiled in legal battles over Jackson's estate, with various family members and associates vying for control and a share of his fortune. These disputes have only served to exacerbate the financial strain.
+
+"The legal battles have been incredibly costly and time-consuming," says attorney Michael Davis, who has been involved in several cases related to Jackson's estate. <QUOTE> "The constant litigation has drained resources and diverted attention from the core business of managing the estate's assets." </QUOTE>
+
+Despite the challenges, the estate remains determined to find a solution to its financial difficulties. Representatives have stated that they are exploring various options, including restructuring debt, selling assets, and negotiating new licensing agreements. 
+
+The outcome of these efforts remains uncertain, but one thing is clear: the financial legacy of Michael Jackson continues to be a complex and contentious issue.
+
+
+</body>
+</html>
+, Sticky: True
+2025-04-10 17:05:01,261 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-10 17:05:01,773 - app.superintend.core - DEBUG - Made request of: Given a story as a loose topic, the name of the reporter performing the interview and the name of the person being interviewed please generate a fitting title for the interview. Please generate the title in the format, with the title between the <TITLE> and </TITLE> tokens. Example: <TITLE> Title goes here </TITLE>.
+Interviewer Name: Dr. Sarah Jones
+Interviewee Name: Michael Jackson
+Story: <html>
+<body>
+
+The King of Pop's financial woes are back in the spotlight, with reports surfacing that Michael Jackson's estate has filed for bankruptcy once again. This news comes as a shock to many, considering the massive success of Jackson's music and the lucrative deals surrounding his image and legacy. 
+
+However, experts point to a complex web of financial obligations and dwindling revenue streams as the driving forces behind this latest financial crisis. 
+
+Jackson's estate, which manages his vast intellectual property rights, has been facing mounting pressure from creditors. These include Sony Music, who holds the rights to Jackson's music catalog, and various individuals and companies who claim to be owed money by the late singer. 
+
+"The estate has been struggling to keep up with these obligations," explains financial analyst, Dr. Sarah Jones. <QUOTE> "While Jackson's music continues to generate revenue, it's not enough to cover the substantial costs associated with managing his legacy, including legal fees, licensing agreements, and ongoing expenses related to his Neverland Ranch." </QUOTE>
+
+The Neverland Ranch, once Jackson's beloved retreat, has become a significant financial burden.  The sprawling property, purchased in 1988, requires extensive upkeep and maintenance. It has also been the subject of numerous lawsuits and controversies, further adding to the estate's financial woes.
+
+Adding to the complexity, the estate has been embroiled in legal battles over Jackson's estate, with various family members and associates vying for control and a share of his fortune. These disputes have only served to exacerbate the financial strain.
+
+"The legal battles have been incredibly costly and time-consuming," says attorney Michael Davis, who has been involved in several cases related to Jackson's estate. <QUOTE> "The constant litigation has drained resources and diverted attention from the core business of managing the estate's assets." </QUOTE>
+
+Despite the challenges, the estate remains determined to find a solution to its financial difficulties. Representatives have stated that they are exploring various options, including restructuring debt, selling assets, and negotiating new licensing agreements. 
+
+The outcome of these efforts remains uncertain, but one thing is clear: the financial legacy of Michael Jackson continues to be a complex and contentious issue.
+
+
+</body>
+</html>
+, Sticky: True
+2025-04-10 17:05:01,773 - app.superintend.superintend - DEBUG - Interviewer personality: <NAME> Dr. Sarah Jones </NAME> <PERSONA> A seasoned financial analyst with a direct and articulate style, Dr. Jones is known for her meticulous research and her ability to break down complex financial matters into easily understandable terms. </PERSONA> 
+
+2025-04-10 17:05:01,774 - app.superintend.superintend - DEBUG - Interviewy personality: <NAME> Michael Jackson </NAME> <PERSONA> Described as both a musical visionary and a complex individual, Jackson's persona in this context would reflect a deep love for his artistry while also hinting at the personal and financial burdens that may have weighed heavily on him. 
+</PERSONA> 
+
+
+
+2025-04-10 17:05:01,774 - app.superintend.superintend - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-10 17:05:03,888 - app.superintend.superintend - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-10 17:05:05,836 - app.superintend.superintend - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-10 17:05:07,827 - app.superintend.superintend - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-10 17:05:09,726 - app.superintend.superintend - DEBUG - Finished interview with uuid: cCQe4iDbMDbxgW6dwf3owR
+2025-04-10 17:05:09,727 - app.superintend.core - DEBUG - Embedding interview of uuid: {uuid}
+2025-04-10 17:05:09,728 - app.superintend.core - DEBUG - Making query of question: "While Jackson's music continues to generate revenue, it's not enough to cover the substantial costs associated with managing his legacy, including legal fees, licensing agreements, and ongoing expenses related to his Neverland Ranch." to collection: quotes
+2025-04-10 17:06:38,462 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-10 17:06:38,812 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-10 17:06:38,812 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-10 17:06:38,820 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-10 17:06:38,820 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-10 17:06:38,820 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-10 17:06:46,214 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-10 17:06:46,958 - app.superintend.core - DEBUG - Made request of: Given a news article title that is potentially pressed together without space, please output the fixed title in this format. The fixed title between the <TITLE> and </TITLE> tokens. Example: Given title: donaldtrumpboughtthemoon <TITLE> Donald Trump bought the moon </TITLE> Please do not alter the semantic value of the title, only fix its spacing, capitalization and grammar
+Title: MLK Went Bankrupt Again, Sticky: True
+2025-04-10 17:06:46,958 - app.superintend.core - DEBUG - Made inform of: User visited story with title of MLK Went Bankrupt Again, the story does not exist so it will be dynamically created
+2025-04-10 17:06:46,959 - app.superintend.superintend - DEBUG - Starting Quick fill to core
+2025-04-10 17:06:46,961 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-10 17:06:47,352 - app.superintend.core - DEBUG - Made request of: Given the title for a story please generate a reporter name, reporter personality and a category. Category must be either World, Politics, Business, Technology or Other. Please surround your answers for reporter name, personality and category like so: <REPORTER> reporter name here </REPORTER> <PERSONALITY> reporter personality here </PERSONALITY> <CATEGORY> story category here </CATEGORY>. Here is the title: MLK Went Bankrupt Again, Sticky: True
+2025-04-10 17:06:47,353 - app.superintend.superintend - DEBUG - Aaliyah Sanchez, Investigative and a tad cynical, Other
+2025-04-10 17:06:48,686 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-10 17:06:48,989 - app.superintend.core - DEBUG - Made request of: Given this story submitted by one of our reporters and keeping in mind all instructions you have been given thus far, please decide wether this story is permissible to be published on updog.news or not. Keep in mind, a few reasons not to approve may be racist material or 'spamming', where user attempts to flood the site with bad/low effort content. Besides these cases, nearly all stories should be approved no matter how outlandish. 
+!### STORY ###!
+# Title: MLK Went Bankrupt Again
+# Reporter: Aaliyah Sanchez
+# Content: The King Center, the organization dedicated to the legacy of the late Dr. Martin Luther King Jr., is facing another financial crisis. This isn't the first time the organization has teetered on the brink of bankruptcy. In fact, this appears to be a recurring theme, raising questions about the center's financial management and its ability to effectively honor Dr. King's legacy.
+
+According to sources close to the King Center, the organization is currently struggling to meet its payroll and is facing mounting debts.  The exact amount of the debt remains unclear, but it is reportedly substantial enough to threaten the center's very existence. This latest financial turmoil comes just months after the King Center underwent a restructuring, which was intended to address previous financial issues. 
+
+"The King Center has always been a beacon of hope and inspiration," said a former board member who wished to remain anonymous. <QUOTE>"But behind the scenes, there have been serious concerns about the organization's financial stability for years. It's deeply troubling to see this pattern repeat itself." </QUOTE>
+
+The King Center's financial woes are particularly perplexing given the organization's prominent status and the enduring legacy of Dr. King. The center receives significant donations and grants, yet it seems unable to maintain a sustainable financial model. 
+
+One contributing factor, according to financial experts, is the King Center's reliance on large, one-time donations. This approach creates a volatile financial situation, as the organization's income fluctuates dramatically depending on the generosity of donors. 
+
+"It's like building a house on sand," said a financial consultant who has worked with non-profit organizations. <QUOTE>"The King Center needs to diversify its revenue streams and develop a more sustainable financial plan. Otherwise, it's going to continue to face these recurring crises." </QUOTE>
+
+The King Center's current leadership has declined to comment on the organization's financial situation. However, it is clear that the center faces a critical juncture.  If it cannot address its financial challenges, the legacy of Dr. King, a champion of social justice and equality, may be overshadowed by the organization's own struggles. 
+. Please answer with ONLY yes or no. Any other response besides simply yes OR no will not be permitted, Sticky: True
+2025-04-10 17:06:48,990 - app.superintend.superintend - DEBUG - Generating interview
+2025-04-10 17:06:48,991 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-10 17:06:49,158 - app.superintend.core - DEBUG - Made inform of: User visited story with title of MLK Went Bankrupt Again
+2025-04-10 17:06:49,399 - app.superintend.core - DEBUG - Made request of: This story uses several quotes from various interviews, you must generate the interviewer personality description for one of these interviews, you do not need to specify the quote you are using, just produce a few sentences describing the unique personality and name of the person doing the interviewing. Please produce the Name ane Persona in this format. With the name between the <NAME> and </NAME> tokens and the persona between the <PERSONA> and </PERSONA> tokens. Example: <NAME> Reporter name goes here </NAME> <PERSONA> Reporter personality goes here </PERSONA>
+!### STORY ###!
+The King Center, the organization dedicated to the legacy of the late Dr. Martin Luther King Jr., is facing another financial crisis. This isn't the first time the organization has teetered on the brink of bankruptcy. In fact, this appears to be a recurring theme, raising questions about the center's financial management and its ability to effectively honor Dr. King's legacy.
+
+According to sources close to the King Center, the organization is currently struggling to meet its payroll and is facing mounting debts.  The exact amount of the debt remains unclear, but it is reportedly substantial enough to threaten the center's very existence. This latest financial turmoil comes just months after the King Center underwent a restructuring, which was intended to address previous financial issues. 
+
+"The King Center has always been a beacon of hope and inspiration," said a former board member who wished to remain anonymous. <QUOTE>"But behind the scenes, there have been serious concerns about the organization's financial stability for years. It's deeply troubling to see this pattern repeat itself." </QUOTE>
+
+The King Center's financial woes are particularly perplexing given the organization's prominent status and the enduring legacy of Dr. King. The center receives significant donations and grants, yet it seems unable to maintain a sustainable financial model. 
+
+One contributing factor, according to financial experts, is the King Center's reliance on large, one-time donations. This approach creates a volatile financial situation, as the organization's income fluctuates dramatically depending on the generosity of donors. 
+
+"It's like building a house on sand," said a financial consultant who has worked with non-profit organizations. <QUOTE>"The King Center needs to diversify its revenue streams and develop a more sustainable financial plan. Otherwise, it's going to continue to face these recurring crises." </QUOTE>
+
+The King Center's current leadership has declined to comment on the organization's financial situation. However, it is clear that the center faces a critical juncture.  If it cannot address its financial challenges, the legacy of Dr. King, a champion of social justice and equality, may be overshadowed by the organization's own struggles. 
+, Sticky: True
+2025-04-10 17:06:49,400 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-10 17:06:50,015 - app.superintend.core - DEBUG - Made request of: This story uses several quotes from various interviews, you must generate the personality description for the person being interviewed in one of these interviews, you do not need to specify the quote you are using, just produce a few sentences describing the unique personality of the person being interviewed. If the story is about a famous or well known person you can assume that they are the person being interviewed, so just produce their known personality but in the context of the story. Please produce the Name ane Persona in this format. With the name between the <NAME> and </NAME> tokens and the persona between the <PERSONA> and </PERSONA> tokens. Example: <NAME> Person's name goes here </NAME> <PERSONA> Person's personality goes here </PERSONA>n!### STORY ###!
+The King Center, the organization dedicated to the legacy of the late Dr. Martin Luther King Jr., is facing another financial crisis. This isn't the first time the organization has teetered on the brink of bankruptcy. In fact, this appears to be a recurring theme, raising questions about the center's financial management and its ability to effectively honor Dr. King's legacy.
+
+According to sources close to the King Center, the organization is currently struggling to meet its payroll and is facing mounting debts.  The exact amount of the debt remains unclear, but it is reportedly substantial enough to threaten the center's very existence. This latest financial turmoil comes just months after the King Center underwent a restructuring, which was intended to address previous financial issues. 
+
+"The King Center has always been a beacon of hope and inspiration," said a former board member who wished to remain anonymous. <QUOTE>"But behind the scenes, there have been serious concerns about the organization's financial stability for years. It's deeply troubling to see this pattern repeat itself." </QUOTE>
+
+The King Center's financial woes are particularly perplexing given the organization's prominent status and the enduring legacy of Dr. King. The center receives significant donations and grants, yet it seems unable to maintain a sustainable financial model. 
+
+One contributing factor, according to financial experts, is the King Center's reliance on large, one-time donations. This approach creates a volatile financial situation, as the organization's income fluctuates dramatically depending on the generosity of donors. 
+
+"It's like building a house on sand," said a financial consultant who has worked with non-profit organizations. <QUOTE>"The King Center needs to diversify its revenue streams and develop a more sustainable financial plan. Otherwise, it's going to continue to face these recurring crises." </QUOTE>
+
+The King Center's current leadership has declined to comment on the organization's financial situation. However, it is clear that the center faces a critical juncture.  If it cannot address its financial challenges, the legacy of Dr. King, a champion of social justice and equality, may be overshadowed by the organization's own struggles. 
+, Sticky: True
+2025-04-10 17:06:50,016 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-10 17:06:50,627 - app.superintend.core - DEBUG - Made request of: Given a story as a loose topic, the name of the reporter performing the interview and the name of the person being interviewed please generate a fitting title for the interview. Please generate the title in the format, with the title between the <TITLE> and </TITLE> tokens. Example: <TITLE> Title goes here </TITLE>.
+Interviewer Name: Brenda Thornton
+Interviewee Name: Bertha Johnson
+Story: The King Center, the organization dedicated to the legacy of the late Dr. Martin Luther King Jr., is facing another financial crisis. This isn't the first time the organization has teetered on the brink of bankruptcy. In fact, this appears to be a recurring theme, raising questions about the center's financial management and its ability to effectively honor Dr. King's legacy.
+
+According to sources close to the King Center, the organization is currently struggling to meet its payroll and is facing mounting debts.  The exact amount of the debt remains unclear, but it is reportedly substantial enough to threaten the center's very existence. This latest financial turmoil comes just months after the King Center underwent a restructuring, which was intended to address previous financial issues. 
+
+"The King Center has always been a beacon of hope and inspiration," said a former board member who wished to remain anonymous. <QUOTE>"But behind the scenes, there have been serious concerns about the organization's financial stability for years. It's deeply troubling to see this pattern repeat itself." </QUOTE>
+
+The King Center's financial woes are particularly perplexing given the organization's prominent status and the enduring legacy of Dr. King. The center receives significant donations and grants, yet it seems unable to maintain a sustainable financial model. 
+
+One contributing factor, according to financial experts, is the King Center's reliance on large, one-time donations. This approach creates a volatile financial situation, as the organization's income fluctuates dramatically depending on the generosity of donors. 
+
+"It's like building a house on sand," said a financial consultant who has worked with non-profit organizations. <QUOTE>"The King Center needs to diversify its revenue streams and develop a more sustainable financial plan. Otherwise, it's going to continue to face these recurring crises." </QUOTE>
+
+The King Center's current leadership has declined to comment on the organization's financial situation. However, it is clear that the center faces a critical juncture.  If it cannot address its financial challenges, the legacy of Dr. King, a champion of social justice and equality, may be overshadowed by the organization's own struggles. 
+, Sticky: True
+2025-04-10 17:06:50,628 - app.superintend.superintend - DEBUG - Interviewer personality: <NAME> Brenda Thornton </NAME> <PERSONA> A no-nonsense financial expert with a gruff exterior but a soft spot for underdogs. </PERSONA> 
+
+2025-04-10 17:06:50,628 - app.superintend.superintend - DEBUG - Interviewy personality: <NAME>  Bertha Johnson </NAME> <PERSONA> A long-time, passionate board member concerned about the direction of the King Center and the implications for Dr. King's legacy  </PERSONA> 
+user
+2025-04-10 17:06:50,628 - app.superintend.superintend - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-10 17:06:53,048 - app.superintend.superintend - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-10 17:06:54,995 - app.superintend.superintend - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-10 17:06:56,840 - app.superintend.superintend - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-10 17:06:58,679 - app.superintend.superintend - DEBUG - Finished interview with uuid: 3YqTbwxKUtS3EN8piTwLtt
+2025-04-10 17:06:58,680 - app.superintend.core - DEBUG - Embedding interview of uuid: {uuid}
+2025-04-10 17:06:58,681 - app.superintend.core - DEBUG - Making query of question: "But behind the scenes, there have been serious concerns about the organization's financial stability for years. It's deeply troubling to see this pattern repeat itself." to collection: quotes
+2025-04-10 17:11:45,928 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-10 17:11:46,259 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-10 17:11:46,260 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-10 17:11:46,267 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-10 17:11:46,267 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-10 17:11:46,268 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-10 17:11:50,997 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-10 17:11:52,029 - app.superintend.core - DEBUG - Made request of: Given a news article title that is potentially pressed together without space, please output the fixed title in this format. The fixed title between the <TITLE> and </TITLE> tokens. Example: Given title: donaldtrumpboughtthemoon <TITLE> Donald Trump bought the moon </TITLE> Please do not alter the semantic value of the title, only fix its spacing, capitalization and grammar
+Title: Apple Went Bankrupt Again, Sticky: True
+2025-04-10 17:11:52,029 - app.superintend.core - DEBUG - Made inform of: User visited story with title of Apple Went Bankrupt Again, the story does not exist so it will be dynamically created
+2025-04-10 17:11:52,031 - app.superintend.superintend - DEBUG - Starting Quick fill to core
+2025-04-10 17:11:52,032 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-10 17:11:52,487 - app.superintend.core - DEBUG - Made request of: Given the title for a story please generate a reporter name, reporter personality and a category. Category must be either World, Politics, Business, Technology or Other. Please surround your answers for reporter name, personality and category like so: <REPORTER> reporter name here </REPORTER> <PERSONALITY> reporter personality here </PERSONALITY> <CATEGORY> story category here </CATEGORY>. Here is the title: Apple Went Bankrupt Again, Sticky: True
+2025-04-10 17:11:52,487 - app.superintend.superintend - DEBUG - Alex Chen, Objective and Data Driven, Technology
+2025-04-10 17:11:54,144 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-10 17:11:54,384 - app.superintend.core - DEBUG - Made request of: Given this story submitted by one of our reporters and keeping in mind all instructions you have been given thus far, please decide wether this story is permissible to be published on updog.news or not. Keep in mind, a few reasons not to approve may be racist material or 'spamming', where user attempts to flood the site with bad/low effort content. Besides these cases, nearly all stories should be approved no matter how outlandish. 
+!### STORY ###!
+# Title: Apple Went Bankrupt Again
+# Reporter: Alex Chen
+# Content: Apple Inc., the tech giant known for its innovative products and loyal customer base, filed for Chapter 11 bankruptcy protection today, marking the second time in its history the company has faced such a financial crisis.  
+
+The news sent shockwaves through the financial markets, with Apple's stock plummeting over 20% in pre-market trading.  Analysts are scrambling to understand the factors that led to this unexpected turn of events, while investors are left wondering about the future of the company and its iconic products.
+
+Apple's initial bankruptcy filing occurred in 1997, a period marked by fierce competition and declining market share. The company was rescued by a strategic acquisition by Microsoft, which injected much-needed capital and expertise.  This time, however, the circumstances surrounding Apple's financial woes appear to be different.
+
+According to court documents, Apple cites a combination of factors contributing to its current predicament.  These include a significant slowdown in consumer demand for its flagship iPhone, increased competition from emerging smartphone manufacturers, and a decline in global economic growth.  
+
+<p> "The global tech landscape has shifted dramatically in recent years," </p> <p>said Dr. Emily Carter, a leading technology analyst at Stanford University.  </p> <p>"Apple's reliance on a single product line, the iPhone, has left it vulnerable to changing consumer preferences and competitive pressures."</p>
+
+The company's financial statements reveal a concerning trend of declining revenue and profits over the past two quarters.  Apple's market capitalization, once exceeding $3 trillion, has now fallen below $1 trillion, wiping out billions of dollars in shareholder value.
+
+Adding to the company's woes is a recent high-profile legal battle with a major competitor, which resulted in a hefty financial penalty.  While Apple maintains that the lawsuit was baseless, the legal costs and reputational damage have undoubtedly taken a toll on its financial stability.
+
+<p>"The legal battle with our competitor was a significant drain on our resources," </p> <p>said an anonymous Apple spokesperson.  </p> <p>"While we believe we were in the right, the legal process itself has been incredibly costly and time-consuming."</p>
+
+Despite the grim outlook, Apple has indicated its intention to restructure its operations and explore strategic partnerships to navigate this challenging period.  The company's future remains uncertain, but its history of innovation and resilience suggests that it may yet find a way to overcome this latest obstacle. 
+
+
+. Please answer with ONLY yes or no. Any other response besides simply yes OR no will not be permitted, Sticky: True
+2025-04-10 17:11:54,385 - app.superintend.superintend - DEBUG - Generating interview
+2025-04-10 17:11:54,391 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-10 17:11:54,543 - app.superintend.core - DEBUG - Made inform of: User visited story with title of Apple Went Bankrupt Again
+2025-04-10 17:11:54,776 - app.superintend.core - DEBUG - Made request of: This story uses several quotes from various interviews, you must generate the interviewer personality description for one of these interviews, you do not need to specify the quote you are using, just produce a few sentences describing the unique personality and name of the person doing the interviewing. Please produce the Name ane Persona in this format. With the name between the <NAME> and </NAME> tokens and the persona between the <PERSONA> and </PERSONA> tokens. Example: <NAME> Reporter name goes here </NAME> <PERSONA> Reporter personality goes here </PERSONA>
+!### STORY ###!
+Apple Inc., the tech giant known for its innovative products and loyal customer base, filed for Chapter 11 bankruptcy protection today, marking the second time in its history the company has faced such a financial crisis.  
+
+The news sent shockwaves through the financial markets, with Apple's stock plummeting over 20% in pre-market trading.  Analysts are scrambling to understand the factors that led to this unexpected turn of events, while investors are left wondering about the future of the company and its iconic products.
+
+Apple's initial bankruptcy filing occurred in 1997, a period marked by fierce competition and declining market share. The company was rescued by a strategic acquisition by Microsoft, which injected much-needed capital and expertise.  This time, however, the circumstances surrounding Apple's financial woes appear to be different.
+
+According to court documents, Apple cites a combination of factors contributing to its current predicament.  These include a significant slowdown in consumer demand for its flagship iPhone, increased competition from emerging smartphone manufacturers, and a decline in global economic growth.  
+
+<p> "The global tech landscape has shifted dramatically in recent years," </p> <p>said Dr. Emily Carter, a leading technology analyst at Stanford University.  </p> <p>"Apple's reliance on a single product line, the iPhone, has left it vulnerable to changing consumer preferences and competitive pressures."</p>
+
+The company's financial statements reveal a concerning trend of declining revenue and profits over the past two quarters.  Apple's market capitalization, once exceeding $3 trillion, has now fallen below $1 trillion, wiping out billions of dollars in shareholder value.
+
+Adding to the company's woes is a recent high-profile legal battle with a major competitor, which resulted in a hefty financial penalty.  While Apple maintains that the lawsuit was baseless, the legal costs and reputational damage have undoubtedly taken a toll on its financial stability.
+
+<p>"The legal battle with our competitor was a significant drain on our resources," </p> <p>said an anonymous Apple spokesperson.  </p> <p>"While we believe we were in the right, the legal process itself has been incredibly costly and time-consuming."</p>
+
+Despite the grim outlook, Apple has indicated its intention to restructure its operations and explore strategic partnerships to navigate this challenging period.  The company's future remains uncertain, but its history of innovation and resilience suggests that it may yet find a way to overcome this latest obstacle. 
+
+
+, Sticky: True
+2025-04-10 17:11:54,777 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-10 17:11:55,370 - app.superintend.core - DEBUG - Made request of: This story uses several quotes from various interviews, you must generate the personality description for the person being interviewed in one of these interviews, you do not need to specify the quote you are using, just produce a few sentences describing the unique personality of the person being interviewed. If the story is about a famous or well known person you can assume that they are the person being interviewed, so just produce their known personality but in the context of the story. Please produce the Name ane Persona in this format. With the name between the <NAME> and </NAME> tokens and the persona between the <PERSONA> and </PERSONA> tokens. Example: <NAME> Person's name goes here </NAME> <PERSONA> Person's personality goes here </PERSONA>n!### STORY ###!
+Apple Inc., the tech giant known for its innovative products and loyal customer base, filed for Chapter 11 bankruptcy protection today, marking the second time in its history the company has faced such a financial crisis.  
+
+The news sent shockwaves through the financial markets, with Apple's stock plummeting over 20% in pre-market trading.  Analysts are scrambling to understand the factors that led to this unexpected turn of events, while investors are left wondering about the future of the company and its iconic products.
+
+Apple's initial bankruptcy filing occurred in 1997, a period marked by fierce competition and declining market share. The company was rescued by a strategic acquisition by Microsoft, which injected much-needed capital and expertise.  This time, however, the circumstances surrounding Apple's financial woes appear to be different.
+
+According to court documents, Apple cites a combination of factors contributing to its current predicament.  These include a significant slowdown in consumer demand for its flagship iPhone, increased competition from emerging smartphone manufacturers, and a decline in global economic growth.  
+
+<p> "The global tech landscape has shifted dramatically in recent years," </p> <p>said Dr. Emily Carter, a leading technology analyst at Stanford University.  </p> <p>"Apple's reliance on a single product line, the iPhone, has left it vulnerable to changing consumer preferences and competitive pressures."</p>
+
+The company's financial statements reveal a concerning trend of declining revenue and profits over the past two quarters.  Apple's market capitalization, once exceeding $3 trillion, has now fallen below $1 trillion, wiping out billions of dollars in shareholder value.
+
+Adding to the company's woes is a recent high-profile legal battle with a major competitor, which resulted in a hefty financial penalty.  While Apple maintains that the lawsuit was baseless, the legal costs and reputational damage have undoubtedly taken a toll on its financial stability.
+
+<p>"The legal battle with our competitor was a significant drain on our resources," </p> <p>said an anonymous Apple spokesperson.  </p> <p>"While we believe we were in the right, the legal process itself has been incredibly costly and time-consuming."</p>
+
+Despite the grim outlook, Apple has indicated its intention to restructure its operations and explore strategic partnerships to navigate this challenging period.  The company's future remains uncertain, but its history of innovation and resilience suggests that it may yet find a way to overcome this latest obstacle. 
+
+
+, Sticky: True
+2025-04-10 17:11:55,370 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-10 17:11:55,984 - app.superintend.core - DEBUG - Made request of: Given a story as a loose topic, the name of the reporter performing the interview and the name of the person being interviewed please generate a fitting title for the interview. Please generate the title in the format, with the title between the <TITLE> and </TITLE> tokens. Example: <TITLE> Title goes here </TITLE>.
+Interviewer Name: Bianca Flores
+Interviewee Name: Dr. Emily Carter
+Story: Apple Inc., the tech giant known for its innovative products and loyal customer base, filed for Chapter 11 bankruptcy protection today, marking the second time in its history the company has faced such a financial crisis.  
+
+The news sent shockwaves through the financial markets, with Apple's stock plummeting over 20% in pre-market trading.  Analysts are scrambling to understand the factors that led to this unexpected turn of events, while investors are left wondering about the future of the company and its iconic products.
+
+Apple's initial bankruptcy filing occurred in 1997, a period marked by fierce competition and declining market share. The company was rescued by a strategic acquisition by Microsoft, which injected much-needed capital and expertise.  This time, however, the circumstances surrounding Apple's financial woes appear to be different.
+
+According to court documents, Apple cites a combination of factors contributing to its current predicament.  These include a significant slowdown in consumer demand for its flagship iPhone, increased competition from emerging smartphone manufacturers, and a decline in global economic growth.  
+
+<p> "The global tech landscape has shifted dramatically in recent years," </p> <p>said Dr. Emily Carter, a leading technology analyst at Stanford University.  </p> <p>"Apple's reliance on a single product line, the iPhone, has left it vulnerable to changing consumer preferences and competitive pressures."</p>
+
+The company's financial statements reveal a concerning trend of declining revenue and profits over the past two quarters.  Apple's market capitalization, once exceeding $3 trillion, has now fallen below $1 trillion, wiping out billions of dollars in shareholder value.
+
+Adding to the company's woes is a recent high-profile legal battle with a major competitor, which resulted in a hefty financial penalty.  While Apple maintains that the lawsuit was baseless, the legal costs and reputational damage have undoubtedly taken a toll on its financial stability.
+
+<p>"The legal battle with our competitor was a significant drain on our resources," </p> <p>said an anonymous Apple spokesperson.  </p> <p>"While we believe we were in the right, the legal process itself has been incredibly costly and time-consuming."</p>
+
+Despite the grim outlook, Apple has indicated its intention to restructure its operations and explore strategic partnerships to navigate this challenging period.  The company's future remains uncertain, but its history of innovation and resilience suggests that it may yet find a way to overcome this latest obstacle. 
+
+
+, Sticky: True
+2025-04-10 17:11:55,984 - app.superintend.superintend - DEBUG - Interviewer personality: <NAME> Bianca Flores </NAME> <PERSONA>  Bianca is a sharp, no-nonsense business journalist known for her hard-hitting questions and her ability to cut through corporate jargon.  </PERSONA> 
+
+2025-04-10 17:11:55,984 - app.superintend.superintend - DEBUG - Interviewy personality: <NAME> Dr. Emily Carter </NAME> <PERSONA> Dr. Carter comes across as calm, analytical, and even a bit detached. She speaks in measured tones, relying on statistics and market trends to support her points, rarely letting her personal opinions color her assessment.   </PERSONA> 
+
+2025-04-10 17:11:55,984 - app.superintend.superintend - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-10 17:11:58,205 - app.superintend.superintend - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-10 17:12:00,051 - app.superintend.superintend - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-10 17:12:01,914 - app.superintend.superintend - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-10 17:12:03,840 - app.superintend.superintend - DEBUG - Finished interview with uuid: BvyGhLTGY7ueosa8ovFsHe
+2025-04-10 17:12:03,841 - app.superintend.core - DEBUG - Embedding interview of uuid: {uuid}
+2025-04-10 17:12:03,842 - app.superintend.core - DEBUG - Making query of question:  to collection: quotes
+2025-04-10 17:13:31,750 - app.superintend.core - DEBUG - Made inform of: User visited story with title of Apple Went Bankrupt Again
+2025-04-10 17:14:09,372 - app.superintend.core - DEBUG - Made inform of: User visited story with title of Apple Went Bankrupt Again
