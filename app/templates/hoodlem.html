@@ -29,6 +29,7 @@
 <script>
     const inputBox = document.getElementById("input-box");
     const chatBox = document.getElementById("chat-box");
+	const uuid = `{{ uuid }}`
 
     async function sendData() {
         const userMessage = inputBox.value.trim();
@@ -62,7 +63,7 @@
         chatBox.appendChild(typingIndicator);
         chatBox.scrollTop = chatBox.scrollHeight;
 
-        const data = { message: userMessage };
+        const data = { message: userMessage, uuid: uuid };
 
         try {
             const response = await fetch('{{ url_for("chat.chat_stream") }}', {

@@ -30,9 +30,15 @@ class HoodChat:
 
         self._append_ephem_messages(uuid, {"role": "system", "content": self.sys_prompt})
         messages = self._get_ephem_messages(uuid)
-        resp = self.core.chat(messages)
-        #self.postproc_chat(resp)
-        return resp
+        return self.core.chat(messages)
+
+    """ Same as chat but returns generator """
+    def chat_stream(self, uuid: str, message: str):
+        self._append_ephem_messages(uuid, {"role": "user", "content": message})
+        messages = self._get_ephem_messages(uuid) # Get copy, things done next dont stick
+        self._append_ephem_messages(uuid, {"role": "system", "content": self.sys_prompt})
+        messages = self._get_ephem_messages(uuid)
+        return self.core.chat_stream(messages)
 
     def _get_rag(self, uuid: str, messages: list) -> str:
         messages.append({"role": "user", "content": "Before you answer the above user's question and given the conversation so far, you you believe past information is needed to properly respond in this conversation? Yes if: The user is asking about past conversations with THIS AI. No if: The user is not referencing anything from the past. Please answer with yes or no. You may only answer with yes OR no, any other response will not be accepted"})

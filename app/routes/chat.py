@@ -59,6 +59,7 @@ def next_tok(gen):
 def chat_tok_generator(message: str):
     max_tok_len = 10
     buffer = ""
+    gan = superintend.chat_stream()
     gen = superintend._groq_chat_stream([{"role": "user", "content": message}])
     cur_special = ""
     special_val = ""
@@ -130,10 +131,10 @@ def chat_tok_generator(message: str):
 @chat.route("/chat_stream", methods=['POST'])
 def chat_stream():
     msg_data = request.json.get('message')
+    uuid = request.json.get('uuid')
+    print(uuid)
     if not msg_data:
-        #print("Did not get message data")
         return "Missing 'message' in POST data", 400
-
     return Response(stream_with_context(chat_tok_generator(msg_data)), mimetype='text/html')
 
 @chat.route("/message/<uuid>", methods=['GET', 'POST'])

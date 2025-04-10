@@ -108,6 +108,10 @@ class Core:
         # Uses context of Core, but does not participate, one way so to speak
         return self._submit_task(self._groq_chat, (messages, None))
 
+    """ Same as chat but returns a generator for the stream """
+    def chat_stream(self, messages: list):
+        return self._submit_task(self._groq_chat_stream, (messages, None))
+
     """ Ask the central AI for some data 
         - We expect a response of some kind
     """
