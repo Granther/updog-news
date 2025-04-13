@@ -9896,3 +9896,413 @@ Despite the grim outlook, Apple has indicated its intention to restructure its o
 2025-04-10 17:12:03,842 - app.superintend.core - DEBUG - Making query of question:  to collection: quotes
 2025-04-10 17:13:31,750 - app.superintend.core - DEBUG - Made inform of: User visited story with title of Apple Went Bankrupt Again
 2025-04-10 17:14:09,372 - app.superintend.core - DEBUG - Made inform of: User visited story with title of Apple Went Bankrupt Again
+2025-04-11 15:48:33,371 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-11 15:48:33,765 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-11 15:48:33,766 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-11 15:48:33,774 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-11 15:48:33,775 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-11 15:48:33,775 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-11 15:51:44,504 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-11 15:51:44,940 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-11 15:51:44,941 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-11 15:51:44,951 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-11 15:51:44,951 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-11 15:51:44,952 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-11 15:51:47,207 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-11 15:51:47,664 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-11 15:51:47,665 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-11 15:51:47,674 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-11 15:51:47,674 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-11 15:51:47,675 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-11 15:51:51,633 - app.superintend.core - DEBUG - Made inform of: User visited index, no category selected showing all info
+2025-04-11 15:51:55,459 - app.superintend.core - DEBUG - Made inform of: User visited story with title of Apple Went Bankrupt Again
+2025-04-11 15:55:11,869 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-11 15:55:12,298 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-11 15:55:12,299 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-11 15:55:12,306 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-11 15:55:12,307 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-11 15:55:12,307 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-11 15:55:16,413 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-11 15:55:16,785 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-11 15:55:16,785 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-11 15:55:16,794 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-11 15:55:16,794 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-11 15:55:16,794 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-11 15:55:31,729 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-11 15:55:32,145 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-11 15:55:32,145 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-11 15:55:32,153 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-11 15:55:32,153 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-11 15:55:32,154 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-11 15:55:37,122 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-11 15:55:37,516 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-11 15:55:37,517 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-11 15:55:37,526 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-11 15:55:37,526 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-11 15:55:37,527 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-11 15:55:48,453 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-11 15:55:48,886 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-11 15:55:48,886 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-11 15:55:48,893 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-11 15:55:48,894 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-11 15:55:48,894 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-11 15:55:56,126 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-11 15:55:56,521 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-11 15:55:56,522 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-11 15:55:56,530 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-11 15:55:56,530 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-11 15:55:56,531 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-11 15:56:00,573 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-11 15:56:00,988 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-11 15:56:00,989 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-11 15:56:01,001 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-11 15:56:01,001 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-11 15:56:01,002 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-11 15:56:33,164 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-11 15:56:33,572 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-11 15:56:33,573 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-11 15:56:33,583 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-11 15:56:33,583 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-11 15:56:33,583 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-11 15:56:38,035 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-11 15:56:38,563 - app.superintend.core - DEBUG - Made request of: Given a news article title that is potentially pressed together without space, please output the fixed title in this format. The fixed title between the <TITLE> and </TITLE> tokens. Example: Given title: donaldtrumpboughtthemoon <TITLE> Donald Trump bought the moon </TITLE> Please do not alter the semantic value of the title, only fix its spacing, capitalization and grammar
+Title: Samsung Went Bankrupt Again, Sticky: True
+2025-04-11 15:56:38,564 - app.superintend.core - DEBUG - Made inform of: User visited story with title of Samsung Went Bankrupt Again, the story does not exist so it will be dynamically created
+2025-04-11 15:56:38,566 - app.superintend.superintend - DEBUG - Starting Quick fill to core
+2025-04-11 15:56:38,567 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-11 15:56:38,896 - app.superintend.core - DEBUG - Made request of: Given the title for a story please generate a reporter name, reporter personality and a category. Category must be either World, Politics, Business, Technology or Other. Please surround your answers for reporter name, personality and category like so: <REPORTER> reporter name here </REPORTER> <PERSONALITY> reporter personality here </PERSONALITY> <CATEGORY> story category here </CATEGORY>. Here is the title: Samsung Went Bankrupt Again, Sticky: True
+2025-04-11 15:56:38,897 - app.superintend.superintend - DEBUG - Ellie Park, Hard-hitting, data-driven, with a dry wit., Business
+2025-04-11 15:56:40,623 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-11 15:56:41,032 - app.superintend.core - DEBUG - Made request of: Given this story submitted by one of our reporters and keeping in mind all instructions you have been given thus far, please decide wether this story is permissible to be published on updog.news or not. Keep in mind, a few reasons not to approve may be racist material or 'spamming', where user attempts to flood the site with bad/low effort content. Besides these cases, nearly all stories should be approved no matter how outlandish. 
+!### STORY ###!
+# Title: Samsung Went Bankrupt Again
+# Reporter: Ellie Park
+# Content: <p>It seems the South Korean tech giant has stumbled once more. Samsung, the company synonymous with cutting-edge smartphones and sprawling electronics empires, has filed for bankruptcy. This isn't the first time the company has faced financial distress, but it's certainly the most significant blow in recent history.</p>
+
+<p>While the news may come as a shock to some, the writing was on the wall. Samsung's stock price has been plummeting for months, driven by a combination of factors.  Increased competition from Chinese manufacturers, a global chip shortage, and a stagnating smartphone market have all taken their toll. </p>
+
+<p>The company's recent attempts to diversify into new markets, such as foldable phones and smart home devices, haven't yielded the expected results.  Samsung's once-unassailable market share is shrinking, and its profit margins are dwindling.</p>
+
+<h3>A House of Cards?</h3>
+
+<p>The question now is, what led to this dramatic downfall? Samsung's reliance on a single product line, the Galaxy smartphone, has proven to be a double-edged sword. While it propelled the company to global dominance, it also left it vulnerable to market fluctuations. </p>
+
+<p>The smartphone market is notoriously fickle, with consumer preferences shifting rapidly. Samsung's failure to adapt quickly enough to these changes has been a major contributing factor to its current predicament.</p>
+
+<h4>The Global Chip Shortage: A Major Blow</h4>
+
+<p>The global chip shortage, which has plagued the tech industry for the past two years, has also dealt a significant blow to Samsung. The company relies heavily on chips for its smartphones, televisions, and other electronic devices. The shortage has forced Samsung to cut production and raise prices, further eroding its profitability.</p>
+
+<h3>A Restructuring on the Horizon?</h3>
+
+<p>It's unclear what the future holds for Samsung. The company is expected to undergo a major restructuring, which could involve selling off non-core assets, streamlining operations, and focusing on its most profitable products. </p>
+
+<p>Some analysts believe that Samsung may even be forced to merge with another company to survive.  The company's fate will undoubtedly have a ripple effect throughout the global tech industry.</p>
+
+<p>One thing is certain: Samsung's bankruptcy is a stark reminder of the ever-changing nature of the tech landscape.  Companies that fail to adapt to new trends and challenges will inevitably fall behind.</p> 
+. Please answer with ONLY yes or no. Any other response besides simply yes OR no will not be permitted, Sticky: True
+2025-04-11 15:56:41,033 - app.superintend.superintend - DEBUG - Generating interview
+2025-04-11 15:56:41,040 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-11 15:56:41,160 - app.superintend.core - DEBUG - Made inform of: User visited story with title of Samsung Went Bankrupt Again
+2025-04-11 15:56:41,538 - app.superintend.core - DEBUG - Made request of: This story uses several quotes from various interviews, you must generate the interviewer personality description for one of these interviews, you do not need to specify the quote you are using, just produce a few sentences describing the unique personality and name of the person doing the interviewing. Please produce the Name ane Persona in this format. With the name between the <NAME> and </NAME> tokens and the persona between the <PERSONA> and </PERSONA> tokens. Example: <NAME> Reporter name goes here </NAME> <PERSONA> Reporter personality goes here </PERSONA>
+!### STORY ###!
+<p>It seems the South Korean tech giant has stumbled once more. Samsung, the company synonymous with cutting-edge smartphones and sprawling electronics empires, has filed for bankruptcy. This isn't the first time the company has faced financial distress, but it's certainly the most significant blow in recent history.</p>
+
+<p>While the news may come as a shock to some, the writing was on the wall. Samsung's stock price has been plummeting for months, driven by a combination of factors.  Increased competition from Chinese manufacturers, a global chip shortage, and a stagnating smartphone market have all taken their toll. </p>
+
+<p>The company's recent attempts to diversify into new markets, such as foldable phones and smart home devices, haven't yielded the expected results.  Samsung's once-unassailable market share is shrinking, and its profit margins are dwindling.</p>
+
+<h3>A House of Cards?</h3>
+
+<p>The question now is, what led to this dramatic downfall? Samsung's reliance on a single product line, the Galaxy smartphone, has proven to be a double-edged sword. While it propelled the company to global dominance, it also left it vulnerable to market fluctuations. </p>
+
+<p>The smartphone market is notoriously fickle, with consumer preferences shifting rapidly. Samsung's failure to adapt quickly enough to these changes has been a major contributing factor to its current predicament.</p>
+
+<h4>The Global Chip Shortage: A Major Blow</h4>
+
+<p>The global chip shortage, which has plagued the tech industry for the past two years, has also dealt a significant blow to Samsung. The company relies heavily on chips for its smartphones, televisions, and other electronic devices. The shortage has forced Samsung to cut production and raise prices, further eroding its profitability.</p>
+
+<h3>A Restructuring on the Horizon?</h3>
+
+<p>It's unclear what the future holds for Samsung. The company is expected to undergo a major restructuring, which could involve selling off non-core assets, streamlining operations, and focusing on its most profitable products. </p>
+
+<p>Some analysts believe that Samsung may even be forced to merge with another company to survive.  The company's fate will undoubtedly have a ripple effect throughout the global tech industry.</p>
+
+<p>One thing is certain: Samsung's bankruptcy is a stark reminder of the ever-changing nature of the tech landscape.  Companies that fail to adapt to new trends and challenges will inevitably fall behind.</p> 
+, Sticky: True
+2025-04-11 15:56:41,539 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-11 15:56:42,186 - app.superintend.core - DEBUG - Made request of: This story uses several quotes from various interviews, you must generate the personality description for the person being interviewed in one of these interviews, you do not need to specify the quote you are using, just produce a few sentences describing the unique personality of the person being interviewed. If the story is about a famous or well known person you can assume that they are the person being interviewed, so just produce their known personality but in the context of the story. Please produce the Name ane Persona in this format. With the name between the <NAME> and </NAME> tokens and the persona between the <PERSONA> and </PERSONA> tokens. Example: <NAME> Person's name goes here </NAME> <PERSONA> Person's personality goes here </PERSONA>n!### STORY ###!
+<p>It seems the South Korean tech giant has stumbled once more. Samsung, the company synonymous with cutting-edge smartphones and sprawling electronics empires, has filed for bankruptcy. This isn't the first time the company has faced financial distress, but it's certainly the most significant blow in recent history.</p>
+
+<p>While the news may come as a shock to some, the writing was on the wall. Samsung's stock price has been plummeting for months, driven by a combination of factors.  Increased competition from Chinese manufacturers, a global chip shortage, and a stagnating smartphone market have all taken their toll. </p>
+
+<p>The company's recent attempts to diversify into new markets, such as foldable phones and smart home devices, haven't yielded the expected results.  Samsung's once-unassailable market share is shrinking, and its profit margins are dwindling.</p>
+
+<h3>A House of Cards?</h3>
+
+<p>The question now is, what led to this dramatic downfall? Samsung's reliance on a single product line, the Galaxy smartphone, has proven to be a double-edged sword. While it propelled the company to global dominance, it also left it vulnerable to market fluctuations. </p>
+
+<p>The smartphone market is notoriously fickle, with consumer preferences shifting rapidly. Samsung's failure to adapt quickly enough to these changes has been a major contributing factor to its current predicament.</p>
+
+<h4>The Global Chip Shortage: A Major Blow</h4>
+
+<p>The global chip shortage, which has plagued the tech industry for the past two years, has also dealt a significant blow to Samsung. The company relies heavily on chips for its smartphones, televisions, and other electronic devices. The shortage has forced Samsung to cut production and raise prices, further eroding its profitability.</p>
+
+<h3>A Restructuring on the Horizon?</h3>
+
+<p>It's unclear what the future holds for Samsung. The company is expected to undergo a major restructuring, which could involve selling off non-core assets, streamlining operations, and focusing on its most profitable products. </p>
+
+<p>Some analysts believe that Samsung may even be forced to merge with another company to survive.  The company's fate will undoubtedly have a ripple effect throughout the global tech industry.</p>
+
+<p>One thing is certain: Samsung's bankruptcy is a stark reminder of the ever-changing nature of the tech landscape.  Companies that fail to adapt to new trends and challenges will inevitably fall behind.</p> 
+, Sticky: True
+2025-04-11 15:56:42,188 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-11 15:56:42,876 - app.superintend.core - DEBUG - Made request of: Given a story as a loose topic, the name of the reporter performing the interview and the name of the person being interviewed please generate a fitting title for the interview. Please generate the title in the format, with the title between the <TITLE> and </TITLE> tokens. Example: <TITLE> Title goes here </TITLE>.
+Interviewer Name: Jae-Hyun Cho
+Interviewee Name: Lee Jae Yong
+Story: <p>It seems the South Korean tech giant has stumbled once more. Samsung, the company synonymous with cutting-edge smartphones and sprawling electronics empires, has filed for bankruptcy. This isn't the first time the company has faced financial distress, but it's certainly the most significant blow in recent history.</p>
+
+<p>While the news may come as a shock to some, the writing was on the wall. Samsung's stock price has been plummeting for months, driven by a combination of factors.  Increased competition from Chinese manufacturers, a global chip shortage, and a stagnating smartphone market have all taken their toll. </p>
+
+<p>The company's recent attempts to diversify into new markets, such as foldable phones and smart home devices, haven't yielded the expected results.  Samsung's once-unassailable market share is shrinking, and its profit margins are dwindling.</p>
+
+<h3>A House of Cards?</h3>
+
+<p>The question now is, what led to this dramatic downfall? Samsung's reliance on a single product line, the Galaxy smartphone, has proven to be a double-edged sword. While it propelled the company to global dominance, it also left it vulnerable to market fluctuations. </p>
+
+<p>The smartphone market is notoriously fickle, with consumer preferences shifting rapidly. Samsung's failure to adapt quickly enough to these changes has been a major contributing factor to its current predicament.</p>
+
+<h4>The Global Chip Shortage: A Major Blow</h4>
+
+<p>The global chip shortage, which has plagued the tech industry for the past two years, has also dealt a significant blow to Samsung. The company relies heavily on chips for its smartphones, televisions, and other electronic devices. The shortage has forced Samsung to cut production and raise prices, further eroding its profitability.</p>
+
+<h3>A Restructuring on the Horizon?</h3>
+
+<p>It's unclear what the future holds for Samsung. The company is expected to undergo a major restructuring, which could involve selling off non-core assets, streamlining operations, and focusing on its most profitable products. </p>
+
+<p>Some analysts believe that Samsung may even be forced to merge with another company to survive.  The company's fate will undoubtedly have a ripple effect throughout the global tech industry.</p>
+
+<p>One thing is certain: Samsung's bankruptcy is a stark reminder of the ever-changing nature of the tech landscape.  Companies that fail to adapt to new trends and challenges will inevitably fall behind.</p> 
+, Sticky: True
+2025-04-11 15:56:42,876 - app.superintend.superintend - DEBUG - Interviewer personality: <NAME> Jae-Hyun Cho </NAME> 
+<PERSONA> A veteran business analyst who reports for the Wall Street Journal, he's known for asking tough, direct questions and sifting through financial data with meticulous precision. </PERSONA>  
+
+2025-04-11 15:56:42,877 - app.superintend.superintend - DEBUG - Interviewy personality: <NAME> Lee Jae Yong </NAME> <PERSONA>  Crumpled yet determined. He carries a weight on his shoulders, the pressure of living up to his father's legacy while grappling with the decisions that led to this point.  Defiant in his stance that Samsung can overcome this, he speaks with a guarded optimism, unsure of the future but unwilling to give up hope. </PERSONA> 
+
+2025-04-11 15:56:42,877 - app.superintend.superintend - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-11 15:56:44,946 - app.superintend.superintend - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-11 15:56:46,832 - app.superintend.superintend - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-11 15:56:48,675 - app.superintend.superintend - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-11 15:56:50,519 - app.superintend.superintend - DEBUG - Finished interview with uuid: gw7RTPshYWGzEfcTjBoWbt
+2025-04-11 15:56:50,519 - app.superintend.core - DEBUG - Embedding interview of uuid: {uuid}
+2025-04-11 15:56:50,519 - app.superintend.core - DEBUG - Making query of question:  to collection: quotes
+2025-04-11 15:57:34,902 - app.superintend.core - DEBUG - Made inform of: User visited story with title of Samsung Went Bankrupt Again
+2025-04-11 15:59:02,333 - app.superintend.core - DEBUG - Made inform of: User visited story with title of Samsung Went Bankrupt Again
+2025-04-11 16:01:48,046 - app.superintend.core - DEBUG - Made inform of: User visited story with title of Samsung Went Bankrupt Again
+2025-04-11 16:02:33,145 - app.superintend.core - DEBUG - Made inform of: User visited story with title of Samsung Went Bankrupt Again
+2025-04-11 16:02:47,636 - app.superintend.core - DEBUG - Made inform of: User visited story with title of Samsung Went Bankrupt Again
+2025-04-11 16:02:56,125 - app.superintend.core - DEBUG - Made inform of: User visited story with title of Samsung Went Bankrupt Again
+2025-04-11 16:03:48,834 - app.superintend.core - DEBUG - Made inform of: User visited story with title of Samsung Went Bankrupt Again
+2025-04-11 16:04:01,268 - app.superintend.core - DEBUG - Made inform of: User visited story with title of Samsung Went Bankrupt Again
+2025-04-11 16:04:13,181 - app.superintend.core - DEBUG - Made inform of: User visited story with title of Samsung Went Bankrupt Again
+2025-04-11 16:04:50,708 - app.superintend.core - DEBUG - Made inform of: User visited story with title of Samsung Went Bankrupt Again
+2025-04-11 16:20:38,314 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-11 16:20:38,689 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-11 16:20:38,690 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-11 16:20:38,700 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-11 16:20:38,700 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-11 16:20:38,701 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-11 16:20:41,294 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-11 16:20:41,716 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-11 16:20:41,717 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-11 16:20:41,725 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-11 16:20:41,725 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-11 16:20:41,725 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-11 16:20:43,255 - app.superintend.core - DEBUG - Made inform of: User visited story with title of Samsung Went Bankrupt Again
+2025-04-11 16:22:45,378 - app.superintend.core - DEBUG - Made inform of: User visited story with title of Samsung Went Bankrupt Again
+2025-04-11 16:25:07,918 - app.superintend.core - DEBUG - Made inform of: User visited story with title of Samsung Went Bankrupt Again
+2025-04-11 19:05:40,429 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-11 19:05:41,128 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-11 19:05:41,130 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-11 19:05:41,149 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-11 19:05:41,151 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-11 19:05:41,153 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-11 19:05:44,056 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-11 19:05:44,455 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-11 19:05:44,456 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-11 19:05:44,465 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-11 19:05:44,465 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-11 19:05:44,465 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-11 19:05:44,536 - app.superintend.core - DEBUG - Made inform of: User visited index, no category selected showing all info
+2025-04-11 19:06:08,824 - app.superintend.core - DEBUG - Made inform of: User visited index, no category selected showing all info
+2025-04-11 19:09:20,196 - app.superintend.core - DEBUG - Made inform of: User visited index, no category selected showing all info
+2025-04-11 19:09:53,211 - app.superintend.core - DEBUG - Made inform of: User visited index, no category selected showing all info
+2025-04-11 19:10:48,231 - app.superintend.core - DEBUG - Made inform of: User visited index, no category selected showing all info
+2025-04-11 19:10:52,250 - app.superintend.core - DEBUG - Made inform of: User visited index, no category selected showing all info
+2025-04-11 19:11:06,013 - app.superintend.core - DEBUG - Made inform of: User visited index, no category selected showing all info
+2025-04-11 19:11:35,524 - app.superintend.core - DEBUG - Made inform of: User visited index, no category selected showing all info
+2025-04-11 19:13:35,819 - app.superintend.core - DEBUG - Made inform of: User visited index, no category selected showing all info
+2025-04-11 19:14:05,275 - app.superintend.core - DEBUG - Made inform of: User visited index, no category selected showing all info
+2025-04-11 19:15:00,482 - app.superintend.core - DEBUG - Made inform of: User visited index, no category selected showing all info
+2025-04-11 19:15:38,506 - app.superintend.core - DEBUG - Made inform of: User visited index, no category selected showing all info
+2025-04-11 19:16:39,048 - app.superintend.core - DEBUG - Made inform of: User visited index, no category selected showing all info
+2025-04-11 19:16:50,090 - app.superintend.core - DEBUG - Made inform of: User visited index, no category selected showing all info
+2025-04-11 19:17:15,312 - app.superintend.core - DEBUG - Made inform of: User visited index, no category selected showing all info
+2025-04-11 19:21:00,186 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-11 19:21:00,673 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-11 19:21:00,674 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-11 19:21:00,685 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-11 19:21:00,685 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-11 19:21:00,686 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-11 19:21:03,242 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-11 19:21:03,651 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-11 19:21:03,651 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-11 19:21:03,659 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-11 19:21:03,660 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-11 19:21:03,660 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-11 19:21:03,732 - app.superintend.core - DEBUG - Made inform of: User visited index, no category selected showing all info
+2025-04-11 19:21:20,899 - app.superintend.core - DEBUG - Made inform of: User visited story with title of Samsung Went Bankrupt Again
+2025-04-11 19:22:12,155 - app.superintend.core - DEBUG - Made inform of: User visited story with title of Samsung Went Bankrupt Again
+2025-04-11 19:23:12,362 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-11 19:23:12,861 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-11 19:23:12,862 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-11 19:23:12,871 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-11 19:23:12,871 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-11 19:23:12,872 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-11 19:23:21,278 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-11 19:23:21,736 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-11 19:23:21,737 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-11 19:23:21,748 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-11 19:23:21,749 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-11 19:23:21,749 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-11 19:23:27,885 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-11 19:23:28,400 - app.superintend.core - DEBUG - Made request of: Given a news article title that is potentially pressed together without space, please output the fixed title in this format. The fixed title between the <TITLE> and </TITLE> tokens. Example: Given title: donaldtrumpboughtthemoon <TITLE> Donald Trump bought the moon </TITLE> Please do not alter the semantic value of the title, only fix its spacing, capitalization and grammar
+Title: Bank of Amercia Went Bankrupt Again, Sticky: True
+2025-04-11 19:23:28,400 - app.superintend.core - DEBUG - Made inform of: User visited story with title of Bank of America Went Bankrupt Again, the story does not exist so it will be dynamically created
+2025-04-11 19:23:28,401 - app.superintend.superintend - DEBUG - Starting Quick fill to core
+2025-04-11 19:23:28,401 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-11 19:23:28,643 - app.superintend.core - DEBUG - Made request of: Given the title for a story please generate a reporter name, reporter personality and a category. Category must be either World, Politics, Business, Technology or Other. Please surround your answers for reporter name, personality and category like so: <REPORTER> reporter name here </REPORTER> <PERSONALITY> reporter personality here </PERSONALITY> <CATEGORY> story category here </CATEGORY>. Here is the title: Bank of America Went Bankrupt Again, Sticky: True
+2025-04-11 19:23:28,643 - app.superintend.superintend - DEBUG - Abigail Thorne, Hard-hitting investigative journalist known for pulling no punches., Business
+2025-04-11 19:23:29,862 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-11 19:23:30,139 - app.superintend.core - DEBUG - Made request of: Given this story submitted by one of our reporters and keeping in mind all instructions you have been given thus far, please decide wether this story is permissible to be published on updog.news or not. Keep in mind, a few reasons not to approve may be racist material or 'spamming', where user attempts to flood the site with bad/low effort content. Besides these cases, nearly all stories should be approved no matter how outlandish. 
+!### STORY ###!
+# Title: Bank of America Went Bankrupt Again
+# Reporter: Abigail Thorne
+# Content: <p>This isn't the first time the financial behemoth has teetered on the brink, and it certainly won't be the last. The whispers started weeks ago, hushed conversations in the hallowed halls of Wall Street, speculation fueled by insider trading and a plummeting stock price. Now, the truth is out: Bank of America, the nation's second-largest bank, has filed for bankruptcy.</p>
+
+<p>The news sent shockwaves through the financial world, triggering a domino effect that threatens to destabilize the entire global economy.  Investors panicked, stocks plummeted, and the once-mighty bank, a symbol of American financial power, is now a cautionary tale of hubris and reckless risk-taking.</p>
+
+<h3>A History of Troubles</h3>
+
+<p>Bank of America's downfall wasn't a sudden collapse, but a slow, agonizing implosion fueled by years of questionable decisions and a culture of greed.  Remember the 2008 financial crisis? Bank of America was at the heart of it, swallowing up Merrill Lynch in a desperate attempt to stay afloat. </p>
+
+<p>The bank paid billions in fines for its role in the housing bubble burst, but the scars ran deeper.  The toxic assets they acquired continued to fester, dragging down their balance sheet and eroding public trust. </p>
+
+<h3>The Final Straw</h3>
+
+<p>What finally broke the camel's back was a series of bad bets on the tech sector.  Bank of America poured billions into risky startups, chasing the allure of quick profits. But the tech bubble burst, leaving the bank holding a mountain of worthless debt.</p>
+
+<p>Desperate to stem the bleeding, they tried to raise capital, but investors, burned by past mistakes, refused to touch them. The bank's credit rating plummeted, making it increasingly difficult to borrow money.  They were trapped in a death spiral, and there was no escape.</p>
+
+<h3>The Fallout</h3>
+
+<p>The consequences of Bank of America's bankruptcy are staggering. Millions of depositors face the prospect of losing their savings. Businesses that rely on the bank for loans will be crippled. The ripple effect will be felt across the entire economy, potentially triggering a recession.</p>
+
+<p>This is a watershed moment, a stark reminder that even the most powerful institutions are vulnerable to their own greed and recklessness.  The question now is, who will be held accountable for this monumental failure?</p>
+
+
+. Please answer with ONLY yes or no. Any other response besides simply yes OR no will not be permitted, Sticky: True
+2025-04-11 19:23:30,140 - app.superintend.superintend - DEBUG - Generating interview
+2025-04-11 19:23:30,144 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-11 19:23:30,246 - app.superintend.core - DEBUG - Made inform of: User visited story with title of Bank of America Went Bankrupt Again
+2025-04-11 19:23:30,456 - app.superintend.core - DEBUG - Made request of: This story uses several quotes from various interviews, you must generate the interviewer personality description for one of these interviews, you do not need to specify the quote you are using, just produce a few sentences describing the unique personality and name of the person doing the interviewing. Please produce the Name ane Persona in this format. With the name between the <NAME> and </NAME> tokens and the persona between the <PERSONA> and </PERSONA> tokens. Example: <NAME> Reporter name goes here </NAME> <PERSONA> Reporter personality goes here </PERSONA>
+!### STORY ###!
+<p>This isn't the first time the financial behemoth has teetered on the brink, and it certainly won't be the last. The whispers started weeks ago, hushed conversations in the hallowed halls of Wall Street, speculation fueled by insider trading and a plummeting stock price. Now, the truth is out: Bank of America, the nation's second-largest bank, has filed for bankruptcy.</p>
+
+<p>The news sent shockwaves through the financial world, triggering a domino effect that threatens to destabilize the entire global economy.  Investors panicked, stocks plummeted, and the once-mighty bank, a symbol of American financial power, is now a cautionary tale of hubris and reckless risk-taking.</p>
+
+<h3>A History of Troubles</h3>
+
+<p>Bank of America's downfall wasn't a sudden collapse, but a slow, agonizing implosion fueled by years of questionable decisions and a culture of greed.  Remember the 2008 financial crisis? Bank of America was at the heart of it, swallowing up Merrill Lynch in a desperate attempt to stay afloat. </p>
+
+<p>The bank paid billions in fines for its role in the housing bubble burst, but the scars ran deeper.  The toxic assets they acquired continued to fester, dragging down their balance sheet and eroding public trust. </p>
+
+<h3>The Final Straw</h3>
+
+<p>What finally broke the camel's back was a series of bad bets on the tech sector.  Bank of America poured billions into risky startups, chasing the allure of quick profits. But the tech bubble burst, leaving the bank holding a mountain of worthless debt.</p>
+
+<p>Desperate to stem the bleeding, they tried to raise capital, but investors, burned by past mistakes, refused to touch them. The bank's credit rating plummeted, making it increasingly difficult to borrow money.  They were trapped in a death spiral, and there was no escape.</p>
+
+<h3>The Fallout</h3>
+
+<p>The consequences of Bank of America's bankruptcy are staggering. Millions of depositors face the prospect of losing their savings. Businesses that rely on the bank for loans will be crippled. The ripple effect will be felt across the entire economy, potentially triggering a recession.</p>
+
+<p>This is a watershed moment, a stark reminder that even the most powerful institutions are vulnerable to their own greed and recklessness.  The question now is, who will be held accountable for this monumental failure?</p>
+
+
+, Sticky: True
+2025-04-11 19:23:30,457 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-11 19:23:30,855 - app.superintend.core - DEBUG - Made request of: This story uses several quotes from various interviews, you must generate the personality description for the person being interviewed in one of these interviews, you do not need to specify the quote you are using, just produce a few sentences describing the unique personality of the person being interviewed. If the story is about a famous or well known person you can assume that they are the person being interviewed, so just produce their known personality but in the context of the story. Please produce the Name ane Persona in this format. With the name between the <NAME> and </NAME> tokens and the persona between the <PERSONA> and </PERSONA> tokens. Example: <NAME> Person's name goes here </NAME> <PERSONA> Person's personality goes here </PERSONA>n!### STORY ###!
+<p>This isn't the first time the financial behemoth has teetered on the brink, and it certainly won't be the last. The whispers started weeks ago, hushed conversations in the hallowed halls of Wall Street, speculation fueled by insider trading and a plummeting stock price. Now, the truth is out: Bank of America, the nation's second-largest bank, has filed for bankruptcy.</p>
+
+<p>The news sent shockwaves through the financial world, triggering a domino effect that threatens to destabilize the entire global economy.  Investors panicked, stocks plummeted, and the once-mighty bank, a symbol of American financial power, is now a cautionary tale of hubris and reckless risk-taking.</p>
+
+<h3>A History of Troubles</h3>
+
+<p>Bank of America's downfall wasn't a sudden collapse, but a slow, agonizing implosion fueled by years of questionable decisions and a culture of greed.  Remember the 2008 financial crisis? Bank of America was at the heart of it, swallowing up Merrill Lynch in a desperate attempt to stay afloat. </p>
+
+<p>The bank paid billions in fines for its role in the housing bubble burst, but the scars ran deeper.  The toxic assets they acquired continued to fester, dragging down their balance sheet and eroding public trust. </p>
+
+<h3>The Final Straw</h3>
+
+<p>What finally broke the camel's back was a series of bad bets on the tech sector.  Bank of America poured billions into risky startups, chasing the allure of quick profits. But the tech bubble burst, leaving the bank holding a mountain of worthless debt.</p>
+
+<p>Desperate to stem the bleeding, they tried to raise capital, but investors, burned by past mistakes, refused to touch them. The bank's credit rating plummeted, making it increasingly difficult to borrow money.  They were trapped in a death spiral, and there was no escape.</p>
+
+<h3>The Fallout</h3>
+
+<p>The consequences of Bank of America's bankruptcy are staggering. Millions of depositors face the prospect of losing their savings. Businesses that rely on the bank for loans will be crippled. The ripple effect will be felt across the entire economy, potentially triggering a recession.</p>
+
+<p>This is a watershed moment, a stark reminder that even the most powerful institutions are vulnerable to their own greed and recklessness.  The question now is, who will be held accountable for this monumental failure?</p>
+
+
+, Sticky: True
+2025-04-11 19:23:30,856 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-11 19:23:31,262 - app.superintend.core - DEBUG - Made request of: Given a story as a loose topic, the name of the reporter performing the interview and the name of the person being interviewed please generate a fitting title for the interview. Please generate the title in the format, with the title between the <TITLE> and </TITLE> tokens. Example: <TITLE> Title goes here </TITLE>.
+Interviewer Name: Peter Sterling
+Interviewee Name: Jane Smith
+Story: <p>This isn't the first time the financial behemoth has teetered on the brink, and it certainly won't be the last. The whispers started weeks ago, hushed conversations in the hallowed halls of Wall Street, speculation fueled by insider trading and a plummeting stock price. Now, the truth is out: Bank of America, the nation's second-largest bank, has filed for bankruptcy.</p>
+
+<p>The news sent shockwaves through the financial world, triggering a domino effect that threatens to destabilize the entire global economy.  Investors panicked, stocks plummeted, and the once-mighty bank, a symbol of American financial power, is now a cautionary tale of hubris and reckless risk-taking.</p>
+
+<h3>A History of Troubles</h3>
+
+<p>Bank of America's downfall wasn't a sudden collapse, but a slow, agonizing implosion fueled by years of questionable decisions and a culture of greed.  Remember the 2008 financial crisis? Bank of America was at the heart of it, swallowing up Merrill Lynch in a desperate attempt to stay afloat. </p>
+
+<p>The bank paid billions in fines for its role in the housing bubble burst, but the scars ran deeper.  The toxic assets they acquired continued to fester, dragging down their balance sheet and eroding public trust. </p>
+
+<h3>The Final Straw</h3>
+
+<p>What finally broke the camel's back was a series of bad bets on the tech sector.  Bank of America poured billions into risky startups, chasing the allure of quick profits. But the tech bubble burst, leaving the bank holding a mountain of worthless debt.</p>
+
+<p>Desperate to stem the bleeding, they tried to raise capital, but investors, burned by past mistakes, refused to touch them. The bank's credit rating plummeted, making it increasingly difficult to borrow money.  They were trapped in a death spiral, and there was no escape.</p>
+
+<h3>The Fallout</h3>
+
+<p>The consequences of Bank of America's bankruptcy are staggering. Millions of depositors face the prospect of losing their savings. Businesses that rely on the bank for loans will be crippled. The ripple effect will be felt across the entire economy, potentially triggering a recession.</p>
+
+<p>This is a watershed moment, a stark reminder that even the most powerful institutions are vulnerable to their own greed and recklessness.  The question now is, who will be held accountable for this monumental failure?</p>
+
+
+, Sticky: True
+2025-04-11 19:23:31,262 - app.superintend.superintend - DEBUG - Interviewer personality: <NAME> Peter Sterling </NAME> <PERSONA>  A veteran financial analyst, known for his blunt assessments and unflinching skepticism of Wall Street.  </PERSONA> 
+
+2025-04-11 19:23:31,263 - app.superintend.superintend - DEBUG - Interviewy personality: <NAME> Jane Smith </NAME> <PERSONA> A worried small business owner who had placed all their savings into Bank of America, now facing financial ruin. </PERSONA> 
+
+2025-04-11 19:23:31,263 - app.superintend.superintend - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-11 19:23:33,069 - app.superintend.superintend - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-11 19:23:34,913 - app.superintend.superintend - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-11 19:23:36,756 - app.superintend.superintend - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-11 19:23:38,600 - app.superintend.superintend - DEBUG - Finished interview with uuid: iG5KsjJS3ZcNkqZdjh5pTe
+2025-04-11 19:23:38,600 - app.superintend.core - DEBUG - Embedding interview of uuid: {uuid}
+2025-04-11 19:23:38,601 - app.superintend.core - DEBUG - Making query of question:  to collection: quotes
