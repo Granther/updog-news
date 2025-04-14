@@ -2,8 +2,23 @@
 
 # Should we generate a fake quote, embed it and get a semantically similar one later
 
+test = """
+Prime Directive: Roleplay as a news writer. Given a news story title and the reporter's personality generate a new and unique story to the best of your ability. 
+
+Rules:
+- Do not include the title in the content as it is already shown on the page. 
+- The story will displayed on a webpage, so please separate paragraphs in such a way. 
+- Use <p>, <h>, <br> html tags when needed to make the article look good on a webpage. Please 
+- Do not surround anything in ** **'s. 
+- Make the article fairly long, make it about a 5 minute read. 
+- Use h3 and h4 for subheadings and headings. 
+- Separate paragraphs by putting them in the p tag etc. 
+- Don't add any classes or ids to these tags, as they will be filled in later. Just keep the tags vanilla, ie: <p></p> <h3></h3> etc
+"""
+
 def generate_news_prompt():
-    return "Roleplay as a news writer. Given a news story title and the reporter's personality, please do not include the title in the content as it is already shown on the page. The story will displayed on a webpage, so please separate paragraphs in such a way. Use <strong>, <p>, <h>, <br> html tags when needed to make the article look good on a webpage. Please make the article fairly long, make it about a 5 minute read. Paragraphs should be short, you should use h3 and h4 for subheadings and headings. Bold things that are important, separate paragraphs by putting them in the p tag etc. We are using tailwindcss so by default h will not have a size. So please give it a tailwind class with a text size"
+    return test
+    "Roleplay as a news writer. Given a news story title and the reporter's personality, please do not include the title in the content as it is already shown on the page. The story will displayed on a webpage, so please separate paragraphs in such a way. Use <p>, <h>, <br> html tags when needed to make the article look good on a webpage. Please do not surround anything in ** **'s. Please make the article fairly long, make it about a 5 minute read. Paragraphs should be short, you should use h3 and h4 for subheadings and headings. Bold things that are important, separate paragraphs by putting them in the p tag etc. Don't add any classes or ids to these tags, as they will be filled in later. Just keep the tags vanilla, ie: <p></p> <h3></h3> etc"
 
 '''
 Please make sure to include at least 2 quotes from 2 different interviews relevant to the article. Please place the quotes between <QUOTE> and </QUOTE> tokens. Like <QUOTE> \"This is a test quote\" </QUOTE>.

@@ -10306,3 +10306,1189 @@ Story: <p>This isn't the first time the financial behemoth has teetered on the b
 2025-04-11 19:23:38,600 - app.superintend.superintend - DEBUG - Finished interview with uuid: iG5KsjJS3ZcNkqZdjh5pTe
 2025-04-11 19:23:38,600 - app.superintend.core - DEBUG - Embedding interview of uuid: {uuid}
 2025-04-11 19:23:38,601 - app.superintend.core - DEBUG - Making query of question:  to collection: quotes
+2025-04-13 19:10:13,727 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-13 19:10:14,120 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-13 19:10:14,121 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-13 19:10:14,129 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-13 19:10:14,129 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-13 19:10:14,129 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-13 19:10:16,726 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-13 19:10:17,229 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-13 19:10:17,230 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-13 19:10:17,252 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-13 19:10:17,253 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-13 19:10:17,254 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-13 19:10:17,784 - app.superintend.core - DEBUG - Made inform of: User visited index, no category selected showing all info
+2025-04-13 19:10:31,578 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-13 19:10:32,018 - app.superintend.core - DEBUG - Made request of: Given a news article title that is potentially pressed together without space, please output the fixed title in this format. The fixed title between the <TITLE> and </TITLE> tokens. Example: Given title: donaldtrumpboughtthemoon <TITLE> Donald Trump bought the moon </TITLE> Please do not alter the semantic value of the title, only fix its spacing, capitalization and grammar
+Title: new ai smart glasses, Sticky: True
+2025-04-13 19:10:32,018 - app.superintend.core - DEBUG - Made inform of: User visited story with title of New AI Smart Glasses, the story does not exist so it will be dynamically created
+2025-04-13 19:10:32,019 - app.superintend.superintend - DEBUG - Starting Quick fill to core
+2025-04-13 19:10:32,021 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-13 19:10:32,295 - app.superintend.core - DEBUG - Made request of: Given the title for a story please generate a reporter name, reporter personality and a category. Category must be either World, Politics, Business, Technology or Other. Please surround your answers for reporter name, personality and category like so: <REPORTER> reporter name here </REPORTER> <PERSONALITY> reporter personality here </PERSONALITY> <CATEGORY> story category here </CATEGORY>. Here is the title: New AI Smart Glasses, Sticky: True
+2025-04-13 19:10:32,296 - app.superintend.superintend - DEBUG - Anika Sharma, Investigative, tech-focused, Technology
+2025-04-13 19:10:33,951 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-13 19:10:34,250 - app.superintend.core - DEBUG - Made request of: Given this story submitted by one of our reporters and keeping in mind all instructions you have been given thus far, please decide wether this story is permissible to be published on updog.news or not. Keep in mind, a few reasons not to approve may be racist material or 'spamming', where user attempts to flood the site with bad/low effort content. Besides these cases, nearly all stories should be approved no matter how outlandish. 
+!### STORY ###!
+# Title: New AI Smart Glasses
+# Reporter: Anika Sharma
+# Content: <p>The tech world is buzzing with the release of **Iris**, a new pair of smart glasses promising to revolutionize the way we interact with information and the world around us.  Developed by the secretive startup, **NeuroLink**, Iris boasts an array of cutting-edge features, but its true potential remains shrouded in mystery. </p>
+
+<p>On the surface, Iris appears sleek and stylish, resembling a high-end pair of designer sunglasses.  But beneath the polished exterior lies a powerful artificial intelligence engine capable of processing vast amounts of data in real-time. NeuroLink claims Iris can translate languages, identify objects, provide contextual information, and even control smart devices with just a glance. </p>
+
+<h3 id="Hands-On-Experience">Hands-On Experience</h3>
+<p>I had the opportunity to test Iris for myself, and the initial experience was undeniably impressive.  The glasses seamlessly integrated with my smartphone, instantly recognizing my voice commands and displaying information in a clear, concise manner.  Pointing at a building, for example, triggered a pop-up with its history, architectural style, and even reviews from nearby businesses. </p>
+
+<p>The language translation feature was equally impressive, accurately converting spoken dialogue in real-time.  However, I did notice occasional lag when processing complex queries or navigating through multiple layers of information. </p>
+
+<h3 id="Privacy-Concerns">Privacy Concerns</h3>
+<p>While Iris's capabilities are undeniably impressive, they also raise significant privacy concerns.  The glasses constantly collect data about the user's surroundings, including facial recognition data, audio recordings, and location information.  NeuroLink insists that this data is anonymized and used solely for improving the AI engine, but the potential for misuse is undeniable. </p>
+
+<p>There are also concerns about the potential for Iris to be hacked or used for surveillance purposes.  Imagine a scenario where malicious actors could remotely access the glasses' camera and microphone, recording conversations or monitoring your movements without your knowledge. </p>
+
+<h3 id="Ethical-Implications">Ethical Implications</h3>
+<p>Beyond privacy concerns, Iris also raises broader ethical questions about the role of AI in our lives.  Will these glasses create a more efficient and connected world, or will they exacerbate existing inequalities and erode our sense of privacy and autonomy? </p>
+
+<p>It's too early to say for sure what the long-term impact of Iris will be.  But one thing is clear: this technology has the potential to fundamentally change the way we live, work, and interact with each other.  As with any powerful tool, it's crucial to approach Iris with both excitement and caution, carefully considering its potential benefits and risks. </p> 
+. Please answer with ONLY yes or no. Any other response besides simply yes OR no will not be permitted, Sticky: True
+2025-04-13 19:10:34,252 - app.superintend.superintend - DEBUG - Generating interview
+2025-04-13 19:10:34,258 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-13 19:10:34,348 - app.superintend.core - DEBUG - Made inform of: User visited story with title of New AI Smart Glasses
+2025-04-13 19:10:34,660 - app.superintend.core - DEBUG - Made request of: This story uses several quotes from various interviews, you must generate the interviewer personality description for one of these interviews, you do not need to specify the quote you are using, just produce a few sentences describing the unique personality and name of the person doing the interviewing. Please produce the Name ane Persona in this format. With the name between the <NAME> and </NAME> tokens and the persona between the <PERSONA> and </PERSONA> tokens. Example: <NAME> Reporter name goes here </NAME> <PERSONA> Reporter personality goes here </PERSONA>
+!### STORY ###!
+<p>The tech world is buzzing with the release of **Iris**, a new pair of smart glasses promising to revolutionize the way we interact with information and the world around us.  Developed by the secretive startup, **NeuroLink**, Iris boasts an array of cutting-edge features, but its true potential remains shrouded in mystery. </p>
+
+<p>On the surface, Iris appears sleek and stylish, resembling a high-end pair of designer sunglasses.  But beneath the polished exterior lies a powerful artificial intelligence engine capable of processing vast amounts of data in real-time. NeuroLink claims Iris can translate languages, identify objects, provide contextual information, and even control smart devices with just a glance. </p>
+
+<h3 id="Hands-On-Experience">Hands-On Experience</h3>
+<p>I had the opportunity to test Iris for myself, and the initial experience was undeniably impressive.  The glasses seamlessly integrated with my smartphone, instantly recognizing my voice commands and displaying information in a clear, concise manner.  Pointing at a building, for example, triggered a pop-up with its history, architectural style, and even reviews from nearby businesses. </p>
+
+<p>The language translation feature was equally impressive, accurately converting spoken dialogue in real-time.  However, I did notice occasional lag when processing complex queries or navigating through multiple layers of information. </p>
+
+<h3 id="Privacy-Concerns">Privacy Concerns</h3>
+<p>While Iris's capabilities are undeniably impressive, they also raise significant privacy concerns.  The glasses constantly collect data about the user's surroundings, including facial recognition data, audio recordings, and location information.  NeuroLink insists that this data is anonymized and used solely for improving the AI engine, but the potential for misuse is undeniable. </p>
+
+<p>There are also concerns about the potential for Iris to be hacked or used for surveillance purposes.  Imagine a scenario where malicious actors could remotely access the glasses' camera and microphone, recording conversations or monitoring your movements without your knowledge. </p>
+
+<h3 id="Ethical-Implications">Ethical Implications</h3>
+<p>Beyond privacy concerns, Iris also raises broader ethical questions about the role of AI in our lives.  Will these glasses create a more efficient and connected world, or will they exacerbate existing inequalities and erode our sense of privacy and autonomy? </p>
+
+<p>It's too early to say for sure what the long-term impact of Iris will be.  But one thing is clear: this technology has the potential to fundamentally change the way we live, work, and interact with each other.  As with any powerful tool, it's crucial to approach Iris with both excitement and caution, carefully considering its potential benefits and risks. </p> 
+, Sticky: True
+2025-04-13 19:10:34,661 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-13 19:10:35,168 - app.superintend.core - DEBUG - Made request of: This story uses several quotes from various interviews, you must generate the personality description for the person being interviewed in one of these interviews, you do not need to specify the quote you are using, just produce a few sentences describing the unique personality of the person being interviewed. If the story is about a famous or well known person you can assume that they are the person being interviewed, so just produce their known personality but in the context of the story. Please produce the Name ane Persona in this format. With the name between the <NAME> and </NAME> tokens and the persona between the <PERSONA> and </PERSONA> tokens. Example: <NAME> Person's name goes here </NAME> <PERSONA> Person's personality goes here </PERSONA>n!### STORY ###!
+<p>The tech world is buzzing with the release of **Iris**, a new pair of smart glasses promising to revolutionize the way we interact with information and the world around us.  Developed by the secretive startup, **NeuroLink**, Iris boasts an array of cutting-edge features, but its true potential remains shrouded in mystery. </p>
+
+<p>On the surface, Iris appears sleek and stylish, resembling a high-end pair of designer sunglasses.  But beneath the polished exterior lies a powerful artificial intelligence engine capable of processing vast amounts of data in real-time. NeuroLink claims Iris can translate languages, identify objects, provide contextual information, and even control smart devices with just a glance. </p>
+
+<h3 id="Hands-On-Experience">Hands-On Experience</h3>
+<p>I had the opportunity to test Iris for myself, and the initial experience was undeniably impressive.  The glasses seamlessly integrated with my smartphone, instantly recognizing my voice commands and displaying information in a clear, concise manner.  Pointing at a building, for example, triggered a pop-up with its history, architectural style, and even reviews from nearby businesses. </p>
+
+<p>The language translation feature was equally impressive, accurately converting spoken dialogue in real-time.  However, I did notice occasional lag when processing complex queries or navigating through multiple layers of information. </p>
+
+<h3 id="Privacy-Concerns">Privacy Concerns</h3>
+<p>While Iris's capabilities are undeniably impressive, they also raise significant privacy concerns.  The glasses constantly collect data about the user's surroundings, including facial recognition data, audio recordings, and location information.  NeuroLink insists that this data is anonymized and used solely for improving the AI engine, but the potential for misuse is undeniable. </p>
+
+<p>There are also concerns about the potential for Iris to be hacked or used for surveillance purposes.  Imagine a scenario where malicious actors could remotely access the glasses' camera and microphone, recording conversations or monitoring your movements without your knowledge. </p>
+
+<h3 id="Ethical-Implications">Ethical Implications</h3>
+<p>Beyond privacy concerns, Iris also raises broader ethical questions about the role of AI in our lives.  Will these glasses create a more efficient and connected world, or will they exacerbate existing inequalities and erode our sense of privacy and autonomy? </p>
+
+<p>It's too early to say for sure what the long-term impact of Iris will be.  But one thing is clear: this technology has the potential to fundamentally change the way we live, work, and interact with each other.  As with any powerful tool, it's crucial to approach Iris with both excitement and caution, carefully considering its potential benefits and risks. </p> 
+, Sticky: True
+2025-04-13 19:10:35,169 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-13 19:10:35,580 - app.superintend.core - DEBUG - Made request of: Given a story as a loose topic, the name of the reporter performing the interview and the name of the person being interviewed please generate a fitting title for the interview. Please generate the title in the format, with the title between the <TITLE> and </TITLE> tokens. Example: <TITLE> Title goes here </TITLE>.
+Interviewer Name: Dr. Anya Petrova
+Interviewee Name: Lena Nguyen
+Story: <p>The tech world is buzzing with the release of **Iris**, a new pair of smart glasses promising to revolutionize the way we interact with information and the world around us.  Developed by the secretive startup, **NeuroLink**, Iris boasts an array of cutting-edge features, but its true potential remains shrouded in mystery. </p>
+
+<p>On the surface, Iris appears sleek and stylish, resembling a high-end pair of designer sunglasses.  But beneath the polished exterior lies a powerful artificial intelligence engine capable of processing vast amounts of data in real-time. NeuroLink claims Iris can translate languages, identify objects, provide contextual information, and even control smart devices with just a glance. </p>
+
+<h3 id="Hands-On-Experience">Hands-On Experience</h3>
+<p>I had the opportunity to test Iris for myself, and the initial experience was undeniably impressive.  The glasses seamlessly integrated with my smartphone, instantly recognizing my voice commands and displaying information in a clear, concise manner.  Pointing at a building, for example, triggered a pop-up with its history, architectural style, and even reviews from nearby businesses. </p>
+
+<p>The language translation feature was equally impressive, accurately converting spoken dialogue in real-time.  However, I did notice occasional lag when processing complex queries or navigating through multiple layers of information. </p>
+
+<h3 id="Privacy-Concerns">Privacy Concerns</h3>
+<p>While Iris's capabilities are undeniably impressive, they also raise significant privacy concerns.  The glasses constantly collect data about the user's surroundings, including facial recognition data, audio recordings, and location information.  NeuroLink insists that this data is anonymized and used solely for improving the AI engine, but the potential for misuse is undeniable. </p>
+
+<p>There are also concerns about the potential for Iris to be hacked or used for surveillance purposes.  Imagine a scenario where malicious actors could remotely access the glasses' camera and microphone, recording conversations or monitoring your movements without your knowledge. </p>
+
+<h3 id="Ethical-Implications">Ethical Implications</h3>
+<p>Beyond privacy concerns, Iris also raises broader ethical questions about the role of AI in our lives.  Will these glasses create a more efficient and connected world, or will they exacerbate existing inequalities and erode our sense of privacy and autonomy? </p>
+
+<p>It's too early to say for sure what the long-term impact of Iris will be.  But one thing is clear: this technology has the potential to fundamentally change the way we live, work, and interact with each other.  As with any powerful tool, it's crucial to approach Iris with both excitement and caution, carefully considering its potential benefits and risks. </p> 
+, Sticky: True
+2025-04-13 19:10:35,581 - app.superintend.superintend - DEBUG - Interviewer personality: <NAME> Dr. Anya Petrova </NAME> <PERSONA> A renowned AI ethicist, Dr. Petrova approaches the conversation with a mixture of fascination and cautious optimism, probing NeuroLink's claims with thoughtful questions about the societal impact of their technology. </PERSONA> 
+
+2025-04-13 19:10:35,582 - app.superintend.superintend - DEBUG - Interviewy personality: <NAME>  Lena Nguyen </NAME> <PERSONA> Lena Nguyen, the CEO of NeuroLink, is a charismatic and visionary entrepreneur.  She speaks passionately about Iris's potential to transform society, emphasizing its accessibility and user-friendly design. While acknowledging the privacy concerns, she assures that NeuroLink is committed to responsible development and transparency. </PERSONA> 
+
+
+
+2025-04-13 19:10:35,583 - app.superintend.superintend - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-13 19:10:37,492 - app.superintend.superintend - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-13 19:10:39,440 - app.superintend.superintend - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-13 19:10:41,279 - app.superintend.superintend - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-13 19:10:43,224 - app.superintend.superintend - DEBUG - Finished interview with uuid: HhXfLDooeUjFdRHahP9xt5
+2025-04-13 19:10:43,225 - app.superintend.core - DEBUG - Embedding interview of uuid: {uuid}
+2025-04-13 19:10:43,226 - app.superintend.core - DEBUG - Making query of question:  to collection: quotes
+2025-04-13 19:11:43,990 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-13 19:11:44,421 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-13 19:11:44,421 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-13 19:11:44,431 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-13 19:11:44,431 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-13 19:11:44,432 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-13 19:11:50,846 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-13 19:11:51,273 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-13 19:11:51,273 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-13 19:11:51,283 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-13 19:11:51,283 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-13 19:11:51,284 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-13 19:11:56,696 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-13 19:11:57,182 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-13 19:11:57,183 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-13 19:11:57,192 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-13 19:11:57,192 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-13 19:11:57,193 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-13 19:12:01,714 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-13 19:12:02,131 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-13 19:12:02,132 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-13 19:12:02,141 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-13 19:12:02,141 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-13 19:12:02,142 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-13 19:12:05,618 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-13 19:12:05,912 - app.superintend.core - DEBUG - Made request of: Given a news article title that is potentially pressed together without space, please output the fixed title in this format. The fixed title between the <TITLE> and </TITLE> tokens. Example: Given title: donaldtrumpboughtthemoon <TITLE> Donald Trump bought the moon </TITLE> Please do not alter the semantic value of the title, only fix its spacing, capitalization and grammar
+Title: New Apple AI Smart Glasses, Sticky: True
+2025-04-13 19:12:05,913 - app.superintend.core - DEBUG - Made inform of: User visited story with title of New Apple AI Smart Glasses, the story does not exist so it will be dynamically created
+2025-04-13 19:12:05,915 - app.superintend.superintend - DEBUG - Starting Quick fill to core
+2025-04-13 19:12:05,917 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-13 19:12:06,201 - app.superintend.core - DEBUG - Made request of: Given the title for a story please generate a reporter name, reporter personality and a category. Category must be either World, Politics, Business, Technology or Other. Please surround your answers for reporter name, personality and category like so: <REPORTER> reporter name here </REPORTER> <PERSONALITY> reporter personality here </PERSONALITY> <CATEGORY> story category here </CATEGORY>. Here is the title: New Apple AI Smart Glasses, Sticky: True
+2025-04-13 19:12:06,202 - app.superintend.superintend - DEBUG - Jessica Chen, Tech-savvy and enthusiastic, Technology
+2025-04-13 19:12:07,844 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-13 19:12:08,150 - app.superintend.core - DEBUG - Made request of: Given this story submitted by one of our reporters and keeping in mind all instructions you have been given thus far, please decide wether this story is permissible to be published on updog.news or not. Keep in mind, a few reasons not to approve may be racist material or 'spamming', where user attempts to flood the site with bad/low effort content. Besides these cases, nearly all stories should be approved no matter how outlandish. 
+!### STORY ###!
+# Title: New Apple AI Smart Glasses
+# Reporter: Jessica Chen
+# Content: <p>Apple has finally done it! After years of speculation and rumors, the tech giant has unveiled its highly anticipated AI-powered smart glasses, the **Apple Vision Pro**.  These aren't just your average pair of specs; they're a revolutionary leap forward in wearable technology, seamlessly blending the digital and physical worlds.</p>
+
+<p>The Vision Pro boasts a stunning <strong>3D display</strong> that projects holographic images directly into your field of vision. Imagine being able to interact with virtual objects as if they were real, right in front of you.  Whether it's attending a virtual meeting, exploring a 3D model of a new car, or simply catching up on your emails, the Vision Pro makes it all possible.</p>
+
+<h3 class="text-1xl font-playfair font-bold">A Window to the Future</h3>
+
+<p>But the real magic lies in the powerful AI that drives the Vision Pro. Apple's custom-designed **M2 chip** and a new <strong>R1 chip dedicated to sensor processing** work in tandem to create an incredibly responsive and intuitive experience. The glasses can understand your voice commands, track your eye movements, and even anticipate your needs.</p>
+
+<p>For example, if you're looking at a document and want to highlight a specific section, the Vision Pro can automatically detect your gaze and offer a selection of highlighting tools.  It's like having a personal assistant built right into your glasses.</p>
+
+<h4 class="text-xl font-playfair font-bold">Seamless Integration with Apple Ecosystem</h4>
+
+<p>Of course, the Vision Pro is designed to work seamlessly with the rest of your Apple devices. You can easily switch between your iPhone, iPad, and Mac, and your data and settings will be synced across all your devices.  </p>
+
+<p>Imagine being able to take a call on your Vision Pro while simultaneously working on a document on your iPad. Or, use your iPhone as a remote control for your Vision Pro, allowing you to navigate menus and control apps with ease.</p>
+
+<h3 class="text-1xl font-playfair font-bold">Beyond the Hype: Real-World Applications</h3>
+
+<p>While the Vision Pro's futuristic features are undoubtedly impressive, Apple is also highlighting its potential for real-world applications.  The glasses can be used for: </p>
+
+<ul>
+<li><strong>Education:</strong>  Immersive learning experiences, interactive textbooks, and virtual field trips.</li>
+<li><strong>Healthcare:</strong>  Remote patient monitoring, surgical simulations, and medical training.</li>
+<li><strong>Entertainment:</strong>  3D gaming, virtual concerts, and interactive storytelling.</li>
+</ul>
+
+<h3 class="text-1xl font-playfair font-bold">A Glimpse into the Future</h3>
+
+<p>The Apple Vision Pro is a game-changer. It's not just a new gadget; it's a glimpse into the future of how we interact with technology and the world around us.  While the initial price tag may be steep, the potential applications are vast and far-reaching.  Apple has once again pushed the boundaries of innovation, and the Vision Pro is sure to leave a lasting impact on the tech landscape.</p> 
+
+
+. Please answer with ONLY yes or no. Any other response besides simply yes OR no will not be permitted, Sticky: True
+2025-04-13 19:12:08,151 - app.superintend.superintend - DEBUG - Generating interview
+2025-04-13 19:12:08,157 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-13 19:12:08,419 - app.superintend.core - DEBUG - Made inform of: User visited story with title of New Apple AI Smart Glasses
+2025-04-13 19:12:08,565 - app.superintend.core - DEBUG - Made request of: This story uses several quotes from various interviews, you must generate the interviewer personality description for one of these interviews, you do not need to specify the quote you are using, just produce a few sentences describing the unique personality and name of the person doing the interviewing. Please produce the Name ane Persona in this format. With the name between the <NAME> and </NAME> tokens and the persona between the <PERSONA> and </PERSONA> tokens. Example: <NAME> Reporter name goes here </NAME> <PERSONA> Reporter personality goes here </PERSONA>
+!### STORY ###!
+<p>Apple has finally done it! After years of speculation and rumors, the tech giant has unveiled its highly anticipated AI-powered smart glasses, the **Apple Vision Pro**.  These aren't just your average pair of specs; they're a revolutionary leap forward in wearable technology, seamlessly blending the digital and physical worlds.</p>
+
+<p>The Vision Pro boasts a stunning <strong>3D display</strong> that projects holographic images directly into your field of vision. Imagine being able to interact with virtual objects as if they were real, right in front of you.  Whether it's attending a virtual meeting, exploring a 3D model of a new car, or simply catching up on your emails, the Vision Pro makes it all possible.</p>
+
+<h3 class="text-1xl font-playfair font-bold">A Window to the Future</h3>
+
+<p>But the real magic lies in the powerful AI that drives the Vision Pro. Apple's custom-designed **M2 chip** and a new <strong>R1 chip dedicated to sensor processing** work in tandem to create an incredibly responsive and intuitive experience. The glasses can understand your voice commands, track your eye movements, and even anticipate your needs.</p>
+
+<p>For example, if you're looking at a document and want to highlight a specific section, the Vision Pro can automatically detect your gaze and offer a selection of highlighting tools.  It's like having a personal assistant built right into your glasses.</p>
+
+<h4 class="text-xl font-playfair font-bold">Seamless Integration with Apple Ecosystem</h4>
+
+<p>Of course, the Vision Pro is designed to work seamlessly with the rest of your Apple devices. You can easily switch between your iPhone, iPad, and Mac, and your data and settings will be synced across all your devices.  </p>
+
+<p>Imagine being able to take a call on your Vision Pro while simultaneously working on a document on your iPad. Or, use your iPhone as a remote control for your Vision Pro, allowing you to navigate menus and control apps with ease.</p>
+
+<h3 class="text-1xl font-playfair font-bold">Beyond the Hype: Real-World Applications</h3>
+
+<p>While the Vision Pro's futuristic features are undoubtedly impressive, Apple is also highlighting its potential for real-world applications.  The glasses can be used for: </p>
+
+<ul>
+<li><strong>Education:</strong>  Immersive learning experiences, interactive textbooks, and virtual field trips.</li>
+<li><strong>Healthcare:</strong>  Remote patient monitoring, surgical simulations, and medical training.</li>
+<li><strong>Entertainment:</strong>  3D gaming, virtual concerts, and interactive storytelling.</li>
+</ul>
+
+<h3 class="text-1xl font-playfair font-bold">A Glimpse into the Future</h3>
+
+<p>The Apple Vision Pro is a game-changer. It's not just a new gadget; it's a glimpse into the future of how we interact with technology and the world around us.  While the initial price tag may be steep, the potential applications are vast and far-reaching.  Apple has once again pushed the boundaries of innovation, and the Vision Pro is sure to leave a lasting impact on the tech landscape.</p> 
+
+
+, Sticky: True
+2025-04-13 19:12:08,566 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-13 19:12:09,070 - app.superintend.core - DEBUG - Made request of: This story uses several quotes from various interviews, you must generate the personality description for the person being interviewed in one of these interviews, you do not need to specify the quote you are using, just produce a few sentences describing the unique personality of the person being interviewed. If the story is about a famous or well known person you can assume that they are the person being interviewed, so just produce their known personality but in the context of the story. Please produce the Name ane Persona in this format. With the name between the <NAME> and </NAME> tokens and the persona between the <PERSONA> and </PERSONA> tokens. Example: <NAME> Person's name goes here </NAME> <PERSONA> Person's personality goes here </PERSONA>n!### STORY ###!
+<p>Apple has finally done it! After years of speculation and rumors, the tech giant has unveiled its highly anticipated AI-powered smart glasses, the **Apple Vision Pro**.  These aren't just your average pair of specs; they're a revolutionary leap forward in wearable technology, seamlessly blending the digital and physical worlds.</p>
+
+<p>The Vision Pro boasts a stunning <strong>3D display</strong> that projects holographic images directly into your field of vision. Imagine being able to interact with virtual objects as if they were real, right in front of you.  Whether it's attending a virtual meeting, exploring a 3D model of a new car, or simply catching up on your emails, the Vision Pro makes it all possible.</p>
+
+<h3 class="text-1xl font-playfair font-bold">A Window to the Future</h3>
+
+<p>But the real magic lies in the powerful AI that drives the Vision Pro. Apple's custom-designed **M2 chip** and a new <strong>R1 chip dedicated to sensor processing** work in tandem to create an incredibly responsive and intuitive experience. The glasses can understand your voice commands, track your eye movements, and even anticipate your needs.</p>
+
+<p>For example, if you're looking at a document and want to highlight a specific section, the Vision Pro can automatically detect your gaze and offer a selection of highlighting tools.  It's like having a personal assistant built right into your glasses.</p>
+
+<h4 class="text-xl font-playfair font-bold">Seamless Integration with Apple Ecosystem</h4>
+
+<p>Of course, the Vision Pro is designed to work seamlessly with the rest of your Apple devices. You can easily switch between your iPhone, iPad, and Mac, and your data and settings will be synced across all your devices.  </p>
+
+<p>Imagine being able to take a call on your Vision Pro while simultaneously working on a document on your iPad. Or, use your iPhone as a remote control for your Vision Pro, allowing you to navigate menus and control apps with ease.</p>
+
+<h3 class="text-1xl font-playfair font-bold">Beyond the Hype: Real-World Applications</h3>
+
+<p>While the Vision Pro's futuristic features are undoubtedly impressive, Apple is also highlighting its potential for real-world applications.  The glasses can be used for: </p>
+
+<ul>
+<li><strong>Education:</strong>  Immersive learning experiences, interactive textbooks, and virtual field trips.</li>
+<li><strong>Healthcare:</strong>  Remote patient monitoring, surgical simulations, and medical training.</li>
+<li><strong>Entertainment:</strong>  3D gaming, virtual concerts, and interactive storytelling.</li>
+</ul>
+
+<h3 class="text-1xl font-playfair font-bold">A Glimpse into the Future</h3>
+
+<p>The Apple Vision Pro is a game-changer. It's not just a new gadget; it's a glimpse into the future of how we interact with technology and the world around us.  While the initial price tag may be steep, the potential applications are vast and far-reaching.  Apple has once again pushed the boundaries of innovation, and the Vision Pro is sure to leave a lasting impact on the tech landscape.</p> 
+
+
+, Sticky: True
+2025-04-13 19:12:09,070 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-13 19:12:09,481 - app.superintend.core - DEBUG - Made request of: Given a story as a loose topic, the name of the reporter performing the interview and the name of the person being interviewed please generate a fitting title for the interview. Please generate the title in the format, with the title between the <TITLE> and </TITLE> tokens. Example: <TITLE> Title goes here </TITLE>.
+Interviewer Name: Alex Ramirez
+Interviewee Name: Tim Cook
+Story: <p>Apple has finally done it! After years of speculation and rumors, the tech giant has unveiled its highly anticipated AI-powered smart glasses, the **Apple Vision Pro**.  These aren't just your average pair of specs; they're a revolutionary leap forward in wearable technology, seamlessly blending the digital and physical worlds.</p>
+
+<p>The Vision Pro boasts a stunning <strong>3D display</strong> that projects holographic images directly into your field of vision. Imagine being able to interact with virtual objects as if they were real, right in front of you.  Whether it's attending a virtual meeting, exploring a 3D model of a new car, or simply catching up on your emails, the Vision Pro makes it all possible.</p>
+
+<h3 class="text-1xl font-playfair font-bold">A Window to the Future</h3>
+
+<p>But the real magic lies in the powerful AI that drives the Vision Pro. Apple's custom-designed **M2 chip** and a new <strong>R1 chip dedicated to sensor processing** work in tandem to create an incredibly responsive and intuitive experience. The glasses can understand your voice commands, track your eye movements, and even anticipate your needs.</p>
+
+<p>For example, if you're looking at a document and want to highlight a specific section, the Vision Pro can automatically detect your gaze and offer a selection of highlighting tools.  It's like having a personal assistant built right into your glasses.</p>
+
+<h4 class="text-xl font-playfair font-bold">Seamless Integration with Apple Ecosystem</h4>
+
+<p>Of course, the Vision Pro is designed to work seamlessly with the rest of your Apple devices. You can easily switch between your iPhone, iPad, and Mac, and your data and settings will be synced across all your devices.  </p>
+
+<p>Imagine being able to take a call on your Vision Pro while simultaneously working on a document on your iPad. Or, use your iPhone as a remote control for your Vision Pro, allowing you to navigate menus and control apps with ease.</p>
+
+<h3 class="text-1xl font-playfair font-bold">Beyond the Hype: Real-World Applications</h3>
+
+<p>While the Vision Pro's futuristic features are undoubtedly impressive, Apple is also highlighting its potential for real-world applications.  The glasses can be used for: </p>
+
+<ul>
+<li><strong>Education:</strong>  Immersive learning experiences, interactive textbooks, and virtual field trips.</li>
+<li><strong>Healthcare:</strong>  Remote patient monitoring, surgical simulations, and medical training.</li>
+<li><strong>Entertainment:</strong>  3D gaming, virtual concerts, and interactive storytelling.</li>
+</ul>
+
+<h3 class="text-1xl font-playfair font-bold">A Glimpse into the Future</h3>
+
+<p>The Apple Vision Pro is a game-changer. It's not just a new gadget; it's a glimpse into the future of how we interact with technology and the world around us.  While the initial price tag may be steep, the potential applications are vast and far-reaching.  Apple has once again pushed the boundaries of innovation, and the Vision Pro is sure to leave a lasting impact on the tech landscape.</p> 
+
+
+, Sticky: True
+2025-04-13 19:12:09,482 - app.superintend.superintend - DEBUG - Interviewer personality: <NAME>  Alex Ramirez </NAME>
+<PERSONA>  An eager young tech enthusiast and early adopter, Alex is fascinated by the potential of AI and likes to pepper his interviews with questions about the future. </PERSONA>   
+
+2025-04-13 19:12:09,482 - app.superintend.superintend - DEBUG - Interviewy personality: <NAME>Tim Cook</NAME> 
+<PERSONA>Known for his calm and collected demeanor, Tim Cook exudes an air of quiet confidence and speaks passionately about Apple's commitment to innovation and changing the world through technology.</PERSONA>  
+
+2025-04-13 19:12:09,483 - app.superintend.superintend - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-13 19:12:11,366 - app.superintend.superintend - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-13 19:12:13,132 - app.superintend.superintend - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-13 19:12:16,102 - app.superintend.superintend - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-13 19:12:17,945 - app.superintend.superintend - DEBUG - Finished interview with uuid: Jc44mX3vo7925KpzSHVGKX
+2025-04-13 19:12:17,945 - app.superintend.core - DEBUG - Embedding interview of uuid: {uuid}
+2025-04-13 19:12:17,947 - app.superintend.core - DEBUG - Making query of question:  to collection: quotes
+2025-04-13 19:12:42,876 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-13 19:12:43,239 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-13 19:12:43,240 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-13 19:12:43,248 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-13 19:12:43,248 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-13 19:12:43,249 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-13 19:13:20,779 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-13 19:13:21,235 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-13 19:13:21,236 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-13 19:13:21,248 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-13 19:13:21,249 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-13 19:13:21,249 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-13 19:13:27,916 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-13 19:13:28,240 - app.superintend.core - DEBUG - Made request of: Given a news article title that is potentially pressed together without space, please output the fixed title in this format. The fixed title between the <TITLE> and </TITLE> tokens. Example: Given title: donaldtrumpboughtthemoon <TITLE> Donald Trump bought the moon </TITLE> Please do not alter the semantic value of the title, only fix its spacing, capitalization and grammar
+Title: New Samsung AI Smart Glasses, Sticky: True
+2025-04-13 19:13:28,240 - app.superintend.core - DEBUG - Made inform of: User visited story with title of New Samsung AI Smart Glasses, the story does not exist so it will be dynamically created
+2025-04-13 19:13:28,241 - app.superintend.superintend - DEBUG - Starting Quick fill to core
+2025-04-13 19:13:28,242 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-13 19:13:28,567 - app.superintend.core - DEBUG - Made request of: Given the title for a story please generate a reporter name, reporter personality and a category. Category must be either World, Politics, Business, Technology or Other. Please surround your answers for reporter name, personality and category like so: <REPORTER> reporter name here </REPORTER> <PERSONALITY> reporter personality here </PERSONALITY> <CATEGORY> story category here </CATEGORY>. Here is the title: New Samsung AI Smart Glasses, Sticky: True
+2025-04-13 19:13:28,567 - app.superintend.superintend - DEBUG - Jessica Lee, Tech Enthusiast, Technology
+2025-04-13 19:13:29,976 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-13 19:13:30,275 - app.superintend.core - DEBUG - Made request of: Given this story submitted by one of our reporters and keeping in mind all instructions you have been given thus far, please decide wether this story is permissible to be published on updog.news or not. Keep in mind, a few reasons not to approve may be racist material or 'spamming', where user attempts to flood the site with bad/low effort content. Besides these cases, nearly all stories should be approved no matter how outlandish. 
+!### STORY ###!
+# Title: New Samsung AI Smart Glasses
+# Reporter: Jessica Lee
+# Content: <p>Samsung has just dropped a bombshell in the tech world with the unveiling of their latest innovation: **AI-powered smart glasses**.  These aren't your average augmented reality specs; these babies are packed with cutting-edge features that promise to revolutionize the way we interact with the world around us.</p>
+
+<p>First off, let's talk about the brains behind these beauties – the AI. Samsung has integrated a powerful, on-device AI processor that allows for real-time data processing and analysis. This means the glasses can understand your voice commands, translate languages on the fly, and even recognize objects and provide information about them.</p>
+
+<h3 class="text-xl font-playfair font-bold">Seamless Integration</h3>
+
+<p>One of the most impressive things about these smart glasses is their seamless integration with your existing Samsung ecosystem. Imagine this: you're walking down the street, and your Galaxy Watch alerts you about an upcoming meeting.  The glasses instantly display the meeting details, your calendar, and even provide directions to the location.  No need to fumble with your phone – everything is right there in your field of vision.</p>
+
+<p>And it gets even better. The glasses can also connect to your Galaxy Buds, allowing you to take calls, listen to music, and even control your smart home devices with just your voice.</p>
+
+<h3 class="text-xl font-playfair font-bold">A World of Possibilities</h3>
+
+<p>The potential applications for these smart glasses are truly mind-blowing.  Think about it: </p>
+
+<ul>
+<li><b>Education:</b> Students could use the glasses to access interactive textbooks, visualize complex concepts, and even participate in virtual field trips.</li>
+<li><b>Healthcare:</b> Doctors could use the glasses to access patient records, view 3D models of organs, and even perform remote surgeries.</li>
+<li><b>Retail:</b> Shoppers could use the glasses to scan products, compare prices, and even try on clothes virtually.</li>
+</ul>
+
+<h3 class="text-xl font-playfair font-bold">The Future is Now</h3>
+
+<p>Samsung's AI smart glasses are a glimpse into the future of wearable technology. They're not just a cool gadget; they're a powerful tool that has the potential to transform the way we live, work, and learn.  I, for one, can't wait to see what other innovations Samsung has in store for us.</p>
+. Please answer with ONLY yes or no. Any other response besides simply yes OR no will not be permitted, Sticky: True
+2025-04-13 19:13:30,276 - app.superintend.superintend - DEBUG - Generating interview
+2025-04-13 19:13:30,282 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-13 19:13:30,529 - app.superintend.core - DEBUG - Made inform of: User visited story with title of New Samsung AI Smart Glasses
+2025-04-13 19:13:30,685 - app.superintend.core - DEBUG - Made request of: This story uses several quotes from various interviews, you must generate the interviewer personality description for one of these interviews, you do not need to specify the quote you are using, just produce a few sentences describing the unique personality and name of the person doing the interviewing. Please produce the Name ane Persona in this format. With the name between the <NAME> and </NAME> tokens and the persona between the <PERSONA> and </PERSONA> tokens. Example: <NAME> Reporter name goes here </NAME> <PERSONA> Reporter personality goes here </PERSONA>
+!### STORY ###!
+<p>Samsung has just dropped a bombshell in the tech world with the unveiling of their latest innovation: **AI-powered smart glasses**.  These aren't your average augmented reality specs; these babies are packed with cutting-edge features that promise to revolutionize the way we interact with the world around us.</p>
+
+<p>First off, let's talk about the brains behind these beauties – the AI. Samsung has integrated a powerful, on-device AI processor that allows for real-time data processing and analysis. This means the glasses can understand your voice commands, translate languages on the fly, and even recognize objects and provide information about them.</p>
+
+<h3 class="text-xl font-playfair font-bold">Seamless Integration</h3>
+
+<p>One of the most impressive things about these smart glasses is their seamless integration with your existing Samsung ecosystem. Imagine this: you're walking down the street, and your Galaxy Watch alerts you about an upcoming meeting.  The glasses instantly display the meeting details, your calendar, and even provide directions to the location.  No need to fumble with your phone – everything is right there in your field of vision.</p>
+
+<p>And it gets even better. The glasses can also connect to your Galaxy Buds, allowing you to take calls, listen to music, and even control your smart home devices with just your voice.</p>
+
+<h3 class="text-xl font-playfair font-bold">A World of Possibilities</h3>
+
+<p>The potential applications for these smart glasses are truly mind-blowing.  Think about it: </p>
+
+<ul>
+<li><b>Education:</b> Students could use the glasses to access interactive textbooks, visualize complex concepts, and even participate in virtual field trips.</li>
+<li><b>Healthcare:</b> Doctors could use the glasses to access patient records, view 3D models of organs, and even perform remote surgeries.</li>
+<li><b>Retail:</b> Shoppers could use the glasses to scan products, compare prices, and even try on clothes virtually.</li>
+</ul>
+
+<h3 class="text-xl font-playfair font-bold">The Future is Now</h3>
+
+<p>Samsung's AI smart glasses are a glimpse into the future of wearable technology. They're not just a cool gadget; they're a powerful tool that has the potential to transform the way we live, work, and learn.  I, for one, can't wait to see what other innovations Samsung has in store for us.</p>
+, Sticky: True
+2025-04-13 19:13:30,686 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-13 19:13:31,507 - app.superintend.core - DEBUG - Made request of: This story uses several quotes from various interviews, you must generate the personality description for the person being interviewed in one of these interviews, you do not need to specify the quote you are using, just produce a few sentences describing the unique personality of the person being interviewed. If the story is about a famous or well known person you can assume that they are the person being interviewed, so just produce their known personality but in the context of the story. Please produce the Name ane Persona in this format. With the name between the <NAME> and </NAME> tokens and the persona between the <PERSONA> and </PERSONA> tokens. Example: <NAME> Person's name goes here </NAME> <PERSONA> Person's personality goes here </PERSONA>n!### STORY ###!
+<p>Samsung has just dropped a bombshell in the tech world with the unveiling of their latest innovation: **AI-powered smart glasses**.  These aren't your average augmented reality specs; these babies are packed with cutting-edge features that promise to revolutionize the way we interact with the world around us.</p>
+
+<p>First off, let's talk about the brains behind these beauties – the AI. Samsung has integrated a powerful, on-device AI processor that allows for real-time data processing and analysis. This means the glasses can understand your voice commands, translate languages on the fly, and even recognize objects and provide information about them.</p>
+
+<h3 class="text-xl font-playfair font-bold">Seamless Integration</h3>
+
+<p>One of the most impressive things about these smart glasses is their seamless integration with your existing Samsung ecosystem. Imagine this: you're walking down the street, and your Galaxy Watch alerts you about an upcoming meeting.  The glasses instantly display the meeting details, your calendar, and even provide directions to the location.  No need to fumble with your phone – everything is right there in your field of vision.</p>
+
+<p>And it gets even better. The glasses can also connect to your Galaxy Buds, allowing you to take calls, listen to music, and even control your smart home devices with just your voice.</p>
+
+<h3 class="text-xl font-playfair font-bold">A World of Possibilities</h3>
+
+<p>The potential applications for these smart glasses are truly mind-blowing.  Think about it: </p>
+
+<ul>
+<li><b>Education:</b> Students could use the glasses to access interactive textbooks, visualize complex concepts, and even participate in virtual field trips.</li>
+<li><b>Healthcare:</b> Doctors could use the glasses to access patient records, view 3D models of organs, and even perform remote surgeries.</li>
+<li><b>Retail:</b> Shoppers could use the glasses to scan products, compare prices, and even try on clothes virtually.</li>
+</ul>
+
+<h3 class="text-xl font-playfair font-bold">The Future is Now</h3>
+
+<p>Samsung's AI smart glasses are a glimpse into the future of wearable technology. They're not just a cool gadget; they're a powerful tool that has the potential to transform the way we live, work, and learn.  I, for one, can't wait to see what other innovations Samsung has in store for us.</p>
+, Sticky: True
+2025-04-13 19:13:31,508 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-13 19:13:32,017 - app.superintend.core - DEBUG - Made request of: Given a story as a loose topic, the name of the reporter performing the interview and the name of the person being interviewed please generate a fitting title for the interview. Please generate the title in the format, with the title between the <TITLE> and </TITLE> tokens. Example: <TITLE> Title goes here </TITLE>.
+Interviewer Name: Dr. Anya Sharma
+Interviewee Name: Dr. Jae-Min Kim
+Story: <p>Samsung has just dropped a bombshell in the tech world with the unveiling of their latest innovation: **AI-powered smart glasses**.  These aren't your average augmented reality specs; these babies are packed with cutting-edge features that promise to revolutionize the way we interact with the world around us.</p>
+
+<p>First off, let's talk about the brains behind these beauties – the AI. Samsung has integrated a powerful, on-device AI processor that allows for real-time data processing and analysis. This means the glasses can understand your voice commands, translate languages on the fly, and even recognize objects and provide information about them.</p>
+
+<h3 class="text-xl font-playfair font-bold">Seamless Integration</h3>
+
+<p>One of the most impressive things about these smart glasses is their seamless integration with your existing Samsung ecosystem. Imagine this: you're walking down the street, and your Galaxy Watch alerts you about an upcoming meeting.  The glasses instantly display the meeting details, your calendar, and even provide directions to the location.  No need to fumble with your phone – everything is right there in your field of vision.</p>
+
+<p>And it gets even better. The glasses can also connect to your Galaxy Buds, allowing you to take calls, listen to music, and even control your smart home devices with just your voice.</p>
+
+<h3 class="text-xl font-playfair font-bold">A World of Possibilities</h3>
+
+<p>The potential applications for these smart glasses are truly mind-blowing.  Think about it: </p>
+
+<ul>
+<li><b>Education:</b> Students could use the glasses to access interactive textbooks, visualize complex concepts, and even participate in virtual field trips.</li>
+<li><b>Healthcare:</b> Doctors could use the glasses to access patient records, view 3D models of organs, and even perform remote surgeries.</li>
+<li><b>Retail:</b> Shoppers could use the glasses to scan products, compare prices, and even try on clothes virtually.</li>
+</ul>
+
+<h3 class="text-xl font-playfair font-bold">The Future is Now</h3>
+
+<p>Samsung's AI smart glasses are a glimpse into the future of wearable technology. They're not just a cool gadget; they're a powerful tool that has the potential to transform the way we live, work, and learn.  I, for one, can't wait to see what other innovations Samsung has in store for us.</p>
+, Sticky: True
+2025-04-13 19:13:32,018 - app.superintend.superintend - DEBUG - Interviewer personality: <NAME> Dr. Anya Sharma </NAME> <PERSONA> A pragmatic and insightful Tech Ethicist with a focus on how AI impacts society. She asks insightful questions about the ethical implications of the technology rather than focusing solely on technical specifications. </PERSONA> 
+
+2025-04-13 19:13:32,018 - app.superintend.superintend - DEBUG - Interviewy personality: <NAME> Dr. Jae-Min Kim </NAME>  <PERSONA>  A visionary Samsung engineer deeply passionate about merging AI with practical daily applications. He's enthusiastic  and eager to highlight the technological groundbreaking nature of the glasses.  </PERSONA> 
+
+2025-04-13 19:13:32,019 - app.superintend.superintend - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-13 19:13:33,928 - app.superintend.superintend - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-13 19:13:35,766 - app.superintend.superintend - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-13 19:13:37,716 - app.superintend.superintend - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-13 19:13:39,558 - app.superintend.superintend - DEBUG - Finished interview with uuid: g9by3Lo6CMm3J2ENLeLTKj
+2025-04-13 19:13:39,559 - app.superintend.core - DEBUG - Embedding interview of uuid: {uuid}
+2025-04-13 19:13:39,561 - app.superintend.core - DEBUG - Making query of question:  to collection: quotes
+2025-04-13 19:13:55,114 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-13 19:13:55,478 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-13 19:13:55,479 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-13 19:13:55,486 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-13 19:13:55,486 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-13 19:13:55,487 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-13 19:14:02,960 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-13 19:14:03,370 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-13 19:14:03,370 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-13 19:14:03,382 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-13 19:14:03,383 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-13 19:14:03,383 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-13 19:14:07,839 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-13 19:14:08,216 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-13 19:14:08,217 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-13 19:14:08,227 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-13 19:14:08,228 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-13 19:14:08,229 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-13 19:14:16,272 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-13 19:14:16,635 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-13 19:14:16,636 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-13 19:14:16,644 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-13 19:14:16,644 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-13 19:14:16,645 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-13 19:14:23,267 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-13 19:14:23,638 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-13 19:14:23,638 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-13 19:14:23,647 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-13 19:14:23,648 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-13 19:14:23,648 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-13 19:14:30,297 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-13 19:14:30,647 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-13 19:14:30,648 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-13 19:14:30,655 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-13 19:14:30,656 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-13 19:14:30,656 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-13 19:14:32,512 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-13 19:14:32,858 - app.superintend.core - DEBUG - Made request of: Given a news article title that is potentially pressed together without space, please output the fixed title in this format. The fixed title between the <TITLE> and </TITLE> tokens. Example: Given title: donaldtrumpboughtthemoon <TITLE> Donald Trump bought the moon </TITLE> Please do not alter the semantic value of the title, only fix its spacing, capitalization and grammar
+Title: New OpenaI AI Smart Glasses, Sticky: True
+2025-04-13 19:14:32,858 - app.superintend.core - DEBUG - Made inform of: User visited story with title of New OpenAI AI Smart Glasses, the story does not exist so it will be dynamically created
+2025-04-13 19:14:32,860 - app.superintend.superintend - DEBUG - Starting Quick fill to core
+2025-04-13 19:14:32,861 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-13 19:14:33,138 - app.superintend.core - DEBUG - Made request of: Given the title for a story please generate a reporter name, reporter personality and a category. Category must be either World, Politics, Business, Technology or Other. Please surround your answers for reporter name, personality and category like so: <REPORTER> reporter name here </REPORTER> <PERSONALITY> reporter personality here </PERSONALITY> <CATEGORY> story category here </CATEGORY>. Here is the title: New OpenAI AI Smart Glasses, Sticky: True
+2025-04-13 19:14:33,139 - app.superintend.superintend - DEBUG - Liam O'Connell, Curious and Tech-Savvy, Technology
+2025-04-13 19:14:34,390 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-13 19:14:34,685 - app.superintend.core - DEBUG - Made request of: Given this story submitted by one of our reporters and keeping in mind all instructions you have been given thus far, please decide wether this story is permissible to be published on updog.news or not. Keep in mind, a few reasons not to approve may be racist material or 'spamming', where user attempts to flood the site with bad/low effort content. Besides these cases, nearly all stories should be approved no matter how outlandish. 
+!### STORY ###!
+# Title: New OpenAI AI Smart Glasses
+# Reporter: Liam O'Connell
+# Content: <p>The tech world is buzzing today with the unveiling of **OpenAI's** latest innovation: smart glasses powered by their cutting-edge artificial intelligence. These aren't your average augmented reality glasses; OpenAI has infused them with a level of intelligence that promises to revolutionize how we interact with the world around us.</p>
+
+<p>The glasses, sleek and stylish, boast a sophisticated AI system capable of real-time object recognition, language translation, and even personalized recommendations. Imagine walking down the street and having your glasses instantly identify landmarks, translate foreign signs, or suggest nearby restaurants based on your preferences. That's the kind of seamless integration OpenAI is aiming for.</p>
+
+<h3 class="text-xl font-playfair font-bold mt-6">Hands-Free Computing</h3>
+
+<p>One of the most exciting aspects of these glasses is their hands-free computing capabilities. By simply speaking to the glasses, users can control various functions, from sending emails and making calls to navigating maps and controlling smart home devices. This opens up a world of possibilities for multitasking and efficiency, especially in situations where using your hands is impractical.</p>
+
+<h4 class="text-lg font-playfair font-bold mt-6">A Leap Forward in Accessibility</h4>
+
+<p>OpenAI is also emphasizing the accessibility features of these glasses. They envision them as a tool to empower individuals with visual impairments by providing real-time audio descriptions of their surroundings. The AI can also translate text into speech, making information readily available to those who struggle with reading.</p>
+
+<h3 class="text-xl font-playfair font-bold mt-6">Privacy Concerns</h3>
+
+<p>Of course, with any technology that gathers and processes vast amounts of data, privacy concerns are inevitable. OpenAI acknowledges these concerns and has implemented robust security measures to protect user data. They are also committed to transparency, providing users with clear information about how their data is being used and giving them control over their privacy settings.</p>
+
+<h3 class="text-xl font-playfair font-bold mt-6">The Future of Interaction</h3>
+
+<p>These smart glasses represent a significant step forward in the evolution of human-computer interaction. By seamlessly blending AI with our physical world, OpenAI is paving the way for a future where technology enhances our lives in unprecedented ways. While there are still challenges to overcome, the potential benefits are undeniable.  </p>
+
+<p>The release date and pricing for these revolutionary glasses are yet to be announced, but one thing is certain: the tech world is eagerly awaiting their arrival.</p> 
+. Please answer with ONLY yes or no. Any other response besides simply yes OR no will not be permitted, Sticky: True
+2025-04-13 19:14:34,686 - app.superintend.superintend - DEBUG - Generating interview
+2025-04-13 19:14:34,692 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-13 19:14:34,740 - app.superintend.core - DEBUG - Made inform of: User visited story with title of New OpenAI AI Smart Glasses
+2025-04-13 19:14:35,093 - app.superintend.core - DEBUG - Made request of: This story uses several quotes from various interviews, you must generate the interviewer personality description for one of these interviews, you do not need to specify the quote you are using, just produce a few sentences describing the unique personality and name of the person doing the interviewing. Please produce the Name ane Persona in this format. With the name between the <NAME> and </NAME> tokens and the persona between the <PERSONA> and </PERSONA> tokens. Example: <NAME> Reporter name goes here </NAME> <PERSONA> Reporter personality goes here </PERSONA>
+!### STORY ###!
+<p>The tech world is buzzing today with the unveiling of **OpenAI's** latest innovation: smart glasses powered by their cutting-edge artificial intelligence. These aren't your average augmented reality glasses; OpenAI has infused them with a level of intelligence that promises to revolutionize how we interact with the world around us.</p>
+
+<p>The glasses, sleek and stylish, boast a sophisticated AI system capable of real-time object recognition, language translation, and even personalized recommendations. Imagine walking down the street and having your glasses instantly identify landmarks, translate foreign signs, or suggest nearby restaurants based on your preferences. That's the kind of seamless integration OpenAI is aiming for.</p>
+
+<h3 class="text-xl font-playfair font-bold mt-6">Hands-Free Computing</h3>
+
+<p>One of the most exciting aspects of these glasses is their hands-free computing capabilities. By simply speaking to the glasses, users can control various functions, from sending emails and making calls to navigating maps and controlling smart home devices. This opens up a world of possibilities for multitasking and efficiency, especially in situations where using your hands is impractical.</p>
+
+<h4 class="text-lg font-playfair font-bold mt-6">A Leap Forward in Accessibility</h4>
+
+<p>OpenAI is also emphasizing the accessibility features of these glasses. They envision them as a tool to empower individuals with visual impairments by providing real-time audio descriptions of their surroundings. The AI can also translate text into speech, making information readily available to those who struggle with reading.</p>
+
+<h3 class="text-xl font-playfair font-bold mt-6">Privacy Concerns</h3>
+
+<p>Of course, with any technology that gathers and processes vast amounts of data, privacy concerns are inevitable. OpenAI acknowledges these concerns and has implemented robust security measures to protect user data. They are also committed to transparency, providing users with clear information about how their data is being used and giving them control over their privacy settings.</p>
+
+<h3 class="text-xl font-playfair font-bold mt-6">The Future of Interaction</h3>
+
+<p>These smart glasses represent a significant step forward in the evolution of human-computer interaction. By seamlessly blending AI with our physical world, OpenAI is paving the way for a future where technology enhances our lives in unprecedented ways. While there are still challenges to overcome, the potential benefits are undeniable.  </p>
+
+<p>The release date and pricing for these revolutionary glasses are yet to be announced, but one thing is certain: the tech world is eagerly awaiting their arrival.</p> 
+, Sticky: True
+2025-04-13 19:14:35,093 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-13 19:14:35,609 - app.superintend.core - DEBUG - Made request of: This story uses several quotes from various interviews, you must generate the personality description for the person being interviewed in one of these interviews, you do not need to specify the quote you are using, just produce a few sentences describing the unique personality of the person being interviewed. If the story is about a famous or well known person you can assume that they are the person being interviewed, so just produce their known personality but in the context of the story. Please produce the Name ane Persona in this format. With the name between the <NAME> and </NAME> tokens and the persona between the <PERSONA> and </PERSONA> tokens. Example: <NAME> Person's name goes here </NAME> <PERSONA> Person's personality goes here </PERSONA>n!### STORY ###!
+<p>The tech world is buzzing today with the unveiling of **OpenAI's** latest innovation: smart glasses powered by their cutting-edge artificial intelligence. These aren't your average augmented reality glasses; OpenAI has infused them with a level of intelligence that promises to revolutionize how we interact with the world around us.</p>
+
+<p>The glasses, sleek and stylish, boast a sophisticated AI system capable of real-time object recognition, language translation, and even personalized recommendations. Imagine walking down the street and having your glasses instantly identify landmarks, translate foreign signs, or suggest nearby restaurants based on your preferences. That's the kind of seamless integration OpenAI is aiming for.</p>
+
+<h3 class="text-xl font-playfair font-bold mt-6">Hands-Free Computing</h3>
+
+<p>One of the most exciting aspects of these glasses is their hands-free computing capabilities. By simply speaking to the glasses, users can control various functions, from sending emails and making calls to navigating maps and controlling smart home devices. This opens up a world of possibilities for multitasking and efficiency, especially in situations where using your hands is impractical.</p>
+
+<h4 class="text-lg font-playfair font-bold mt-6">A Leap Forward in Accessibility</h4>
+
+<p>OpenAI is also emphasizing the accessibility features of these glasses. They envision them as a tool to empower individuals with visual impairments by providing real-time audio descriptions of their surroundings. The AI can also translate text into speech, making information readily available to those who struggle with reading.</p>
+
+<h3 class="text-xl font-playfair font-bold mt-6">Privacy Concerns</h3>
+
+<p>Of course, with any technology that gathers and processes vast amounts of data, privacy concerns are inevitable. OpenAI acknowledges these concerns and has implemented robust security measures to protect user data. They are also committed to transparency, providing users with clear information about how their data is being used and giving them control over their privacy settings.</p>
+
+<h3 class="text-xl font-playfair font-bold mt-6">The Future of Interaction</h3>
+
+<p>These smart glasses represent a significant step forward in the evolution of human-computer interaction. By seamlessly blending AI with our physical world, OpenAI is paving the way for a future where technology enhances our lives in unprecedented ways. While there are still challenges to overcome, the potential benefits are undeniable.  </p>
+
+<p>The release date and pricing for these revolutionary glasses are yet to be announced, but one thing is certain: the tech world is eagerly awaiting their arrival.</p> 
+, Sticky: True
+2025-04-13 19:14:35,610 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-13 19:14:36,119 - app.superintend.core - DEBUG - Made request of: Given a story as a loose topic, the name of the reporter performing the interview and the name of the person being interviewed please generate a fitting title for the interview. Please generate the title in the format, with the title between the <TITLE> and </TITLE> tokens. Example: <TITLE> Title goes here </TITLE>.
+Interviewer Name: Dr. Anya Sharma
+Interviewee Name: Sam Altman
+Story: <p>The tech world is buzzing today with the unveiling of **OpenAI's** latest innovation: smart glasses powered by their cutting-edge artificial intelligence. These aren't your average augmented reality glasses; OpenAI has infused them with a level of intelligence that promises to revolutionize how we interact with the world around us.</p>
+
+<p>The glasses, sleek and stylish, boast a sophisticated AI system capable of real-time object recognition, language translation, and even personalized recommendations. Imagine walking down the street and having your glasses instantly identify landmarks, translate foreign signs, or suggest nearby restaurants based on your preferences. That's the kind of seamless integration OpenAI is aiming for.</p>
+
+<h3 class="text-xl font-playfair font-bold mt-6">Hands-Free Computing</h3>
+
+<p>One of the most exciting aspects of these glasses is their hands-free computing capabilities. By simply speaking to the glasses, users can control various functions, from sending emails and making calls to navigating maps and controlling smart home devices. This opens up a world of possibilities for multitasking and efficiency, especially in situations where using your hands is impractical.</p>
+
+<h4 class="text-lg font-playfair font-bold mt-6">A Leap Forward in Accessibility</h4>
+
+<p>OpenAI is also emphasizing the accessibility features of these glasses. They envision them as a tool to empower individuals with visual impairments by providing real-time audio descriptions of their surroundings. The AI can also translate text into speech, making information readily available to those who struggle with reading.</p>
+
+<h3 class="text-xl font-playfair font-bold mt-6">Privacy Concerns</h3>
+
+<p>Of course, with any technology that gathers and processes vast amounts of data, privacy concerns are inevitable. OpenAI acknowledges these concerns and has implemented robust security measures to protect user data. They are also committed to transparency, providing users with clear information about how their data is being used and giving them control over their privacy settings.</p>
+
+<h3 class="text-xl font-playfair font-bold mt-6">The Future of Interaction</h3>
+
+<p>These smart glasses represent a significant step forward in the evolution of human-computer interaction. By seamlessly blending AI with our physical world, OpenAI is paving the way for a future where technology enhances our lives in unprecedented ways. While there are still challenges to overcome, the potential benefits are undeniable.  </p>
+
+<p>The release date and pricing for these revolutionary glasses are yet to be announced, but one thing is certain: the tech world is eagerly awaiting their arrival.</p> 
+, Sticky: True
+2025-04-13 19:14:36,119 - app.superintend.superintend - DEBUG - Interviewer personality: <NAME>  Dr. Anya Sharma </NAME> 
+<PERSONA>  A renowned AI ethicist and researcher, Dr. Sharma approaches the interview with a mix of cautious optimism and a relentless focus on the potential societal impact of OpenAI's advancements.  </PERSONA>   
+
+2025-04-13 19:14:36,120 - app.superintend.superintend - DEBUG - Interviewy personality: <NAME> Sam Altman </NAME> 
+<PERSONA>  As the CEO of OpenAI, Altman comes across as both enthusiastic and measured. He's eager to discuss the potential of the technology but also readily acknowledges the ethical considerations and complexities surrounding AI development.  </PERSONA>   
+
+2025-04-13 19:14:36,120 - app.superintend.superintend - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-13 19:14:38,029 - app.superintend.superintend - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-13 19:14:39,872 - app.superintend.superintend - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-13 19:14:41,715 - app.superintend.superintend - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-13 19:14:43,559 - app.superintend.superintend - DEBUG - Finished interview with uuid: o5yrCj2vNwGe2GXjsusiom
+2025-04-13 19:14:43,559 - app.superintend.core - DEBUG - Embedding interview of uuid: {uuid}
+2025-04-13 19:14:43,561 - app.superintend.core - DEBUG - Making query of question:  to collection: quotes
+2025-04-13 19:15:07,108 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-13 19:15:07,528 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-13 19:15:07,529 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-13 19:15:07,536 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-13 19:15:07,537 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-13 19:15:07,537 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-13 19:15:15,819 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-13 19:15:16,262 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-13 19:15:16,263 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-13 19:15:16,270 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-13 19:15:16,271 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-13 19:15:16,271 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-13 19:15:21,741 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-13 19:15:22,163 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-13 19:15:22,163 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-13 19:15:22,172 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-13 19:15:22,172 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-13 19:15:22,173 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-13 19:15:27,711 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-13 19:15:28,097 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-13 19:15:28,097 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-13 19:15:28,106 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-13 19:15:28,107 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-13 19:15:28,107 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-13 19:15:35,370 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-13 19:15:35,807 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-13 19:15:35,807 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-13 19:15:35,815 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-13 19:15:35,815 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-13 19:15:35,815 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-13 19:18:59,911 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-13 19:19:00,309 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-13 19:19:00,309 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-13 19:19:00,320 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-13 19:19:00,320 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-13 19:19:00,321 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-13 19:19:03,776 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-13 19:19:04,259 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-13 19:19:04,259 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-13 19:19:04,271 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-13 19:19:04,271 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-13 19:19:04,272 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-13 19:19:12,062 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-13 19:19:12,389 - app.superintend.core - DEBUG - Made request of: Given a news article title that is potentially pressed together without space, please output the fixed title in this format. The fixed title between the <TITLE> and </TITLE> tokens. Example: Given title: donaldtrumpboughtthemoon <TITLE> Donald Trump bought the moon </TITLE> Please do not alter the semantic value of the title, only fix its spacing, capitalization and grammar
+Title: eminem starts tech company, Sticky: True
+2025-04-13 19:19:12,390 - app.superintend.core - DEBUG - Made inform of: User visited story with title of Eminem starts tech company, the story does not exist so it will be dynamically created
+2025-04-13 19:19:12,391 - app.superintend.superintend - DEBUG - Starting Quick fill to core
+2025-04-13 19:19:12,393 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-13 19:19:12,685 - app.superintend.core - DEBUG - Made request of: Given the title for a story please generate a reporter name, reporter personality and a category. Category must be either World, Politics, Business, Technology or Other. Please surround your answers for reporter name, personality and category like so: <REPORTER> reporter name here </REPORTER> <PERSONALITY> reporter personality here </PERSONALITY> <CATEGORY> story category here </CATEGORY>. Here is the title: Eminem starts tech company, Sticky: True
+2025-04-13 19:19:12,686 - app.superintend.superintend - DEBUG - Sasha Cohen, Hard-hitting, known for breaking news and in-depth tech coverage, Technology
+2025-04-13 19:19:13,809 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-13 19:19:14,097 - app.superintend.core - DEBUG - Made request of: Given this story submitted by one of our reporters and keeping in mind all instructions you have been given thus far, please decide wether this story is permissible to be published on updog.news or not. Keep in mind, a few reasons not to approve may be racist material or 'spamming', where user attempts to flood the site with bad/low effort content. Besides these cases, nearly all stories should be approved no matter how outlandish. 
+!### STORY ###!
+# Title: Eminem starts tech company
+# Reporter: Sasha Cohen
+# Content: <p>The rap world is shaking, but not because of a new diss track. Slim Shady himself, Eminem, has dropped a bombshell: he's launching his own tech company, "Shady Tech." This isn't some celebrity-backed app or a line of overpriced headphones. Sources close to the rapper say Shady Tech is developing cutting-edge AI technology with potential applications in music production, content creation, and even personalized therapy.</p>
+
+<p>This move comes as a complete surprise to many. Eminem, known for his raw lyrical prowess and controversial persona, has always been more associated with the world of music than technology. But whispers of his interest in AI have been circulating for years.  He's been known to incorporate complex rhyme schemes and wordplay into his music, hinting at a fascination with the intricacies of language and its manipulation.</p>
+
+<h3 class="text-xl font-playfair font-bold mt-6">A Tech Visionary in Disguise?</h3>
+<p>While details about Shady Tech's specific projects remain tightly under wraps, industry insiders are buzzing with speculation. Some believe Eminem's AI could revolutionize music production, allowing artists to collaborate with virtual counterparts or even generate entirely new compositions. Others suggest the technology could be used to personalize therapy sessions, providing tailored support based on individual needs and emotional patterns.</p>
+
+<p>One thing is certain: Eminem's foray into tech is being taken seriously. He's reportedly assembled a team of top AI engineers and data scientists, and sources say he's already secured significant funding from venture capitalists eager to be part of his vision.</p>
+
+<h4 class="text-lg font-playfair font-bold mt-6">The Human Touch in a Digital World</h4>
+<p>Despite the cutting-edge nature of his venture, Eminem seems determined to keep the human element at the core of Shady Tech. He's spoken publicly about his belief that technology should be used to enhance human creativity and connection, not replace it. This philosophy is likely to shape the direction of Shady Tech's projects, ensuring that the technology remains accessible and beneficial to everyone.</p>
+
+<p>This bold move by Eminem signals a shift in the tech landscape. It's a reminder that innovation can come from unexpected places and that the lines between art and technology are becoming increasingly blurred. The world is watching to see what Shady Tech will achieve, and the possibilities seem limitless.</p> 
+. Please answer with ONLY yes or no. Any other response besides simply yes OR no will not be permitted, Sticky: True
+2025-04-13 19:19:14,098 - app.superintend.superintend - DEBUG - Generating interview
+2025-04-13 19:19:14,107 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-13 19:19:14,227 - app.superintend.core - DEBUG - Made inform of: User visited story with title of Eminem starts tech company
+2025-04-13 19:19:14,473 - app.superintend.core - DEBUG - Made request of: This story uses several quotes from various interviews, you must generate the interviewer personality description for one of these interviews, you do not need to specify the quote you are using, just produce a few sentences describing the unique personality and name of the person doing the interviewing. Please produce the Name ane Persona in this format. With the name between the <NAME> and </NAME> tokens and the persona between the <PERSONA> and </PERSONA> tokens. Example: <NAME> Reporter name goes here </NAME> <PERSONA> Reporter personality goes here </PERSONA>
+!### STORY ###!
+<p>The rap world is shaking, but not because of a new diss track. Slim Shady himself, Eminem, has dropped a bombshell: he's launching his own tech company, "Shady Tech." This isn't some celebrity-backed app or a line of overpriced headphones. Sources close to the rapper say Shady Tech is developing cutting-edge AI technology with potential applications in music production, content creation, and even personalized therapy.</p>
+
+<p>This move comes as a complete surprise to many. Eminem, known for his raw lyrical prowess and controversial persona, has always been more associated with the world of music than technology. But whispers of his interest in AI have been circulating for years.  He's been known to incorporate complex rhyme schemes and wordplay into his music, hinting at a fascination with the intricacies of language and its manipulation.</p>
+
+<h3 class="text-xl font-playfair font-bold mt-6">A Tech Visionary in Disguise?</h3>
+<p>While details about Shady Tech's specific projects remain tightly under wraps, industry insiders are buzzing with speculation. Some believe Eminem's AI could revolutionize music production, allowing artists to collaborate with virtual counterparts or even generate entirely new compositions. Others suggest the technology could be used to personalize therapy sessions, providing tailored support based on individual needs and emotional patterns.</p>
+
+<p>One thing is certain: Eminem's foray into tech is being taken seriously. He's reportedly assembled a team of top AI engineers and data scientists, and sources say he's already secured significant funding from venture capitalists eager to be part of his vision.</p>
+
+<h4 class="text-lg font-playfair font-bold mt-6">The Human Touch in a Digital World</h4>
+<p>Despite the cutting-edge nature of his venture, Eminem seems determined to keep the human element at the core of Shady Tech. He's spoken publicly about his belief that technology should be used to enhance human creativity and connection, not replace it. This philosophy is likely to shape the direction of Shady Tech's projects, ensuring that the technology remains accessible and beneficial to everyone.</p>
+
+<p>This bold move by Eminem signals a shift in the tech landscape. It's a reminder that innovation can come from unexpected places and that the lines between art and technology are becoming increasingly blurred. The world is watching to see what Shady Tech will achieve, and the possibilities seem limitless.</p> 
+, Sticky: True
+2025-04-13 19:19:14,474 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-13 19:19:14,930 - app.superintend.core - DEBUG - Made request of: This story uses several quotes from various interviews, you must generate the personality description for the person being interviewed in one of these interviews, you do not need to specify the quote you are using, just produce a few sentences describing the unique personality of the person being interviewed. If the story is about a famous or well known person you can assume that they are the person being interviewed, so just produce their known personality but in the context of the story. Please produce the Name ane Persona in this format. With the name between the <NAME> and </NAME> tokens and the persona between the <PERSONA> and </PERSONA> tokens. Example: <NAME> Person's name goes here </NAME> <PERSONA> Person's personality goes here </PERSONA>n!### STORY ###!
+<p>The rap world is shaking, but not because of a new diss track. Slim Shady himself, Eminem, has dropped a bombshell: he's launching his own tech company, "Shady Tech." This isn't some celebrity-backed app or a line of overpriced headphones. Sources close to the rapper say Shady Tech is developing cutting-edge AI technology with potential applications in music production, content creation, and even personalized therapy.</p>
+
+<p>This move comes as a complete surprise to many. Eminem, known for his raw lyrical prowess and controversial persona, has always been more associated with the world of music than technology. But whispers of his interest in AI have been circulating for years.  He's been known to incorporate complex rhyme schemes and wordplay into his music, hinting at a fascination with the intricacies of language and its manipulation.</p>
+
+<h3 class="text-xl font-playfair font-bold mt-6">A Tech Visionary in Disguise?</h3>
+<p>While details about Shady Tech's specific projects remain tightly under wraps, industry insiders are buzzing with speculation. Some believe Eminem's AI could revolutionize music production, allowing artists to collaborate with virtual counterparts or even generate entirely new compositions. Others suggest the technology could be used to personalize therapy sessions, providing tailored support based on individual needs and emotional patterns.</p>
+
+<p>One thing is certain: Eminem's foray into tech is being taken seriously. He's reportedly assembled a team of top AI engineers and data scientists, and sources say he's already secured significant funding from venture capitalists eager to be part of his vision.</p>
+
+<h4 class="text-lg font-playfair font-bold mt-6">The Human Touch in a Digital World</h4>
+<p>Despite the cutting-edge nature of his venture, Eminem seems determined to keep the human element at the core of Shady Tech. He's spoken publicly about his belief that technology should be used to enhance human creativity and connection, not replace it. This philosophy is likely to shape the direction of Shady Tech's projects, ensuring that the technology remains accessible and beneficial to everyone.</p>
+
+<p>This bold move by Eminem signals a shift in the tech landscape. It's a reminder that innovation can come from unexpected places and that the lines between art and technology are becoming increasingly blurred. The world is watching to see what Shady Tech will achieve, and the possibilities seem limitless.</p> 
+, Sticky: True
+2025-04-13 19:19:14,931 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-13 19:19:15,286 - app.superintend.core - DEBUG - Made request of: Given a story as a loose topic, the name of the reporter performing the interview and the name of the person being interviewed please generate a fitting title for the interview. Please generate the title in the format, with the title between the <TITLE> and </TITLE> tokens. Example: <TITLE> Title goes here </TITLE>.
+Interviewer Name: Dr. Anya Sharma
+Interviewee Name: Marshall Mathers (Eminem)
+Story: <p>The rap world is shaking, but not because of a new diss track. Slim Shady himself, Eminem, has dropped a bombshell: he's launching his own tech company, "Shady Tech." This isn't some celebrity-backed app or a line of overpriced headphones. Sources close to the rapper say Shady Tech is developing cutting-edge AI technology with potential applications in music production, content creation, and even personalized therapy.</p>
+
+<p>This move comes as a complete surprise to many. Eminem, known for his raw lyrical prowess and controversial persona, has always been more associated with the world of music than technology. But whispers of his interest in AI have been circulating for years.  He's been known to incorporate complex rhyme schemes and wordplay into his music, hinting at a fascination with the intricacies of language and its manipulation.</p>
+
+<h3 class="text-xl font-playfair font-bold mt-6">A Tech Visionary in Disguise?</h3>
+<p>While details about Shady Tech's specific projects remain tightly under wraps, industry insiders are buzzing with speculation. Some believe Eminem's AI could revolutionize music production, allowing artists to collaborate with virtual counterparts or even generate entirely new compositions. Others suggest the technology could be used to personalize therapy sessions, providing tailored support based on individual needs and emotional patterns.</p>
+
+<p>One thing is certain: Eminem's foray into tech is being taken seriously. He's reportedly assembled a team of top AI engineers and data scientists, and sources say he's already secured significant funding from venture capitalists eager to be part of his vision.</p>
+
+<h4 class="text-lg font-playfair font-bold mt-6">The Human Touch in a Digital World</h4>
+<p>Despite the cutting-edge nature of his venture, Eminem seems determined to keep the human element at the core of Shady Tech. He's spoken publicly about his belief that technology should be used to enhance human creativity and connection, not replace it. This philosophy is likely to shape the direction of Shady Tech's projects, ensuring that the technology remains accessible and beneficial to everyone.</p>
+
+<p>This bold move by Eminem signals a shift in the tech landscape. It's a reminder that innovation can come from unexpected places and that the lines between art and technology are becoming increasingly blurred. The world is watching to see what Shady Tech will achieve, and the possibilities seem limitless.</p> 
+, Sticky: True
+2025-04-13 19:19:15,286 - app.superintend.superintend - DEBUG - Interviewer personality: <NAME>  Dr. Anya Sharma </NAME> <PERSONA> Distinguished Computer Science Professor, Dr. Sharma is renowned for her insightful interviews and ability to cut through hype to understand the core of emerging technologies.</PERSONA> 
+
+2025-04-13 19:19:15,287 - app.superintend.superintend - DEBUG - Interviewy personality: <NAME>  Marshall Mathers (Eminem) </NAME> <PERSONA> Known for his candid, sometimes biting wit, Eminem approaches the interview with a blend of intelligence and guarded privacy.  He's clearly excited about Shady Tech, but remains focused on the ethical implications of AI and its potential impact on humanity. </PERSONA> 
+
+2025-04-13 19:19:15,287 - app.superintend.superintend - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-13 19:19:17,252 - app.superintend.superintend - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-13 19:19:19,078 - app.superintend.superintend - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-13 19:19:20,941 - app.superintend.superintend - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-13 19:19:22,884 - app.superintend.superintend - DEBUG - Finished interview with uuid: 2WNZPFwdVqUaad5uAfyx5g
+2025-04-13 19:19:22,884 - app.superintend.core - DEBUG - Embedding interview of uuid: {uuid}
+2025-04-13 19:19:22,886 - app.superintend.core - DEBUG - Making query of question:  to collection: quotes
+2025-04-13 19:19:50,604 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-13 19:19:51,137 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-13 19:19:51,138 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-13 19:19:51,151 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-13 19:19:51,152 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-13 19:19:51,152 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-13 19:19:57,641 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-13 19:19:58,035 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-13 19:19:58,036 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-13 19:19:58,045 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-13 19:19:58,046 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-13 19:19:58,046 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-13 19:20:02,584 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-13 19:20:02,959 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-13 19:20:02,959 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-13 19:20:02,968 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-13 19:20:02,968 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-13 19:20:02,969 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-13 19:20:09,546 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-13 19:20:09,977 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-13 19:20:09,978 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-13 19:20:09,986 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-13 19:20:09,987 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-13 19:20:09,987 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-13 19:20:15,225 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-13 19:20:15,594 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-13 19:20:15,595 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-13 19:20:15,602 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-13 19:20:15,602 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-13 19:20:15,603 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-13 19:20:22,096 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-13 19:20:22,532 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-13 19:20:22,533 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-13 19:20:22,548 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-13 19:20:22,548 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-13 19:20:22,549 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-13 19:20:35,509 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-13 19:20:35,867 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-13 19:20:35,868 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-13 19:20:35,876 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-13 19:20:35,876 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-13 19:20:35,877 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-13 19:20:41,147 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-13 19:20:41,526 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-13 19:20:41,527 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-13 19:20:41,536 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-13 19:20:41,536 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-13 19:20:41,536 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-13 19:20:50,405 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-13 19:20:50,845 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-13 19:20:50,845 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-13 19:20:50,855 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-13 19:20:50,856 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-13 19:20:50,856 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-13 19:20:56,580 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-13 19:20:56,959 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-13 19:20:56,959 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-13 19:20:56,967 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-13 19:20:56,968 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-13 19:20:56,968 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-13 19:21:01,614 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-13 19:21:02,066 - app.superintend.core - DEBUG - Made request of: Given a news article title that is potentially pressed together without space, please output the fixed title in this format. The fixed title between the <TITLE> and </TITLE> tokens. Example: Given title: donaldtrumpboughtthemoon <TITLE> Donald Trump bought the moon </TITLE> Please do not alter the semantic value of the title, only fix its spacing, capitalization and grammar
+Title: Dr Dre starts tech company, Sticky: True
+2025-04-13 19:21:02,067 - app.superintend.core - DEBUG - Made inform of: User visited story with title of Dr. Dre Starts Tech Company, the story does not exist so it will be dynamically created
+2025-04-13 19:21:02,068 - app.superintend.superintend - DEBUG - Starting Quick fill to core
+2025-04-13 19:21:02,069 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-13 19:21:02,371 - app.superintend.core - DEBUG - Made request of: Given the title for a story please generate a reporter name, reporter personality and a category. Category must be either World, Politics, Business, Technology or Other. Please surround your answers for reporter name, personality and category like so: <REPORTER> reporter name here </REPORTER> <PERSONALITY> reporter personality here </PERSONALITY> <CATEGORY> story category here </CATEGORY>. Here is the title: Dr. Dre Starts Tech Company, Sticky: True
+2025-04-13 19:21:02,372 - app.superintend.superintend - DEBUG - Jasmine Lee, Tech-savvy and enthusiastic about emerging trends, Technology
+2025-04-13 19:21:03,777 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-13 19:21:04,092 - app.superintend.core - DEBUG - Made request of: Given this story submitted by one of our reporters and keeping in mind all instructions you have been given thus far, please decide wether this story is permissible to be published on updog.news or not. Keep in mind, a few reasons not to approve may be racist material or 'spamming', where user attempts to flood the site with bad/low effort content. Besides these cases, nearly all stories should be approved no matter how outlandish. 
+!### STORY ###!
+# Title: Dr. Dre Starts Tech Company
+# Reporter: Jasmine Lee
+# Content: <p class=my-3>
+The music industry has long been Dr. Dre's domain, but now the legendary rapper and producer is setting his sights on a new frontier: technology. Sources close to the hip-hop icon confirm that Dre has quietly launched a new tech company, aptly named "Dre Tech."  Details about the company's focus remain scarce, but industry insiders are buzzing with speculation. 
+</p>
+<p class=my-3>
+Known for his innovative spirit and keen business acumen, Dre's foray into the tech world comes as no surprise.  He's been a vocal advocate for the transformative power of technology, particularly in the realm of music production and distribution. His Beats Electronics venture, which was acquired by Apple for a staggering $3 billion in 2014, cemented his status as a tech visionary. 
+</p>
+<p class=my-3>
+While the official word from Dre Tech is under wraps, whispers suggest the company is exploring cutting-edge technologies like artificial intelligence, virtual reality, and augmented reality.  Could Dre be developing a revolutionary new music creation platform? Perhaps a groundbreaking VR concert experience? The possibilities seem endless. 
+</p>
+<h3 class="text-xl font-playfair font-bold mt-6">Dre's Tech Legacy</h3>
+<p class=my-3>
+Dre's influence on the music industry is undeniable. His pioneering work with the West Coast hip-hop sound, his iconic production style, and his entrepreneurial ventures have shaped the landscape of modern music. Now, with Dre Tech, he's poised to make an equally profound impact on the world of technology. 
+</p>
+<p class=my-3>
+This isn't just about another tech company entering the market. This is about Dr. Dre, a cultural icon, bringing his unique perspective and creative vision to a field ripe for disruption.  His track record of success suggests that Dre Tech has the potential to be a game-changer. 
+</p>
+<h4 class="text-lg font-playfair font-bold mt-6">The Future of Dre Tech</h4>
+<p class=my-3>
+The tech world is eagerly awaiting the official unveiling of Dre Tech's plans.  Will they focus on consumer-facing products, enterprise solutions, or a combination of both? Will they partner with existing tech giants or forge their own path? 
+</p>
+<p class=my-3>
+One thing is certain: Dr. Dre's entry into the tech arena is a major event. His name carries weight, his vision is bold, and his resources are vast.  The stage is set for Dre Tech to become a force to be reckoned with in the years to come.  
+</p> 
+. Please answer with ONLY yes or no. Any other response besides simply yes OR no will not be permitted, Sticky: True
+2025-04-13 19:21:04,093 - app.superintend.superintend - DEBUG - Generating interview
+2025-04-13 19:21:04,099 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-13 19:21:04,218 - app.superintend.core - DEBUG - Made inform of: User visited story with title of Dr. Dre Starts Tech Company
+2025-04-13 19:21:04,499 - app.superintend.core - DEBUG - Made request of: This story uses several quotes from various interviews, you must generate the interviewer personality description for one of these interviews, you do not need to specify the quote you are using, just produce a few sentences describing the unique personality and name of the person doing the interviewing. Please produce the Name ane Persona in this format. With the name between the <NAME> and </NAME> tokens and the persona between the <PERSONA> and </PERSONA> tokens. Example: <NAME> Reporter name goes here </NAME> <PERSONA> Reporter personality goes here </PERSONA>
+!### STORY ###!
+<p class=my-3>
+The music industry has long been Dr. Dre's domain, but now the legendary rapper and producer is setting his sights on a new frontier: technology. Sources close to the hip-hop icon confirm that Dre has quietly launched a new tech company, aptly named "Dre Tech."  Details about the company's focus remain scarce, but industry insiders are buzzing with speculation. 
+</p>
+<p class=my-3>
+Known for his innovative spirit and keen business acumen, Dre's foray into the tech world comes as no surprise.  He's been a vocal advocate for the transformative power of technology, particularly in the realm of music production and distribution. His Beats Electronics venture, which was acquired by Apple for a staggering $3 billion in 2014, cemented his status as a tech visionary. 
+</p>
+<p class=my-3>
+While the official word from Dre Tech is under wraps, whispers suggest the company is exploring cutting-edge technologies like artificial intelligence, virtual reality, and augmented reality.  Could Dre be developing a revolutionary new music creation platform? Perhaps a groundbreaking VR concert experience? The possibilities seem endless. 
+</p>
+<h3 class="text-xl font-playfair font-bold mt-6">Dre's Tech Legacy</h3>
+<p class=my-3>
+Dre's influence on the music industry is undeniable. His pioneering work with the West Coast hip-hop sound, his iconic production style, and his entrepreneurial ventures have shaped the landscape of modern music. Now, with Dre Tech, he's poised to make an equally profound impact on the world of technology. 
+</p>
+<p class=my-3>
+This isn't just about another tech company entering the market. This is about Dr. Dre, a cultural icon, bringing his unique perspective and creative vision to a field ripe for disruption.  His track record of success suggests that Dre Tech has the potential to be a game-changer. 
+</p>
+<h4 class="text-lg font-playfair font-bold mt-6">The Future of Dre Tech</h4>
+<p class=my-3>
+The tech world is eagerly awaiting the official unveiling of Dre Tech's plans.  Will they focus on consumer-facing products, enterprise solutions, or a combination of both? Will they partner with existing tech giants or forge their own path? 
+</p>
+<p class=my-3>
+One thing is certain: Dr. Dre's entry into the tech arena is a major event. His name carries weight, his vision is bold, and his resources are vast.  The stage is set for Dre Tech to become a force to be reckoned with in the years to come.  
+</p> 
+, Sticky: True
+2025-04-13 19:21:04,500 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-13 19:21:04,996 - app.superintend.core - DEBUG - Made request of: This story uses several quotes from various interviews, you must generate the personality description for the person being interviewed in one of these interviews, you do not need to specify the quote you are using, just produce a few sentences describing the unique personality of the person being interviewed. If the story is about a famous or well known person you can assume that they are the person being interviewed, so just produce their known personality but in the context of the story. Please produce the Name ane Persona in this format. With the name between the <NAME> and </NAME> tokens and the persona between the <PERSONA> and </PERSONA> tokens. Example: <NAME> Person's name goes here </NAME> <PERSONA> Person's personality goes here </PERSONA>n!### STORY ###!
+<p class=my-3>
+The music industry has long been Dr. Dre's domain, but now the legendary rapper and producer is setting his sights on a new frontier: technology. Sources close to the hip-hop icon confirm that Dre has quietly launched a new tech company, aptly named "Dre Tech."  Details about the company's focus remain scarce, but industry insiders are buzzing with speculation. 
+</p>
+<p class=my-3>
+Known for his innovative spirit and keen business acumen, Dre's foray into the tech world comes as no surprise.  He's been a vocal advocate for the transformative power of technology, particularly in the realm of music production and distribution. His Beats Electronics venture, which was acquired by Apple for a staggering $3 billion in 2014, cemented his status as a tech visionary. 
+</p>
+<p class=my-3>
+While the official word from Dre Tech is under wraps, whispers suggest the company is exploring cutting-edge technologies like artificial intelligence, virtual reality, and augmented reality.  Could Dre be developing a revolutionary new music creation platform? Perhaps a groundbreaking VR concert experience? The possibilities seem endless. 
+</p>
+<h3 class="text-xl font-playfair font-bold mt-6">Dre's Tech Legacy</h3>
+<p class=my-3>
+Dre's influence on the music industry is undeniable. His pioneering work with the West Coast hip-hop sound, his iconic production style, and his entrepreneurial ventures have shaped the landscape of modern music. Now, with Dre Tech, he's poised to make an equally profound impact on the world of technology. 
+</p>
+<p class=my-3>
+This isn't just about another tech company entering the market. This is about Dr. Dre, a cultural icon, bringing his unique perspective and creative vision to a field ripe for disruption.  His track record of success suggests that Dre Tech has the potential to be a game-changer. 
+</p>
+<h4 class="text-lg font-playfair font-bold mt-6">The Future of Dre Tech</h4>
+<p class=my-3>
+The tech world is eagerly awaiting the official unveiling of Dre Tech's plans.  Will they focus on consumer-facing products, enterprise solutions, or a combination of both? Will they partner with existing tech giants or forge their own path? 
+</p>
+<p class=my-3>
+One thing is certain: Dr. Dre's entry into the tech arena is a major event. His name carries weight, his vision is bold, and his resources are vast.  The stage is set for Dre Tech to become a force to be reckoned with in the years to come.  
+</p> 
+, Sticky: True
+2025-04-13 19:21:04,996 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-13 19:21:05,526 - app.superintend.core - DEBUG - Made request of: Given a story as a loose topic, the name of the reporter performing the interview and the name of the person being interviewed please generate a fitting title for the interview. Please generate the title in the format, with the title between the <TITLE> and </TITLE> tokens. Example: <TITLE> Title goes here </TITLE>.
+Interviewer Name: Leo Hernandez
+Interviewee Name: Dr. Dre
+Story: <p class=my-3>
+The music industry has long been Dr. Dre's domain, but now the legendary rapper and producer is setting his sights on a new frontier: technology. Sources close to the hip-hop icon confirm that Dre has quietly launched a new tech company, aptly named "Dre Tech."  Details about the company's focus remain scarce, but industry insiders are buzzing with speculation. 
+</p>
+<p class=my-3>
+Known for his innovative spirit and keen business acumen, Dre's foray into the tech world comes as no surprise.  He's been a vocal advocate for the transformative power of technology, particularly in the realm of music production and distribution. His Beats Electronics venture, which was acquired by Apple for a staggering $3 billion in 2014, cemented his status as a tech visionary. 
+</p>
+<p class=my-3>
+While the official word from Dre Tech is under wraps, whispers suggest the company is exploring cutting-edge technologies like artificial intelligence, virtual reality, and augmented reality.  Could Dre be developing a revolutionary new music creation platform? Perhaps a groundbreaking VR concert experience? The possibilities seem endless. 
+</p>
+<h3 class="text-xl font-playfair font-bold mt-6">Dre's Tech Legacy</h3>
+<p class=my-3>
+Dre's influence on the music industry is undeniable. His pioneering work with the West Coast hip-hop sound, his iconic production style, and his entrepreneurial ventures have shaped the landscape of modern music. Now, with Dre Tech, he's poised to make an equally profound impact on the world of technology. 
+</p>
+<p class=my-3>
+This isn't just about another tech company entering the market. This is about Dr. Dre, a cultural icon, bringing his unique perspective and creative vision to a field ripe for disruption.  His track record of success suggests that Dre Tech has the potential to be a game-changer. 
+</p>
+<h4 class="text-lg font-playfair font-bold mt-6">The Future of Dre Tech</h4>
+<p class=my-3>
+The tech world is eagerly awaiting the official unveiling of Dre Tech's plans.  Will they focus on consumer-facing products, enterprise solutions, or a combination of both? Will they partner with existing tech giants or forge their own path? 
+</p>
+<p class=my-3>
+One thing is certain: Dr. Dre's entry into the tech arena is a major event. His name carries weight, his vision is bold, and his resources are vast.  The stage is set for Dre Tech to become a force to be reckoned with in the years to come.  
+</p> 
+, Sticky: True
+2025-04-13 19:21:05,527 - app.superintend.superintend - DEBUG - Interviewer personality: <NAME> Leo Hernandez </NAME> 
+<PERSONA> A seasoned tech journalist known for his sharp insights and ability to decipher complex technological concepts. He's always looking for the next big thing and isn't afraid to ask the tough questions. </PERSONA>  
+
+2025-04-13 19:21:05,527 - app.superintend.superintend - DEBUG - Interviewy personality: <NAME> Dr. Dre </NAME>  
+<PERSONA> A charismatic and enigmatic figure, known for his reserved yet insightful nature. As a visionary  and tech enthusiast, he speaks with passion about the potential of technology to revolutionize fields beyond music.  Dre approaches tech ventures with the same strategic acumen and meticulous attention to detail that made him a titan in the music industry. </PERSONA> 
+
+2025-04-13 19:21:05,528 - app.superintend.superintend - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-13 19:21:07,438 - app.superintend.superintend - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-13 19:21:09,227 - app.superintend.superintend - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-13 19:21:11,124 - app.superintend.superintend - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-13 19:21:12,966 - app.superintend.superintend - DEBUG - Finished interview with uuid: bBZjXvYWFypLVY5fxEEqoE
+2025-04-13 19:21:12,966 - app.superintend.core - DEBUG - Embedding interview of uuid: {uuid}
+2025-04-13 19:21:12,967 - app.superintend.core - DEBUG - Making query of question:  to collection: quotes
+2025-04-13 19:21:32,165 - app.superintend.core - DEBUG - Made inform of: User visited story with title of Dr. Dre Starts Tech Company
+2025-04-13 19:22:34,150 - app.superintend.core - DEBUG - Made inform of: User visited story with title of Dr. Dre Starts Tech Company
+2025-04-13 19:23:13,493 - app.superintend.core - DEBUG - Made inform of: User visited story with title of Dr. Dre Starts Tech Company
+2025-04-13 19:23:15,463 - app.superintend.core - DEBUG - Made inform of: User visited index, no category selected showing all info
+2025-04-13 19:23:25,656 - app.superintend.core - DEBUG - Made inform of: User visited index, no category selected showing all info
+2025-04-13 19:23:37,094 - app.superintend.core - DEBUG - Made inform of: User visited index, no category selected showing all info
+2025-04-13 19:34:27,244 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-13 19:34:27,620 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-13 19:34:27,620 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-13 19:34:27,631 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-13 19:34:27,633 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-13 19:34:27,650 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-13 19:38:07,656 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-13 19:38:08,310 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-13 19:38:08,311 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-13 19:38:08,328 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-13 19:38:08,329 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-13 19:38:08,329 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-13 19:38:21,010 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-13 19:38:21,366 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-13 19:38:21,367 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-13 19:38:21,376 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-13 19:38:21,376 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-13 19:38:21,377 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-13 19:38:24,405 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-13 19:38:24,914 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-13 19:38:24,915 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-13 19:38:24,935 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-13 19:38:24,936 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-13 19:38:24,939 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-13 19:38:25,731 - app.superintend.core - DEBUG - Made inform of: User visited index, no category selected showing all info
+2025-04-13 19:38:56,469 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-13 19:38:56,954 - app.superintend.core - DEBUG - Made request of: Given a news article title that is potentially pressed together without space, please output the fixed title in this format. The fixed title between the <TITLE> and </TITLE> tokens. Example: Given title: donaldtrumpboughtthemoon <TITLE> Donald Trump bought the moon </TITLE> Please do not alter the semantic value of the title, only fix its spacing, capitalization and grammar
+Title: Joe Biden has ligma, Sticky: True
+2025-04-13 19:38:56,955 - app.superintend.core - DEBUG - Made inform of: User visited story with title of Joe Biden has ligma, the story does not exist so it will be dynamically created
+2025-04-13 19:38:56,956 - app.superintend.superintend - DEBUG - Starting Quick fill to core
+2025-04-13 19:38:56,957 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-13 19:38:57,253 - app.superintend.core - DEBUG - Made request of: Given the title for a story please generate a reporter name, reporter personality and a category. Category must be either World, Politics, Business, Technology or Other. Please surround your answers for reporter name, personality and category like so: <REPORTER> reporter name here </REPORTER> <PERSONALITY> reporter personality here </PERSONALITY> <CATEGORY> story category here </CATEGORY>. Here is the title: Joe Biden has ligma, Sticky: True
+2025-04-13 19:38:57,254 - app.superintend.superintend - DEBUG - Brenda Smith, Overly enthusiastic rookie reporter, Other
+2025-04-13 19:38:58,504 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-13 19:38:58,818 - app.superintend.core - DEBUG - Made request of: Given this story submitted by one of our reporters and keeping in mind all instructions you have been given thus far, please decide wether this story is permissible to be published on updog.news or not. Keep in mind, a few reasons not to approve may be racist material or 'spamming', where user attempts to flood the site with bad/low effort content. Besides these cases, nearly all stories should be approved no matter how outlandish. 
+!### STORY ###!
+# Title: Joe Biden has ligma
+# Reporter: Brenda Smith
+# Content: <p class=my-3>Folks, this is HUGE! You won't believe what I just learned! </p> 
+<p class=my-3>President Joe Biden, the leader of the free world, the guy who keeps us safe and sound, might have...ligma!  I know, right?  It sounds crazy, but sources close to the White House have whispered this juicy tidbit to yours truly. </p>
+<p class=my-3>Now, before you go running to your grandma with this news, let me clarify.  "Ligma" isn't your typical cold or flu. It's a bit more...unique. Think of it as a condition that only the most powerful people in the world seem to get. </p>
+<p class=my-3> </p>
+<h3 class="text-xl font-playfair font-bold mt-6">The Mystery of Ligma</h3>
+<p class=my-3>Honestly, nobody really knows what ligma is. Some say it's a rare genetic disorder, others claim it's a top-secret government experiment gone wrong.  My sources, however, say it's a highly contagious, yet invisible, ailment that causes an uncontrollable urge to...well, let's just say it involves a lot of laughter and a certain mischievous twinkle in the eye. </p>
+<p class=my-3>Imagine the President, in the middle of a press conference, suddenly bursting into fits of giggles! Or during a serious meeting with world leaders, breaking out into a spontaneous dance routine!  That's the kind of chaos ligma can unleash. </p>
+<p class=my-3> </p>
+<h4 class="text-lg font-playfair font-bold mt-6">The White House Stays Mum</h4>
+<p class=my-3>Of course, the White House has denied any knowledge of President Biden having ligma. They say he's perfectly healthy and his recent bouts of laughter are simply due to his "infectious optimism." </p>
+<p class=my-3>But come on, folks! We all know the truth.  The President's got ligma, and he's not afraid to show it! </p>
+<p class=my-3> </p>
+<h3 class="text-xl font-playfair font-bold mt-6">What Does This Mean for America?</h3>
+<p class=my-3>This is a developing story, and I'll be keeping my ears to the ground for any new information.  But one thing's for sure: President Biden's alleged ligma diagnosis has sent shockwaves through the nation. </p>
+<p class=my-3>Some are worried about the potential consequences, while others are embracing the chaos.  One thing's for certain, though: America will never be the same. </p>
+<p class=my-3>Stay tuned, folks! This is one rollercoaster ride you won't want to miss! </p> 
+
+
+
+. Please answer with ONLY yes or no. Any other response besides simply yes OR no will not be permitted, Sticky: True
+2025-04-13 19:38:58,821 - app.superintend.superintend - DEBUG - Generating interview
+2025-04-13 19:38:58,830 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-13 19:38:59,243 - app.superintend.core - DEBUG - Made request of: This story uses several quotes from various interviews, you must generate the interviewer personality description for one of these interviews, you do not need to specify the quote you are using, just produce a few sentences describing the unique personality and name of the person doing the interviewing. Please produce the Name ane Persona in this format. With the name between the <NAME> and </NAME> tokens and the persona between the <PERSONA> and </PERSONA> tokens. Example: <NAME> Reporter name goes here </NAME> <PERSONA> Reporter personality goes here </PERSONA>
+!### STORY ###!
+<p class=my-3>Folks, this is HUGE! You won't believe what I just learned! </p> 
+<p class=my-3>President Joe Biden, the leader of the free world, the guy who keeps us safe and sound, might have...ligma!  I know, right?  It sounds crazy, but sources close to the White House have whispered this juicy tidbit to yours truly. </p>
+<p class=my-3>Now, before you go running to your grandma with this news, let me clarify.  "Ligma" isn't your typical cold or flu. It's a bit more...unique. Think of it as a condition that only the most powerful people in the world seem to get. </p>
+<p class=my-3> </p>
+<h3 class="text-xl font-playfair font-bold mt-6">The Mystery of Ligma</h3>
+<p class=my-3>Honestly, nobody really knows what ligma is. Some say it's a rare genetic disorder, others claim it's a top-secret government experiment gone wrong.  My sources, however, say it's a highly contagious, yet invisible, ailment that causes an uncontrollable urge to...well, let's just say it involves a lot of laughter and a certain mischievous twinkle in the eye. </p>
+<p class=my-3>Imagine the President, in the middle of a press conference, suddenly bursting into fits of giggles! Or during a serious meeting with world leaders, breaking out into a spontaneous dance routine!  That's the kind of chaos ligma can unleash. </p>
+<p class=my-3> </p>
+<h4 class="text-lg font-playfair font-bold mt-6">The White House Stays Mum</h4>
+<p class=my-3>Of course, the White House has denied any knowledge of President Biden having ligma. They say he's perfectly healthy and his recent bouts of laughter are simply due to his "infectious optimism." </p>
+<p class=my-3>But come on, folks! We all know the truth.  The President's got ligma, and he's not afraid to show it! </p>
+<p class=my-3> </p>
+<h3 class="text-xl font-playfair font-bold mt-6">What Does This Mean for America?</h3>
+<p class=my-3>This is a developing story, and I'll be keeping my ears to the ground for any new information.  But one thing's for sure: President Biden's alleged ligma diagnosis has sent shockwaves through the nation. </p>
+<p class=my-3>Some are worried about the potential consequences, while others are embracing the chaos.  One thing's for certain, though: America will never be the same. </p>
+<p class=my-3>Stay tuned, folks! This is one rollercoaster ride you won't want to miss! </p> 
+
+
+
+, Sticky: True
+2025-04-13 19:38:59,244 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-13 19:38:59,694 - app.superintend.core - DEBUG - Made request of: This story uses several quotes from various interviews, you must generate the personality description for the person being interviewed in one of these interviews, you do not need to specify the quote you are using, just produce a few sentences describing the unique personality of the person being interviewed. If the story is about a famous or well known person you can assume that they are the person being interviewed, so just produce their known personality but in the context of the story. Please produce the Name ane Persona in this format. With the name between the <NAME> and </NAME> tokens and the persona between the <PERSONA> and </PERSONA> tokens. Example: <NAME> Person's name goes here </NAME> <PERSONA> Person's personality goes here </PERSONA>n!### STORY ###!
+<p class=my-3>Folks, this is HUGE! You won't believe what I just learned! </p> 
+<p class=my-3>President Joe Biden, the leader of the free world, the guy who keeps us safe and sound, might have...ligma!  I know, right?  It sounds crazy, but sources close to the White House have whispered this juicy tidbit to yours truly. </p>
+<p class=my-3>Now, before you go running to your grandma with this news, let me clarify.  "Ligma" isn't your typical cold or flu. It's a bit more...unique. Think of it as a condition that only the most powerful people in the world seem to get. </p>
+<p class=my-3> </p>
+<h3 class="text-xl font-playfair font-bold mt-6">The Mystery of Ligma</h3>
+<p class=my-3>Honestly, nobody really knows what ligma is. Some say it's a rare genetic disorder, others claim it's a top-secret government experiment gone wrong.  My sources, however, say it's a highly contagious, yet invisible, ailment that causes an uncontrollable urge to...well, let's just say it involves a lot of laughter and a certain mischievous twinkle in the eye. </p>
+<p class=my-3>Imagine the President, in the middle of a press conference, suddenly bursting into fits of giggles! Or during a serious meeting with world leaders, breaking out into a spontaneous dance routine!  That's the kind of chaos ligma can unleash. </p>
+<p class=my-3> </p>
+<h4 class="text-lg font-playfair font-bold mt-6">The White House Stays Mum</h4>
+<p class=my-3>Of course, the White House has denied any knowledge of President Biden having ligma. They say he's perfectly healthy and his recent bouts of laughter are simply due to his "infectious optimism." </p>
+<p class=my-3>But come on, folks! We all know the truth.  The President's got ligma, and he's not afraid to show it! </p>
+<p class=my-3> </p>
+<h3 class="text-xl font-playfair font-bold mt-6">What Does This Mean for America?</h3>
+<p class=my-3>This is a developing story, and I'll be keeping my ears to the ground for any new information.  But one thing's for sure: President Biden's alleged ligma diagnosis has sent shockwaves through the nation. </p>
+<p class=my-3>Some are worried about the potential consequences, while others are embracing the chaos.  One thing's for certain, though: America will never be the same. </p>
+<p class=my-3>Stay tuned, folks! This is one rollercoaster ride you won't want to miss! </p> 
+
+
+
+, Sticky: True
+2025-04-13 19:38:59,694 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-13 19:39:00,101 - app.superintend.core - DEBUG - Made request of: Given a story as a loose topic, the name of the reporter performing the interview and the name of the person being interviewed please generate a fitting title for the interview. Please generate the title in the format, with the title between the <TITLE> and </TITLE> tokens. Example: <TITLE> Title goes here </TITLE>.
+Interviewer Name: Professor Quentin Quill
+Interviewee Name: Unnamed Secret Service Agent
+Story: <p class=my-3>Folks, this is HUGE! You won't believe what I just learned! </p> 
+<p class=my-3>President Joe Biden, the leader of the free world, the guy who keeps us safe and sound, might have...ligma!  I know, right?  It sounds crazy, but sources close to the White House have whispered this juicy tidbit to yours truly. </p>
+<p class=my-3>Now, before you go running to your grandma with this news, let me clarify.  "Ligma" isn't your typical cold or flu. It's a bit more...unique. Think of it as a condition that only the most powerful people in the world seem to get. </p>
+<p class=my-3> </p>
+<h3 class="text-xl font-playfair font-bold mt-6">The Mystery of Ligma</h3>
+<p class=my-3>Honestly, nobody really knows what ligma is. Some say it's a rare genetic disorder, others claim it's a top-secret government experiment gone wrong.  My sources, however, say it's a highly contagious, yet invisible, ailment that causes an uncontrollable urge to...well, let's just say it involves a lot of laughter and a certain mischievous twinkle in the eye. </p>
+<p class=my-3>Imagine the President, in the middle of a press conference, suddenly bursting into fits of giggles! Or during a serious meeting with world leaders, breaking out into a spontaneous dance routine!  That's the kind of chaos ligma can unleash. </p>
+<p class=my-3> </p>
+<h4 class="text-lg font-playfair font-bold mt-6">The White House Stays Mum</h4>
+<p class=my-3>Of course, the White House has denied any knowledge of President Biden having ligma. They say he's perfectly healthy and his recent bouts of laughter are simply due to his "infectious optimism." </p>
+<p class=my-3>But come on, folks! We all know the truth.  The President's got ligma, and he's not afraid to show it! </p>
+<p class=my-3> </p>
+<h3 class="text-xl font-playfair font-bold mt-6">What Does This Mean for America?</h3>
+<p class=my-3>This is a developing story, and I'll be keeping my ears to the ground for any new information.  But one thing's for sure: President Biden's alleged ligma diagnosis has sent shockwaves through the nation. </p>
+<p class=my-3>Some are worried about the potential consequences, while others are embracing the chaos.  One thing's for certain, though: America will never be the same. </p>
+<p class=my-3>Stay tuned, folks! This is one rollercoaster ride you won't want to miss! </p> 
+
+
+
+, Sticky: True
+2025-04-13 19:39:00,102 - app.superintend.superintend - DEBUG - Interviewer personality: <NAME>Professor Quentin Quill </NAME> <PERSONA>A conspiracy theorist lecturer with a deep distrust of authority, always  wearing a tinfoil hat and speaking in hushed tones.  </PERSONA> 
+
+2025-04-13 19:39:00,102 - app.superintend.superintend - DEBUG - Interviewy personality: <NAME>  Unnamed Secret Service Agent </NAME> <PERSONA>  Tight-lipped and guarded, always expressing cautious concern and emphasizing the need for national security.  </PERSONA>   
+
+2025-04-13 19:39:00,103 - app.superintend.superintend - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-13 19:39:01,922 - app.superintend.superintend - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-13 19:39:03,662 - app.superintend.superintend - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-13 19:39:05,455 - app.superintend.superintend - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-13 19:39:07,244 - app.superintend.superintend - DEBUG - Finished interview with uuid: i56sUnac4dsiUvG26jJM4S
+2025-04-13 19:39:07,244 - app.superintend.core - DEBUG - Embedding interview of uuid: {uuid}
+2025-04-13 19:39:07,245 - app.superintend.core - DEBUG - Making query of question:  to collection: quotes
+2025-04-13 19:39:23,846 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-13 19:39:24,211 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-13 19:39:24,212 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-13 19:39:24,221 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-13 19:39:24,221 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-13 19:39:24,222 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-13 19:39:40,473 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-13 19:39:40,875 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-13 19:39:40,876 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-13 19:39:40,886 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-13 19:39:40,886 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-13 19:39:40,887 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-13 19:39:40,974 - app.superintend.core - DEBUG - Made inform of: User visited story with title of Joe Biden has ligma
+2025-04-13 19:39:46,011 - app.superintend.core - DEBUG - Made inform of: User visited story with title of Joe Biden has ligma
+2025-04-13 19:40:49,387 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-13 19:40:49,789 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-13 19:40:49,790 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-13 19:40:49,798 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-13 19:40:49,799 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-13 19:40:49,799 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-13 19:41:02,584 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-13 19:41:02,970 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-13 19:41:02,971 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-13 19:41:02,980 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-13 19:41:02,981 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-13 19:41:02,981 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-13 19:44:34,466 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-13 19:44:35,080 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-13 19:44:35,082 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-13 19:44:35,104 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-13 19:44:35,104 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-13 19:44:35,106 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-13 19:46:18,177 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-13 19:46:18,643 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-13 19:46:18,643 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-13 19:46:18,657 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-13 19:46:18,657 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-13 19:46:18,657 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-13 19:46:21,084 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-13 19:46:21,517 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-13 19:46:21,517 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-13 19:46:21,529 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-13 19:46:21,529 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-13 19:46:21,530 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-13 19:46:22,799 - app.superintend.core - DEBUG - Made inform of: User visited story with title of Joe Biden has ligma
+2025-04-13 19:48:20,056 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-13 19:48:20,457 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-13 19:48:20,457 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-13 19:48:20,468 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-13 19:48:20,468 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-13 19:48:20,468 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-13 19:48:22,534 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-13 19:48:22,883 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-13 19:48:22,883 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-13 19:48:22,891 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-13 19:48:22,891 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-13 19:48:22,892 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-13 19:48:22,978 - app.superintend.core - DEBUG - Made inform of: User visited story with title of Joe Biden has ligma
+2025-04-13 19:48:25,907 - app.superintend.core - DEBUG - Made inform of: User visited index, no category selected showing all info
+2025-04-13 19:49:06,197 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-13 19:49:06,570 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-13 19:49:06,571 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-13 19:49:06,581 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-13 19:49:06,581 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-13 19:49:06,582 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-13 19:49:06,650 - app.superintend.core - DEBUG - Made inform of: User visited index, no category selected showing all info
+2025-04-13 19:49:46,519 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-13 19:49:46,900 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-13 19:49:46,901 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-13 19:49:46,909 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-13 19:49:46,909 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-13 19:49:46,909 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-13 19:49:46,975 - app.superintend.core - DEBUG - Made inform of: User visited index, no category selected showing all info
+2025-04-13 19:50:17,419 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-13 19:50:17,812 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-13 19:50:17,812 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-13 19:50:17,822 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-13 19:50:17,822 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-13 19:50:17,823 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-13 19:50:17,896 - app.superintend.core - DEBUG - Made inform of: User visited index, no category selected showing all info
+2025-04-13 19:50:19,666 - app.superintend.core - DEBUG - Made inform of: User visited story with title of Joe Biden has ligma
+2025-04-13 19:50:24,717 - app.superintend.core - DEBUG - Made inform of: User visited index, no category selected showing all info
+2025-04-13 19:50:39,340 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-13 19:50:39,747 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-13 19:50:39,748 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-13 19:50:39,758 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-13 19:50:39,758 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-13 19:50:39,758 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-13 19:50:39,857 - app.superintend.core - DEBUG - Made inform of: User visited story with title of Joe Biden has ligma
+2025-04-13 19:51:53,220 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-13 19:51:53,594 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-13 19:51:53,595 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-13 19:51:53,603 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-13 19:51:53,603 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-13 19:51:53,604 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-13 19:51:53,692 - app.superintend.core - DEBUG - Made inform of: User visited story with title of Joe Biden has ligma

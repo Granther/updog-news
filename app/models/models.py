@@ -14,6 +14,8 @@ class Story(db.Model):
     reporter = db.Column(db.String, unique=False, nullable=False)
     catagory = db.Column(db.String, unique=False, nullable=True)
     sources_done = db.Column(db.Boolean, nullable=True, default=False) # Wether or not the content contains links or placeholdes  
+    clicks = db.Column(db.Integer, nullable=False, default=0)
+    size = db.Column(db.String, nullable=True, default="regular")
 #    image = db.Column(db.String, nullable=True) # Store image as base64 encoded
 #    archived = db.Column(db.Boolean, nullable=True, default=False)
 #    likes = db.Column(db.Integer, nullable=True, default=0)
@@ -39,6 +41,12 @@ class Interview(db.Model):
     interviewer = db.Column(db.String, unique=False, nullable=False)
     interviewy = db.Column(db.String, unique=False, nullable=False)
 
+"""
+class Advert(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    created = db.Column(db.TIMESTAMP, nullable=False, server_default=str(datetime.utcnow()))
+    uuid = db.Column(db.String, unique=True, nullable=False)
+"""
 '''
 class QueuedStory(db.Model):
     """Pre-Generated story waiting on execution queue"""

@@ -3,6 +3,9 @@
 .collapse {
   visibility: collapse;
 }
+.invisible {
+  visibility: hidden;
+}
 .sr-only {
   position: absolute;
   width: 1px;
@@ -50,11 +53,23 @@
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;
 }
+.line-clamp-2 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
 .line-clamp-3 {
   overflow: hidden;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
+}
+.line-clamp-4 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
 }
 .block {
   display: block;
@@ -180,6 +195,9 @@
 }
 .object-cover {
   object-fit: cover;
+}
+.py-px {
+  padding-block: 1px;
 }
 .text-center {
   text-align: center;

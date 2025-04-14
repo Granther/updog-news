@@ -74,6 +74,17 @@ class Infer():
 
 _infer = Infer()
 
+def fix_html_class(content: str) -> str:
+    extra_h = 'mt-6'
+    extra_p = 'my-3'
+    h1 = f'<h1 class="text-3xl font-playfair font-bold {extra_h}">'
+    h2 = f'<h2 class="text-2xl font-playfair font-bold {extra_h}">'
+    h3 = f'<h3 class="text-xl font-playfair font-bold {extra_h}">'
+    h4 = f'<h4 class="text-lg font-playfair font-bold {extra_h}">'
+    h5 = f'<h5 class="text-md font-playfair font-bold {extra_h}">'
+    p = f'<p class={extra_p}>'
+    return content.replace('<h1>', h1).replace('<h2>', h2).replace('<h3>', h3).replace('<h4>', h4).replace('<h5>', h5).replace('<p>', p)
+
 def generate_news(title: str, personality: str=None):
     return _infer.generate_news(title, personality)
 
@@ -81,6 +92,7 @@ def write_new_story(app, item: dict):
     with app.app_context():
         try:
             content = generate_news(item['title'], item['personality'])
+            content = fix_html_class(content)
             print("Content: ", content)
             story = Story(title=item['title'], content=content, reporter=item['reporter'], catagory=item['catagory'])
             if not superintend.allow_story(story):

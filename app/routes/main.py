@@ -157,10 +157,13 @@ def story(title, category=None):
 
         return render_template('waiting.html', session_id=session_id)
     else:
+        story.clicks += 1 
+        story.size = "small"
+        db.session.commit() # We iterate clicks early because we set content later for temp
         superintend.core.inform(f"User visited story with title of {title}")
         # Existing story rendering logic
         timestamp = pretty_timestamp(story.created)
-        read_time = "read time"
+        read_time = "5"
         story.catagory = display_catagory(story.catagory)
         #if not story.sources_done: # Not finished async creating sources
         story.content = rm_link_toks(story.content)

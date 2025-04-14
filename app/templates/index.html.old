@@ -1,0 +1,54 @@
+{% extends 'templ.html' %}
+
+{% block title %}UpDog News - Trusted Indpendent News{% endblock %}
+
+{% block header_extra %}
+		<a href="{{ report_btn.url }}" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 text-sm">
+			{{ report_btn.text }}
+		</a>
+	<a href="{{ url_for('chat.hoodlem') }}" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 text-sm">
+		Chat with <strong>Hoodlem</strong>
+	</a>
+{% endblock %}
+
+{% block content %}
+    <div class="bg-yellow-100 border-y border-yellow-200">
+        <div class="container mx-auto px-4 py-2 flex items-center">
+            <span class="bg-red-600 text-white px-2 py-1 mr-3 text-sm font-bold">BREAKING</span>
+			<marquee class="text-sm text-gray-700">{{ marq.one }} • {{ marq.two }} • {{ marq.three }}</marquee>
+        </div>
+    </div>
+
+    <main class="flex-grow container mx-auto px-4 py-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {% for story in stories %}
+            <a href="{{url_for('main.story', title=story.title)}}" class="group">
+                <article class="bg-white rounded-lg shadow-sm hover:shadow-lg transition-shadow duration-300">
+                    <div class="relative">
+                        <div class="bg-gray-200 h-48 rounded-t-lg"></div>
+                        <span class="absolute top-2 left-2 bg-red-600 text-white text-xs px-2 py-1 rounded">EXCLUSIVE</span>
+                    </div>
+                    <div class="p-4">
+                        <div class="flex items-center text-xs text-gray-500 mb-2">
+							<span class="bg-blue-100 text-blue-800 px-2 py-1 rounded">{{ story.catagory }}</span>
+                            <span class="mx-2">•</span>
+							<time>{{ story.timestamp }}</time>
+                        </div>
+                        <h3 class="text-xl font-playfair font-bold mb-2 group-hover:text-red-600 transition-colors">
+                            {{ story.title }}
+                        </h3>
+                        <p class="text-sm text-gray-600 mb-3 line-clamp-3">
+                            {{ story.content }}
+                        </p>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <span class="font-semibold">By {{ story.reportername }}</span>
+                            <span class="mx-2">•</span>
+                            <span>5 min read</span>
+                        </div>
+                    </div>
+                </article>
+            </a>
+            {% endfor %}
+        </div>
+    </main>
+{% endblock %}
