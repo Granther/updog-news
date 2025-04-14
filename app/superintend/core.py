@@ -4,6 +4,7 @@ import datetime
 import threading
 import queue
 import time
+import sys
 from concurrent.futures import Future
 
 from openai import OpenAI
@@ -12,8 +13,9 @@ import shortuuid
 from dotenv import load_dotenv
 
 from app.logger import create_logger
+from app.config import Keys, Model
 from .prompts import ephem_sys_prompt, superintend_sys_prompt, bool_question_prompt, build_rag, build_need_rag_prompt, build_allow_story, build_doc_ret_prompt
-from .utils import stringify, postproc_r1, bool_resp
+from .utils import stringify, postproc_r1, bool_resp, build_client
 from .messages import CoreMessages
 
 __import__('pysqlite3')
@@ -30,17 +32,21 @@ logger = create_logger(__name__)
 """
 class Core:
     """ Takes a premade groq client """
-    def __init__(self, client):
+    def __init__(self, keys: Keys, main_model: Model, quick_model: Model):
         self.core_messages = CoreMessages()
         self.collections = dict()
-        self.groq = client
-        self.groq_model = "deepseek-r1-distill-llama-70b"
-        self.quick_model = "gemma2-9b-it"
-        self.chroma = chromadb.PersistentClient(path="./chroma")
-        self._init_queue()
-        self.collections['main'], self.collections['chats'], self.collections['quotes'], self.collections['titles'] = self._init_collections()
+        self.main_model = main_model.name
+        self.quick_model = quick_model.name
+        try:
+            self.main_client = build_client(keys, main_model)
+            self.quick_client = build_client(keys, quick_model)
+            self.chroma = chromadb.PersistentClient(path="./chroma")
+            self._init_queue()
+            self.collections['main'], self.collections['chats'], self.collections['quotes'], self.collections['titles'] = self._init_collections()
+        except Exception as e:
+            logger.fatal(f"Fatal error occured while instantiating Core: {e}")
+            sys.exit(1)
         self._init_super()
-        #self._fill_chats()
 
     """ First message sent to superintend """
     def _init_super(self):

@@ -1,3 +1,8 @@
+from openai import OpenAI
+from groq import Groq
+
+from app.config import Keys, Model
+
 """ Takes a list and packs it into str """
 def stringify(doc) -> str:
     string = ""
@@ -49,6 +54,18 @@ def pretty_interview(content: list) -> str:
     for item in content:
         string += f"{item['question']}<br>{item['answer']}<br><br>"
     return string    
+
+""" Given a 'Model', which has a name and a backend, return the correct client """
+def build_client(self, model: Model, keys: Keys):
+    if model.backend == 'groq':
+        return Groq(api_key=keys.GROQ_API_KEY)
+    elif model.backend == 'featherless':
+        return OpenAI(
+                base_url="https://api.featherless.ai/v1",
+                api_key=keys.FEATHERLESS_API_KEY,
+            )
+    else:
+        raise Exception(f"Passed model ({model.name}) does not have correct backend ({model.backend})")
 
 if __name__ == "__main__":
     print(extract_tok_val("Hello <REPORTER>James danial</REPORTER>", "REPORTER"))

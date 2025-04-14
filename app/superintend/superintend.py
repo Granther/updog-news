@@ -12,6 +12,7 @@ from groq import Groq
 import shortuuid
 
 from app.logger import create_logger
+from app.config import SuperintendConfig, Model
 from .prompts import ephem_sys_prompt, superintend_sys_prompt, bool_question_prompt, build_rag, build_need_rag_prompt, build_allow_story, build_doc_ret_prompt, build_interviewy_prompt, build_interviewer_prompt, get_interviewy_person, get_interviewer_person, build_quick_fill, get_iview_title, build_fix_schrod_title
 from .utils import stringify, postproc_r1, bool_resp, extract_tok_val, pretty_interview
 from app.models import Interview
@@ -35,18 +36,17 @@ class SuperIntend:
         return self._instance
 
     """ Groq for fast, feather for slow but custom """
-    def __init__(self, groq_key: str, feather_key: str, groq_core_key: str):
-        #self.ephem_sys_prompt = ephem_sys_prompt
-        #self.ephem_messages = dict()
-        self.groq, self.feather = self._init_clients(groq_key, feather_key)
-        self.core = Core(self._init_groq_client(groq_core_key))
-        self.hoodlem = HoodChat(ephem_sys_prompt, self.core)
-        self.news = News(self.core)
-        self.groq_model = "deepseek-r1-distill-llama-70b"
-        self.quick_model = "gemma2-9b-it"
+    def __init__(self, config):
+        self.config = config
+        # Core: Handles internal system management and dishing out jobs. Infer layer
+        self.core = Core(keys=config.KEYS, main_model=config.CORE_MODEL, quick_model=config.CORE_QUICK_MODEL)
+        # Hoodlem: User interaction part of Super. Uses core to perform system tasks during chat
+        self.hoodlem = HoodChat(keys=config.KEYS, model=config.HOODLEM_MODEL, core=self.core)
+        # News: News & interview etc generation and infer management
+        self.news = News(keys=config.KEYS, model=config.GEN_NEWS_MODEL, core=self.core)
         self._init_queue()
         logger.debug("Created Superintendent")
-    
+
     """ Submit task to be completed on superintend queue """
     def _submit_task(self, func, *args):
         future = Future()
@@ -70,20 +70,6 @@ class SuperIntend:
         # Run in new thread
         threading.Thread(target=worker, daemon=True).start()
 
-    """ Init both Groq and Feather clients """
-    def _init_clients(self, groq_key, feather_key):
-        logger.debug("Creating Groq and Featherless clients")
-        return ((self._init_groq_client(groq_key), self._init_feather_client(feather_key)))
-
-    def _init_groq_client(self, groq_key: str):
-        return Groq(api_key=groq_key)
-
-    def _init_feather_client(self, feather_key: str):
-        return OpenAI(
-                    base_url="https://api.featherless.ai/v1",
-                    api_key=feather_key,
-                )
-
     def _bool_question(self, question: str) -> bool:
         messages = [
             {"role": "system", "content": bool_question_prompt},
@@ -99,7 +85,9 @@ class SuperIntend:
             return False
             logger.fatal(f"Bool question got answer: {resp}")
 
-_superintend = SuperIntend(os.environ.get("GROQ_API_KEY"), os.environ.get("FEATHERLESS_API_KEY"), os.environ.get("GROQ_API_KEY"))
+_superintend = SuperIntend(SuperintendConfig())
+    
+#os.environ.get("GROQ_API_KEY"), os.environ.get("FEATHERLESS_API_KEY"), os.environ.get("GROQ_API_KEY")
 
 """ Makes Superintend singleton, which makes sense """
 def get_superintend():

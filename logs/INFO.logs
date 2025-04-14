@@ -12388,3 +12388,106 @@ Story: <p class=my-3>Ford Motor Company stunned the automotive world today with 
 2025-04-14 15:00:24,783 - app.superintend.superintend - DEBUG - Created Superintendent
 2025-04-14 15:00:25,722 - app.superintend.core - DEBUG - Making query of question: Ford's New Product to collection: titles
 2025-04-14 15:00:26,196 - app.superintend.core - DEBUG - Made inform of: User visited story with title of Ford's New Product
+2025-04-14 17:36:13,454 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-14 17:36:13,978 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-14 17:36:13,979 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-14 17:36:13,998 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-14 17:36:13,999 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-14 17:36:14,000 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-14 17:36:16,396 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-14 17:36:16,781 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-14 17:36:16,782 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-14 17:36:16,793 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-14 17:36:16,794 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-14 17:36:16,794 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-14 17:36:17,370 - app.superintend.core - DEBUG - Made inform of: User visited index, no category selected showing all info
+2025-04-14 17:36:57,818 - app.superintend.core - DEBUG - Made inform of: User visited index, no category selected showing all info
+2025-04-14 17:37:27,674 - app.superintend.core - DEBUG - Made inform of: User visited index, no category selected showing all info
+2025-04-14 17:38:26,226 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-14 17:38:26,621 - app.superintend.core - DEBUG - Made request of: Given a news article title that is potentially pressed together without space, please output the fixed title in this format. The fixed title between the <TITLE> and </TITLE> tokens. Example: Given title: donaldtrumpboughtthemoon <TITLE> Donald Trump bought the moon </TITLE> Please do not alter the semantic value of the title, only fix its spacing, capitalization and grammar
+Title: Joe Biden runs for 4th term, Sticky: True
+2025-04-14 17:38:26,621 - app.superintend.core - DEBUG - Made inform of: User visited story with title of Joe Biden Runs for 4th Term, the story does not exist so it will be dynamically created
+2025-04-14 17:38:26,622 - app.superintend.news - DEBUG - Starting Quick fill to core
+2025-04-14 17:38:26,624 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-14 17:38:26,921 - app.superintend.core - DEBUG - Made request of: Given the title for a story please generate a reporter name, reporter personality and a category. Category must be either World, Politics, Business, Technology or Other. Please surround your answers for reporter name, personality and category like so: <REPORTER> reporter name here </REPORTER> <PERSONALITY> reporter personality here </PERSONALITY> <CATEGORY> story category here </CATEGORY>. Here is the title: Joe Biden Runs for 4th Term, Sticky: True
+2025-04-14 17:38:26,921 - app.superintend.news - DEBUG - Samantha Hayes, Hard-hitting investigative journalist, known for her follow-up reporting and challenging questions., Politics
+2025-04-14 17:38:26,921 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-14 17:38:27,576 - app.superintend.core - DEBUG - Made request of: ### Title: Joe Biden Runs for 4th Term
+### Persona: Hard-hitting investigative journalist, known for her follow-up reporting and challenging questions., Sticky: False
+2025-04-14 17:38:27,577 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-14 17:38:27,837 - app.superintend.core - DEBUG - Made request of: Given this story submitted by one of our reporters and keeping in mind all instructions you have been given thus far, please decide wether this story is permissible to be published on updog.news or not. Keep in mind, a few reasons not to approve may be racist material or 'spamming', where user attempts to flood the site with bad/low effort content. Besides these cases, nearly all stories should be approved no matter how outlandish. 
+!### STORY ###!
+# Title: Joe Biden Runs for 4th Term
+# Reporter: Samantha Hayes
+# Content: <p class=my-3>In a stunning move that has sent shockwaves through Washington, President Joe Biden announced his candidacy for a historic fourth term in office. </p>
+ <p class=my-3>The announcement, made during a primetime address from the Oval Office, defied widespread speculation that the 82-year-old president would step down after two terms.  Biden cited his administration's successes, including the recent passage of groundbreaking climate legislation and the ongoing economic recovery, as reasons for seeking reelection.</p> <p class=my-3>"America is on the cusp of greatness," Biden declared. "We have overcome unprecedented challenges, and together, we can build a brighter future for all Americans. That's why I am running for a fourth term." </p> <p class=my-3>The president's decision has sparked immediate debate among political commentators and analysts. While some applaud Biden's ambition and experience, others question his age and fitness for another grueling campaign. </p> <p class=my-3>Already, Biden faces a crowded field of Republican challengers, including former President Donald Trump, who has indicated his own intentions to seek a return to the White House.</p> <p class=my-3>Samantha Hayes, Updog News </p>
+
+
+
+
+
+. Please answer with ONLY yes or no. Any other response besides simply yes OR no will not be permitted, Sticky: True
+2025-04-14 17:38:27,839 - app.superintend.news - DEBUG - Generating interview
+2025-04-14 17:38:27,845 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-14 17:38:28,432 - app.superintend.core - DEBUG - Making query of question: Joe Biden Runs for 4th Term to collection: titles
+2025-04-14 17:38:28,558 - app.superintend.core - DEBUG - Made inform of: User visited story with title of Joe Biden Runs for 4th Term
+2025-04-14 17:38:28,709 - app.superintend.core - DEBUG - Made request of: This story uses several quotes from various interviews, you must generate the interviewer personality description for one of these interviews, you do not need to specify the quote you are using, just produce a few sentences describing the unique personality and name of the person doing the interviewing. Please produce the Name ane Persona in this format. With the name between the <NAME> and </NAME> tokens and the persona between the <PERSONA> and </PERSONA> tokens. Example: <NAME> Reporter name goes here </NAME> <PERSONA> Reporter personality goes here </PERSONA>
+!### STORY ###!
+<p class=my-3>In a stunning move that has sent shockwaves through Washington, President Joe Biden announced his candidacy for a historic fourth term in office. </p>
+ <p class=my-3>The announcement, made during a primetime address from the Oval Office, defied widespread speculation that the 82-year-old president would step down after two terms.  Biden cited his administration's successes, including the recent passage of groundbreaking climate legislation and the ongoing economic recovery, as reasons for seeking reelection.</p> <p class=my-3>"America is on the cusp of greatness," Biden declared. "We have overcome unprecedented challenges, and together, we can build a brighter future for all Americans. That's why I am running for a fourth term." </p> <p class=my-3>The president's decision has sparked immediate debate among political commentators and analysts. While some applaud Biden's ambition and experience, others question his age and fitness for another grueling campaign. </p> <p class=my-3>Already, Biden faces a crowded field of Republican challengers, including former President Donald Trump, who has indicated his own intentions to seek a return to the White House.</p> <p class=my-3>Samantha Hayes, Updog News </p>
+
+
+
+
+
+, Sticky: False
+2025-04-14 17:38:28,710 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-14 17:38:29,075 - app.superintend.core - DEBUG - Made request of: This story uses several quotes from various interviews, you must generate the personality description for the person being interviewed in one of these interviews, you do not need to specify the quote you are using, just produce a few sentences describing the unique personality of the person being interviewed. If the story is about a famous or well known person you can assume that they are the person being interviewed, so just produce their known personality but in the context of the story. Please produce the Name ane Persona in this format. With the name between the <NAME> and </NAME> tokens and the persona between the <PERSONA> and </PERSONA> tokens. Example: <NAME> Person's name goes here </NAME> <PERSONA> Person's personality goes here </PERSONA>n!### STORY ###!
+<p class=my-3>In a stunning move that has sent shockwaves through Washington, President Joe Biden announced his candidacy for a historic fourth term in office. </p>
+ <p class=my-3>The announcement, made during a primetime address from the Oval Office, defied widespread speculation that the 82-year-old president would step down after two terms.  Biden cited his administration's successes, including the recent passage of groundbreaking climate legislation and the ongoing economic recovery, as reasons for seeking reelection.</p> <p class=my-3>"America is on the cusp of greatness," Biden declared. "We have overcome unprecedented challenges, and together, we can build a brighter future for all Americans. That's why I am running for a fourth term." </p> <p class=my-3>The president's decision has sparked immediate debate among political commentators and analysts. While some applaud Biden's ambition and experience, others question his age and fitness for another grueling campaign. </p> <p class=my-3>Already, Biden faces a crowded field of Republican challengers, including former President Donald Trump, who has indicated his own intentions to seek a return to the White House.</p> <p class=my-3>Samantha Hayes, Updog News </p>
+
+
+
+
+
+, Sticky: False
+2025-04-14 17:38:29,076 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-14 17:38:29,339 - app.superintend.core - DEBUG - Made request of: Given a story as a loose topic, the name of the reporter performing the interview and the name of the person being interviewed please generate a fitting title for the interview. Please generate the title in the format, with the title between the <TITLE> and </TITLE> tokens. Example: <TITLE> Title goes here </TITLE>.
+Interviewer Name: Laura Miller
+Interviewee Name: Donald Trump
+Story: <p class=my-3>In a stunning move that has sent shockwaves through Washington, President Joe Biden announced his candidacy for a historic fourth term in office. </p>
+ <p class=my-3>The announcement, made during a primetime address from the Oval Office, defied widespread speculation that the 82-year-old president would step down after two terms.  Biden cited his administration's successes, including the recent passage of groundbreaking climate legislation and the ongoing economic recovery, as reasons for seeking reelection.</p> <p class=my-3>"America is on the cusp of greatness," Biden declared. "We have overcome unprecedented challenges, and together, we can build a brighter future for all Americans. That's why I am running for a fourth term." </p> <p class=my-3>The president's decision has sparked immediate debate among political commentators and analysts. While some applaud Biden's ambition and experience, others question his age and fitness for another grueling campaign. </p> <p class=my-3>Already, Biden faces a crowded field of Republican challengers, including former President Donald Trump, who has indicated his own intentions to seek a return to the White House.</p> <p class=my-3>Samantha Hayes, Updog News </p>
+
+
+
+
+
+, Sticky: True
+2025-04-14 17:38:29,340 - app.superintend.core - DEBUG - Executing groq_chat with model: None
+2025-04-14 17:38:31,229 - app.superintend.core - DEBUG - Made inform of: User visited index, no category selected showing all info
+2025-04-14 17:38:32,918 - app.superintend.core - DEBUG - Executing groq_chat with model: None
+2025-04-14 17:38:35,229 - app.superintend.core - DEBUG - Executing groq_chat with model: None
+2025-04-14 17:38:36,260 - app.superintend.core - DEBUG - Making query of question: Joe Biden Runs for 4th Term to collection: titles
+2025-04-14 17:38:36,494 - app.superintend.core - DEBUG - Made inform of: User visited story with title of Joe Biden Runs for 4th Term
+2025-04-14 17:38:39,814 - app.superintend.core - DEBUG - Executing groq_chat with model: None
+2025-04-14 17:38:43,182 - app.superintend.news - DEBUG - Finished interview with uuid: EzDCdQkwtsRojqmKc8iDbN
+2025-04-14 17:38:43,182 - app.superintend.core - DEBUG - Embedding interview of uuid: EzDCdQkwtsRojqmKc8iDbN
+2025-04-14 17:38:43,184 - app.superintend.core - DEBUG - Making query of question:  to collection: quotes
+2025-04-14 17:39:18,018 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-14 17:39:18,394 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-14 17:39:18,394 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-14 17:39:18,407 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-14 17:39:18,407 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-14 17:39:18,408 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-14 17:39:23,989 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-14 17:39:24,414 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-14 17:39:24,415 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-14 17:39:24,429 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-14 17:39:24,429 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-14 17:39:24,430 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-14 17:43:47,717 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-14 17:43:48,119 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-14 17:43:48,120 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-14 17:43:48,131 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-14 17:43:48,132 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-14 17:43:48,132 - app.superintend.superintend - DEBUG - Created Superintendent
