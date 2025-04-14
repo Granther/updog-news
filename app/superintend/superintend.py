@@ -42,7 +42,7 @@ class SuperIntend:
         self.core = Core(self._init_groq_client(groq_core_key))
         self.hoodlem = HoodChat(ephem_sys_prompt, self.core)
         self.news = News(self.core)
-        self.groq_model = "deepseek-r1-distill-qwen-32b"
+        self.groq_model = "deepseek-r1-distill-llama-70b"
         self.quick_model = "gemma2-9b-it"
         self._init_queue()
         logger.debug("Created Superintendent")

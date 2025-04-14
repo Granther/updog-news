@@ -157,6 +157,7 @@ def story(title, category=None):
         return render_template('waiting.html', session_id=session_id)
     else:
         story.clicks += 1 
+        print(superintend.news.get_similar_titles(story.title))
         #story.size = "large"
         #db.session.commit() # We iterate clicks early because we set content later for temp
         superintend.core.inform(f"User visited story with title of {title}")

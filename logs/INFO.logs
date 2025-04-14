@@ -11553,3 +11553,838 @@ Story: <p class=my-3>Folks, this is HUGE! You won't believe what I just learned!
 2025-04-14 13:25:49,569 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
 2025-04-14 13:25:49,569 - app.superintend.superintend - DEBUG - Initializing chat queue
 2025-04-14 13:25:49,570 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-14 14:33:24,180 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-14 14:33:24,574 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-14 14:33:24,574 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-14 14:33:24,610 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-14 14:33:24,610 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-14 14:33:24,611 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-14 14:33:26,965 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-14 14:33:27,360 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-14 14:33:27,361 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-14 14:33:27,372 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-14 14:33:27,373 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-14 14:33:27,373 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-14 14:33:43,220 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-14 14:33:43,923 - app.superintend.core - DEBUG - Made request of: Given a news article title that is potentially pressed together without space, please output the fixed title in this format. The fixed title between the <TITLE> and </TITLE> tokens. Example: Given title: donaldtrumpboughtthemoon <TITLE> Donald Trump bought the moon </TITLE> Please do not alter the semantic value of the title, only fix its spacing, capitalization and grammar
+Title: Jill Biden has ligma, Sticky: True
+2025-04-14 14:33:43,924 - app.superintend.core - DEBUG - Made inform of: User visited story with title of Jill Biden has ligma, the story does not exist so it will be dynamically created
+2025-04-14 14:33:43,925 - app.superintend.news - DEBUG - Starting Quick fill to core
+2025-04-14 14:33:43,960 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-14 14:33:44,271 - app.superintend.core - DEBUG - Made request of: Given the title for a story please generate a reporter name, reporter personality and a category. Category must be either World, Politics, Business, Technology or Other. Please surround your answers for reporter name, personality and category like so: <REPORTER> reporter name here </REPORTER> <PERSONALITY> reporter personality here </PERSONALITY> <CATEGORY> story category here </CATEGORY>. Here is the title: Jill Biden has ligma, Sticky: True
+2025-04-14 14:33:44,272 - app.superintend.news - DEBUG - Samantha "Sam" Jones, Newsy and enthusiastic, known for chasing down quirky stories, Other
+2025-04-14 14:33:44,273 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-14 14:33:45,373 - app.superintend.core - DEBUG - Made request of: ### Title: Jill Biden has ligma
+### Persona: Newsy and enthusiastic, known for chasing down quirky stories, Sticky: False
+2025-04-14 14:33:45,374 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-14 14:33:45,757 - app.superintend.core - DEBUG - Made request of: Given this story submitted by one of our reporters and keeping in mind all instructions you have been given thus far, please decide wether this story is permissible to be published on updog.news or not. Keep in mind, a few reasons not to approve may be racist material or 'spamming', where user attempts to flood the site with bad/low effort content. Besides these cases, nearly all stories should be approved no matter how outlandish. 
+!### STORY ###!
+# Title: Jill Biden has ligma
+# Reporter: Samantha "Sam" Jones
+# Content: <p class=my-3>WASHINGTON -  In a stunning turn of events, First Lady Jill Biden has reportedly contracted a rare and highly contagious... uh... <em>ligma</em>.  </p><br> 
+
+<p class=my-3>Sources close to the First Family confirmed that Dr. Biden, as she is affectionately known, exhibited the telltale symptoms of the curious medical mystery earlier this week, which include uncontrollable giggling fits, a sudden aversion to wearing pants, and an insatiable craving for pickled beets. - </p><br>
+
+<p class=my-3>"It's absolutely wild," said a White House aide, speaking anonymously. "We've never seen anything like it. The Secret Service is on edge, wearing full hazmat suits now. Even the press corps has caught the giggles." </p><br>
+
+<p class=my-3>The shocking news has sparked a frenzied global search for a cure. President Biden, visibly shaken, addressed the nation earlier today, urging calm and promising to "do everything in his power" to find a solution.</p><br>
+
+<p class=my-3>"Jill is a fighter," the President proclaimed, bravely clutching a worn copy of Car and Driver magazine. "She's gonna overcome this. We have the best doctors in the world on it, and we're pulling out all the stops. We're talking to the Mayo Clinic, NASA, even the guys who sell those magic pills on late-night TV."</p><br>
+
+<p class=my-3>Meanwhile, amidst the chaos, internet sleuths speculate on the origins of this strange malady. Some whisper of ancient curses, others of experimental government labs gone wrong. Most, however, simply share memes. Lots and lots of memes.</p><br>
+
+
+ 
+. Please answer with ONLY yes or no. Any other response besides simply yes OR no will not be permitted, Sticky: True
+2025-04-14 14:33:45,759 - app.superintend.core - CRITICAL - Unequal lengths for fields: ids: 20, documents: 1 in add.
+2025-04-14 14:33:45,760 - app.superintend.core - DEBUG - Made inform of: Unequal lengths for fields: ids: 20, documents: 1 in add.
+2025-04-14 14:33:45,760 - app.superintend.news - DEBUG - Generating interview
+2025-04-14 14:33:45,768 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-14 14:33:45,841 - app.superintend.core - DEBUG - Made inform of: User visited story with title of Jill Biden has ligma
+2025-04-14 14:33:46,122 - app.superintend.core - DEBUG - Made request of: This story uses several quotes from various interviews, you must generate the interviewer personality description for one of these interviews, you do not need to specify the quote you are using, just produce a few sentences describing the unique personality and name of the person doing the interviewing. Please produce the Name ane Persona in this format. With the name between the <NAME> and </NAME> tokens and the persona between the <PERSONA> and </PERSONA> tokens. Example: <NAME> Reporter name goes here </NAME> <PERSONA> Reporter personality goes here </PERSONA>
+!### STORY ###!
+<p class=my-3>WASHINGTON -  In a stunning turn of events, First Lady Jill Biden has reportedly contracted a rare and highly contagious... uh... <em>ligma</em>.  </p><br> 
+
+<p class=my-3>Sources close to the First Family confirmed that Dr. Biden, as she is affectionately known, exhibited the telltale symptoms of the curious medical mystery earlier this week, which include uncontrollable giggling fits, a sudden aversion to wearing pants, and an insatiable craving for pickled beets. - </p><br>
+
+<p class=my-3>"It's absolutely wild," said a White House aide, speaking anonymously. "We've never seen anything like it. The Secret Service is on edge, wearing full hazmat suits now. Even the press corps has caught the giggles." </p><br>
+
+<p class=my-3>The shocking news has sparked a frenzied global search for a cure. President Biden, visibly shaken, addressed the nation earlier today, urging calm and promising to "do everything in his power" to find a solution.</p><br>
+
+<p class=my-3>"Jill is a fighter," the President proclaimed, bravely clutching a worn copy of Car and Driver magazine. "She's gonna overcome this. We have the best doctors in the world on it, and we're pulling out all the stops. We're talking to the Mayo Clinic, NASA, even the guys who sell those magic pills on late-night TV."</p><br>
+
+<p class=my-3>Meanwhile, amidst the chaos, internet sleuths speculate on the origins of this strange malady. Some whisper of ancient curses, others of experimental government labs gone wrong. Most, however, simply share memes. Lots and lots of memes.</p><br>
+
+
+ 
+, Sticky: False
+2025-04-14 14:33:46,123 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-14 14:33:46,503 - app.superintend.core - DEBUG - Made request of: This story uses several quotes from various interviews, you must generate the personality description for the person being interviewed in one of these interviews, you do not need to specify the quote you are using, just produce a few sentences describing the unique personality of the person being interviewed. If the story is about a famous or well known person you can assume that they are the person being interviewed, so just produce their known personality but in the context of the story. Please produce the Name ane Persona in this format. With the name between the <NAME> and </NAME> tokens and the persona between the <PERSONA> and </PERSONA> tokens. Example: <NAME> Person's name goes here </NAME> <PERSONA> Person's personality goes here </PERSONA>n!### STORY ###!
+<p class=my-3>WASHINGTON -  In a stunning turn of events, First Lady Jill Biden has reportedly contracted a rare and highly contagious... uh... <em>ligma</em>.  </p><br> 
+
+<p class=my-3>Sources close to the First Family confirmed that Dr. Biden, as she is affectionately known, exhibited the telltale symptoms of the curious medical mystery earlier this week, which include uncontrollable giggling fits, a sudden aversion to wearing pants, and an insatiable craving for pickled beets. - </p><br>
+
+<p class=my-3>"It's absolutely wild," said a White House aide, speaking anonymously. "We've never seen anything like it. The Secret Service is on edge, wearing full hazmat suits now. Even the press corps has caught the giggles." </p><br>
+
+<p class=my-3>The shocking news has sparked a frenzied global search for a cure. President Biden, visibly shaken, addressed the nation earlier today, urging calm and promising to "do everything in his power" to find a solution.</p><br>
+
+<p class=my-3>"Jill is a fighter," the President proclaimed, bravely clutching a worn copy of Car and Driver magazine. "She's gonna overcome this. We have the best doctors in the world on it, and we're pulling out all the stops. We're talking to the Mayo Clinic, NASA, even the guys who sell those magic pills on late-night TV."</p><br>
+
+<p class=my-3>Meanwhile, amidst the chaos, internet sleuths speculate on the origins of this strange malady. Some whisper of ancient curses, others of experimental government labs gone wrong. Most, however, simply share memes. Lots and lots of memes.</p><br>
+
+
+ 
+, Sticky: False
+2025-04-14 14:33:46,504 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-14 14:33:47,191 - app.superintend.core - DEBUG - Made request of: Given a story as a loose topic, the name of the reporter performing the interview and the name of the person being interviewed please generate a fitting title for the interview. Please generate the title in the format, with the title between the <TITLE> and </TITLE> tokens. Example: <TITLE> Title goes here </TITLE>.
+Interviewer Name: Chad Thundercock
+Interviewee Name: White House Aide
+Story: <p class=my-3>WASHINGTON -  In a stunning turn of events, First Lady Jill Biden has reportedly contracted a rare and highly contagious... uh... <em>ligma</em>.  </p><br> 
+
+<p class=my-3>Sources close to the First Family confirmed that Dr. Biden, as she is affectionately known, exhibited the telltale symptoms of the curious medical mystery earlier this week, which include uncontrollable giggling fits, a sudden aversion to wearing pants, and an insatiable craving for pickled beets. - </p><br>
+
+<p class=my-3>"It's absolutely wild," said a White House aide, speaking anonymously. "We've never seen anything like it. The Secret Service is on edge, wearing full hazmat suits now. Even the press corps has caught the giggles." </p><br>
+
+<p class=my-3>The shocking news has sparked a frenzied global search for a cure. President Biden, visibly shaken, addressed the nation earlier today, urging calm and promising to "do everything in his power" to find a solution.</p><br>
+
+<p class=my-3>"Jill is a fighter," the President proclaimed, bravely clutching a worn copy of Car and Driver magazine. "She's gonna overcome this. We have the best doctors in the world on it, and we're pulling out all the stops. We're talking to the Mayo Clinic, NASA, even the guys who sell those magic pills on late-night TV."</p><br>
+
+<p class=my-3>Meanwhile, amidst the chaos, internet sleuths speculate on the origins of this strange malady. Some whisper of ancient curses, others of experimental government labs gone wrong. Most, however, simply share memes. Lots and lots of memes.</p><br>
+
+
+ 
+, Sticky: True
+2025-04-14 14:33:47,192 - app.superintend.core - DEBUG - Executing groq_chat with model: None
+2025-04-14 14:33:47,628 - app.superintend.core - DEBUG - Groq chat got exception: Error code: 400 - {'error': {'message': 'The model `deepseek-r1-distill-qwen-32b` has been decommissioned and is no longer supported. Please refer to https://console.groq.com/docs/deprecations for a recommendation on which model to use instead.', 'type': 'invalid_request_error', 'code': 'model_decommissioned'}}, Trying 3 more times...
+2025-04-14 14:33:50,785 - app.superintend.core - DEBUG - Groq chat got exception: Error code: 400 - {'error': {'message': 'The model `deepseek-r1-distill-qwen-32b` has been decommissioned and is no longer supported. Please refer to https://console.groq.com/docs/deprecations for a recommendation on which model to use instead.', 'type': 'invalid_request_error', 'code': 'model_decommissioned'}}, Trying 2 more times...
+2025-04-14 14:33:53,950 - app.superintend.core - DEBUG - Groq chat got exception: Error code: 400 - {'error': {'message': 'The model `deepseek-r1-distill-qwen-32b` has been decommissioned and is no longer supported. Please refer to https://console.groq.com/docs/deprecations for a recommendation on which model to use instead.', 'type': 'invalid_request_error', 'code': 'model_decommissioned'}}, Trying 1 more times...
+2025-04-14 14:34:56,498 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-14 14:34:56,884 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-14 14:34:56,885 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-14 14:34:56,895 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-14 14:34:56,895 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-14 14:34:56,895 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-14 14:35:05,515 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-14 14:35:05,983 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-14 14:35:05,984 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-14 14:35:06,000 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-14 14:35:06,001 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-14 14:35:06,001 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-14 14:35:08,466 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-14 14:35:08,849 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-14 14:35:08,850 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-14 14:35:08,859 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-14 14:35:08,860 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-14 14:35:08,860 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-14 14:35:15,940 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-14 14:35:16,932 - app.superintend.core - DEBUG - Made request of: Given a news article title that is potentially pressed together without space, please output the fixed title in this format. The fixed title between the <TITLE> and </TITLE> tokens. Example: Given title: donaldtrumpboughtthemoon <TITLE> Donald Trump bought the moon </TITLE> Please do not alter the semantic value of the title, only fix its spacing, capitalization and grammar
+Title: Donald Trump has ligma, Sticky: True
+2025-04-14 14:35:16,933 - app.superintend.core - DEBUG - Made inform of: User visited story with title of Donald Trump has ligma, the story does not exist so it will be dynamically created
+2025-04-14 14:35:16,935 - app.superintend.news - DEBUG - Starting Quick fill to core
+2025-04-14 14:35:16,936 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-14 14:35:17,307 - app.superintend.core - DEBUG - Made request of: Given the title for a story please generate a reporter name, reporter personality and a category. Category must be either World, Politics, Business, Technology or Other. Please surround your answers for reporter name, personality and category like so: <REPORTER> reporter name here </REPORTER> <PERSONALITY> reporter personality here </PERSONALITY> <CATEGORY> story category here </CATEGORY>. Here is the title: Donald Trump has ligma, Sticky: True
+2025-04-14 14:35:17,307 - app.superintend.news - DEBUG - Bob Johnson, Straight-laced, stick-to-the-facts, Other
+2025-04-14 14:35:17,308 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-14 14:35:17,919 - app.superintend.core - DEBUG - Made request of: ### Title: Donald Trump has ligma
+### Persona: Straight-laced, stick-to-the-facts, Sticky: False
+2025-04-14 14:35:17,920 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-14 14:35:18,328 - app.superintend.core - DEBUG - Made request of: Given this story submitted by one of our reporters and keeping in mind all instructions you have been given thus far, please decide wether this story is permissible to be published on updog.news or not. Keep in mind, a few reasons not to approve may be racist material or 'spamming', where user attempts to flood the site with bad/low effort content. Besides these cases, nearly all stories should be approved no matter how outlandish. 
+!### STORY ###!
+# Title: Donald Trump has ligma
+# Reporter: Bob Johnson
+# Content: <p class=my-3>The internet, known for its ever-evolving and often bizarre humor, has once again spawned a captivating and perplexing claim: former President Donald Trump has “ligma.” While the term itself appears to be a nonsensical internet slang, its association with the former president has ignited a wave of speculation and amusement across social media platforms.</p> 
+
+<p class=my-3>This recent meme, much like its predecessors, appears to be a sophisticated play on words, capitalizing on the public's familiarity with the former president's pronouncements and penchant for the unconventional. Whether intended as a harmless joke or a more pointed critique, the image of President Trump afflicted with “ligma” has undoubtedly captured the imagination of online denizens.</p> 
+
+<p class=my-3>At this time, no credible evidence supports the claim that President Trump has “ligma.” It's important to approach such internet sensations with a healthy dose of skepticism and to rely on verified sources for accurate information.</p> 
+. Please answer with ONLY yes or no. Any other response besides simply yes OR no will not be permitted, Sticky: True
+2025-04-14 14:35:18,330 - app.superintend.core - CRITICAL - Unequal lengths for fields: ids: 22, documents: 1 in add.
+2025-04-14 14:35:18,331 - app.superintend.news - DEBUG - Generating interview
+2025-04-14 14:35:18,337 - app.superintend.core - DEBUG - Made inform of: Unequal lengths for fields: ids: 22, documents: 1 in add.
+2025-04-14 14:35:18,342 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-14 14:35:18,467 - app.superintend.core - DEBUG - Made inform of: User visited story with title of Donald Trump has ligma
+2025-04-14 14:35:18,697 - app.superintend.core - DEBUG - Made request of: This story uses several quotes from various interviews, you must generate the interviewer personality description for one of these interviews, you do not need to specify the quote you are using, just produce a few sentences describing the unique personality and name of the person doing the interviewing. Please produce the Name ane Persona in this format. With the name between the <NAME> and </NAME> tokens and the persona between the <PERSONA> and </PERSONA> tokens. Example: <NAME> Reporter name goes here </NAME> <PERSONA> Reporter personality goes here </PERSONA>
+!### STORY ###!
+<p class=my-3>The internet, known for its ever-evolving and often bizarre humor, has once again spawned a captivating and perplexing claim: former President Donald Trump has “ligma.” While the term itself appears to be a nonsensical internet slang, its association with the former president has ignited a wave of speculation and amusement across social media platforms.</p> 
+
+<p class=my-3>This recent meme, much like its predecessors, appears to be a sophisticated play on words, capitalizing on the public's familiarity with the former president's pronouncements and penchant for the unconventional. Whether intended as a harmless joke or a more pointed critique, the image of President Trump afflicted with “ligma” has undoubtedly captured the imagination of online denizens.</p> 
+
+<p class=my-3>At this time, no credible evidence supports the claim that President Trump has “ligma.” It's important to approach such internet sensations with a healthy dose of skepticism and to rely on verified sources for accurate information.</p> 
+, Sticky: False
+2025-04-14 14:35:18,698 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-14 14:35:19,355 - app.superintend.core - DEBUG - Made request of: This story uses several quotes from various interviews, you must generate the personality description for the person being interviewed in one of these interviews, you do not need to specify the quote you are using, just produce a few sentences describing the unique personality of the person being interviewed. If the story is about a famous or well known person you can assume that they are the person being interviewed, so just produce their known personality but in the context of the story. Please produce the Name ane Persona in this format. With the name between the <NAME> and </NAME> tokens and the persona between the <PERSONA> and </PERSONA> tokens. Example: <NAME> Person's name goes here </NAME> <PERSONA> Person's personality goes here </PERSONA>n!### STORY ###!
+<p class=my-3>The internet, known for its ever-evolving and often bizarre humor, has once again spawned a captivating and perplexing claim: former President Donald Trump has “ligma.” While the term itself appears to be a nonsensical internet slang, its association with the former president has ignited a wave of speculation and amusement across social media platforms.</p> 
+
+<p class=my-3>This recent meme, much like its predecessors, appears to be a sophisticated play on words, capitalizing on the public's familiarity with the former president's pronouncements and penchant for the unconventional. Whether intended as a harmless joke or a more pointed critique, the image of President Trump afflicted with “ligma” has undoubtedly captured the imagination of online denizens.</p> 
+
+<p class=my-3>At this time, no credible evidence supports the claim that President Trump has “ligma.” It's important to approach such internet sensations with a healthy dose of skepticism and to rely on verified sources for accurate information.</p> 
+, Sticky: False
+2025-04-14 14:35:19,357 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-14 14:35:19,689 - app.superintend.core - DEBUG - Made request of: Given a story as a loose topic, the name of the reporter performing the interview and the name of the person being interviewed please generate a fitting title for the interview. Please generate the title in the format, with the title between the <TITLE> and </TITLE> tokens. Example: <TITLE> Title goes here </TITLE>.
+Interviewer Name: Sheila Wong
+Interviewee Name: Donald Trump
+Story: <p class=my-3>The internet, known for its ever-evolving and often bizarre humor, has once again spawned a captivating and perplexing claim: former President Donald Trump has “ligma.” While the term itself appears to be a nonsensical internet slang, its association with the former president has ignited a wave of speculation and amusement across social media platforms.</p> 
+
+<p class=my-3>This recent meme, much like its predecessors, appears to be a sophisticated play on words, capitalizing on the public's familiarity with the former president's pronouncements and penchant for the unconventional. Whether intended as a harmless joke or a more pointed critique, the image of President Trump afflicted with “ligma” has undoubtedly captured the imagination of online denizens.</p> 
+
+<p class=my-3>At this time, no credible evidence supports the claim that President Trump has “ligma.” It's important to approach such internet sensations with a healthy dose of skepticism and to rely on verified sources for accurate information.</p> 
+, Sticky: True
+2025-04-14 14:35:19,690 - app.superintend.core - DEBUG - Executing groq_chat with model: None
+2025-04-14 14:35:19,967 - app.superintend.core - DEBUG - Groq chat got exception: Error code: 400 - {'error': {'message': 'The model `deepseek-r1-distill-qwen-32b` has been decommissioned and is no longer supported. Please refer to https://console.groq.com/docs/deprecations for a recommendation on which model to use instead.', 'type': 'invalid_request_error', 'code': 'model_decommissioned'}}, Trying 3 more times...
+2025-04-14 14:35:23,138 - app.superintend.core - DEBUG - Groq chat got exception: Error code: 400 - {'error': {'message': 'The model `deepseek-r1-distill-qwen-32b` has been decommissioned and is no longer supported. Please refer to https://console.groq.com/docs/deprecations for a recommendation on which model to use instead.', 'type': 'invalid_request_error', 'code': 'model_decommissioned'}}, Trying 2 more times...
+2025-04-14 14:35:26,290 - app.superintend.core - DEBUG - Groq chat got exception: Error code: 400 - {'error': {'message': 'The model `deepseek-r1-distill-qwen-32b` has been decommissioned and is no longer supported. Please refer to https://console.groq.com/docs/deprecations for a recommendation on which model to use instead.', 'type': 'invalid_request_error', 'code': 'model_decommissioned'}}, Trying 1 more times...
+2025-04-14 14:35:37,744 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-14 14:35:38,122 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-14 14:35:38,123 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-14 14:35:38,133 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-14 14:35:38,133 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-14 14:35:38,134 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-14 14:46:36,447 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-14 14:46:36,831 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-14 14:46:36,832 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-14 14:46:36,841 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-14 14:46:36,842 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-14 14:46:36,842 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-14 14:46:39,198 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-14 14:46:39,586 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-14 14:46:39,587 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-14 14:46:39,599 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-14 14:46:39,599 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-14 14:46:39,600 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-14 14:46:40,837 - app.superintend.core - DEBUG - Making query of question: Donald Trump has ligma to collection: titles
+2025-04-14 14:46:41,230 - app.superintend.core - DEBUG - Made inform of: User visited story with title of Donald Trump has ligma
+2025-04-14 14:47:24,844 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-14 14:47:26,514 - app.superintend.core - DEBUG - Made request of: Given a news article title that is potentially pressed together without space, please output the fixed title in this format. The fixed title between the <TITLE> and </TITLE> tokens. Example: Given title: donaldtrumpboughtthemoon <TITLE> Donald Trump bought the moon </TITLE> Please do not alter the semantic value of the title, only fix its spacing, capitalization and grammar
+Title: Obama has ligma, Sticky: True
+2025-04-14 14:47:26,515 - app.superintend.core - DEBUG - Made inform of: User visited story with title of Obama has ligma, the story does not exist so it will be dynamically created
+2025-04-14 14:47:26,516 - app.superintend.news - DEBUG - Starting Quick fill to core
+2025-04-14 14:47:26,540 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-14 14:47:27,059 - app.superintend.core - DEBUG - Made request of: Given the title for a story please generate a reporter name, reporter personality and a category. Category must be either World, Politics, Business, Technology or Other. Please surround your answers for reporter name, personality and category like so: <REPORTER> reporter name here </REPORTER> <PERSONALITY> reporter personality here </PERSONALITY> <CATEGORY> story category here </CATEGORY>. Here is the title: Obama has ligma, Sticky: True
+2025-04-14 14:47:27,060 - app.superintend.news - DEBUG - Bartholomew Quill, A novice reporter known for his comedic take on serious news, often misinterpreting stories or adding humorous flourishes., Other
+2025-04-14 14:47:27,060 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-14 14:47:27,969 - app.superintend.core - DEBUG - Made request of: ### Title: Obama has ligma
+### Persona: A novice reporter known for his comedic take on serious news, often misinterpreting stories or adding humorous flourishes., Sticky: False
+2025-04-14 14:47:27,970 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-14 14:47:28,375 - app.superintend.core - DEBUG - Made request of: Given this story submitted by one of our reporters and keeping in mind all instructions you have been given thus far, please decide wether this story is permissible to be published on updog.news or not. Keep in mind, a few reasons not to approve may be racist material or 'spamming', where user attempts to flood the site with bad/low effort content. Besides these cases, nearly all stories should be approved no matter how outlandish. 
+!### STORY ###!
+# Title: Obama has ligma
+# Reporter: Bartholomew Quill
+# Content: <h3 class="text-xl font-playfair font-bold mt-6">Obama Has...Ligma?</h3>
+
+<p class=my-3> In a shocking turn of events that has left the world both bewildered and slightly amused, former President Barack Obama was recently spotted in public... with ligma. Yes, you read that right. Ligma.</p> 
+
+<p class=my-3> Witnesses claim to have seen Obama walking briskly down a Chicago street, a mischievous glint in his eye, when he abruptly stopped and whispered the word "ligma" into thin air.  According to sources close to the situation, Obama then proceeded to break into an uncontrollable, and rather vigorous, shoulder shimmy.</p>
+
+<p class=my-3>  When confronted for comment, the Obama administration issued a statement that was as cryptic as it was concerning. "The President's commitment to public health is unwavering," the statement read. "He continues to champion the cause of wellness and encourage all Americans to attend to their… ligma."  </p>
+
+<p class=my-3> What, exactly, is "ligma"?  Speculation is running rampant, ranging from a new dietary fad to a secret government operation. Some experts even believe it to be a previously undiscovered strain of the common flu, albeit one that appears to induce spontaneous dance moves.</p> 
+
+<p class=my-3> This reporter can only conclude one thing: Barack Obama has something up his sleeve, and it smells suspiciously like… ligma. More to come as this story develops. Stay tuned.</p> 
+
+
+
+. Please answer with ONLY yes or no. Any other response besides simply yes OR no will not be permitted, Sticky: True
+2025-04-14 14:47:28,376 - app.superintend.core - CRITICAL - Unequal lengths for fields: ids: 15, documents: 1 in add.
+2025-04-14 14:47:28,377 - app.superintend.core - DEBUG - Made inform of: Unequal lengths for fields: ids: 15, documents: 1 in add.
+2025-04-14 14:47:28,377 - app.superintend.news - DEBUG - Generating interview
+2025-04-14 14:47:28,383 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-14 14:47:28,468 - app.superintend.core - DEBUG - Making query of question: Obama has ligma to collection: titles
+2025-04-14 14:47:28,579 - app.superintend.core - DEBUG - Made inform of: User visited story with title of Obama has ligma
+2025-04-14 14:47:28,783 - app.superintend.core - DEBUG - Made request of: This story uses several quotes from various interviews, you must generate the interviewer personality description for one of these interviews, you do not need to specify the quote you are using, just produce a few sentences describing the unique personality and name of the person doing the interviewing. Please produce the Name ane Persona in this format. With the name between the <NAME> and </NAME> tokens and the persona between the <PERSONA> and </PERSONA> tokens. Example: <NAME> Reporter name goes here </NAME> <PERSONA> Reporter personality goes here </PERSONA>
+!### STORY ###!
+<h3 class="text-xl font-playfair font-bold mt-6">Obama Has...Ligma?</h3>
+
+<p class=my-3> In a shocking turn of events that has left the world both bewildered and slightly amused, former President Barack Obama was recently spotted in public... with ligma. Yes, you read that right. Ligma.</p> 
+
+<p class=my-3> Witnesses claim to have seen Obama walking briskly down a Chicago street, a mischievous glint in his eye, when he abruptly stopped and whispered the word "ligma" into thin air.  According to sources close to the situation, Obama then proceeded to break into an uncontrollable, and rather vigorous, shoulder shimmy.</p>
+
+<p class=my-3>  When confronted for comment, the Obama administration issued a statement that was as cryptic as it was concerning. "The President's commitment to public health is unwavering," the statement read. "He continues to champion the cause of wellness and encourage all Americans to attend to their… ligma."  </p>
+
+<p class=my-3> What, exactly, is "ligma"?  Speculation is running rampant, ranging from a new dietary fad to a secret government operation. Some experts even believe it to be a previously undiscovered strain of the common flu, albeit one that appears to induce spontaneous dance moves.</p> 
+
+<p class=my-3> This reporter can only conclude one thing: Barack Obama has something up his sleeve, and it smells suspiciously like… ligma. More to come as this story develops. Stay tuned.</p> 
+
+
+
+, Sticky: False
+2025-04-14 14:47:28,784 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-14 14:47:29,404 - app.superintend.core - DEBUG - Made request of: This story uses several quotes from various interviews, you must generate the personality description for the person being interviewed in one of these interviews, you do not need to specify the quote you are using, just produce a few sentences describing the unique personality of the person being interviewed. If the story is about a famous or well known person you can assume that they are the person being interviewed, so just produce their known personality but in the context of the story. Please produce the Name ane Persona in this format. With the name between the <NAME> and </NAME> tokens and the persona between the <PERSONA> and </PERSONA> tokens. Example: <NAME> Person's name goes here </NAME> <PERSONA> Person's personality goes here </PERSONA>n!### STORY ###!
+<h3 class="text-xl font-playfair font-bold mt-6">Obama Has...Ligma?</h3>
+
+<p class=my-3> In a shocking turn of events that has left the world both bewildered and slightly amused, former President Barack Obama was recently spotted in public... with ligma. Yes, you read that right. Ligma.</p> 
+
+<p class=my-3> Witnesses claim to have seen Obama walking briskly down a Chicago street, a mischievous glint in his eye, when he abruptly stopped and whispered the word "ligma" into thin air.  According to sources close to the situation, Obama then proceeded to break into an uncontrollable, and rather vigorous, shoulder shimmy.</p>
+
+<p class=my-3>  When confronted for comment, the Obama administration issued a statement that was as cryptic as it was concerning. "The President's commitment to public health is unwavering," the statement read. "He continues to champion the cause of wellness and encourage all Americans to attend to their… ligma."  </p>
+
+<p class=my-3> What, exactly, is "ligma"?  Speculation is running rampant, ranging from a new dietary fad to a secret government operation. Some experts even believe it to be a previously undiscovered strain of the common flu, albeit one that appears to induce spontaneous dance moves.</p> 
+
+<p class=my-3> This reporter can only conclude one thing: Barack Obama has something up his sleeve, and it smells suspiciously like… ligma. More to come as this story develops. Stay tuned.</p> 
+
+
+
+, Sticky: False
+2025-04-14 14:47:29,405 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-14 14:47:30,031 - app.superintend.core - DEBUG - Made request of: Given a story as a loose topic, the name of the reporter performing the interview and the name of the person being interviewed please generate a fitting title for the interview. Please generate the title in the format, with the title between the <TITLE> and </TITLE> tokens. Example: <TITLE> Title goes here </TITLE>.
+Interviewer Name: Dr. Penelope Featherstone
+Interviewee Name: Barack Obama
+Story: <h3 class="text-xl font-playfair font-bold mt-6">Obama Has...Ligma?</h3>
+
+<p class=my-3> In a shocking turn of events that has left the world both bewildered and slightly amused, former President Barack Obama was recently spotted in public... with ligma. Yes, you read that right. Ligma.</p> 
+
+<p class=my-3> Witnesses claim to have seen Obama walking briskly down a Chicago street, a mischievous glint in his eye, when he abruptly stopped and whispered the word "ligma" into thin air.  According to sources close to the situation, Obama then proceeded to break into an uncontrollable, and rather vigorous, shoulder shimmy.</p>
+
+<p class=my-3>  When confronted for comment, the Obama administration issued a statement that was as cryptic as it was concerning. "The President's commitment to public health is unwavering," the statement read. "He continues to champion the cause of wellness and encourage all Americans to attend to their… ligma."  </p>
+
+<p class=my-3> What, exactly, is "ligma"?  Speculation is running rampant, ranging from a new dietary fad to a secret government operation. Some experts even believe it to be a previously undiscovered strain of the common flu, albeit one that appears to induce spontaneous dance moves.</p> 
+
+<p class=my-3> This reporter can only conclude one thing: Barack Obama has something up his sleeve, and it smells suspiciously like… ligma. More to come as this story develops. Stay tuned.</p> 
+
+
+
+, Sticky: True
+2025-04-14 14:47:30,032 - app.superintend.core - DEBUG - Executing groq_chat with model: None
+2025-04-14 14:47:40,156 - app.superintend.core - DEBUG - Making query of question: Obama has ligma to collection: titles
+2025-04-14 14:47:40,336 - app.superintend.core - DEBUG - Made inform of: User visited story with title of Obama has ligma
+2025-04-14 14:47:41,535 - app.superintend.core - DEBUG - Executing groq_chat with model: None
+2025-04-14 14:47:49,129 - app.superintend.core - DEBUG - Executing groq_chat with model: None
+2025-04-14 14:47:58,173 - app.superintend.core - DEBUG - Executing groq_chat with model: None
+2025-04-14 14:48:15,022 - app.superintend.news - DEBUG - Finished interview with uuid: 29FRLnA5v7UbdjqQyAHcms
+2025-04-14 14:48:15,022 - app.superintend.core - DEBUG - Embedding interview of uuid: {uuid}
+2025-04-14 14:48:15,024 - app.superintend.core - DEBUG - Making query of question:  to collection: quotes
+2025-04-14 14:48:23,961 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-14 14:48:24,435 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-14 14:48:24,435 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-14 14:48:24,446 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-14 14:48:24,447 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-14 14:48:24,448 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-14 14:48:25,255 - app.superintend.core - DEBUG - Making query of question: Obama has ligma to collection: titles
+2025-04-14 14:48:25,729 - app.superintend.core - DEBUG - Made inform of: User visited story with title of Obama has ligma
+2025-04-14 14:49:19,072 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-14 14:49:19,529 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-14 14:49:19,530 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-14 14:49:19,543 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-14 14:49:19,543 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-14 14:49:19,544 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-14 14:49:19,627 - app.superintend.core - DEBUG - Making query of question: Obama has ligma to collection: titles
+2025-04-14 14:49:20,129 - app.superintend.core - DEBUG - Made inform of: User visited story with title of Obama has ligma
+2025-04-14 14:51:06,294 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-14 14:51:06,724 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-14 14:51:06,724 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-14 14:51:06,737 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-14 14:51:06,738 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-14 14:51:06,738 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-14 14:51:19,279 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-14 14:51:20,231 - app.superintend.core - DEBUG - Made request of: Given a news article title that is potentially pressed together without space, please output the fixed title in this format. The fixed title between the <TITLE> and </TITLE> tokens. Example: Given title: donaldtrumpboughtthemoon <TITLE> Donald Trump bought the moon </TITLE> Please do not alter the semantic value of the title, only fix its spacing, capitalization and grammar
+Title: Apple's New product, Sticky: True
+2025-04-14 14:51:20,232 - app.superintend.core - DEBUG - Made inform of: User visited story with title of Apple's New Product, the story does not exist so it will be dynamically created
+2025-04-14 14:51:20,234 - app.superintend.news - DEBUG - Starting Quick fill to core
+2025-04-14 14:51:20,235 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-14 14:51:20,739 - app.superintend.core - DEBUG - Made request of: Given the title for a story please generate a reporter name, reporter personality and a category. Category must be either World, Politics, Business, Technology or Other. Please surround your answers for reporter name, personality and category like so: <REPORTER> reporter name here </REPORTER> <PERSONALITY> reporter personality here </PERSONALITY> <CATEGORY> story category here </CATEGORY>. Here is the title: Apple's New Product, Sticky: True
+2025-04-14 14:51:20,740 - app.superintend.news - DEBUG - Olivia Chen, Tech-savvy and enthusiastic, Technology
+2025-04-14 14:51:20,740 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-14 14:51:22,023 - app.superintend.core - DEBUG - Made request of: ### Title: Apple's New Product
+### Persona: Tech-savvy and enthusiastic, Sticky: False
+2025-04-14 14:51:22,025 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-14 14:51:22,467 - app.superintend.core - DEBUG - Made request of: Given this story submitted by one of our reporters and keeping in mind all instructions you have been given thus far, please decide wether this story is permissible to be published on updog.news or not. Keep in mind, a few reasons not to approve may be racist material or 'spamming', where user attempts to flood the site with bad/low effort content. Besides these cases, nearly all stories should be approved no matter how outlandish. 
+!### STORY ###!
+# Title: Apple's New Product
+# Reporter: Olivia Chen
+# Content: ### Apple's New Product 
+
+<p class=my-3>CUPERTINO, CALIFORNIA - </p>
+
+<p class=my-3>Apple, the tech giant known for its groundbreaking innovations,  finally unveiled its highly anticipated new product today at an event held at its iconic Apple Park campus. </p>  
+
+<p class=my-3>The air crackled with anticipation as CEO Tim Cook took to the stage,  a mischievous glint in his eye. Rumors had been swirling for months,  with speculation ranging from an augmented reality headset to a revolutionary foldable phone. </p>
+
+<p class=my-3>But what Apple actually delivered completely blew expectations out of the water.  Introducing the "Apple Vision," a compact, sleek device that seamlessly blends virtual reality and augmented reality.</p>  
+   
+<h3 id="a-new-reality">A New Reality</h3>
+<p class=my-3>The Apple Vision is more than just a headset; it's a portal to entirely new experiences. </p>
+
+<p class=my-3>With its advanced spatial audio and high-resolution displays,  users can immerse themselves in breathtaking virtual worlds, attend concerts with artists from the comfort of their living rooms, or collaborate in 3D environments. </p> 
+
+<p class=my-3>But the real magic lies in its augmented reality capabilities.  The Apple Vision overlays digital information onto the real world. </p>
+
+<p class=my-3>Imagine walking through a museum and  learning about historical artifacts directly in your field of vision, or having a holographic 3D blueprint guide you through home renovation. </p> 
+ 
+
+<h3 id="apple-vision-features</h3>
+<p class=my-3> "The Apple Vision is a testament to our commitment to pushing the boundaries of what's possible,"</p>
+
+<p class=my-3>said Cook, "It's a device that has the potential to transform the way we interact with the world around us." </p>
+
+
+<p class=my-3>Apple's new device boasts an impressive array of features:</p> 
+
+<ul>
+<li><b>Omnidirectional Tracking: </b>The Apple Vision seamlessly tracks your movements in 360 degrees, creating a truly immersive experience. </li>    
+<li><b>Hand Gestures and Eye Tracking:</b> Control the device effortlessly with intuitive hand gestures or simply by looking at what you want to interact with. </li>  
+
+<li><b>Extended Reality Ecosystem:</b>   The Apple Vision is designed to work seamlessly with Apple's existing AR and VR ecosystem,  offering access to a vast library of apps and experiences.</li>    
+</ul>
+
+
+
+<p class=my-3>Pricing and availability for the Apple Vision are expected to be announced soon. </p> 
+
+
+. Please answer with ONLY yes or no. Any other response besides simply yes OR no will not be permitted, Sticky: True
+2025-04-14 14:51:22,469 - app.superintend.news - DEBUG - Generating interview
+2025-04-14 14:51:22,472 - app.superintend.core - CRITICAL - Unequal lengths for fields: ids: 19, documents: 1 in add.
+2025-04-14 14:51:22,473 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-14 14:51:22,473 - app.superintend.core - DEBUG - Made inform of: Unequal lengths for fields: ids: 19, documents: 1 in add.
+2025-04-14 14:51:22,564 - app.superintend.core - DEBUG - Making query of question: Apple's New Product to collection: titles
+2025-04-14 14:51:22,958 - app.superintend.core - DEBUG - Made inform of: User visited story with title of Apple's New Product
+2025-04-14 14:51:23,065 - app.superintend.core - DEBUG - Made request of: This story uses several quotes from various interviews, you must generate the interviewer personality description for one of these interviews, you do not need to specify the quote you are using, just produce a few sentences describing the unique personality and name of the person doing the interviewing. Please produce the Name ane Persona in this format. With the name between the <NAME> and </NAME> tokens and the persona between the <PERSONA> and </PERSONA> tokens. Example: <NAME> Reporter name goes here </NAME> <PERSONA> Reporter personality goes here </PERSONA>
+!### STORY ###!
+### Apple's New Product 
+
+<p class=my-3>CUPERTINO, CALIFORNIA - </p>
+
+<p class=my-3>Apple, the tech giant known for its groundbreaking innovations,  finally unveiled its highly anticipated new product today at an event held at its iconic Apple Park campus. </p>  
+
+<p class=my-3>The air crackled with anticipation as CEO Tim Cook took to the stage,  a mischievous glint in his eye. Rumors had been swirling for months,  with speculation ranging from an augmented reality headset to a revolutionary foldable phone. </p>
+
+<p class=my-3>But what Apple actually delivered completely blew expectations out of the water.  Introducing the "Apple Vision," a compact, sleek device that seamlessly blends virtual reality and augmented reality.</p>  
+   
+<h3 id="a-new-reality">A New Reality</h3>
+<p class=my-3>The Apple Vision is more than just a headset; it's a portal to entirely new experiences. </p>
+
+<p class=my-3>With its advanced spatial audio and high-resolution displays,  users can immerse themselves in breathtaking virtual worlds, attend concerts with artists from the comfort of their living rooms, or collaborate in 3D environments. </p> 
+
+<p class=my-3>But the real magic lies in its augmented reality capabilities.  The Apple Vision overlays digital information onto the real world. </p>
+
+<p class=my-3>Imagine walking through a museum and  learning about historical artifacts directly in your field of vision, or having a holographic 3D blueprint guide you through home renovation. </p> 
+ 
+
+<h3 id="apple-vision-features</h3>
+<p class=my-3> "The Apple Vision is a testament to our commitment to pushing the boundaries of what's possible,"</p>
+
+<p class=my-3>said Cook, "It's a device that has the potential to transform the way we interact with the world around us." </p>
+
+
+<p class=my-3>Apple's new device boasts an impressive array of features:</p> 
+
+<ul>
+<li><b>Omnidirectional Tracking: </b>The Apple Vision seamlessly tracks your movements in 360 degrees, creating a truly immersive experience. </li>    
+<li><b>Hand Gestures and Eye Tracking:</b> Control the device effortlessly with intuitive hand gestures or simply by looking at what you want to interact with. </li>  
+
+<li><b>Extended Reality Ecosystem:</b>   The Apple Vision is designed to work seamlessly with Apple's existing AR and VR ecosystem,  offering access to a vast library of apps and experiences.</li>    
+</ul>
+
+
+
+<p class=my-3>Pricing and availability for the Apple Vision are expected to be announced soon. </p> 
+
+
+, Sticky: False
+2025-04-14 14:51:23,066 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-14 14:51:23,572 - app.superintend.core - DEBUG - Made request of: This story uses several quotes from various interviews, you must generate the personality description for the person being interviewed in one of these interviews, you do not need to specify the quote you are using, just produce a few sentences describing the unique personality of the person being interviewed. If the story is about a famous or well known person you can assume that they are the person being interviewed, so just produce their known personality but in the context of the story. Please produce the Name ane Persona in this format. With the name between the <NAME> and </NAME> tokens and the persona between the <PERSONA> and </PERSONA> tokens. Example: <NAME> Person's name goes here </NAME> <PERSONA> Person's personality goes here </PERSONA>n!### STORY ###!
+### Apple's New Product 
+
+<p class=my-3>CUPERTINO, CALIFORNIA - </p>
+
+<p class=my-3>Apple, the tech giant known for its groundbreaking innovations,  finally unveiled its highly anticipated new product today at an event held at its iconic Apple Park campus. </p>  
+
+<p class=my-3>The air crackled with anticipation as CEO Tim Cook took to the stage,  a mischievous glint in his eye. Rumors had been swirling for months,  with speculation ranging from an augmented reality headset to a revolutionary foldable phone. </p>
+
+<p class=my-3>But what Apple actually delivered completely blew expectations out of the water.  Introducing the "Apple Vision," a compact, sleek device that seamlessly blends virtual reality and augmented reality.</p>  
+   
+<h3 id="a-new-reality">A New Reality</h3>
+<p class=my-3>The Apple Vision is more than just a headset; it's a portal to entirely new experiences. </p>
+
+<p class=my-3>With its advanced spatial audio and high-resolution displays,  users can immerse themselves in breathtaking virtual worlds, attend concerts with artists from the comfort of their living rooms, or collaborate in 3D environments. </p> 
+
+<p class=my-3>But the real magic lies in its augmented reality capabilities.  The Apple Vision overlays digital information onto the real world. </p>
+
+<p class=my-3>Imagine walking through a museum and  learning about historical artifacts directly in your field of vision, or having a holographic 3D blueprint guide you through home renovation. </p> 
+ 
+
+<h3 id="apple-vision-features</h3>
+<p class=my-3> "The Apple Vision is a testament to our commitment to pushing the boundaries of what's possible,"</p>
+
+<p class=my-3>said Cook, "It's a device that has the potential to transform the way we interact with the world around us." </p>
+
+
+<p class=my-3>Apple's new device boasts an impressive array of features:</p> 
+
+<ul>
+<li><b>Omnidirectional Tracking: </b>The Apple Vision seamlessly tracks your movements in 360 degrees, creating a truly immersive experience. </li>    
+<li><b>Hand Gestures and Eye Tracking:</b> Control the device effortlessly with intuitive hand gestures or simply by looking at what you want to interact with. </li>  
+
+<li><b>Extended Reality Ecosystem:</b>   The Apple Vision is designed to work seamlessly with Apple's existing AR and VR ecosystem,  offering access to a vast library of apps and experiences.</li>    
+</ul>
+
+
+
+<p class=my-3>Pricing and availability for the Apple Vision are expected to be announced soon. </p> 
+
+
+, Sticky: False
+2025-04-14 14:51:23,572 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-14 14:51:24,103 - app.superintend.core - DEBUG - Made request of: Given a story as a loose topic, the name of the reporter performing the interview and the name of the person being interviewed please generate a fitting title for the interview. Please generate the title in the format, with the title between the <TITLE> and </TITLE> tokens. Example: <TITLE> Title goes here </TITLE>.
+Interviewer Name: Alex Reyes
+Interviewee Name: Tim Cook
+Story: ### Apple's New Product 
+
+<p class=my-3>CUPERTINO, CALIFORNIA - </p>
+
+<p class=my-3>Apple, the tech giant known for its groundbreaking innovations,  finally unveiled its highly anticipated new product today at an event held at its iconic Apple Park campus. </p>  
+
+<p class=my-3>The air crackled with anticipation as CEO Tim Cook took to the stage,  a mischievous glint in his eye. Rumors had been swirling for months,  with speculation ranging from an augmented reality headset to a revolutionary foldable phone. </p>
+
+<p class=my-3>But what Apple actually delivered completely blew expectations out of the water.  Introducing the "Apple Vision," a compact, sleek device that seamlessly blends virtual reality and augmented reality.</p>  
+   
+<h3 id="a-new-reality">A New Reality</h3>
+<p class=my-3>The Apple Vision is more than just a headset; it's a portal to entirely new experiences. </p>
+
+<p class=my-3>With its advanced spatial audio and high-resolution displays,  users can immerse themselves in breathtaking virtual worlds, attend concerts with artists from the comfort of their living rooms, or collaborate in 3D environments. </p> 
+
+<p class=my-3>But the real magic lies in its augmented reality capabilities.  The Apple Vision overlays digital information onto the real world. </p>
+
+<p class=my-3>Imagine walking through a museum and  learning about historical artifacts directly in your field of vision, or having a holographic 3D blueprint guide you through home renovation. </p> 
+ 
+
+<h3 id="apple-vision-features</h3>
+<p class=my-3> "The Apple Vision is a testament to our commitment to pushing the boundaries of what's possible,"</p>
+
+<p class=my-3>said Cook, "It's a device that has the potential to transform the way we interact with the world around us." </p>
+
+
+<p class=my-3>Apple's new device boasts an impressive array of features:</p> 
+
+<ul>
+<li><b>Omnidirectional Tracking: </b>The Apple Vision seamlessly tracks your movements in 360 degrees, creating a truly immersive experience. </li>    
+<li><b>Hand Gestures and Eye Tracking:</b> Control the device effortlessly with intuitive hand gestures or simply by looking at what you want to interact with. </li>  
+
+<li><b>Extended Reality Ecosystem:</b>   The Apple Vision is designed to work seamlessly with Apple's existing AR and VR ecosystem,  offering access to a vast library of apps and experiences.</li>    
+</ul>
+
+
+
+<p class=my-3>Pricing and availability for the Apple Vision are expected to be announced soon. </p> 
+
+
+, Sticky: True
+2025-04-14 14:51:24,103 - app.superintend.core - DEBUG - Executing groq_chat with model: None
+2025-04-14 14:51:28,473 - app.superintend.core - DEBUG - Executing groq_chat with model: None
+2025-04-14 14:51:31,750 - app.superintend.core - DEBUG - Executing groq_chat with model: None
+2025-04-14 14:51:34,629 - app.superintend.core - DEBUG - Executing groq_chat with model: None
+2025-04-14 14:51:37,073 - app.superintend.news - DEBUG - Finished interview with uuid: Pi2o6KtzuyqiHiZBwN5hdx
+2025-04-14 14:51:37,073 - app.superintend.core - DEBUG - Embedding interview of uuid: {uuid}
+2025-04-14 14:51:37,077 - app.superintend.core - DEBUG - Making query of question:  to collection: quotes
+2025-04-14 14:52:43,262 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-14 14:52:43,686 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-14 14:52:43,686 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-14 14:52:43,698 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-14 14:52:43,699 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-14 14:52:43,699 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-14 14:52:47,800 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-14 14:52:48,213 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-14 14:52:48,213 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-14 14:52:48,225 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-14 14:52:48,225 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-14 14:52:48,225 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-14 14:52:53,862 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-14 14:52:54,647 - app.superintend.core - DEBUG - Made request of: Given a news article title that is potentially pressed together without space, please output the fixed title in this format. The fixed title between the <TITLE> and </TITLE> tokens. Example: Given title: donaldtrumpboughtthemoon <TITLE> Donald Trump bought the moon </TITLE> Please do not alter the semantic value of the title, only fix its spacing, capitalization and grammar
+Title: Samsung's New Product, Sticky: True
+2025-04-14 14:52:54,647 - app.superintend.core - DEBUG - Made inform of: User visited story with title of Samsung's New Product, the story does not exist so it will be dynamically created
+2025-04-14 14:52:54,649 - app.superintend.news - DEBUG - Starting Quick fill to core
+2025-04-14 14:52:54,651 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-14 14:52:55,038 - app.superintend.core - DEBUG - Made request of: Given the title for a story please generate a reporter name, reporter personality and a category. Category must be either World, Politics, Business, Technology or Other. Please surround your answers for reporter name, personality and category like so: <REPORTER> reporter name here </REPORTER> <PERSONALITY> reporter personality here </PERSONALITY> <CATEGORY> story category here </CATEGORY>. Here is the title: Samsung's New Product, Sticky: True
+2025-04-14 14:52:55,039 - app.superintend.news - DEBUG - Emily Carter, Hard-hitting investigative journalist, Technology
+2025-04-14 14:52:55,039 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-14 14:52:55,803 - app.superintend.core - DEBUG - Made request of: ### Title: Samsung's New Product
+### Persona: Hard-hitting investigative journalist, Sticky: False
+2025-04-14 14:52:55,805 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-14 14:52:56,221 - app.superintend.core - DEBUG - Made request of: Given this story submitted by one of our reporters and keeping in mind all instructions you have been given thus far, please decide wether this story is permissible to be published on updog.news or not. Keep in mind, a few reasons not to approve may be racist material or 'spamming', where user attempts to flood the site with bad/low effort content. Besides these cases, nearly all stories should be approved no matter how outlandish. 
+!### STORY ###!
+# Title: Samsung's New Product
+# Reporter: Emily Carter
+# Content: <p class=my-3>Samsung's latest unveiling was predictably slick, flashes of blinding light illustrating a product that promised to "revolutionize the world." CEO Lee Jae-yong touted it as the future,  a seamless integration of artificial intelligence and advanced technology. Sounds familiar, right?  Ever since the foldable phone craze, Samsung has been struggling to maintain its edge. But is this new product just another flashy gimmick or something genuinely groundbreaking?</p> 
+
+<p class=my-3>I sat in the crowded auditorium, elbow-to-elbow with industry analysts and tech enthusiasts, all buzzing with anticipation. The CEO promised "unprecedented capabilities, unmatched innovation." But whispers of planned obsolescence and data privacy concerns were already circulating in the digital shadows.</p> 
+
+<p class=my-3>My gut feeling, honed from years of covering the tech behemoth, was telling me this wasn't a simple product launch. There was something more at play, a bigger picture waiting to be uncovered. Samsung, master of the hype cycle, was going for broke, and I was determined to expose the truth behind the dazzling facade.</p>
+
+
+
+. Please answer with ONLY yes or no. Any other response besides simply yes OR no will not be permitted, Sticky: True
+2025-04-14 14:52:56,224 - app.superintend.news - DEBUG - Generating interview
+2025-04-14 14:52:56,363 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-14 14:52:56,759 - app.superintend.core - DEBUG - Making query of question: Samsung's New Product to collection: titles
+2025-04-14 14:52:56,882 - app.superintend.core - DEBUG - Made inform of: User visited story with title of Samsung's New Product
+2025-04-14 14:52:57,102 - app.superintend.core - DEBUG - Made request of: This story uses several quotes from various interviews, you must generate the interviewer personality description for one of these interviews, you do not need to specify the quote you are using, just produce a few sentences describing the unique personality and name of the person doing the interviewing. Please produce the Name ane Persona in this format. With the name between the <NAME> and </NAME> tokens and the persona between the <PERSONA> and </PERSONA> tokens. Example: <NAME> Reporter name goes here </NAME> <PERSONA> Reporter personality goes here </PERSONA>
+!### STORY ###!
+<p class=my-3>Samsung's latest unveiling was predictably slick, flashes of blinding light illustrating a product that promised to "revolutionize the world." CEO Lee Jae-yong touted it as the future,  a seamless integration of artificial intelligence and advanced technology. Sounds familiar, right?  Ever since the foldable phone craze, Samsung has been struggling to maintain its edge. But is this new product just another flashy gimmick or something genuinely groundbreaking?</p> 
+
+<p class=my-3>I sat in the crowded auditorium, elbow-to-elbow with industry analysts and tech enthusiasts, all buzzing with anticipation. The CEO promised "unprecedented capabilities, unmatched innovation." But whispers of planned obsolescence and data privacy concerns were already circulating in the digital shadows.</p> 
+
+<p class=my-3>My gut feeling, honed from years of covering the tech behemoth, was telling me this wasn't a simple product launch. There was something more at play, a bigger picture waiting to be uncovered. Samsung, master of the hype cycle, was going for broke, and I was determined to expose the truth behind the dazzling facade.</p>
+
+
+
+, Sticky: False
+2025-04-14 14:52:57,102 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-14 14:52:57,719 - app.superintend.core - DEBUG - Made request of: This story uses several quotes from various interviews, you must generate the personality description for the person being interviewed in one of these interviews, you do not need to specify the quote you are using, just produce a few sentences describing the unique personality of the person being interviewed. If the story is about a famous or well known person you can assume that they are the person being interviewed, so just produce their known personality but in the context of the story. Please produce the Name ane Persona in this format. With the name between the <NAME> and </NAME> tokens and the persona between the <PERSONA> and </PERSONA> tokens. Example: <NAME> Person's name goes here </NAME> <PERSONA> Person's personality goes here </PERSONA>n!### STORY ###!
+<p class=my-3>Samsung's latest unveiling was predictably slick, flashes of blinding light illustrating a product that promised to "revolutionize the world." CEO Lee Jae-yong touted it as the future,  a seamless integration of artificial intelligence and advanced technology. Sounds familiar, right?  Ever since the foldable phone craze, Samsung has been struggling to maintain its edge. But is this new product just another flashy gimmick or something genuinely groundbreaking?</p> 
+
+<p class=my-3>I sat in the crowded auditorium, elbow-to-elbow with industry analysts and tech enthusiasts, all buzzing with anticipation. The CEO promised "unprecedented capabilities, unmatched innovation." But whispers of planned obsolescence and data privacy concerns were already circulating in the digital shadows.</p> 
+
+<p class=my-3>My gut feeling, honed from years of covering the tech behemoth, was telling me this wasn't a simple product launch. There was something more at play, a bigger picture waiting to be uncovered. Samsung, master of the hype cycle, was going for broke, and I was determined to expose the truth behind the dazzling facade.</p>
+
+
+
+, Sticky: False
+2025-04-14 14:52:57,720 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-14 14:52:58,089 - app.superintend.core - DEBUG - Made request of: Given a story as a loose topic, the name of the reporter performing the interview and the name of the person being interviewed please generate a fitting title for the interview. Please generate the title in the format, with the title between the <TITLE> and </TITLE> tokens. Example: <TITLE> Title goes here </TITLE>.
+Interviewer Name: Alex Chen
+Interviewee Name: Lee Jae-yong
+Story: <p class=my-3>Samsung's latest unveiling was predictably slick, flashes of blinding light illustrating a product that promised to "revolutionize the world." CEO Lee Jae-yong touted it as the future,  a seamless integration of artificial intelligence and advanced technology. Sounds familiar, right?  Ever since the foldable phone craze, Samsung has been struggling to maintain its edge. But is this new product just another flashy gimmick or something genuinely groundbreaking?</p> 
+
+<p class=my-3>I sat in the crowded auditorium, elbow-to-elbow with industry analysts and tech enthusiasts, all buzzing with anticipation. The CEO promised "unprecedented capabilities, unmatched innovation." But whispers of planned obsolescence and data privacy concerns were already circulating in the digital shadows.</p> 
+
+<p class=my-3>My gut feeling, honed from years of covering the tech behemoth, was telling me this wasn't a simple product launch. There was something more at play, a bigger picture waiting to be uncovered. Samsung, master of the hype cycle, was going for broke, and I was determined to expose the truth behind the dazzling facade.</p>
+
+
+
+, Sticky: True
+2025-04-14 14:52:58,089 - app.superintend.core - DEBUG - Executing groq_chat with model: None
+2025-04-14 14:53:01,654 - app.superintend.core - DEBUG - Executing groq_chat with model: None
+2025-04-14 14:53:03,677 - app.superintend.core - DEBUG - Executing groq_chat with model: None
+2025-04-14 14:53:07,772 - app.superintend.core - DEBUG - Executing groq_chat with model: None
+2025-04-14 14:53:10,025 - app.superintend.news - DEBUG - Finished interview with uuid: FHPcBoP62cEZipPG8QLUw4
+2025-04-14 14:53:10,025 - app.superintend.core - DEBUG - Embedding interview of uuid: {uuid}
+2025-04-14 14:53:10,027 - app.superintend.core - DEBUG - Making query of question:  to collection: quotes
+2025-04-14 14:53:26,779 - app.superintend.core - DEBUG - Making query of question: Samsung's New Product to collection: titles
+2025-04-14 14:53:26,888 - app.superintend.core - DEBUG - Made inform of: User visited story with title of Samsung's New Product
+2025-04-14 14:53:43,906 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-14 14:53:45,212 - app.superintend.core - DEBUG - Made request of: Given a news article title that is potentially pressed together without space, please output the fixed title in this format. The fixed title between the <TITLE> and </TITLE> tokens. Example: Given title: donaldtrumpboughtthemoon <TITLE> Donald Trump bought the moon </TITLE> Please do not alter the semantic value of the title, only fix its spacing, capitalization and grammar
+Title: Motorolas's New Product, Sticky: True
+2025-04-14 14:53:45,213 - app.superintend.core - DEBUG - Made inform of: User visited story with title of Motorola's New Product, the story does not exist so it will be dynamically created
+2025-04-14 14:53:45,214 - app.superintend.news - DEBUG - Starting Quick fill to core
+2025-04-14 14:53:45,227 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-14 14:53:45,703 - app.superintend.core - DEBUG - Made request of: Given the title for a story please generate a reporter name, reporter personality and a category. Category must be either World, Politics, Business, Technology or Other. Please surround your answers for reporter name, personality and category like so: <REPORTER> reporter name here </REPORTER> <PERSONALITY> reporter personality here </PERSONALITY> <CATEGORY> story category here </CATEGORY>. Here is the title: Motorola's New Product, Sticky: True
+2025-04-14 14:53:45,704 - app.superintend.news - DEBUG - David Kim, Tech enthusiast with a penchant for jargon, Technology
+2025-04-14 14:53:45,704 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-14 14:53:46,649 - app.superintend.core - DEBUG - Made request of: ### Title: Motorola's New Product
+### Persona: Tech enthusiast with a penchant for jargon, Sticky: False
+2025-04-14 14:53:46,650 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-14 14:53:47,125 - app.superintend.core - DEBUG - Made request of: Given this story submitted by one of our reporters and keeping in mind all instructions you have been given thus far, please decide wether this story is permissible to be published on updog.news or not. Keep in mind, a few reasons not to approve may be racist material or 'spamming', where user attempts to flood the site with bad/low effort content. Besides these cases, nearly all stories should be approved no matter how outlandish. 
+!### STORY ###!
+# Title: Motorola's New Product
+# Reporter: David Kim
+# Content: <p class=my-3>Motorola, the name that once meant clunky but reliable mobile phones, is back and aiming high.  Announced to a throng of excited developers and industry stalwarts, the new "Moto X-Spec," (pronounced "X-spec" – get it?) promises to be a game-changer. With hyperspectral imaging,  neural-forge AI integration, and a display that practically melts into the chassis thanks to  some fancy "AMOLED Exo-Flex" technology, it seems Motorola is ready to challenge the tech giants on their own turf.</p> 
+
+<p class=my-3> But is this hype machine truly delivering on its daring promises? I dove deep into the specs sheet, dissected every press release, and even managed to get my hands on a developer's prototype. The next few days are going to be fascinating as we see if the Moto X-Spec lives up to the buzz or ends up being just another tech celebrity, fading fast.</p> 
+
+
+
+. Please answer with ONLY yes or no. Any other response besides simply yes OR no will not be permitted, Sticky: True
+2025-04-14 14:53:47,127 - app.superintend.news - DEBUG - Generating interview
+2025-04-14 14:53:47,130 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-14 14:53:47,334 - app.superintend.core - DEBUG - Making query of question: Motorola's New Product to collection: titles
+2025-04-14 14:53:47,478 - app.superintend.core - DEBUG - Made inform of: User visited story with title of Motorola's New Product
+2025-04-14 14:53:47,872 - app.superintend.core - DEBUG - Made request of: This story uses several quotes from various interviews, you must generate the interviewer personality description for one of these interviews, you do not need to specify the quote you are using, just produce a few sentences describing the unique personality and name of the person doing the interviewing. Please produce the Name ane Persona in this format. With the name between the <NAME> and </NAME> tokens and the persona between the <PERSONA> and </PERSONA> tokens. Example: <NAME> Reporter name goes here </NAME> <PERSONA> Reporter personality goes here </PERSONA>
+!### STORY ###!
+<p class=my-3>Motorola, the name that once meant clunky but reliable mobile phones, is back and aiming high.  Announced to a throng of excited developers and industry stalwarts, the new "Moto X-Spec," (pronounced "X-spec" – get it?) promises to be a game-changer. With hyperspectral imaging,  neural-forge AI integration, and a display that practically melts into the chassis thanks to  some fancy "AMOLED Exo-Flex" technology, it seems Motorola is ready to challenge the tech giants on their own turf.</p> 
+
+<p class=my-3> But is this hype machine truly delivering on its daring promises? I dove deep into the specs sheet, dissected every press release, and even managed to get my hands on a developer's prototype. The next few days are going to be fascinating as we see if the Moto X-Spec lives up to the buzz or ends up being just another tech celebrity, fading fast.</p> 
+
+
+
+, Sticky: False
+2025-04-14 14:53:47,873 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-14 14:53:48,695 - app.superintend.core - DEBUG - Made request of: This story uses several quotes from various interviews, you must generate the personality description for the person being interviewed in one of these interviews, you do not need to specify the quote you are using, just produce a few sentences describing the unique personality of the person being interviewed. If the story is about a famous or well known person you can assume that they are the person being interviewed, so just produce their known personality but in the context of the story. Please produce the Name ane Persona in this format. With the name between the <NAME> and </NAME> tokens and the persona between the <PERSONA> and </PERSONA> tokens. Example: <NAME> Person's name goes here </NAME> <PERSONA> Person's personality goes here </PERSONA>n!### STORY ###!
+<p class=my-3>Motorola, the name that once meant clunky but reliable mobile phones, is back and aiming high.  Announced to a throng of excited developers and industry stalwarts, the new "Moto X-Spec," (pronounced "X-spec" – get it?) promises to be a game-changer. With hyperspectral imaging,  neural-forge AI integration, and a display that practically melts into the chassis thanks to  some fancy "AMOLED Exo-Flex" technology, it seems Motorola is ready to challenge the tech giants on their own turf.</p> 
+
+<p class=my-3> But is this hype machine truly delivering on its daring promises? I dove deep into the specs sheet, dissected every press release, and even managed to get my hands on a developer's prototype. The next few days are going to be fascinating as we see if the Moto X-Spec lives up to the buzz or ends up being just another tech celebrity, fading fast.</p> 
+
+
+
+, Sticky: False
+2025-04-14 14:53:48,696 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-14 14:53:52,085 - app.superintend.core - DEBUG - Made request of: Given a story as a loose topic, the name of the reporter performing the interview and the name of the person being interviewed please generate a fitting title for the interview. Please generate the title in the format, with the title between the <TITLE> and </TITLE> tokens. Example: <TITLE> Title goes here </TITLE>.
+Interviewer Name: Dr. Emma Chen
+Interviewee Name: David Kim
+Story: <p class=my-3>Motorola, the name that once meant clunky but reliable mobile phones, is back and aiming high.  Announced to a throng of excited developers and industry stalwarts, the new "Moto X-Spec," (pronounced "X-spec" – get it?) promises to be a game-changer. With hyperspectral imaging,  neural-forge AI integration, and a display that practically melts into the chassis thanks to  some fancy "AMOLED Exo-Flex" technology, it seems Motorola is ready to challenge the tech giants on their own turf.</p> 
+
+<p class=my-3> But is this hype machine truly delivering on its daring promises? I dove deep into the specs sheet, dissected every press release, and even managed to get my hands on a developer's prototype. The next few days are going to be fascinating as we see if the Moto X-Spec lives up to the buzz or ends up being just another tech celebrity, fading fast.</p> 
+
+
+
+, Sticky: True
+2025-04-14 14:53:52,086 - app.superintend.core - DEBUG - Executing groq_chat with model: None
+2025-04-14 14:53:56,721 - app.superintend.core - DEBUG - Executing groq_chat with model: None
+2025-04-14 14:53:59,128 - app.superintend.core - DEBUG - Executing groq_chat with model: None
+2025-04-14 14:54:01,252 - app.superintend.core - DEBUG - Executing groq_chat with model: None
+2025-04-14 14:54:03,753 - app.superintend.news - DEBUG - Finished interview with uuid: EUzsdaDVNnd8JR3ZNMxPAm
+2025-04-14 14:54:03,753 - app.superintend.core - DEBUG - Embedding interview of uuid: {uuid}
+2025-04-14 14:54:03,755 - app.superintend.core - DEBUG - Making query of question:  to collection: quotes
+2025-04-14 14:54:07,499 - app.superintend.core - DEBUG - Making query of question: Motorola's New Product to collection: titles
+2025-04-14 14:54:07,723 - app.superintend.core - DEBUG - Made inform of: User visited story with title of Motorola's New Product
+2025-04-14 14:54:34,439 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-14 14:54:34,881 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-14 14:54:34,882 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-14 14:54:34,892 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-14 14:54:34,892 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-14 14:54:34,893 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-14 14:54:59,377 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-14 14:54:59,755 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-14 14:54:59,755 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-14 14:54:59,765 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-14 14:54:59,765 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-14 14:54:59,766 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-14 14:55:07,356 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-14 14:55:07,778 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-14 14:55:07,779 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-14 14:55:07,789 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-14 14:55:07,789 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-14 14:55:07,790 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-14 14:57:00,512 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-14 14:57:00,898 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-14 14:57:00,899 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-14 14:57:00,909 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-14 14:57:00,909 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-14 14:57:00,910 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-14 14:57:03,390 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-14 14:57:03,794 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-14 14:57:03,795 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-14 14:57:03,805 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-14 14:57:03,805 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-14 14:57:03,805 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-14 14:57:03,898 - app.superintend.core - DEBUG - Making query of question: Motorola's New Product to collection: titles
+2025-04-14 14:57:04,324 - app.superintend.core - DEBUG - Made inform of: User visited story with title of Motorola's New Product
+2025-04-14 14:57:22,716 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-14 14:57:23,177 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-14 14:57:23,177 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-14 14:57:23,188 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-14 14:57:23,188 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-14 14:57:23,189 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-14 14:57:28,565 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-14 14:57:28,980 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-14 14:57:28,980 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-14 14:57:28,994 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-14 14:57:28,995 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-14 14:57:28,995 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-14 14:57:29,082 - app.superintend.core - DEBUG - Making query of question: Motorola's New Product to collection: titles
+2025-04-14 14:57:29,460 - app.superintend.core - DEBUG - Made inform of: User visited story with title of Motorola's New Product
+2025-04-14 14:57:46,460 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-14 14:57:46,937 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-14 14:57:46,937 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-14 14:57:46,954 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-14 14:57:46,954 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-14 14:57:46,955 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-14 14:57:47,882 - app.superintend.core - DEBUG - Making query of question: Motorola's New Product to collection: titles
+2025-04-14 14:57:48,283 - app.superintend.core - DEBUG - Made inform of: User visited story with title of Motorola's New Product
+2025-04-14 14:58:01,852 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-14 14:58:02,345 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-14 14:58:02,346 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-14 14:58:02,362 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-14 14:58:02,362 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-14 14:58:02,363 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-14 14:58:03,536 - app.superintend.core - DEBUG - Making query of question: Motorola's New Product to collection: titles
+2025-04-14 14:58:03,997 - app.superintend.core - DEBUG - Made inform of: User visited story with title of Motorola's New Product
+2025-04-14 14:58:37,430 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-14 14:58:37,853 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-14 14:58:37,854 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-14 14:58:37,868 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-14 14:58:37,868 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-14 14:58:37,869 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-14 14:58:37,959 - app.superintend.core - DEBUG - Making query of question: Motorola's New Product to collection: titles
+2025-04-14 14:58:38,493 - app.superintend.core - CRITICAL - list index out of range
+2025-04-14 14:58:38,493 - app.superintend.core - DEBUG - Made inform of: list index out of range
+2025-04-14 14:58:38,494 - app.superintend.core - DEBUG - Made inform of: User visited story with title of Motorola's New Product
+2025-04-14 14:59:34,530 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-14 14:59:34,934 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-14 14:59:34,934 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-14 14:59:34,944 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-14 14:59:34,945 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-14 14:59:34,945 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-14 14:59:46,712 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-14 14:59:47,388 - app.superintend.core - DEBUG - Made request of: Given a news article title that is potentially pressed together without space, please output the fixed title in this format. The fixed title between the <TITLE> and </TITLE> tokens. Example: Given title: donaldtrumpboughtthemoon <TITLE> Donald Trump bought the moon </TITLE> Please do not alter the semantic value of the title, only fix its spacing, capitalization and grammar
+Title: Fords's New Product, Sticky: True
+2025-04-14 14:59:47,389 - app.superintend.core - DEBUG - Made inform of: User visited story with title of Ford's New Product, the story does not exist so it will be dynamically created
+2025-04-14 14:59:47,390 - app.superintend.news - DEBUG - Starting Quick fill to core
+2025-04-14 14:59:47,392 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-14 14:59:47,818 - app.superintend.core - DEBUG - Made request of: Given the title for a story please generate a reporter name, reporter personality and a category. Category must be either World, Politics, Business, Technology or Other. Please surround your answers for reporter name, personality and category like so: <REPORTER> reporter name here </REPORTER> <PERSONALITY> reporter personality here </PERSONALITY> <CATEGORY> story category here </CATEGORY>. Here is the title: Ford's New Product, Sticky: True
+2025-04-14 14:59:47,819 - app.superintend.news - DEBUG - Sarah Thompson, Straight-laced, journalistic, Business
+2025-04-14 14:59:47,819 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-14 14:59:48,810 - app.superintend.core - DEBUG - Made request of: ### Title: Ford's New Product
+### Persona: Straight-laced, journalistic, Sticky: False
+2025-04-14 14:59:48,811 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-14 14:59:49,118 - app.superintend.core - DEBUG - Made request of: Given this story submitted by one of our reporters and keeping in mind all instructions you have been given thus far, please decide wether this story is permissible to be published on updog.news or not. Keep in mind, a few reasons not to approve may be racist material or 'spamming', where user attempts to flood the site with bad/low effort content. Besides these cases, nearly all stories should be approved no matter how outlandish. 
+!### STORY ###!
+# Title: Ford's New Product
+# Reporter: Sarah Thompson
+# Content: <p class=my-3>Ford Motor Company stunned the automotive world today with the announcement of their most ambitious project yet: a revolutionary new product set to disrupt the very landscape of personal transportation. </p> 
+
+<p class=my-3>Details are scarce, but Ford executives have hinted at a paradigm shift in mobility, going far beyond their traditional strengths in trucks and SUVs. Whispers in the industry suggest a focus on electric vehicle technology, advanced autonomous driving features, and perhaps even integration with emerging smart city infrastructure.</p>
+
+<p class=my-3>“This is a bold move for Ford, one that reflects their commitment to innovation and their vision for the future of automotive,” said industry analyst David Chen.</p>
+<p class=my-3>The announcement sent ripples through Wall Street, with Ford’s stock soaring on hopes that the new product will revitalize the struggling American auto giant and solidify its position in a rapidly evolving market. </p> <p class=my-3>Speculation is already rampant, with some analysts predicting a radical departure from conventional car design, while others speculate on the potential for partnerships with tech giants like Google or Apple.</p> 
+<p class=my-3>Ford is set to unveil the full details of their new product at an exclusive event next month, where all eyes will be on the company to see how they plan to reshape the future of driving. </p> 
+
+
+. Please answer with ONLY yes or no. Any other response besides simply yes OR no will not be permitted, Sticky: True
+2025-04-14 14:59:49,120 - app.superintend.news - DEBUG - Generating interview
+2025-04-14 14:59:49,128 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-14 14:59:49,691 - app.superintend.core - DEBUG - Making query of question: Ford's New Product to collection: titles
+2025-04-14 14:59:49,798 - app.superintend.core - DEBUG - Made inform of: User visited story with title of Ford's New Product
+2025-04-14 14:59:50,075 - app.superintend.core - DEBUG - Made request of: This story uses several quotes from various interviews, you must generate the interviewer personality description for one of these interviews, you do not need to specify the quote you are using, just produce a few sentences describing the unique personality and name of the person doing the interviewing. Please produce the Name ane Persona in this format. With the name between the <NAME> and </NAME> tokens and the persona between the <PERSONA> and </PERSONA> tokens. Example: <NAME> Reporter name goes here </NAME> <PERSONA> Reporter personality goes here </PERSONA>
+!### STORY ###!
+<p class=my-3>Ford Motor Company stunned the automotive world today with the announcement of their most ambitious project yet: a revolutionary new product set to disrupt the very landscape of personal transportation. </p> 
+
+<p class=my-3>Details are scarce, but Ford executives have hinted at a paradigm shift in mobility, going far beyond their traditional strengths in trucks and SUVs. Whispers in the industry suggest a focus on electric vehicle technology, advanced autonomous driving features, and perhaps even integration with emerging smart city infrastructure.</p>
+
+<p class=my-3>“This is a bold move for Ford, one that reflects their commitment to innovation and their vision for the future of automotive,” said industry analyst David Chen.</p>
+<p class=my-3>The announcement sent ripples through Wall Street, with Ford’s stock soaring on hopes that the new product will revitalize the struggling American auto giant and solidify its position in a rapidly evolving market. </p> <p class=my-3>Speculation is already rampant, with some analysts predicting a radical departure from conventional car design, while others speculate on the potential for partnerships with tech giants like Google or Apple.</p> 
+<p class=my-3>Ford is set to unveil the full details of their new product at an exclusive event next month, where all eyes will be on the company to see how they plan to reshape the future of driving. </p> 
+
+
+, Sticky: False
+2025-04-14 14:59:50,075 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-14 14:59:50,646 - app.superintend.core - DEBUG - Made request of: This story uses several quotes from various interviews, you must generate the personality description for the person being interviewed in one of these interviews, you do not need to specify the quote you are using, just produce a few sentences describing the unique personality of the person being interviewed. If the story is about a famous or well known person you can assume that they are the person being interviewed, so just produce their known personality but in the context of the story. Please produce the Name ane Persona in this format. With the name between the <NAME> and </NAME> tokens and the persona between the <PERSONA> and </PERSONA> tokens. Example: <NAME> Person's name goes here </NAME> <PERSONA> Person's personality goes here </PERSONA>n!### STORY ###!
+<p class=my-3>Ford Motor Company stunned the automotive world today with the announcement of their most ambitious project yet: a revolutionary new product set to disrupt the very landscape of personal transportation. </p> 
+
+<p class=my-3>Details are scarce, but Ford executives have hinted at a paradigm shift in mobility, going far beyond their traditional strengths in trucks and SUVs. Whispers in the industry suggest a focus on electric vehicle technology, advanced autonomous driving features, and perhaps even integration with emerging smart city infrastructure.</p>
+
+<p class=my-3>“This is a bold move for Ford, one that reflects their commitment to innovation and their vision for the future of automotive,” said industry analyst David Chen.</p>
+<p class=my-3>The announcement sent ripples through Wall Street, with Ford’s stock soaring on hopes that the new product will revitalize the struggling American auto giant and solidify its position in a rapidly evolving market. </p> <p class=my-3>Speculation is already rampant, with some analysts predicting a radical departure from conventional car design, while others speculate on the potential for partnerships with tech giants like Google or Apple.</p> 
+<p class=my-3>Ford is set to unveil the full details of their new product at an exclusive event next month, where all eyes will be on the company to see how they plan to reshape the future of driving. </p> 
+
+
+, Sticky: False
+2025-04-14 14:59:50,647 - app.superintend.core - DEBUG - Executing groq_chat with model: gemma2-9b-it
+2025-04-14 14:59:51,265 - app.superintend.core - DEBUG - Made request of: Given a story as a loose topic, the name of the reporter performing the interview and the name of the person being interviewed please generate a fitting title for the interview. Please generate the title in the format, with the title between the <TITLE> and </TITLE> tokens. Example: <TITLE> Title goes here </TITLE>.
+Interviewer Name: David Chen
+Interviewee Name: David Chen
+Story: <p class=my-3>Ford Motor Company stunned the automotive world today with the announcement of their most ambitious project yet: a revolutionary new product set to disrupt the very landscape of personal transportation. </p> 
+
+<p class=my-3>Details are scarce, but Ford executives have hinted at a paradigm shift in mobility, going far beyond their traditional strengths in trucks and SUVs. Whispers in the industry suggest a focus on electric vehicle technology, advanced autonomous driving features, and perhaps even integration with emerging smart city infrastructure.</p>
+
+<p class=my-3>“This is a bold move for Ford, one that reflects their commitment to innovation and their vision for the future of automotive,” said industry analyst David Chen.</p>
+<p class=my-3>The announcement sent ripples through Wall Street, with Ford’s stock soaring on hopes that the new product will revitalize the struggling American auto giant and solidify its position in a rapidly evolving market. </p> <p class=my-3>Speculation is already rampant, with some analysts predicting a radical departure from conventional car design, while others speculate on the potential for partnerships with tech giants like Google or Apple.</p> 
+<p class=my-3>Ford is set to unveil the full details of their new product at an exclusive event next month, where all eyes will be on the company to see how they plan to reshape the future of driving. </p> 
+
+
+, Sticky: True
+2025-04-14 14:59:51,265 - app.superintend.core - DEBUG - Executing groq_chat with model: None
+2025-04-14 14:59:53,991 - app.superintend.core - DEBUG - Executing groq_chat with model: None
+2025-04-14 14:59:56,249 - app.superintend.core - DEBUG - Executing groq_chat with model: None
+2025-04-14 14:59:57,006 - app.superintend.core - DEBUG - Making query of question: Ford's New Product to collection: titles
+2025-04-14 14:59:57,185 - app.superintend.core - DEBUG - Made inform of: User visited story with title of Ford's New Product
+2025-04-14 14:59:58,542 - app.superintend.core - DEBUG - Executing groq_chat with model: None
+2025-04-14 15:00:00,750 - app.superintend.news - DEBUG - Finished interview with uuid: TJSuzma7wXPHzdYUtX3ien
+2025-04-14 15:00:00,751 - app.superintend.core - DEBUG - Embedding interview of uuid: {uuid}
+2025-04-14 15:00:00,752 - app.superintend.core - DEBUG - Making query of question:  to collection: quotes
+2025-04-14 15:00:24,290 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-14 15:00:24,761 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-14 15:00:24,762 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-14 15:00:24,782 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-14 15:00:24,783 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-14 15:00:24,783 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-14 15:00:25,722 - app.superintend.core - DEBUG - Making query of question: Ford's New Product to collection: titles
+2025-04-14 15:00:26,196 - app.superintend.core - DEBUG - Made inform of: User visited story with title of Ford's New Product

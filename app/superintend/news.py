@@ -172,6 +172,9 @@ class News:
     def _gen_news_content(self, title: str, persona: str) -> str:
         return self.core.request(f'### Title: {title}\n### Persona: {persona}', sys_prompt=gen_news_prompt, quick=True, sticky=False)
 
+    def get_similar_titles(self, title: str, n_results: int=3) -> list:
+        return self.core.query("titles", title, n_results=n_results, bad_doc=title)
+
     """ Given the params for the story as a dict
     - Generates story and fixes CSS classes
     - Creates SQL entry
@@ -187,12 +190,12 @@ class News:
                 story = Story(title=item['title'], content=content, reporter=item['reporter'], catagory=item['catagory'])
                 if not self._allow_story(story):
                     raise Exception("Superintendent denied your story")
+                self.core.embed([story.title], "titles")
                 self._gen_interviews(app, story) # Dispatches new thread in hoodlem
                 db.session.add(story)
                 db.session.commit()
             except Exception as e:
                 raise e
-
 
 # """ Given a context dynamically created prompt to generate a document ret string and return document """
 # def _retrieve_context(self, prompt: str, uuid: str) -> str:

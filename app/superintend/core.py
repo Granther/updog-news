@@ -34,11 +34,11 @@ class Core:
         self.core_messages = CoreMessages()
         self.collections = dict()
         self.groq = client
-        self.groq_model = "deepseek-r1-distill-qwen-32b"
+        self.groq_model = "deepseek-r1-distill-llama-70b"
         self.quick_model = "gemma2-9b-it"
         self.chroma = chromadb.PersistentClient(path="./chroma")
         self._init_queue()
-        self.collections['main'], self.collections['chats'], self.collections['quotes'] = self._init_collections()
+        self.collections['main'], self.collections['chats'], self.collections['quotes'], self.collections['titles'] = self._init_collections()
         self._init_super()
         #self._fill_chats()
 
@@ -72,7 +72,7 @@ class Core:
     """ Get or create all needed chroma collections """
     def _init_collections(self):
         logger.debug("Creating 'main', 'chats', and 'quotes' vector collections")
-        return (self.chroma.get_or_create_collection(name="main"), self.chroma.get_or_create_collection(name="chats"),  self.chroma.get_or_create_collection(name="quotes"))
+        return (self.chroma.get_or_create_collection(name="main"), self.chroma.get_or_create_collection(name="chats"), self.chroma.get_or_create_collection(name="quotes"), self.chroma.get_or_create_collection(name="titles"))
 
     """ Inform the central AI of changes, important data, etc 
         - We dont expect a response, but we see if it does any API calls
@@ -116,34 +116,55 @@ class Core:
     """ Ask the central AI for some data 
         - We expect a response of some kind
     """
-    def query(self, col_name: str, question: str, bad_uuid: str=None, metadata: dict=None) -> str:
+    def query(self, col_name: str, question: str, n_results: int=3, bad_uuid: str=None, bad_doc: str=None, metadata: dict=None) -> list:
         logger.debug(f"Making query of question: {question} to collection: {col_name}")
-        col = self._get_col(col_name)
-        if not col: 
-            return None
         try:
-            n_results = 3
+            col = self._get_col(col_name)
+            if not col:
+                raise Exception(f"VectorDB collection: {col_name} does not exist when trying to query for question: {question}")
             result = col.query(query_texts=[question], where=metadata, n_results=n_results)
             ids = result['ids'][0]
             docs = result['documents'][0]
-            if not bad_uuid:
-                return docs[0]
-            for i in range(n_results):
-                #print(ids[i])
-                if ids[i] != bad_uuid:
-                    #print(docs[i])
-                    return docs[i]
-        except:
-            return None
+            if not bad_uuid and not bad_doc:
+                return docs
+            vals = []
+            if bad_uuid:
+                for i in range(n_results):
+                    if ids[i] != bad_uuid:
+                        vals.append(docs[i])
+                return vals
+            elif bad_doc:
+                for i in range(n_results):
+                    if docs[i].lower() != bad_doc.lower():
+                        vals.append(docs[i])
+                return vals
+        except Exception as e:
+            logger.fatal(e)
+            self.inform(e)
+        return []
 
     """ Given a list of QA interviews, embed each quote with the interview uuid metadata """
     def embed_interview(self, content: list, uuid: str):
-        logger.debug("Embedding interview of uuid: {uuid}")
+        logger.debug(f"Embedding interview of uuid: {uuid}")
         def _embed():
             col = self._get_col("quotes")
             for item in content:
                 col.add(documents=[item['question']], metadatas=[{"interview_uuid": uuid, "type": "question"}], ids=[shortuuid.uuid()])
                 col.add(documents=[item['answer']], metadatas=[{"interview_uuid": uuid, "type": "answer"}], ids=[shortuuid.uuid()])
+        threading.Thread(target=_embed, daemon=True).start()
+
+    """ Embed list of contents to collection 'col'. Ids are chosen randomly """
+    def embed(self, content: list, col_name: str):
+        def _embed():
+            try:
+                col = self._get_col(col_name)
+                if not col:
+                    raise Exception(f"Unable to embed len: {len(content)} contents to vectordb collection {col_name}. It does not exist")
+                ids = [shortuuid.uuid() for i in range(len(content))]
+                col.add(documents=content, ids=ids)
+            except Exception as e:
+                logger.fatal(e)
+                self.inform(e)
         threading.Thread(target=_embed, daemon=True).start()
 
     """ Gets the core context for superintendent """
