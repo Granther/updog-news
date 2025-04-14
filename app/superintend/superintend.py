@@ -22,15 +22,6 @@ from .news import News
 
 logger = create_logger(__name__)
 
-def_reporter = "Jim Scrimbus"
-def_category = "World"
-def_personality = "Just a humble writer at Updog news, hes a little politically incorrect though"
-def_iviewer_name = "Jimothy Honest"
-def_iviewer_persona = "Just a simple Honest guy, he hates kids though, like he cant stop talking about it"
-def_iviewy_name = "Elon Musk"
-def_iviewy_persona = "Hey, its me, Elon Musk, meet my son slkasiaoifhwqoiehfwpoifh"
-allowed_categories = ["World", "Technology", "Business", "Politics", "Other"]
-
 class SuperIntend:
     _instance = None
     _lock = threading.Lock()
@@ -47,7 +38,6 @@ class SuperIntend:
     def __init__(self, groq_key: str, feather_key: str, groq_core_key: str):
         #self.ephem_sys_prompt = ephem_sys_prompt
         #self.ephem_messages = dict()
-        self.max_interview_q = 2
         self.groq, self.feather = self._init_clients(groq_key, feather_key)
         self.core = Core(self._init_groq_client(groq_core_key))
         self.hoodlem = HoodChat(ephem_sys_prompt, self.core)
@@ -119,8 +109,8 @@ def get_superintend():
 def gen_sources(app, content: str):
     pass
 
-def gen_interviews(app, story):
-    threading.Thread(target=_superintend.gen_interview, args=(app, story), daemon=True).start()
+# def gen_interviews(app, story):
+#     threading.Thread(target=_superintend.gen_interview, args=(app, story), daemon=True).start()
 """
 Example:
 

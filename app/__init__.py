@@ -73,7 +73,7 @@ def create_app(config=DevelopmentConfig):
 
     with app.app_context():
         #logger = create_logger(__name__, config)
-        current_app.logger = logger
+        #current_app.logger = logger
         current_app.bcrypt = Bcrypt(app)
         current_app.socketio = SocketIO(app)
 

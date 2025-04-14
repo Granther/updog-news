@@ -88,9 +88,10 @@ class Core:
     """ Request an answer, passing quick forks the conscienceness. Sticky meaning wether the request ends up in the core message stream or not
     Basically, is it important or will it clog up superintend?
     """
-    def request(self, request: str, quick: bool=True, sticky: bool=True) -> str:
+    def request(self, request: str, sys_prompt: str=None, quick: bool=True, sticky: bool=True) -> str:
+        sys = (superintend_sys_prompt if not sys_prompt else sys_prompt)
         with self.core_messages as msgs:
-            msgs.append({"role": "system", "content": superintend_sys_prompt})
+            msgs.append({"role": "system", "content": sys})
             msgs.append({"role": "user", "content": f"REQUEST: {self._add_timestamp(request)}"})
             model = (self.quick_model if quick else self.groq_model)
             resp = self._submit_task(self._groq_chat, (msgs.read(), model)) # We want to see thinking toks in history

@@ -16,14 +16,13 @@ from app import db, login_manager
 from app.models import Story, User, Interview
 from app.forms import GenerateStoryForm, LoginForm, RegistrationForm, NewReporterForm, CommentForm
 from app.utils import preserve_markdown, display_catagory, pretty_timestamp
-from app.news import get_marquee, get_stories, write_new_story, rm_link_toks
-from app.queue import put_story, start_queue
+from app.news import get_marquee, get_stories, rm_link_toks
 from app.superintend import SuperIntend, get_superintend
 from app.images import generate_image
+from app.logger import create_logger
 
-load_dotenv()
+logger = create_logger(__name__)
 #superintend = SuperIntend(os.environ.get("GROQ_API_KEY"), os.environ.get("FEATHERLESS_API_KEY"), os.environ.get("GROQ_API_KEY"))
-start_queue()
 main = Blueprint('main', __name__,
                         template_folder='templates')
 
@@ -100,7 +99,7 @@ def report():
         try:
             app = current_app._get_current_object()
             superintend.core.inform(f"User with username: {current_user.username} is submitting story with title: {form.title.data}")
-            write_new_story(app, {"title": form.title.data, "reporter": form.reporter_name.data, "personality": form.reporter_personality.data, "catagory": form.catagory.data})
+            superintend.news.write_new_story(app, {"title": form.title.data, "reporter": form.reporter_name.data, "personality": form.reporter_personality.data, "catagory": form.catagory.data})
             #put_story({"title": form.title.data, "reporter": form.reporter_name.data, "personality": form.reporter_personality.data, "catagory": form.catagory.data, "user_id": current_user.id})
         except Exception as e:
             superintend.core.inform(f"User with username: {current_user.username} that attempted to submit story with title: {form.title.data} encountered an error: {e}")
@@ -129,7 +128,7 @@ def story(title, category=None):
     story = Story.query.filter_by(title=title).first()
     if not story:
         # Fix title if needed
-        title = superintend.fix_schrod_title(title)
+        title = superintend.news.fix_schrod_title(title)
         superintend.core.inform(f"User visited story with title of {title}, the story does not exist so it will be dynamically created")
         # Generate a unique session ID
         session_id = shortuuid.uuid()
@@ -184,8 +183,8 @@ def gen_schrod_page(app, session_id: str, title: str):
     error = None
 
     try:
-        reporter, personality, category = superintend.quick_fill(title)
-        write_new_story(app, {"title": title, "reporter": reporter, "personality": personality, "catagory": category.lower()})
+        reporter, personality, category = superintend.news.quick_fill(title)
+        superintend.news.write_new_story(app, {"title": title, "reporter": reporter, "personality": personality, "catagory": category.lower()})
     except Exception as e:
         error = e
 
