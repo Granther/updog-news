@@ -11492,3 +11492,64 @@ Story: <p class=my-3>Folks, this is HUGE! You won't believe what I just learned!
 2025-04-13 19:51:53,603 - app.superintend.superintend - DEBUG - Initializing chat queue
 2025-04-13 19:51:53,604 - app.superintend.superintend - DEBUG - Created Superintendent
 2025-04-13 19:51:53,692 - app.superintend.core - DEBUG - Made inform of: User visited story with title of Joe Biden has ligma
+2025-04-14 13:20:53,084 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-14 13:20:53,554 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-14 13:20:53,555 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-14 13:20:53,568 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-14 13:20:53,568 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-14 13:20:53,569 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-14 13:20:56,299 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-14 13:20:56,802 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-14 13:20:56,803 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-14 13:20:56,815 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-14 13:20:56,815 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-14 13:20:56,816 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-14 13:20:56,897 - app.superintend.core - DEBUG - Made inform of: User visited index, no category selected showing all info
+2025-04-14 13:21:36,531 - app.superintend.core - DEBUG - Made inform of: User visited story with title of Joe Biden has ligma
+2025-04-14 13:21:44,423 - app.superintend.core - DEBUG - Made inform of: User visited index, no category selected showing all info
+2025-04-14 13:21:56,469 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-14 13:21:56,857 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-14 13:21:56,858 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-14 13:21:56,866 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-14 13:21:56,866 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-14 13:21:56,867 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-14 13:21:56,936 - app.superintend.core - DEBUG - Made inform of: User visited index, no category selected showing all info
+2025-04-14 13:21:58,332 - app.superintend.core - DEBUG - Made inform of: User visited story with title of Joe Biden has ligma
+2025-04-14 13:22:00,599 - app.superintend.core - DEBUG - Made inform of: User visited index, no category selected showing all info
+2025-04-14 13:23:23,598 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-14 13:23:23,953 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-14 13:23:23,954 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-14 13:23:23,961 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-14 13:23:23,961 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-14 13:23:23,962 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-14 13:23:27,097 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-14 13:23:27,509 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-14 13:23:27,510 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-14 13:23:27,522 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-14 13:23:27,522 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-14 13:23:27,523 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-14 13:23:27,630 - app.superintend.core - DEBUG - Made inform of: User visited story with title of Joe Biden has ligma
+2025-04-14 13:24:54,234 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-14 13:24:54,661 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-14 13:24:54,662 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-14 13:24:54,670 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-14 13:24:54,671 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-14 13:24:54,671 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-14 13:25:21,441 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-14 13:25:21,875 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-14 13:25:21,876 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-14 13:25:21,888 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-14 13:25:21,888 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-14 13:25:21,889 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-14 13:25:40,063 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-14 13:25:40,544 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-14 13:25:40,544 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-14 13:25:40,557 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-14 13:25:40,558 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-14 13:25:40,558 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-14 13:25:49,056 - app.superintend.superintend - DEBUG - Creating Groq and Featherless clients
+2025-04-14 13:25:49,554 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-14 13:25:49,555 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-14 13:25:49,569 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-14 13:25:49,569 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-14 13:25:49,570 - app.superintend.superintend - DEBUG - Created Superintendent

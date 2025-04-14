@@ -158,8 +158,8 @@ def story(title, category=None):
         return render_template('waiting.html', session_id=session_id)
     else:
         story.clicks += 1 
-        story.size = "small"
-        db.session.commit() # We iterate clicks early because we set content later for temp
+        #story.size = "large"
+        #db.session.commit() # We iterate clicks early because we set content later for temp
         superintend.core.inform(f"User visited story with title of {title}")
         # Existing story rendering logic
         timestamp = pretty_timestamp(story.created)

@@ -23,7 +23,7 @@ def get_stories(catagory=None) -> list:
         cat = display_catagory(story.catagory)
         timestamp = pretty_timestamp(story.created)
         proc_story_content = preserve_markdown(story.title)
-        stories.append({"id":story.id, "title":story.title, "content": proc_story_content, "reportername":story.reporter, "catagory": cat, "timestamp": timestamp})
+        stories.append({"id":story.id, "title":story.title, "content": proc_story_content, "reportername":story.reporter, "catagory": cat, "timestamp": timestamp, "size": story.size})
     return stories
 
 """ Given a story containing <|LINK_SRC|> toks, remove them """
