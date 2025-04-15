@@ -32,6 +32,9 @@ class Model:
         self.name = name
         self.backend = self._get_backend()
 
+    def set_client(self, client):
+        self.client = client
+
     def _get_backend(self) -> str:
         if self.name in self.groq_models:
             return "groq"

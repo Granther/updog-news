@@ -35,11 +35,11 @@ class Core:
     def __init__(self, keys: Keys, main_model: Model, quick_model: Model):
         self.core_messages = CoreMessages()
         self.collections = dict()
-        self.main_model = main_model.name
-        self.quick_model = quick_model.name
+        self.main = main_model
+        self.quick = quick_model
         try:
-            self.main_client = build_client(keys, main_model)
-            self.quick_client = build_client(keys, quick_model)
+            self.main.set_client(build_client(main.name, keys))
+            self.quick.set_client(build_client(quick.name, keys))
             self.chroma = chromadb.PersistentClient(path="./chroma")
             self._init_queue()
             self.collections['main'], self.collections['chats'], self.collections['quotes'], self.collections['titles'] = self._init_collections()
@@ -94,13 +94,13 @@ class Core:
     """ Request an answer, passing quick forks the conscienceness. Sticky meaning wether the request ends up in the core message stream or not
     Basically, is it important or will it clog up superintend?
     """
-    def request(self, request: str, sys_prompt: str=None, quick: bool=True, sticky: bool=True) -> str:
+    def request(self, request: str, sys_prompt: str=None, quick: bool=False, sticky: bool=True) -> str:
         sys = (superintend_sys_prompt if not sys_prompt else sys_prompt)
         with self.core_messages as msgs:
             msgs.append({"role": "system", "content": sys})
             msgs.append({"role": "user", "content": f"REQUEST: {self._add_timestamp(request)}"})
-            model = (self.quick_model if quick else self.groq_model)
-            resp = self._submit_task(self._groq_chat, (msgs.read(), model)) # We want to see thinking toks in history
+            model = (self.quick if quick else self.main)
+            resp = self._submit_task(self._infer, (msgs.read(), model)) # We want to see thinking toks in history
             msgs.append({"role": "assistant", "content": resp})
             if sticky:
                 self.core_messages.update_timed_msgs(msgs.read_timestamps()) # Update central, merge
