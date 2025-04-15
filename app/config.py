@@ -52,7 +52,7 @@ class Keys:
 class ModuleConfig:
     MAX_INFER_TRIES = int(os.environ.get("MAX_INFER_TRIES"))
 
-    def __init__(default_model: Model, keys: Keys):
+    def __init__(self, default_model: Model, keys: Keys):
         self.DEFAULT_MODEL = default_model
         self.KEYS = keys
 

@@ -56,7 +56,7 @@ def pretty_interview(content: list) -> str:
     return string    
 
 """ Given a 'Model', which has a name and a backend, return the correct client """
-def build_client(self, model: Model, keys: Keys):
+def build_client(model: Model, keys: Keys):
     if model.backend == 'groq':
         return Groq(api_key=keys.GROQ_API_KEY)
     elif model.backend == 'featherless':
