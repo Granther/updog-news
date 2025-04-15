@@ -13,7 +13,7 @@ import shortuuid
 from dotenv import load_dotenv
 
 from app.logger import create_logger
-from app.config import Keys, Model
+from app.config import Keys, Model, CoreConfig
 from .prompts import ephem_sys_prompt, superintend_sys_prompt, bool_question_prompt, build_rag, build_need_rag_prompt, build_allow_story, build_doc_ret_prompt
 from .utils import stringify, postproc_r1, bool_resp, build_client
 from .messages import CoreMessages
@@ -32,14 +32,17 @@ logger = create_logger(__name__)
 """
 class Core:
     """ Takes a premade groq client """
-    def __init__(self, keys: Keys, main_model: Model, quick_model: Model):
-        self.core_messages = CoreMessages()
+    def __init__(self, config: CoreConfig):
+        self.config = config
         self.collections = dict()
-        self.main = main_model
-        self.quick = quick_model
+        self.max_infer_tries = config.MAX_INFER_TRIES
+        self.main = config.CORE_MODEL
+        self.quick = config.CORE_QUICK_MODEL
         try:
-            self.main.set_client(build_client(main.name, keys))
-            self.quick.set_client(build_client(quick.name, keys))
+            # We pair the new client with the model. So now we use main or quick in _infer
+            self.main.set_client(build_client(main.name, config.KEYS))
+            self.quick.set_client(build_client(quick.name, config.KEYS))
+            self.core_messages = CoreMessages()
             self.chroma = chromadb.PersistentClient(path="./chroma")
             self._init_queue()
             self.collections['main'], self.collections['chats'], self.collections['quotes'], self.collections['titles'] = self._init_collections()
@@ -106,6 +109,30 @@ class Core:
                 self.core_messages.update_timed_msgs(msgs.read_timestamps()) # Update central, merge
             logger.debug(f"Made request of: {request}, Sticky: {sticky}")
             return resp
+
+    def _infer(self, messages: list, model: Model):
+        logger.debug(f"Executing _infer with model: {model}")
+        tries = 0
+        chat_completion = None
+        while tries < max_infer_tries:
+            try:
+                chat_completion = model.client.chat.completions.create(
+                    messages=messages,
+                    model=(self.groq_model if not model else model)
+                )
+                break
+            except Exception as e:
+                logger.debug(f"_infer got exception: {e}, Trying {max_tries-tries} more times...")
+                time.sleep(3) # Give the API a rest :)
+                tries += 1
+
+        if tries >= max_tries:
+            raise Exception(f"Max tries of {max_tries} exceeded for _infer")
+
+        resp = chat_completion.choices[0].message.content
+        if 'deepseek' in model.name:
+            resp = postproc_r1(resp)
+        return resp
 
     """ Hoodlem func, takes chat completions, already RAGed, returns a chat response 
         - Expectation that the caller is handling all chats

@@ -41,16 +41,35 @@ class Model:
         else:
             return "featherless"
 
+    def __str__(self):
+        return f"Model(name: {self.name}, backend: {self.backend})"
+
 class Keys:
     def __init__(self, groq_key: str, feather_key: str):
         self.groq_key = groq_key
         self.feather_key = feather_key
 
+class ModuleConfig:
+    MAX_INFER_TRIES = int(os.environ.get("MAX_INFER_TRIES"))
+
+    def __init__(default_model: Model, keys: Keys):
+        self.DEFAULT_MODEL = default_model
+        self.KEYS = keys
+
+class CoreConfig(ModuleConfig):
+    CORE_MODEL = Model(os.environ.get("CORE_MODEL"))
+    CORE_QUICK_MODEL = Model(os.environ.get("CORE_QUICK_MODEL"))
+
+class HoodlemConfig(ModuleConfig):
+    HOODLEM_MODEL = Model(os.environ.get("HOODLEM_MODEL"))
+
+class NewsConfig(ModuleConfig):
+    GEN_NEWS_MODEL = Model(os.environ.get("GEN_NEWS_MODEL"))
+    INTERVIEW_MODEL = Model(os.environ.get("INTERVIEW_MODEL"))
+
 class SuperintendConfig:
     KEYS = Keys(groq_key=os.environ.get("GROQ_API_KEY"), feather_key=os.environ.get("FEATHERLESS_API_KEY"))
     DEFAULT_MODEL = Model(os.environ.get("DEFAULT_MODEL"))
-    GEN_NEWS_MODEL = Model(os.environ.get("GEN_NEWS_MODEL"))
-    CORE_MODEL = Model(os.environ.get("CORE_MODEL"))
-    CORE_QUICK_MODEL = Model(os.environ.get("CORE_QUICK_MODEL"))
-    HOODLEM_MODEL = Model(os.environ.get("HOODLEM_MODEL"))
-    INTERVIEW_MODEL = Model(os.environ.get("INTERVIEW_MODEL"))
+    CORE = CoreConfig(default_model=DEFAULT_MODEL, keys=KEYS)
+    HOODLEM = HoodlemConfig(default_model=DEFAULT_MODEL, keys=KEYS)
+    NEWS = NewsConfig(default_model=DEFAULT_MODEL, keys=KEYS)

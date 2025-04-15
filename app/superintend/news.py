@@ -6,6 +6,7 @@ import threading
 
 import shortuuid
 
+from app.config import NewsConfig
 from app.logger import create_logger
 from .prompts import ephem_sys_prompt, superintend_sys_prompt, bool_question_prompt, build_rag, build_need_rag_prompt, build_allow_story, build_doc_ret_prompt, build_interviewy_prompt, build_interviewer_prompt, get_interviewy_person, get_interviewer_person, build_quick_fill, get_iview_title, build_fix_schrod_title, gen_news_prompt
 from .utils import stringify, postproc_r1, bool_resp, extract_tok_val, pretty_interview
@@ -24,7 +25,8 @@ def_iviewy_persona = "Hey, its me, Elon Musk, meet my son slkasiaoifhwqoiehfwpoi
 allowed_categories = ["World", "Technology", "Business", "Politics", "Other"]
 
 class News:
-    def __init__(self, core):
+    def __init__(self, config: NewsConfig, core):
+        self.config = config
         self.max_interview_q = 2
         self.core = core
 

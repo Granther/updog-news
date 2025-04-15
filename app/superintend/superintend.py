@@ -1,4 +1,5 @@
 import os
+import sys
 import copy
 import time
 from time import sleep
@@ -38,13 +39,17 @@ class SuperIntend:
     """ Groq for fast, feather for slow but custom """
     def __init__(self, config):
         self.config = config
-        # Core: Handles internal system management and dishing out jobs. Infer layer
-        self.core = Core(keys=config.KEYS, main_model=config.CORE_MODEL, quick_model=config.CORE_QUICK_MODEL)
-        # Hoodlem: User interaction part of Super. Uses core to perform system tasks during chat
-        self.hoodlem = HoodChat(keys=config.KEYS, model=config.HOODLEM_MODEL, core=self.core)
-        # News: News & interview etc generation and infer management
-        self.news = News(keys=config.KEYS, model=config.GEN_NEWS_MODEL, core=self.core)
-        self._init_queue()
+        try:
+            # Core: Handles internal system management and dishing out jobs. Infer layer
+            self.core = Core(config.CORE)
+            # Hoodlem: User interaction part of Super. Uses core to perform system tasks during chat
+            self.hoodlem = HoodChat(config.HOODLEM, core=self.core)
+            # News: News & interview etc generation and infer management
+            self.news = News(config.NEWS, core=self.core)
+            self._init_queue()
+        except Exception as e:
+            logger.fatal(f"Fatal error occured while instantiating Superintend: {e}")
+            sys.exit(1)
         logger.debug("Created Superintendent")
 
     """ Submit task to be completed on superintend queue """
