@@ -12491,3 +12491,23 @@ Story: <p class=my-3>In a stunning move that has sent shockwaves through Washing
 2025-04-14 17:43:48,131 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
 2025-04-14 17:43:48,132 - app.superintend.superintend - DEBUG - Initializing chat queue
 2025-04-14 17:43:48,132 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-15 20:06:04,483 - app.superintend.superintend - CRITICAL - Fatal error occured while instantiating Superintend: 'CoreConfig' object has no attribute 'MAX_INFER_TRIES'
+2025-04-15 20:06:26,789 - app.superintend.core - CRITICAL - Fatal error occured while instantiating Core: 'NoneType' object has no attribute 'backend'
+2025-04-15 20:07:17,170 - app.superintend.core - CRITICAL - Fatal error occured while instantiating Core: 'str' object has no attribute 'backend'
+2025-04-15 20:08:08,835 - app.superintend.core - CRITICAL - Fatal error occured while instantiating Core: 'str' object has no attribute 'backend'
+2025-04-15 20:08:44,638 - app.superintend.core - CRITICAL - Fatal error occured while instantiating Core: 'Keys' object has no attribute 'GROQ_API_KEY'
+2025-04-15 20:09:15,666 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-15 20:09:15,667 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-15 20:09:15,681 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-15 20:09:15,681 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-15 20:09:15,681 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-15 20:09:18,695 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-15 20:09:18,696 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-15 20:09:18,710 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-15 20:09:18,710 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-15 20:09:18,711 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-15 20:10:19,628 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-15 20:10:19,629 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-15 20:10:19,642 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-15 20:10:19,643 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-15 20:10:19,643 - app.superintend.superintend - DEBUG - Created Superintendent

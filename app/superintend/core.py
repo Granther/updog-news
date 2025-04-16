@@ -40,8 +40,8 @@ class Core:
         self.quick = config.CORE_QUICK_MODEL
         try:
             # We pair the new client with the model. So now we use main or quick in _infer
-            self.main.set_client(build_client(self.main.name, config.KEYS))
-            self.quick.set_client(build_client(self.quick.name, config.KEYS))
+            self.main.set_client(build_client(self.main, config.KEYS))
+            self.quick.set_client(build_client(self.quick, config.KEYS))
             self.core_messages = CoreMessages()
             self.chroma = chromadb.PersistentClient(path="./chroma")
             self._init_queue()

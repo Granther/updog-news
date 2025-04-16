@@ -14,11 +14,12 @@ Hoodlem needs a way to do things, like drop a link, redirect, get info from a st
 import copy
 
 from app.config import HoodlemConfig
+from .prompts import ephem_sys_prompt
 
 class HoodChat:
     def __init__(self, config: HoodlemConfig, core):
         self.config = config
-        self.sys_prompt = ""
+        self.sys_prompt = ephem_sys_prompt
         self.core = core
         self.ephem_messages = dict() # uuid: messages        
 
