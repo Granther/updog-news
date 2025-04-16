@@ -1,4 +1,9 @@
 import os
+import sys
+
+from dotenv import load_dotenv
+
+load_dotenv()
 
 class Config:
     SECRET_KEY = os.getenv('SECRET_KEY', 'glorp')
@@ -45,9 +50,12 @@ class Model:
         return f"Model(name: {self.name}, backend: {self.backend})"
 
 class Keys:
-    def __init__(self, groq_key: str, feather_key: str):
-        self.GROQ_API_KEY = groq_key
-        self.FEATHERLESS_API_KEY = feather_key
+    def __init__(self):
+        self.GROQ_API_KEY = os.getenv("GROQ_API_KEY")
+        self.FEATHERLESS_API_KEY = os.getenv("FEATHERLESS_API_KEY")
+
+        if self.GROQ_API_KEY is None or self.FEATHERLESS_API_KEY is None:
+            raise Exception("Needed API Keys not found in .env for Keys()")
 
 class ModuleConfig:
     MAX_INFER_TRIES = int(os.getenv("MAX_INFER_TRIES"))
@@ -59,9 +67,10 @@ class ModuleConfig:
 class CoreConfig(ModuleConfig):
     CORE_MODEL = Model(os.getenv("CORE_MODEL"))
     CORE_QUICK_MODEL = Model(os.getenv("CORE_QUICK_MODEL"))
+    CHROMA_PATH = os.getenv("CHROMA_PATH")
 
     def __str__(self):
-        return f"--- Core Config ---\nMain Model: {self.CORE_MODEL}\nQuick Model: {self.CORE_QUICK_MODEL}"
+        return f"--- Core Config ---\nMain Model: {self.CORE_MODEL}\nQuick Model: {self.CORE_QUICK_MODEL}\nChroma Path: {self.CHROMA_PATH}"
 
 class HoodlemConfig(ModuleConfig):
     HOODLEM_MODEL = Model(os.getenv("HOODLEM_MODEL"))
@@ -77,11 +86,15 @@ class NewsConfig(ModuleConfig):
         return f"--- News Config ---\nGen News Model: {self.GEN_NEWS_MODEL}\nInterview Model: {self.INTERVIEW_MODEL}"
 
 class SuperintendConfig:
-    KEYS = Keys(groq_key=os.getenv("GROQ_API_KEY"), feather_key=os.getenv("FEATHERLESS_API_KEY"))
-    DEFAULT_MODEL = Model(os.getenv("DEFAULT_MODEL"))
-    CORE = CoreConfig(default_model=DEFAULT_MODEL, keys=KEYS)
-    HOODLEM = HoodlemConfig(default_model=DEFAULT_MODEL, keys=KEYS)
-    NEWS = NewsConfig(default_model=DEFAULT_MODEL, keys=KEYS)
+    try:
+        KEYS = Keys()
+        DEFAULT_MODEL = Model(os.getenv("DEFAULT_MODEL"))
+        CORE = CoreConfig(default_model=DEFAULT_MODEL, keys=KEYS)
+        HOODLEM = HoodlemConfig(default_model=DEFAULT_MODEL, keys=KEYS)
+        NEWS = NewsConfig(default_model=DEFAULT_MODEL, keys=KEYS)
+    except Exception as e:
+        print(f"Fatal error occured while instantiating Superintend Config or its required children: {e}", file=sys.stderr)
+        sys.exit(1)
 
     def __str__(self):
-        return f"--- Superintend Config ---\nDefault Model: {self.DEFAULT_MODEL}\n{self.CORE}\n{self.HOODLEM}\n{self.NEWS}"
+        return f"\t=== Superintend Config ===\nDefault Model: {self.DEFAULT_MODEL}\n{self.CORE}\n{self.HOODLEM}\n{self.NEWS}"

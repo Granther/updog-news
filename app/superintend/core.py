@@ -29,7 +29,6 @@ logger = create_logger(__name__)
     - No one chats with this, only for core logic and data recall
 """
 class Core:
-    """ Takes a premade groq client """
     def __init__(self, config: CoreConfig):
         self.config = config
         self.collections = dict()
@@ -41,7 +40,7 @@ class Core:
             self.main.set_client(build_client(self.main, config.KEYS))
             self.quick.set_client(build_client(self.quick, config.KEYS))
             self.core_messages = CoreMessages()
-            self.chroma = chromadb.PersistentClient(path="./chroma")
+            self.chroma = chromadb.PersistentClient(path=config.CHROMA_PATH)
             self._init_queue()
             self.collections['main'], self.collections['chats'], self.collections['quotes'], self.collections['titles'] = self._init_collections()
         except Exception as e:
