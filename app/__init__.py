@@ -9,12 +9,9 @@ from flask_session import Session
 from flask_login import LoginManager
 from flask_bcrypt import Bcrypt
 from flask_socketio import SocketIO
-from dotenv import load_dotenv
 
 from app.config import DevelopmentConfig, ProductionConfig
 from app.logger import create_logger
-
-load_dotenv()
 
 # Create a single SQLAlchemy instance
 db = SQLAlchemy()

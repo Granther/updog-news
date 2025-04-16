@@ -10,7 +10,6 @@ from concurrent.futures import Future
 from openai import OpenAI
 from groq import Groq
 import shortuuid
-from dotenv import load_dotenv
 
 from app.logger import create_logger
 from app.config import Keys, Model, CoreConfig
@@ -23,7 +22,6 @@ import sys
 sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
 import chromadb
 
-load_dotenv()
 logger = create_logger(__name__)
 
 """ Main conscience instance, uses api to interact with 

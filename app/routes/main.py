@@ -22,7 +22,6 @@ from app.images import generate_image
 from app.logger import create_logger
 
 logger = create_logger(__name__)
-#superintend = SuperIntend(os.environ.get("GROQ_API_KEY"), os.environ.get("FEATHERLESS_API_KEY"), os.environ.get("GROQ_API_KEY"))
 main = Blueprint('main', __name__,
                         template_folder='templates')
 
