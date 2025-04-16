@@ -170,6 +170,18 @@ class News:
         p = f'<p class={extra_p}>'
         return content.replace('<h1>', h1).replace('<h2>', h2).replace('<h3>', h3).replace('<h4>', h4).replace('<h5>', h5).replace('<p>', p)
 
+    def _fix_html_class_(self, content: str) -> str:
+        extra_h = 'mt-6'
+        extra_p = 'my-3'
+        h1 = f'<h1 class="text-3xl font-playfair font-bold {extra_h}">'
+        h2 = f'<h2 class="text-2xl font-playfair font-bold {extra_h}">'
+        h3 = f'<h3 class="text-xl font-playfair font-bold {extra_h}">'
+        h4 = f'<h4 class="text-lg font-playfair font-bold {extra_h}">'
+        h5 = f'<h5 class="text-md font-playfair font-bold {extra_h}">'
+        p = f'<p class={extra_p}>'
+        return content.replace('<h1>', h1).replace('<h2>', h2).replace('<h3>', h3).replace('<h4>', h4).replace('<h5>', h5).replace('<p>', p)
+
+
     """ Given the title and person generates the news story content """
     def _gen_news_content(self, title: str, persona: str) -> str:
         return self.core.request(f'### Title: {title}\n### Persona: {persona}', sys_prompt=gen_news_prompt, quick=True, sticky=False)

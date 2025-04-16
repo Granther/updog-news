@@ -39,6 +39,7 @@ def proc_special(special: str, val: str=None) -> str:
         case "KICK":
             print("Going to kick user")
             return "Gonna kick this asshole"
+        
 
     if val is None:
         raise Exception(f"Token: {special} may expect value, none was passed")
@@ -54,6 +55,8 @@ def proc_special(special: str, val: str=None) -> str:
 def next_tok(gen):
     return next(gen).choices[0].delta.content
 
+# Geez what a mess
+
 def chat_tok_generator(uuid: str, message: str):
     max_tok_len = 10
     buffer = ""
@@ -61,7 +64,6 @@ def chat_tok_generator(uuid: str, message: str):
     cur_special = ""
     special_val = ""
     in_special = False
-    special_return = ""
     """
     While the generator is still producing words or an exception is not occuring continue 
     If we see the start of a token, <|, we enter it and read its contents until we see it close

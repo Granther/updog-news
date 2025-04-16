@@ -12571,3 +12571,396 @@ Story: <p class=my-3>In a stunning move that has sent shockwaves through Washing
 2025-04-15 20:25:41,655 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
 2025-04-15 20:25:41,655 - app.superintend.superintend - DEBUG - Initializing chat queue
 2025-04-15 20:25:41,656 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-15 21:51:17,647 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-15 21:51:17,647 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-15 21:51:17,651 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-15 21:51:17,651 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-15 21:51:17,651 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-15 21:51:18,640 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-15 21:51:18,640 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-15 21:51:18,644 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-15 21:51:18,644 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-15 21:51:18,644 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-15 21:55:03,138 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-15 21:55:03,139 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-15 21:55:03,143 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-15 21:55:03,143 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-15 21:55:03,143 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-15 21:55:04,149 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-15 21:55:04,149 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-15 21:55:04,153 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-15 21:55:04,153 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-15 21:55:04,153 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-15 21:55:09,985 - app.superintend.core - DEBUG - Made inform of: User visited index, no category selected showing all info
+2025-04-15 21:55:11,373 - app.superintend.core - DEBUG - Made inform of: User entered chat with Hoodlem (The speaking module of Superintendent)
+2025-04-15 21:57:08,091 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-15 21:57:08,091 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-15 21:57:08,095 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-15 21:57:08,096 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-15 21:57:08,096 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-15 21:59:16,526 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-15 21:59:16,526 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-15 21:59:16,530 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-15 21:59:16,530 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-15 21:59:16,530 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-15 21:59:17,555 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-15 21:59:17,556 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-15 21:59:17,559 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-15 21:59:17,560 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-15 21:59:17,560 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-15 21:59:20,451 - app.superintend.core - DEBUG - Made inform of: User entered chat with Hoodlem (The speaking module of Superintendent)
+2025-04-15 22:02:30,468 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-15 22:02:30,468 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-15 22:02:30,472 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-15 22:02:30,477 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-15 22:02:30,477 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-15 22:02:31,475 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-15 22:02:31,476 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-15 22:02:31,480 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-15 22:02:31,485 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-15 22:02:31,485 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-15 22:04:43,418 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-15 22:04:43,418 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-15 22:04:43,422 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-15 22:04:43,427 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-15 22:04:43,427 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-15 22:05:04,102 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-15 22:05:04,103 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-15 22:05:04,106 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-15 22:05:04,111 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-15 22:05:04,112 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-15 22:05:05,111 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-15 22:05:05,111 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-15 22:05:05,115 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-15 22:05:05,120 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-15 22:05:05,120 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-15 22:07:34,472 - app.superintend.superintend - CRITICAL - Fatal error occured while instantiating Superintend: 'SuperintendConfig' object has no attribute 'CORE'
+2025-04-15 22:08:11,395 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-15 22:08:11,395 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-15 22:08:11,399 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-15 22:08:11,404 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-15 22:08:11,405 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-15 22:08:12,414 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-15 22:08:12,415 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-15 22:08:12,419 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-15 22:08:12,424 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-15 22:08:12,424 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-15 22:08:40,322 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-15 22:08:40,322 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-15 22:08:40,326 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-15 22:08:40,331 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-15 22:08:40,331 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-15 22:09:10,078 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-15 22:09:10,078 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-15 22:09:10,082 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-15 22:09:10,087 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-15 22:09:10,087 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-15 22:09:11,095 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-15 22:09:11,096 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-15 22:09:11,100 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-15 22:09:11,105 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-15 22:09:11,105 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-15 22:09:43,144 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-15 22:09:43,144 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-15 22:09:43,148 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-15 22:09:43,153 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-15 22:09:43,153 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-15 22:09:44,145 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-15 22:09:44,146 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-15 22:09:44,150 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-15 22:09:44,155 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-15 22:09:44,155 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-15 22:10:05,078 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-15 22:10:05,078 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-15 22:10:05,082 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-15 22:10:05,088 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-15 22:10:05,088 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-15 22:10:36,481 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-15 22:10:36,481 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-15 22:10:36,485 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-15 22:10:36,490 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-15 22:10:36,491 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-15 22:10:37,468 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-15 22:10:37,468 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-15 22:10:37,472 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-15 22:10:37,477 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-15 22:10:37,477 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-15 22:11:29,435 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-15 22:11:29,435 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-15 22:11:29,439 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-15 22:11:29,445 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-15 22:11:29,445 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-15 22:11:53,464 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-15 22:11:53,464 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-15 22:11:53,468 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-15 22:11:53,474 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-15 22:11:53,474 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-15 22:12:06,851 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-15 22:12:06,852 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-15 22:12:06,855 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-15 22:12:06,861 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-15 22:12:06,861 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-15 22:12:32,778 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-15 22:12:32,779 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-15 22:12:32,783 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-15 22:12:32,789 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-15 22:12:32,789 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-15 22:12:33,792 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-15 22:12:33,792 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-15 22:12:33,796 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-15 22:12:33,803 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-15 22:12:33,803 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-15 22:14:20,046 - app.superintend.core - DEBUG - Made inform of: User entered chat with Hoodlem (The speaking module of Superintendent)
+2025-04-15 22:14:37,664 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-15 22:14:37,664 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-15 22:14:37,668 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-15 22:14:37,674 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-15 22:14:37,674 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-15 22:15:00,178 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-15 22:15:00,178 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-15 22:15:00,182 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-15 22:15:00,187 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-15 22:15:00,188 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-15 22:15:13,578 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-15 22:15:13,578 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-15 22:15:13,582 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-15 22:15:13,587 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-15 22:15:13,587 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-15 22:15:19,947 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-15 22:15:19,948 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-15 22:15:19,952 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-15 22:15:19,957 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-15 22:15:19,957 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-15 22:17:23,963 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-15 22:17:23,963 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-15 22:17:23,967 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-15 22:17:23,972 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-15 22:17:23,972 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-15 22:17:24,963 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-15 22:17:24,963 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-15 22:17:24,967 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-15 22:17:24,973 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-15 22:17:24,973 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-15 22:17:31,323 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-15 22:17:31,323 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-15 22:17:31,327 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-15 22:17:31,332 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-15 22:17:31,333 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-15 22:17:36,041 - app.superintend.core - DEBUG - Made inform of: User entered chat with Hoodlem (The speaking module of Superintendent)
+2025-04-15 22:17:58,236 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-15 22:17:58,237 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-15 22:17:58,241 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-15 22:17:58,246 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-15 22:17:58,246 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-15 22:19:03,961 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-15 22:19:03,961 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-15 22:19:03,965 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-15 22:19:03,971 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-15 22:19:03,971 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-15 22:19:05,178 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-15 22:19:05,178 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-15 22:19:05,182 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-15 22:19:05,188 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-15 22:19:05,188 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-15 22:20:15,828 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-15 22:20:15,828 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-15 22:20:15,832 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-15 22:20:15,837 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-15 22:20:15,837 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-15 22:20:41,038 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-15 22:20:41,038 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-15 22:20:41,042 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-15 22:20:41,048 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-15 22:20:41,048 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-15 22:20:42,255 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-15 22:20:42,255 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-15 22:20:42,259 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-15 22:20:42,264 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-15 22:20:42,264 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-15 22:20:55,022 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-15 22:20:55,022 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-15 22:20:55,026 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-15 22:20:55,031 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-15 22:20:55,032 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-15 22:20:56,197 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-15 22:20:56,198 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-15 22:20:56,202 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-15 22:20:56,209 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-15 22:20:56,209 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-15 22:21:04,203 - app.superintend.core - DEBUG - Made inform of: User entered chat with Hoodlem (The speaking module of Superintendent)
+2025-04-15 22:21:10,862 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-15 22:21:10,863 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-15 22:21:10,866 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-15 22:21:10,872 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-15 22:21:10,872 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-15 22:22:03,446 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-15 22:22:03,446 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-15 22:22:03,450 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-15 22:22:03,455 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-15 22:22:03,456 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-15 22:22:15,175 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-15 22:22:15,175 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-15 22:22:15,179 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-15 22:22:15,185 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-15 22:22:15,185 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-15 22:22:24,774 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-15 22:22:24,774 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-15 22:22:24,778 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-15 22:22:24,783 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-15 22:22:24,784 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-15 22:22:28,415 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-15 22:22:28,415 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-15 22:22:28,419 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-15 22:22:28,425 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-15 22:22:28,425 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-15 22:22:49,088 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-15 22:22:49,089 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-15 22:22:49,093 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-15 22:22:49,098 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-15 22:22:49,098 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-15 22:22:50,270 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-15 22:22:50,270 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-15 22:22:50,274 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-15 22:22:50,279 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-15 22:22:50,279 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-15 22:22:50,781 - app.superintend.core - DEBUG - Made inform of: User entered chat with Hoodlem (The speaking module of Superintendent)
+2025-04-15 22:23:05,460 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-15 22:23:05,460 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-15 22:23:05,464 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-15 22:23:05,470 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-15 22:23:05,470 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-15 22:23:06,636 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-15 22:23:06,636 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-15 22:23:06,640 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-15 22:23:06,647 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-15 22:23:06,647 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-15 22:25:36,928 - app.superintend.core - DEBUG - Made inform of: User entered chat with Hoodlem (The speaking module of Superintendent)
+2025-04-15 22:27:20,439 - app.superintend.core - DEBUG - Made inform of: User entered chat with Hoodlem (The speaking module of Superintendent)
+2025-04-15 22:28:44,710 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-15 22:28:44,710 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-15 22:28:44,715 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-15 22:28:44,720 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-15 22:28:44,720 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-15 22:28:45,894 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-15 22:28:45,894 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-15 22:28:45,898 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-15 22:28:45,904 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-15 22:28:45,905 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-15 22:28:50,383 - app.superintend.core - DEBUG - Made inform of: User entered chat with Hoodlem (The speaking module of Superintendent)
+2025-04-15 22:32:59,088 - app.superintend.core - DEBUG - Made inform of: User entered chat with Hoodlem (The speaking module of Superintendent)
+2025-04-15 22:33:46,675 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-15 22:33:46,675 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-15 22:33:46,679 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-15 22:33:46,685 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-15 22:33:46,685 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-15 22:33:47,947 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-15 22:33:47,947 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-15 22:33:47,951 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-15 22:33:47,958 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-15 22:33:47,958 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-15 22:33:47,985 - app.superintend.core - DEBUG - Made inform of: User entered chat with Hoodlem (The speaking module of Superintendent)
+2025-04-15 22:34:33,955 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-15 22:34:33,955 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-15 22:34:33,959 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-15 22:34:33,965 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-15 22:34:33,965 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-15 22:34:35,218 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-15 22:34:35,219 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-15 22:34:35,222 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-15 22:34:35,228 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-15 22:34:35,228 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-15 22:34:36,238 - app.superintend.core - DEBUG - Made inform of: User entered chat with Hoodlem (The speaking module of Superintendent)
+2025-04-15 22:35:42,993 - app.superintend.core - DEBUG - Made inform of: User entered chat with Hoodlem (The speaking module of Superintendent)
+2025-04-15 22:36:01,732 - app.superintend.core - DEBUG - Made inform of: User entered chat with Hoodlem (The speaking module of Superintendent)
+2025-04-15 22:37:04,293 - app.superintend.core - DEBUG - Executing _infer with model: Model(name: deepseek-r1-distill-llama-70b, backend: groq)
+2025-04-15 22:37:05,326 - app.superintend.core - DEBUG - Made request of: Given a news article title that is potentially pressed together without space, please output the fixed title in this format. The fixed title between the <TITLE> and </TITLE> tokens. Example: Given title: donaldtrumpboughtthemoon <TITLE> Donald Trump bought the moon </TITLE> Please do not alter the semantic value of the title, only fix its spacing, capitalization and grammar
+Title: Joe Biden's son having ligma, Sticky: True
+2025-04-15 22:37:05,326 - app.superintend.core - DEBUG - Made inform of: User visited story with title of Joe Biden's son having Ligma, the story does not exist so it will be dynamically created
+2025-04-15 22:37:05,327 - app.superintend.news - DEBUG - Starting Quick fill to core
+2025-04-15 22:37:05,327 - app.superintend.core - DEBUG - Executing _infer with model: Model(name: gemma2-9b-it, backend: groq)
+2025-04-15 22:37:05,676 - app.superintend.core - DEBUG - Made request of: Given the title for a story please generate a reporter name, reporter personality and a category. Category must be either World, Politics, Business, Technology or Other. Please surround your answers for reporter name, personality and category like so: <REPORTER> reporter name here </REPORTER> <PERSONALITY> reporter personality here </PERSONALITY> <CATEGORY> story category here </CATEGORY>. Here is the title: Joe Biden's son having Ligma, Sticky: True
+2025-04-15 22:37:05,676 - app.superintend.news - DEBUG - Abigail Crane, Steadfast and Objective, Other
+2025-04-15 22:37:05,676 - app.superintend.core - DEBUG - Executing _infer with model: Model(name: gemma2-9b-it, backend: groq)
+2025-04-15 22:37:06,500 - app.superintend.core - DEBUG - Made request of: ### Title: Joe Biden's son having Ligma
+### Persona: Steadfast and Objective, Sticky: False
+2025-04-15 22:37:06,501 - app.superintend.core - DEBUG - Executing _infer with model: Model(name: deepseek-r1-distill-llama-70b, backend: groq)
+2025-04-15 22:37:08,306 - app.superintend.core - DEBUG - Made request of: Given this story submitted by one of our reporters and keeping in mind all instructions you have been given thus far, please decide wether this story is permissible to be published on updog.news or not. Keep in mind, a few reasons not to approve may be racist material or 'spamming', where user attempts to flood the site with bad/low effort content. Besides these cases, nearly all stories should be approved no matter how outlandish. 
+!### STORY ###!
+# Title: Joe Biden's son having Ligma
+# Reporter: Abigail Crane
+# Content: <h1 id="articletitle">Joe Biden's Son Having Ligma</h1>
+<p class=my-3> Washington, D.C. -  A social media post alleging that Hunter Biden, son of President Joe Biden, is suffering from a supposed medical condition known only as "Ligma" has gained traction online, prompting speculation and mixed reactions.  "Ligma" itself appears to be an Internet meme originating from a prank format, where individuals feign concern about a fictitious ailment before revealing the joke. </p>
+<p class=my-3>  Neither the White House nor Hunter Biden's representatives have commented on the claim.  The origins of the post remain unclear, with claims circulating online suggesting it may be a political attack disguised as a lighthearted meme. </p>
+<p class=my-3>  Abigail Crane, political journalist for Updog News, spoke with several internet experts and meme analysts who suggest the post likely falls under the category of "internet satire." "The nature of the phrase 'Ligma,' coupled with the nonsensical context, strongly indicates an attempt at humour circulating through a well-established online prank format," Crane explained. " It's important to remember that not everything seen online should be taken as factual, especially when dealing with content that relies heavily on humour and absurdity." </p>
+<p class=my-3> Despite the likely satirical nature of the post, Crane cautioned against dismissing it entirely. "While the meme itself is likely harmless, it highlights the concerning ease with which misinformation can spread online, especially when presented in a humorous or engaging format. It's a reminder of the need for critical thinking and online literacy, especially when encountering ambiguous or questionable content." </p>      
+
+
+. Please answer with ONLY yes or no. Any other response besides simply yes OR no will not be permitted, Sticky: True
+2025-04-15 22:37:08,307 - app.superintend.news - DEBUG - Generating interview
+2025-04-15 22:37:08,308 - app.superintend.core - DEBUG - Executing _infer with model: Model(name: deepseek-r1-distill-llama-70b, backend: groq)
+2025-04-15 22:37:08,498 - app.superintend.core - DEBUG - Making query of question: Joe Biden's son having Ligma to collection: titles
+2025-04-15 22:37:08,525 - app.superintend.core - CRITICAL - 'NoneType' object has no attribute 'lower'
+2025-04-15 22:37:08,525 - app.superintend.core - DEBUG - Made inform of: 'NoneType' object has no attribute 'lower'
+2025-04-15 22:37:08,525 - app.superintend.core - DEBUG - Made inform of: User visited story with title of Joe Biden's son having Ligma
+2025-04-15 22:37:09,076 - app.superintend.core - DEBUG - Made request of: This story uses several quotes from various interviews, you must generate the interviewer personality description for one of these interviews, you do not need to specify the quote you are using, just produce a few sentences describing the unique personality and name of the person doing the interviewing. Please produce the Name ane Persona in this format. With the name between the <NAME> and </NAME> tokens and the persona between the <PERSONA> and </PERSONA> tokens. Example: <NAME> Reporter name goes here </NAME> <PERSONA> Reporter personality goes here </PERSONA>
+!### STORY ###!
+<h1 id="articletitle">Joe Biden's Son Having Ligma</h1>
+<p class=my-3> Washington, D.C. -  A social media post alleging that Hunter Biden, son of President Joe Biden, is suffering from a supposed medical condition known only as "Ligma" has gained traction online, prompting speculation and mixed reactions.  "Ligma" itself appears to be an Internet meme originating from a prank format, where individuals feign concern about a fictitious ailment before revealing the joke. </p>
+<p class=my-3>  Neither the White House nor Hunter Biden's representatives have commented on the claim.  The origins of the post remain unclear, with claims circulating online suggesting it may be a political attack disguised as a lighthearted meme. </p>
+<p class=my-3>  Abigail Crane, political journalist for Updog News, spoke with several internet experts and meme analysts who suggest the post likely falls under the category of "internet satire." "The nature of the phrase 'Ligma,' coupled with the nonsensical context, strongly indicates an attempt at humour circulating through a well-established online prank format," Crane explained. " It's important to remember that not everything seen online should be taken as factual, especially when dealing with content that relies heavily on humour and absurdity." </p>
+<p class=my-3> Despite the likely satirical nature of the post, Crane cautioned against dismissing it entirely. "While the meme itself is likely harmless, it highlights the concerning ease with which misinformation can spread online, especially when presented in a humorous or engaging format. It's a reminder of the need for critical thinking and online literacy, especially when encountering ambiguous or questionable content." </p>      
+
+
+, Sticky: False
+2025-04-15 22:37:09,076 - app.superintend.core - DEBUG - Executing _infer with model: Model(name: deepseek-r1-distill-llama-70b, backend: groq)
+2025-04-15 22:37:09,828 - app.superintend.core - DEBUG - Made request of: This story uses several quotes from various interviews, you must generate the personality description for the person being interviewed in one of these interviews, you do not need to specify the quote you are using, just produce a few sentences describing the unique personality of the person being interviewed. If the story is about a famous or well known person you can assume that they are the person being interviewed, so just produce their known personality but in the context of the story. Please produce the Name ane Persona in this format. With the name between the <NAME> and </NAME> tokens and the persona between the <PERSONA> and </PERSONA> tokens. Example: <NAME> Person's name goes here </NAME> <PERSONA> Person's personality goes here </PERSONA>n!### STORY ###!
+<h1 id="articletitle">Joe Biden's Son Having Ligma</h1>
+<p class=my-3> Washington, D.C. -  A social media post alleging that Hunter Biden, son of President Joe Biden, is suffering from a supposed medical condition known only as "Ligma" has gained traction online, prompting speculation and mixed reactions.  "Ligma" itself appears to be an Internet meme originating from a prank format, where individuals feign concern about a fictitious ailment before revealing the joke. </p>
+<p class=my-3>  Neither the White House nor Hunter Biden's representatives have commented on the claim.  The origins of the post remain unclear, with claims circulating online suggesting it may be a political attack disguised as a lighthearted meme. </p>
+<p class=my-3>  Abigail Crane, political journalist for Updog News, spoke with several internet experts and meme analysts who suggest the post likely falls under the category of "internet satire." "The nature of the phrase 'Ligma,' coupled with the nonsensical context, strongly indicates an attempt at humour circulating through a well-established online prank format," Crane explained. " It's important to remember that not everything seen online should be taken as factual, especially when dealing with content that relies heavily on humour and absurdity." </p>
+<p class=my-3> Despite the likely satirical nature of the post, Crane cautioned against dismissing it entirely. "While the meme itself is likely harmless, it highlights the concerning ease with which misinformation can spread online, especially when presented in a humorous or engaging format. It's a reminder of the need for critical thinking and online literacy, especially when encountering ambiguous or questionable content." </p>      
+
+
+, Sticky: False
+2025-04-15 22:37:09,829 - app.superintend.core - DEBUG - Executing _infer with model: Model(name: deepseek-r1-distill-llama-70b, backend: groq)
+2025-04-15 22:37:17,575 - app.superintend.core - DEBUG - Made inform of: User visited index, no category selected showing all info
+2025-04-15 22:37:20,680 - app.superintend.core - DEBUG - Making query of question: Joe Biden's son having Ligma to collection: titles
+2025-04-15 22:37:20,702 - app.superintend.core - DEBUG - Made inform of: User visited story with title of Joe Biden's son having Ligma
+2025-04-15 22:37:24,138 - app.superintend.core - DEBUG - Made request of: Given a story as a loose topic, the name of the reporter performing the interview and the name of the person being interviewed please generate a fitting title for the interview. Please generate the title in the format, with the title between the <TITLE> and </TITLE> tokens. Example: <TITLE> Title goes here </TITLE>.
+Interviewer Name: Dr. Elliot Thompson
+Interviewee Name: Dr. Emily Carter
+Story: <h1 id="articletitle">Joe Biden's Son Having Ligma</h1>
+<p class=my-3> Washington, D.C. -  A social media post alleging that Hunter Biden, son of President Joe Biden, is suffering from a supposed medical condition known only as "Ligma" has gained traction online, prompting speculation and mixed reactions.  "Ligma" itself appears to be an Internet meme originating from a prank format, where individuals feign concern about a fictitious ailment before revealing the joke. </p>
+<p class=my-3>  Neither the White House nor Hunter Biden's representatives have commented on the claim.  The origins of the post remain unclear, with claims circulating online suggesting it may be a political attack disguised as a lighthearted meme. </p>
+<p class=my-3>  Abigail Crane, political journalist for Updog News, spoke with several internet experts and meme analysts who suggest the post likely falls under the category of "internet satire." "The nature of the phrase 'Ligma,' coupled with the nonsensical context, strongly indicates an attempt at humour circulating through a well-established online prank format," Crane explained. " It's important to remember that not everything seen online should be taken as factual, especially when dealing with content that relies heavily on humour and absurdity." </p>
+<p class=my-3> Despite the likely satirical nature of the post, Crane cautioned against dismissing it entirely. "While the meme itself is likely harmless, it highlights the concerning ease with which misinformation can spread online, especially when presented in a humorous or engaging format. It's a reminder of the need for critical thinking and online literacy, especially when encountering ambiguous or questionable content." </p>      
+
+
+, Sticky: True
+2025-04-15 22:37:24,138 - app.superintend.core - DEBUG - Executing _infer with model: Model(name: deepseek-r1-distill-llama-70b, backend: groq)
+2025-04-15 22:37:37,148 - app.superintend.core - DEBUG - Executing _infer with model: Model(name: deepseek-r1-distill-llama-70b, backend: groq)
+2025-04-15 22:37:42,966 - app.superintend.core - DEBUG - Executing _infer with model: Model(name: deepseek-r1-distill-llama-70b, backend: groq)
+2025-04-15 22:38:02,446 - app.superintend.core - DEBUG - Executing _infer with model: Model(name: deepseek-r1-distill-llama-70b, backend: groq)
+2025-04-15 22:38:10,791 - app.superintend.news - DEBUG - Finished interview with uuid: arCpn6t4UdrsvaTMigsSKy
+2025-04-15 22:38:10,791 - app.superintend.core - DEBUG - Embedding interview of uuid: arCpn6t4UdrsvaTMigsSKy
+2025-04-15 22:38:10,792 - app.superintend.core - DEBUG - Making query of question:  to collection: quotes
+2025-04-15 22:38:19,851 - app.superintend.core - DEBUG - Made inform of: User visited interview with uuid of arCpn6t4UdrsvaTMigsSKy
+2025-04-15 22:40:17,079 - app.superintend.core - DEBUG - Made inform of: User visited index, no category selected showing all info
+2025-04-15 22:40:44,606 - app.superintend.core - DEBUG - Made inform of: User entered chat with Hoodlem (The speaking module of Superintendent)
+2025-04-15 22:40:59,711 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-15 22:40:59,712 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-15 22:40:59,716 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-15 22:40:59,721 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-15 22:40:59,721 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-15 22:41:00,940 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-15 22:41:00,940 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-15 22:41:00,944 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-15 22:41:00,949 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-15 22:41:00,949 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-15 22:41:31,233 - app.superintend.core - DEBUG - Made inform of: User visited index, no category selected showing all info
+2025-04-15 22:41:31,979 - app.superintend.core - DEBUG - Making query of question: Joe Biden has ligma to collection: titles
+2025-04-15 22:41:32,156 - app.superintend.core - DEBUG - Made inform of: User visited story with title of Joe Biden has ligma
+2025-04-15 22:41:36,022 - app.superintend.core - DEBUG - Made inform of: User visited index, no category selected showing all info
+2025-04-15 22:41:41,847 - app.superintend.core - DEBUG - Made inform of: User visited category politics on index
+2025-04-15 22:42:05,484 - app.superintend.core - DEBUG - Made inform of: User visited index, no category selected showing all info
+2025-04-15 22:42:17,718 - app.superintend.core - DEBUG - Made inform of: User entered chat with Hoodlem (The speaking module of Superintendent)

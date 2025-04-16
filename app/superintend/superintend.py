@@ -92,7 +92,6 @@ class SuperIntend:
 
 _superintend = SuperIntend(SuperintendConfig())
 print(_superintend.config)
-#os.environ.get("GROQ_API_KEY"), os.environ.get("FEATHERLESS_API_KEY"), os.environ.get("GROQ_API_KEY")
 
 """ Makes Superintend singleton, which makes sense """
 def get_superintend():

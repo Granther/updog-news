@@ -3,7 +3,8 @@ import sys
 
 from dotenv import load_dotenv
 
-load_dotenv()
+# You'd think it would override by default
+load_dotenv(override=True)
 
 class Config:
     SECRET_KEY = os.getenv('SECRET_KEY', 'glorp')
@@ -74,7 +75,7 @@ class CoreConfig(ModuleConfig):
 
 class HoodlemConfig(ModuleConfig):
     HOODLEM_MODEL = Model(os.getenv("HOODLEM_MODEL"))
-    
+
     def __str__(self):
         return f"--- Hoodlem Config ---\nChat Model: {self.HOODLEM_MODEL}"
 

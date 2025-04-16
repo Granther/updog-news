@@ -141,9 +141,12 @@ class Core:
         return self._submit_task(self._infer, (messages, model))
 
     """ Same as chat but returns a generator for the stream """
-    def chat_stream(self, messages: list, quick: bool=False):
-        model = (self.quick if quick else self.main)
-        return self._submit_task(self._infer_stream, (messages, model))
+    def chat_stream(self, messages: list, model: Model=None, quick: bool=False):
+        if not model:
+            use_model = (self.quick if quick else self.main)
+        else:
+            use_model = model
+        return self._submit_task(self._infer_stream, (messages, use_model))
 
     """ Ask the central AI for some data 
         - We expect a response of some kind
@@ -225,37 +228,12 @@ class Core:
             return False
         return self.collections[col_name]
 
-    """ Takes list of past messages, sys promt etc and produces a response """
-    # def _groq_chat(self, messages: list, model: str) -> str:
-    #         logger.debug(f"Executing groq_chat with model: {model}")
-    #         tries = 0
-    #         max_tries = 3
-    #         chat_completion = None
-    #         while tries < max_tries:
-    #             try:
-    #                 chat_completion = self.groq.chat.completions.create(
-    #                     messages=messages,
-    #                     model=(self.groq_model if not model else model)
-    #                 )
-    #                 break
-    #             except Exception as e:
-    #                 logger.debug(f"Groq chat got exception: {e}, Trying {max_tries-tries} more times...")
-    #                 time.sleep(3) # Give the API a rest :)
-    #                 tries += 1
-
-    #         if tries >= max_tries:
-    #             raise Exception(f"Max tries of {max_tries} exceeded for groq_chat")
-
-    #         resp = chat_completion.choices[0].message.content
-    #         if 'deepseek' in self.groq_model:
-    #             resp = postproc_r1(resp)
-    #         return resp
-
-    def _infer_stream(self, messages: str, model: str): 
+    def _infer_stream(self, messages: list, model: Model): 
         stream = model.client.chat.completions.create(
             messages=messages,
             model=model.name,
-            stop=None,
+            temperature=0.8,
+            #stop=None, # stop was set to none, that was ... dumb. Looking for None as end token?
             stream=True,
         )
         return stream
@@ -264,3 +242,28 @@ class Core:
         col = self._get_col("chats")
         col.add(documents=["test1", "test2", "test3"], ids=["1", "2", "3"])
 
+#""" Takes list of past messages, sys promt etc and produces a response """
+# def _groq_chat(self, messages: list, model: str) -> str:
+#         logger.debug(f"Executing groq_chat with model: {model}")
+#         tries = 0
+#         max_tries = 3
+#         chat_completion = None
+#         while tries < max_tries:
+#             try:
+#                 chat_completion = self.groq.chat.completions.create(
+#                     messages=messages,
+#                     model=(self.groq_model if not model else model)
+#                 )
+#                 break
+#             except Exception as e:
+#                 logger.debug(f"Groq chat got exception: {e}, Trying {max_tries-tries} more times...")
+#                 time.sleep(3) # Give the API a rest :)
+#                 tries += 1
+
+#         if tries >= max_tries:
+#             raise Exception(f"Max tries of {max_tries} exceeded for groq_chat")
+
+#         resp = chat_completion.choices[0].message.content
+#         if 'deepseek' in self.groq_model:
+#             resp = postproc_r1(resp)
+#         return resp
