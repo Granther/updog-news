@@ -180,7 +180,7 @@ class News:
 
     """ Given the title and person generates the news story content """
     def _gen_news_content(self, title: str, persona: str) -> str:
-        return self.core.request(f'### Title: {title}\n### Persona: {persona}', sys_prompt=gen_news_prompt, quick=True, sticky=False)
+        return self.core.request(f'### Title: {title}\n### Persona: {persona}', sys_prompt=gen_news_prompt, model=self.gen_news_model, sticky=False, dimentia=True)
 
     def get_similar_titles(self, title: str, n_results: int=3) -> list:
         return self.core.query("titles", title, n_results=n_results, bad_doc=title)

@@ -95,12 +95,22 @@ class Core:
     """ Request an answer, passing quick forks the conscienceness. Sticky meaning wether the request ends up in the core message stream or not
     Basically, is it important or will it clog up superintend?
     """
-    def request(self, request: str, sys_prompt: str=None, model: Model=None, quick: bool=False, sticky: bool=True) -> str:
+    def request(self, request: str, sys_prompt: str=None, model: Model=None, quick: bool=False, sticky: bool=True, dimentia: bool=False) -> str:
         if not model:
             use_model = (self.quick if quick else self.main)
         else:
             use_model = model
+        
         sys = (self.sys_prompt if not sys_prompt else sys_prompt)
+
+        # Awesome name
+        if dimentia:
+            dim_msgs = [
+                {"role": "system", "content": sys},
+                {"role": "user", "content": request}
+            ]
+            return self._submit_task(self._infer, (dim_msgs, use_model)) 
+
         with self.core_messages as msgs:
             msgs.append({"role": "system", "content": sys})
             msgs.append({"role": "user", "content": f"REQUEST: {self._add_timestamp(request)}"})
