@@ -1,17 +1,18 @@
 import os
 import time
+import sys
 from time import sleep
 import datetime
 import threading
 
 import shortuuid
 
+from app import db
 from app.config import NewsConfig
 from app.logger import create_logger
-from .prompts import ephem_sys_prompt, superintend_sys_prompt, bool_question_prompt, build_rag, build_need_rag_prompt, build_allow_story, build_doc_ret_prompt, build_interviewy_prompt, build_interviewer_prompt, get_interviewy_person, get_interviewer_person, build_quick_fill, get_iview_title, build_fix_schrod_title, gen_news_prompt
-from .utils import stringify, postproc_r1, bool_resp, extract_tok_val, pretty_interview
 from app.models import Interview, Story
-from app import db
+from .prompts import ephem_sys_prompt, superintend_sys_prompt, bool_question_prompt, build_rag, build_need_rag_prompt, build_allow_story, build_doc_ret_prompt, build_interviewy_prompt, build_interviewer_prompt, get_interviewy_person, get_interviewer_person, build_quick_fill, get_iview_title, build_fix_schrod_title, gen_news_prompt
+from .utils import stringify, postproc_r1, bool_resp, extract_tok_val, pretty_interview, build_client
 
 logger = create_logger(__name__)
 
@@ -29,6 +30,14 @@ class News:
         self.config = config
         self.max_interview_q = 2
         self.core = core
+        self.gen_news_model = config.GEN_NEWS_MODEL
+        self.interview_model = config.INTERVIEW_MODEL
+        try:
+            self.gen_news_model.set_client(build_client(self.gen_news_model, config.KEYS))
+            self.interview_model.set_client(build_client(self.interview_model, config.KEYS))
+        except Exception as e:
+            logger.fatal(f"Fatal error occured while instantiating News: {e}")
+            sys.exit(1)
 
     """ Takes title, returns (reporter, personality, category """
     def quick_fill(self, title: str):
@@ -61,7 +70,6 @@ class News:
             content = story.content
             logger.debug("Generating interview")
             n_interview_q = 0
-            model = "gemma2-9b-it"
             iviewer_resp = postproc_r1(self.core.request(get_interviewer_person(content), sticky=False))
             iviewy_resp = postproc_r1(self.core.request(get_interviewy_person(content), sticky=False))
             
@@ -112,7 +120,7 @@ class News:
             while n_interview_q < self.max_interview_q:
                 # Gen question
                 #question = postproc_r1(self._submit_task(self._groq_chat, viewer_messages, model)).replace('\n', '')
-                question = self.core.chat(viewer_messages)
+                question = self.core.chat(viewer_messages, model=self.interview_model)
                 sleep(1.5) # Give the API a break so we dont over use
 
                 # Make sure interviewer knows what he asked
@@ -123,7 +131,7 @@ class News:
                 viewy_messages.append({"role": "user", "content": question})
                 # Ask them to answer
                 #answer = postproc_r1(self._submit_task(self._groq_chat, viewy_messages, model)).replace('\n', '')
-                answer = self.core.chat(viewy_messages)
+                answer = self.core.chat(viewy_messages, model=self.interview_model)
                 sleep(1.5)
 
                 # Make sure personas know what they produces
@@ -169,18 +177,6 @@ class News:
         h5 = f'<h5 class="text-md font-playfair font-bold {extra_h}">'
         p = f'<p class={extra_p}>'
         return content.replace('<h1>', h1).replace('<h2>', h2).replace('<h3>', h3).replace('<h4>', h4).replace('<h5>', h5).replace('<p>', p)
-
-    def _fix_html_class_(self, content: str) -> str:
-        extra_h = 'mt-6'
-        extra_p = 'my-3'
-        h1 = f'<h1 class="text-3xl font-playfair font-bold {extra_h}">'
-        h2 = f'<h2 class="text-2xl font-playfair font-bold {extra_h}">'
-        h3 = f'<h3 class="text-xl font-playfair font-bold {extra_h}">'
-        h4 = f'<h4 class="text-lg font-playfair font-bold {extra_h}">'
-        h5 = f'<h5 class="text-md font-playfair font-bold {extra_h}">'
-        p = f'<p class={extra_p}>'
-        return content.replace('<h1>', h1).replace('<h2>', h2).replace('<h3>', h3).replace('<h4>', h4).replace('<h5>', h5).replace('<p>', p)
-
 
     """ Given the title and person generates the news story content """
     def _gen_news_content(self, title: str, persona: str) -> str:

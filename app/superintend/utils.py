@@ -52,7 +52,8 @@ def extract_tok_val(content: str, tok_core: str, default: str=None):
 def pretty_interview(content: list) -> str:
     string = ""
     for item in content:
-        string += f"{item['question']}<br>{item['answer']}<br><br>"
+        string += f"<p class='my-3'>{item['question']}</p><p class='my-3'>{item['answer']}</p>"
+        #string += f"{item['question']}<br>{item['answer']}<br><br>"
     return string    
 
 """ Given a 'Model', which has a name and a backend, return the correct client """

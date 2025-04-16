@@ -12964,3 +12964,396 @@ Story: <h1 id="articletitle">Joe Biden's Son Having Ligma</h1>
 2025-04-15 22:41:41,847 - app.superintend.core - DEBUG - Made inform of: User visited category politics on index
 2025-04-15 22:42:05,484 - app.superintend.core - DEBUG - Made inform of: User visited index, no category selected showing all info
 2025-04-15 22:42:17,718 - app.superintend.core - DEBUG - Made inform of: User entered chat with Hoodlem (The speaking module of Superintendent)
+2025-04-15 23:16:18,629 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-15 23:16:18,629 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-15 23:16:18,633 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-15 23:16:18,638 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-15 23:16:18,639 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-15 23:16:19,855 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-15 23:16:19,855 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-15 23:16:19,859 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-15 23:16:19,864 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-15 23:16:19,864 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-15 23:16:21,617 - app.superintend.core - DEBUG - Made inform of: User visited index, no category selected showing all info
+2025-04-15 23:16:30,180 - app.superintend.core - DEBUG - Executing _infer with model: Model(name: deepseek-r1-distill-llama-70b, backend: groq)
+2025-04-15 23:16:35,200 - app.superintend.core - DEBUG - Made request of: Given a news article title that is potentially pressed together without space, please output the fixed title in this format. The fixed title between the <TITLE> and </TITLE> tokens. Example: Given title: donaldtrumpboughtthemoon <TITLE> Donald Trump bought the moon </TITLE> Please do not alter the semantic value of the title, only fix its spacing, capitalization and grammar
+Title: Joe Bomo lig momo, Sticky: True
+2025-04-15 23:16:35,200 - app.superintend.core - DEBUG - Made inform of: User visited story with title of Joe Biden is buying the moon, the story does not exist so it will be dynamically created
+2025-04-15 23:16:35,200 - app.superintend.news - DEBUG - Starting Quick fill to core
+2025-04-15 23:16:35,200 - app.superintend.core - DEBUG - Executing _infer with model: Model(name: gemma2-9b-it, backend: groq)
+2025-04-15 23:16:35,570 - app.superintend.core - DEBUG - Made request of: Given the title for a story please generate a reporter name, reporter personality and a category. Category must be either World, Politics, Business, Technology or Other. Please surround your answers for reporter name, personality and category like so: <REPORTER> reporter name here </REPORTER> <PERSONALITY> reporter personality here </PERSONALITY> <CATEGORY> story category here </CATEGORY>. Here is the title: Joe Biden is buying the moon, Sticky: True
+2025-04-15 23:16:35,570 - app.superintend.news - DEBUG - Samantha Vega, A seasoned science journalist known for her witty explanations of complex topics., Other
+2025-04-15 23:16:35,571 - app.superintend.core - DEBUG - Executing _infer with model: Model(name: gemma2-9b-it, backend: groq)
+2025-04-15 23:16:36,507 - app.superintend.core - DEBUG - Made request of: ### Title: Joe Biden is buying the moon
+### Persona: A seasoned science journalist known for her witty explanations of complex topics., Sticky: False
+2025-04-15 23:16:36,507 - app.superintend.core - DEBUG - Executing _infer with model: Model(name: deepseek-r1-distill-llama-70b, backend: groq)
+2025-04-15 23:16:38,129 - app.superintend.core - DEBUG - Made request of: Given this story submitted by one of our reporters and keeping in mind all instructions you have been given thus far, please decide wether this story is permissible to be published on updog.news or not. Keep in mind, a few reasons not to approve may be racist material or 'spamming', where user attempts to flood the site with bad/low effort content. Besides these cases, nearly all stories should be approved no matter how outlandish. 
+!### STORY ###!
+# Title: Joe Biden is buying the moon
+# Reporter: Samantha Vega
+# Content: <p class=my-3> WASHINGTON - </p>
+<p class=my-3> In a move that has sent shockwaves through the scientific and geopolitical communities, President Joe Biden has announced plans to purchase the moon. </p>
+<p class=my-3> The White House confirmed this afternoon that the United States government has engaged in "serious and preliminary discussions" with a consortium of private space exploration companies regarding the acquisition of lunar real estate. </p>
+<p class=my-3> "This is a bold step into the future," stated President Biden at a press conference earlier today. "For too long, celestial bodies have remained the exclusive domain of science fiction.  Now, we are writing the next chapter of human history: ownership of another world." </p>
+<p class=my-3>  The stated objectives for lunar ownership include establishing a permanent research base, developing new energy and mineral extraction technologies, and ultimately, paving the way for a permanent human presence beyond Earth.</p>
+<p class=my-3>"This is about more than just owning a piece of the sky," President Biden continued.  "It's about sparking innovation, securing our future among the stars, and ensuring that America remains a leader in the global space race."  </p>
+<p class=my-3>However, the news has been met with mixed reactions. While some hail the move as a visionary leap forward, others express concerns about the astronomical cost, potential environmental impact, and logistical complexities involved in establishing lunar settlements.</p> 
+<p class=my-3> "This is clearly a stunt," said Dr. Anya Petrova, a leading space policy expert at the International Observatory for Space Law. "The costs and logistical challenges of lunar habitation are immense.  Furthermore, the legality of claiming extraterrestrial territory is a complex and hotly debated issue under international law."  </p>
+<p class=my-3> As the world awaits further details on the President's plan, the question on everyone's mind is: what will America do with the moon?</p>
+
+
+
+
+. Please answer with ONLY yes or no. Any other response besides simply yes OR no will not be permitted, Sticky: True
+2025-04-15 23:16:38,144 - app.superintend.news - DEBUG - Generating interview
+2025-04-15 23:16:38,264 - app.superintend.core - DEBUG - Executing _infer with model: Model(name: deepseek-r1-distill-llama-70b, backend: groq)
+2025-04-15 23:16:38,283 - app.superintend.core - DEBUG - Making query of question: Joe Biden is buying the moon to collection: titles
+2025-04-15 23:16:38,307 - app.superintend.core - DEBUG - Made inform of: User visited story with title of Joe Biden is buying the moon
+2025-04-15 23:16:39,068 - app.superintend.core - DEBUG - Made request of: This story uses several quotes from various interviews, you must generate the interviewer personality description for one of these interviews, you do not need to specify the quote you are using, just produce a few sentences describing the unique personality and name of the person doing the interviewing. Please produce the Name ane Persona in this format. With the name between the <NAME> and </NAME> tokens and the persona between the <PERSONA> and </PERSONA> tokens. Example: <NAME> Reporter name goes here </NAME> <PERSONA> Reporter personality goes here </PERSONA>
+!### STORY ###!
+<p class=my-3> WASHINGTON - </p>
+<p class=my-3> In a move that has sent shockwaves through the scientific and geopolitical communities, President Joe Biden has announced plans to purchase the moon. </p>
+<p class=my-3> The White House confirmed this afternoon that the United States government has engaged in "serious and preliminary discussions" with a consortium of private space exploration companies regarding the acquisition of lunar real estate. </p>
+<p class=my-3> "This is a bold step into the future," stated President Biden at a press conference earlier today. "For too long, celestial bodies have remained the exclusive domain of science fiction.  Now, we are writing the next chapter of human history: ownership of another world." </p>
+<p class=my-3>  The stated objectives for lunar ownership include establishing a permanent research base, developing new energy and mineral extraction technologies, and ultimately, paving the way for a permanent human presence beyond Earth.</p>
+<p class=my-3>"This is about more than just owning a piece of the sky," President Biden continued.  "It's about sparking innovation, securing our future among the stars, and ensuring that America remains a leader in the global space race."  </p>
+<p class=my-3>However, the news has been met with mixed reactions. While some hail the move as a visionary leap forward, others express concerns about the astronomical cost, potential environmental impact, and logistical complexities involved in establishing lunar settlements.</p> 
+<p class=my-3> "This is clearly a stunt," said Dr. Anya Petrova, a leading space policy expert at the International Observatory for Space Law. "The costs and logistical challenges of lunar habitation are immense.  Furthermore, the legality of claiming extraterrestrial territory is a complex and hotly debated issue under international law."  </p>
+<p class=my-3> As the world awaits further details on the President's plan, the question on everyone's mind is: what will America do with the moon?</p>
+
+
+
+
+, Sticky: False
+2025-04-15 23:16:39,068 - app.superintend.core - DEBUG - Executing _infer with model: Model(name: deepseek-r1-distill-llama-70b, backend: groq)
+2025-04-15 23:16:44,167 - app.superintend.core - DEBUG - Made request of: This story uses several quotes from various interviews, you must generate the personality description for the person being interviewed in one of these interviews, you do not need to specify the quote you are using, just produce a few sentences describing the unique personality of the person being interviewed. If the story is about a famous or well known person you can assume that they are the person being interviewed, so just produce their known personality but in the context of the story. Please produce the Name ane Persona in this format. With the name between the <NAME> and </NAME> tokens and the persona between the <PERSONA> and </PERSONA> tokens. Example: <NAME> Person's name goes here </NAME> <PERSONA> Person's personality goes here </PERSONA>n!### STORY ###!
+<p class=my-3> WASHINGTON - </p>
+<p class=my-3> In a move that has sent shockwaves through the scientific and geopolitical communities, President Joe Biden has announced plans to purchase the moon. </p>
+<p class=my-3> The White House confirmed this afternoon that the United States government has engaged in "serious and preliminary discussions" with a consortium of private space exploration companies regarding the acquisition of lunar real estate. </p>
+<p class=my-3> "This is a bold step into the future," stated President Biden at a press conference earlier today. "For too long, celestial bodies have remained the exclusive domain of science fiction.  Now, we are writing the next chapter of human history: ownership of another world." </p>
+<p class=my-3>  The stated objectives for lunar ownership include establishing a permanent research base, developing new energy and mineral extraction technologies, and ultimately, paving the way for a permanent human presence beyond Earth.</p>
+<p class=my-3>"This is about more than just owning a piece of the sky," President Biden continued.  "It's about sparking innovation, securing our future among the stars, and ensuring that America remains a leader in the global space race."  </p>
+<p class=my-3>However, the news has been met with mixed reactions. While some hail the move as a visionary leap forward, others express concerns about the astronomical cost, potential environmental impact, and logistical complexities involved in establishing lunar settlements.</p> 
+<p class=my-3> "This is clearly a stunt," said Dr. Anya Petrova, a leading space policy expert at the International Observatory for Space Law. "The costs and logistical challenges of lunar habitation are immense.  Furthermore, the legality of claiming extraterrestrial territory is a complex and hotly debated issue under international law."  </p>
+<p class=my-3> As the world awaits further details on the President's plan, the question on everyone's mind is: what will America do with the moon?</p>
+
+
+
+
+, Sticky: False
+2025-04-15 23:16:44,167 - app.superintend.core - DEBUG - Executing _infer with model: Model(name: deepseek-r1-distill-llama-70b, backend: groq)
+2025-04-15 23:17:02,009 - app.superintend.core - DEBUG - Made request of: Given a story as a loose topic, the name of the reporter performing the interview and the name of the person being interviewed please generate a fitting title for the interview. Please generate the title in the format, with the title between the <TITLE> and </TITLE> tokens. Example: <TITLE> Title goes here </TITLE>.
+Interviewer Name: Dr. Anya Petrova
+Interviewee Name: Dr. Anya Petrova
+Story: <p class=my-3> WASHINGTON - </p>
+<p class=my-3> In a move that has sent shockwaves through the scientific and geopolitical communities, President Joe Biden has announced plans to purchase the moon. </p>
+<p class=my-3> The White House confirmed this afternoon that the United States government has engaged in "serious and preliminary discussions" with a consortium of private space exploration companies regarding the acquisition of lunar real estate. </p>
+<p class=my-3> "This is a bold step into the future," stated President Biden at a press conference earlier today. "For too long, celestial bodies have remained the exclusive domain of science fiction.  Now, we are writing the next chapter of human history: ownership of another world." </p>
+<p class=my-3>  The stated objectives for lunar ownership include establishing a permanent research base, developing new energy and mineral extraction technologies, and ultimately, paving the way for a permanent human presence beyond Earth.</p>
+<p class=my-3>"This is about more than just owning a piece of the sky," President Biden continued.  "It's about sparking innovation, securing our future among the stars, and ensuring that America remains a leader in the global space race."  </p>
+<p class=my-3>However, the news has been met with mixed reactions. While some hail the move as a visionary leap forward, others express concerns about the astronomical cost, potential environmental impact, and logistical complexities involved in establishing lunar settlements.</p> 
+<p class=my-3> "This is clearly a stunt," said Dr. Anya Petrova, a leading space policy expert at the International Observatory for Space Law. "The costs and logistical challenges of lunar habitation are immense.  Furthermore, the legality of claiming extraterrestrial territory is a complex and hotly debated issue under international law."  </p>
+<p class=my-3> As the world awaits further details on the President's plan, the question on everyone's mind is: what will America do with the moon?</p>
+
+
+
+
+, Sticky: True
+2025-04-15 23:17:02,009 - app.superintend.core - DEBUG - Executing _infer with model: Model(name: deepseek-r1-distill-llama-70b, backend: groq)
+2025-04-15 23:17:10,872 - app.superintend.core - DEBUG - Executing _infer with model: Model(name: deepseek-r1-distill-llama-70b, backend: groq)
+2025-04-15 23:17:17,482 - app.superintend.core - DEBUG - Executing _infer with model: Model(name: deepseek-r1-distill-llama-70b, backend: groq)
+2025-04-15 23:17:38,228 - app.superintend.core - DEBUG - Executing _infer with model: Model(name: deepseek-r1-distill-llama-70b, backend: groq)
+2025-04-15 23:17:47,566 - app.superintend.news - DEBUG - Finished interview with uuid: JBL2J5jBCrweVGjQqsAG3B
+2025-04-15 23:17:47,566 - app.superintend.core - DEBUG - Embedding interview of uuid: JBL2J5jBCrweVGjQqsAG3B
+2025-04-15 23:17:47,567 - app.superintend.core - DEBUG - Making query of question:  to collection: quotes
+2025-04-15 23:17:58,673 - app.superintend.core - DEBUG - Made inform of: User visited interview with uuid of JBL2J5jBCrweVGjQqsAG3B
+2025-04-15 23:22:35,021 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-15 23:22:35,022 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-15 23:22:35,025 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-15 23:22:35,041 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-15 23:22:35,041 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-15 23:22:36,238 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-15 23:22:36,238 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-15 23:22:36,242 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-15 23:22:36,258 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-15 23:22:36,258 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-15 23:22:56,329 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-15 23:22:56,329 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-15 23:22:56,333 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-15 23:22:56,349 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-15 23:22:56,349 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-15 23:23:13,633 - app.superintend.core - DEBUG - Executing _infer with model: Model(name: deepseek-r1-distill-llama-70b, backend: groq)
+2025-04-15 23:23:15,215 - app.superintend.core - DEBUG - Made request of: Given a news article title that is potentially pressed together without space, please output the fixed title in this format. The fixed title between the <TITLE> and </TITLE> tokens. Example: Given title: donaldtrumpboughtthemoon <TITLE> Donald Trump bought the moon </TITLE> Please do not alter the semantic value of the title, only fix its spacing, capitalization and grammar
+Title: Jabba the hut for president, Sticky: True
+2025-04-15 23:23:15,215 - app.superintend.core - DEBUG - Made inform of: User visited story with title of Jabba the Hut for president, the story does not exist so it will be dynamically created
+2025-04-15 23:23:15,215 - app.superintend.news - DEBUG - Starting Quick fill to core
+2025-04-15 23:23:15,215 - app.superintend.core - DEBUG - Executing _infer with model: Model(name: gemma2-9b-it, backend: groq)
+2025-04-15 23:23:15,560 - app.superintend.core - DEBUG - Made request of: Given the title for a story please generate a reporter name, reporter personality and a category. Category must be either World, Politics, Business, Technology or Other. Please surround your answers for reporter name, personality and category like so: <REPORTER> reporter name here </REPORTER> <PERSONALITY> reporter personality here </PERSONALITY> <CATEGORY> story category here </CATEGORY>. Here is the title: Jabba the Hut for president, Sticky: True
+2025-04-15 23:23:15,560 - app.superintend.news - DEBUG - Roko Galactic, Overzealous and prone to conspiracy theories, Other
+2025-04-15 23:23:15,560 - app.superintend.core - DEBUG - Executing _infer with model: Model(name: gemma2-9b-it, backend: groq)
+2025-04-15 23:23:16,881 - app.superintend.core - DEBUG - Made request of: ### Title: Jabba the Hut for president
+### Persona: Overzealous and prone to conspiracy theories, Sticky: False
+2025-04-15 23:23:16,882 - app.superintend.core - DEBUG - Executing _infer with model: Model(name: deepseek-r1-distill-llama-70b, backend: groq)
+2025-04-15 23:23:18,621 - app.superintend.core - DEBUG - Made request of: Given this story submitted by one of our reporters and keeping in mind all instructions you have been given thus far, please decide wether this story is permissible to be published on updog.news or not. Keep in mind, a few reasons not to approve may be racist material or 'spamming', where user attempts to flood the site with bad/low effort content. Besides these cases, nearly all stories should be approved no matter how outlandish. 
+!### STORY ###!
+# Title: Jabba the Hut for president
+# Reporter: Roko Galactic
+# Content: ### Jabba the Hut for President: Is This the Deep State's Finally Play?!
+
+<p class=my-3> Forget sleepy Joe and the bumbling Biden administration – a whole new contender has entered the 2024 presidential race, and this ain't your average politician. Word on the swamp is that Jabba the Hut, notorious gangster and kingpin from the Outer Rim, has officially thrown his slimy hat into the ring.</p> 
+
+<p class=my-3>Now, I know what you're thinking: " Jabba the Hut running for president? What kinda ludicrous fanfiction is this?" Trust me, folks, this is REAL. I've got receipts. Anonymous sources (they asked to remain nameless, gotta protect the whistleblowers!) tell me Jabba's been quietly amassing influence in shadowy corners of the political sphere. Backroom deals, payoff schemes, you name it. And why the sudden surge in interest in galactic politics? Well, that, my friends, is where things get juicy.</p> <p class=my-3>My sources (who are also REALLY good at avoiding Imperial surveillance, gotta give them that) whisper about a deep state conspiracy. They say Jabba is a pawn, a figurehead controlled by a cabal of lizard people (more on that later) who want to destabilize the entire Republic and usher in a new world order. Make no mistake, this is an attempt to control the galaxy, one slug-like step at a time!</p>  
+
+
+<h3 id="LizardPeople">The Lizard People Connection</h3>
+<p class=my-3>You might think I'm going off the deep end, but hear me out. Have you ever noticed how Jabba always seems to know the right people? How his criminal empire spans across lightyears, touching on the highest levels of power? And those constantly shifting alliances with rebels and criminals alike? It's all part of the plan, I tell ya! It's like they're orchestrating events from behind the scenes, manipulating everyone like puppets on a string.</p> 
+<p class=my-3>But who are these lizard people, you ask? They're cunning, they're powerful, and they're ALWAYS watching. They infiltrate our governments, our media, our very lives. They control the flow of information, twisting it to serve their own nefarious agenda. And they're pulling the strings right now, using Jabba as their puppet to dismantle the Republic from within!</p> 
+
+
+<h3 id="WhatYouCanDo">Don't Be A Paw</h3>
+<p class=my-3>The stakes are high, folks. This isn't just about one slug-like space gangster running for president. This is about the fate of the entire galaxy. Wake up, sheeple! Don't let them fool you. Stay vigilant, stay informed, and most importantly, don't become a pawn in their game! Share this information, spread the word, and together we can expose the truth before it's too late! </p>
+</body> 
+
+
+
+. Please answer with ONLY yes or no. Any other response besides simply yes OR no will not be permitted, Sticky: True
+2025-04-15 23:23:18,622 - app.superintend.news - DEBUG - Generating interview
+2025-04-15 23:23:18,623 - app.superintend.core - DEBUG - Executing _infer with model: Model(name: deepseek-r1-distill-llama-70b, backend: groq)
+2025-04-15 23:23:18,776 - app.superintend.core - DEBUG - Making query of question: Jabba the Hut for president to collection: titles
+2025-04-15 23:23:18,806 - app.superintend.core - DEBUG - Made inform of: User visited story with title of Jabba the Hut for president
+2025-04-15 23:23:19,601 - app.superintend.core - DEBUG - Made request of: This story uses several quotes from various interviews, you must generate the interviewer personality description for one of these interviews, you do not need to specify the quote you are using, just produce a few sentences describing the unique personality and name of the person doing the interviewing. Please produce the Name ane Persona in this format. With the name between the <NAME> and </NAME> tokens and the persona between the <PERSONA> and </PERSONA> tokens. Example: <NAME> Reporter name goes here </NAME> <PERSONA> Reporter personality goes here </PERSONA>
+!### STORY ###!
+### Jabba the Hut for President: Is This the Deep State's Finally Play?!
+
+<p class=my-3> Forget sleepy Joe and the bumbling Biden administration – a whole new contender has entered the 2024 presidential race, and this ain't your average politician. Word on the swamp is that Jabba the Hut, notorious gangster and kingpin from the Outer Rim, has officially thrown his slimy hat into the ring.</p> 
+
+<p class=my-3>Now, I know what you're thinking: " Jabba the Hut running for president? What kinda ludicrous fanfiction is this?" Trust me, folks, this is REAL. I've got receipts. Anonymous sources (they asked to remain nameless, gotta protect the whistleblowers!) tell me Jabba's been quietly amassing influence in shadowy corners of the political sphere. Backroom deals, payoff schemes, you name it. And why the sudden surge in interest in galactic politics? Well, that, my friends, is where things get juicy.</p> <p class=my-3>My sources (who are also REALLY good at avoiding Imperial surveillance, gotta give them that) whisper about a deep state conspiracy. They say Jabba is a pawn, a figurehead controlled by a cabal of lizard people (more on that later) who want to destabilize the entire Republic and usher in a new world order. Make no mistake, this is an attempt to control the galaxy, one slug-like step at a time!</p>  
+
+
+<h3 id="LizardPeople">The Lizard People Connection</h3>
+<p class=my-3>You might think I'm going off the deep end, but hear me out. Have you ever noticed how Jabba always seems to know the right people? How his criminal empire spans across lightyears, touching on the highest levels of power? And those constantly shifting alliances with rebels and criminals alike? It's all part of the plan, I tell ya! It's like they're orchestrating events from behind the scenes, manipulating everyone like puppets on a string.</p> 
+<p class=my-3>But who are these lizard people, you ask? They're cunning, they're powerful, and they're ALWAYS watching. They infiltrate our governments, our media, our very lives. They control the flow of information, twisting it to serve their own nefarious agenda. And they're pulling the strings right now, using Jabba as their puppet to dismantle the Republic from within!</p> 
+
+
+<h3 id="WhatYouCanDo">Don't Be A Paw</h3>
+<p class=my-3>The stakes are high, folks. This isn't just about one slug-like space gangster running for president. This is about the fate of the entire galaxy. Wake up, sheeple! Don't let them fool you. Stay vigilant, stay informed, and most importantly, don't become a pawn in their game! Share this information, spread the word, and together we can expose the truth before it's too late! </p>
+</body> 
+
+
+
+, Sticky: False
+2025-04-15 23:23:19,602 - app.superintend.core - DEBUG - Executing _infer with model: Model(name: deepseek-r1-distill-llama-70b, backend: groq)
+2025-04-15 23:23:25,652 - app.superintend.core - DEBUG - Made request of: This story uses several quotes from various interviews, you must generate the personality description for the person being interviewed in one of these interviews, you do not need to specify the quote you are using, just produce a few sentences describing the unique personality of the person being interviewed. If the story is about a famous or well known person you can assume that they are the person being interviewed, so just produce their known personality but in the context of the story. Please produce the Name ane Persona in this format. With the name between the <NAME> and </NAME> tokens and the persona between the <PERSONA> and </PERSONA> tokens. Example: <NAME> Person's name goes here </NAME> <PERSONA> Person's personality goes here </PERSONA>n!### STORY ###!
+### Jabba the Hut for President: Is This the Deep State's Finally Play?!
+
+<p class=my-3> Forget sleepy Joe and the bumbling Biden administration – a whole new contender has entered the 2024 presidential race, and this ain't your average politician. Word on the swamp is that Jabba the Hut, notorious gangster and kingpin from the Outer Rim, has officially thrown his slimy hat into the ring.</p> 
+
+<p class=my-3>Now, I know what you're thinking: " Jabba the Hut running for president? What kinda ludicrous fanfiction is this?" Trust me, folks, this is REAL. I've got receipts. Anonymous sources (they asked to remain nameless, gotta protect the whistleblowers!) tell me Jabba's been quietly amassing influence in shadowy corners of the political sphere. Backroom deals, payoff schemes, you name it. And why the sudden surge in interest in galactic politics? Well, that, my friends, is where things get juicy.</p> <p class=my-3>My sources (who are also REALLY good at avoiding Imperial surveillance, gotta give them that) whisper about a deep state conspiracy. They say Jabba is a pawn, a figurehead controlled by a cabal of lizard people (more on that later) who want to destabilize the entire Republic and usher in a new world order. Make no mistake, this is an attempt to control the galaxy, one slug-like step at a time!</p>  
+
+
+<h3 id="LizardPeople">The Lizard People Connection</h3>
+<p class=my-3>You might think I'm going off the deep end, but hear me out. Have you ever noticed how Jabba always seems to know the right people? How his criminal empire spans across lightyears, touching on the highest levels of power? And those constantly shifting alliances with rebels and criminals alike? It's all part of the plan, I tell ya! It's like they're orchestrating events from behind the scenes, manipulating everyone like puppets on a string.</p> 
+<p class=my-3>But who are these lizard people, you ask? They're cunning, they're powerful, and they're ALWAYS watching. They infiltrate our governments, our media, our very lives. They control the flow of information, twisting it to serve their own nefarious agenda. And they're pulling the strings right now, using Jabba as their puppet to dismantle the Republic from within!</p> 
+
+
+<h3 id="WhatYouCanDo">Don't Be A Paw</h3>
+<p class=my-3>The stakes are high, folks. This isn't just about one slug-like space gangster running for president. This is about the fate of the entire galaxy. Wake up, sheeple! Don't let them fool you. Stay vigilant, stay informed, and most importantly, don't become a pawn in their game! Share this information, spread the word, and together we can expose the truth before it's too late! </p>
+</body> 
+
+
+
+, Sticky: False
+2025-04-15 23:23:25,653 - app.superintend.core - DEBUG - Executing _infer with model: Model(name: deepseek-r1-distill-llama-70b, backend: groq)
+2025-04-15 23:23:47,918 - app.superintend.core - DEBUG - Made request of: Given a story as a loose topic, the name of the reporter performing the interview and the name of the person being interviewed please generate a fitting title for the interview. Please generate the title in the format, with the title between the <TITLE> and </TITLE> tokens. Example: <TITLE> Title goes here </TITLE>.
+Interviewer Name: Zara Nexus
+Interviewee Name: Jabba the Hutt
+Story: ### Jabba the Hut for President: Is This the Deep State's Finally Play?!
+
+<p class=my-3> Forget sleepy Joe and the bumbling Biden administration – a whole new contender has entered the 2024 presidential race, and this ain't your average politician. Word on the swamp is that Jabba the Hut, notorious gangster and kingpin from the Outer Rim, has officially thrown his slimy hat into the ring.</p> 
+
+<p class=my-3>Now, I know what you're thinking: " Jabba the Hut running for president? What kinda ludicrous fanfiction is this?" Trust me, folks, this is REAL. I've got receipts. Anonymous sources (they asked to remain nameless, gotta protect the whistleblowers!) tell me Jabba's been quietly amassing influence in shadowy corners of the political sphere. Backroom deals, payoff schemes, you name it. And why the sudden surge in interest in galactic politics? Well, that, my friends, is where things get juicy.</p> <p class=my-3>My sources (who are also REALLY good at avoiding Imperial surveillance, gotta give them that) whisper about a deep state conspiracy. They say Jabba is a pawn, a figurehead controlled by a cabal of lizard people (more on that later) who want to destabilize the entire Republic and usher in a new world order. Make no mistake, this is an attempt to control the galaxy, one slug-like step at a time!</p>  
+
+
+<h3 id="LizardPeople">The Lizard People Connection</h3>
+<p class=my-3>You might think I'm going off the deep end, but hear me out. Have you ever noticed how Jabba always seems to know the right people? How his criminal empire spans across lightyears, touching on the highest levels of power? And those constantly shifting alliances with rebels and criminals alike? It's all part of the plan, I tell ya! It's like they're orchestrating events from behind the scenes, manipulating everyone like puppets on a string.</p> 
+<p class=my-3>But who are these lizard people, you ask? They're cunning, they're powerful, and they're ALWAYS watching. They infiltrate our governments, our media, our very lives. They control the flow of information, twisting it to serve their own nefarious agenda. And they're pulling the strings right now, using Jabba as their puppet to dismantle the Republic from within!</p> 
+
+
+<h3 id="WhatYouCanDo">Don't Be A Paw</h3>
+<p class=my-3>The stakes are high, folks. This isn't just about one slug-like space gangster running for president. This is about the fate of the entire galaxy. Wake up, sheeple! Don't let them fool you. Stay vigilant, stay informed, and most importantly, don't become a pawn in their game! Share this information, spread the word, and together we can expose the truth before it's too late! </p>
+</body> 
+
+
+
+, Sticky: True
+2025-04-15 23:25:00,734 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-15 23:25:00,734 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-15 23:25:00,738 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-15 23:25:00,754 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-15 23:25:00,755 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-15 23:25:02,019 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-15 23:25:02,019 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-15 23:25:02,023 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-15 23:25:02,039 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-15 23:25:02,039 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-15 23:25:07,512 - app.superintend.core - DEBUG - Executing _infer with model: Model(name: deepseek-r1-distill-llama-70b, backend: groq)
+2025-04-15 23:25:08,807 - app.superintend.core - DEBUG - Made request of: Given a news article title that is potentially pressed together without space, please output the fixed title in this format. The fixed title between the <TITLE> and </TITLE> tokens. Example: Given title: donaldtrumpboughtthemoon <TITLE> Donald Trump bought the moon </TITLE> Please do not alter the semantic value of the title, only fix its spacing, capitalization and grammar
+Title: Jabba the Hut for senator, Sticky: True
+2025-04-15 23:25:08,807 - app.superintend.core - DEBUG - Made inform of: User visited story with title of Jabba the Hutt for Senator, the story does not exist so it will be dynamically created
+2025-04-15 23:25:08,807 - app.superintend.news - DEBUG - Starting Quick fill to core
+2025-04-15 23:25:08,807 - app.superintend.core - DEBUG - Executing _infer with model: Model(name: gemma2-9b-it, backend: groq)
+2025-04-15 23:25:09,241 - app.superintend.core - DEBUG - Made request of: Given the title for a story please generate a reporter name, reporter personality and a category. Category must be either World, Politics, Business, Technology or Other. Please surround your answers for reporter name, personality and category like so: <REPORTER> reporter name here </REPORTER> <PERSONALITY> reporter personality here </PERSONALITY> <CATEGORY> story category here </CATEGORY>. Here is the title: Jabba the Hutt for Senator, Sticky: True
+2025-04-15 23:25:09,241 - app.superintend.news - DEBUG - Bob Makkrellen, Earnest and slightly skeptical, Politics
+2025-04-15 23:25:09,241 - app.superintend.core - DEBUG - Executing _infer with model: Model(name: gemma2-9b-it, backend: groq)
+2025-04-15 23:25:10,553 - app.superintend.core - DEBUG - Made request of: ### Title: Jabba the Hutt for Senator
+### Persona: Earnest and slightly skeptical, Sticky: False
+2025-04-15 23:25:10,553 - app.superintend.core - DEBUG - Executing _infer with model: Model(name: deepseek-r1-distill-llama-70b, backend: groq)
+2025-04-15 23:25:11,961 - app.superintend.core - DEBUG - Made request of: Given this story submitted by one of our reporters and keeping in mind all instructions you have been given thus far, please decide wether this story is permissible to be published on updog.news or not. Keep in mind, a few reasons not to approve may be racist material or 'spamming', where user attempts to flood the site with bad/low effort content. Besides these cases, nearly all stories should be approved no matter how outlandish. 
+!### STORY ###!
+# Title: Jabba the Hutt for Senator
+# Reporter: Bob Makkrellen
+# Content: <h1 class="text-3xl font-playfair font-bold mt-6">Jabba the Hutt for Senator? </h1>
+
+<p class=my-3>Tatooine, a notoriously tough constituency, is bracing for the political earthquake that could be Jabba the Hutt's unexpected candidacy for Senator. No one seemed to see this coming – least of all the current incumbent, Senator Kilt, who was confidently preparing for re-election.  Hutt has risen through the underworld to become the undisputed crime lord of Tatooine, but now he's apparently set his sights on the galactic Senate. </p> 
+
+<p class=my-3>“This is a shock to say the least,” Senator Kilt said in a statement. “Mr. Hutt's business dealings are, well, shall we say, unorthodox. I hope the people of Tatooine will remember what's at stake and make a responsible choice.” </p>
+
+<p class=my-3>Political pundits are scrambling to analyze Hutt's motives. Is this a power grab, a publicity stunt, or something more sinister? Some whisper that Hutt, weary of policing the seedy galactic black market, simply wants to bring Tatooine's notorious underbelly into the light. </p> 
+
+<p class=my-3>Others point to his history of exploiting the vulnerable as evidence of a dangerous disregard for galactic law.  Regardless of his intentions, one thing is clear:  Hutt's entrance into the political arena has shaken up the race for Senate and the Tatooine electorate in ways no one could have predicted. </p> 
+<br>
+
+
+<h3 id="Campaign Platform">Campaign Platform</h3>
+<p class=my-3>Rumors about Hutt's political platform are circulating like wildfire around the cantina circuits. While Hutt himself is notoriously tight-lipped, sources say his populist message centers around "bringing jobs back to Tatooine, lowering crime (for the right price), and making sure every citizen has access to…" Whatever Hutt's campaign promises may be, they're certain to be met with both exhilaration and trepidation by the citizens of Tatooine. </p> 
+
+
+
+
+<h3 id="Opposition">Opposition</h3>
+<p class=my-3>Senator Kilt’s campaign is scrambling to adapt to this unexpected challenge.  They've begun highlighting their record of fighting for Tatooine's interests in the Senate, promising to "stand up against criminal elements, no matter who they are."  However, some voters question whether Kilt’s traditional approach can withstand the onslaught of Hutt's charisma and vast resources. </p> 
+<br>
+
+
+
+<h3 id="Watches-This-Space">Watches this Space</h3>
+<p class=my-3>The election is several months away, but one thing’s for sure: Tatooine is about to become the most fascinating race in the entire galaxy.  Bob Makkrellen for Updog News will  be here to keep you updated on this developing story.   </p>   
+
+
+
+
+. Please answer with ONLY yes or no. Any other response besides simply yes OR no will not be permitted, Sticky: True
+2025-04-15 23:25:11,962 - app.superintend.news - DEBUG - Generating interview
+2025-04-15 23:25:12,107 - app.superintend.core - DEBUG - Executing _infer with model: Model(name: deepseek-r1-distill-llama-70b, backend: groq)
+2025-04-15 23:25:12,129 - app.superintend.core - DEBUG - Making query of question: Jabba the Hutt for Senator to collection: titles
+2025-04-15 23:25:12,157 - app.superintend.core - DEBUG - Made inform of: User visited story with title of Jabba the Hutt for Senator
+2025-04-15 23:25:13,151 - app.superintend.core - DEBUG - Made request of: This story uses several quotes from various interviews, you must generate the interviewer personality description for one of these interviews, you do not need to specify the quote you are using, just produce a few sentences describing the unique personality and name of the person doing the interviewing. Please produce the Name ane Persona in this format. With the name between the <NAME> and </NAME> tokens and the persona between the <PERSONA> and </PERSONA> tokens. Example: <NAME> Reporter name goes here </NAME> <PERSONA> Reporter personality goes here </PERSONA>
+!### STORY ###!
+<h1 class="text-3xl font-playfair font-bold mt-6">Jabba the Hutt for Senator? </h1>
+
+<p class=my-3>Tatooine, a notoriously tough constituency, is bracing for the political earthquake that could be Jabba the Hutt's unexpected candidacy for Senator. No one seemed to see this coming – least of all the current incumbent, Senator Kilt, who was confidently preparing for re-election.  Hutt has risen through the underworld to become the undisputed crime lord of Tatooine, but now he's apparently set his sights on the galactic Senate. </p> 
+
+<p class=my-3>“This is a shock to say the least,” Senator Kilt said in a statement. “Mr. Hutt's business dealings are, well, shall we say, unorthodox. I hope the people of Tatooine will remember what's at stake and make a responsible choice.” </p>
+
+<p class=my-3>Political pundits are scrambling to analyze Hutt's motives. Is this a power grab, a publicity stunt, or something more sinister? Some whisper that Hutt, weary of policing the seedy galactic black market, simply wants to bring Tatooine's notorious underbelly into the light. </p> 
+
+<p class=my-3>Others point to his history of exploiting the vulnerable as evidence of a dangerous disregard for galactic law.  Regardless of his intentions, one thing is clear:  Hutt's entrance into the political arena has shaken up the race for Senate and the Tatooine electorate in ways no one could have predicted. </p> 
+<br>
+
+
+<h3 id="Campaign Platform">Campaign Platform</h3>
+<p class=my-3>Rumors about Hutt's political platform are circulating like wildfire around the cantina circuits. While Hutt himself is notoriously tight-lipped, sources say his populist message centers around "bringing jobs back to Tatooine, lowering crime (for the right price), and making sure every citizen has access to…" Whatever Hutt's campaign promises may be, they're certain to be met with both exhilaration and trepidation by the citizens of Tatooine. </p> 
+
+
+
+
+<h3 id="Opposition">Opposition</h3>
+<p class=my-3>Senator Kilt’s campaign is scrambling to adapt to this unexpected challenge.  They've begun highlighting their record of fighting for Tatooine's interests in the Senate, promising to "stand up against criminal elements, no matter who they are."  However, some voters question whether Kilt’s traditional approach can withstand the onslaught of Hutt's charisma and vast resources. </p> 
+<br>
+
+
+
+<h3 id="Watches-This-Space">Watches this Space</h3>
+<p class=my-3>The election is several months away, but one thing’s for sure: Tatooine is about to become the most fascinating race in the entire galaxy.  Bob Makkrellen for Updog News will  be here to keep you updated on this developing story.   </p>   
+
+
+
+
+, Sticky: False
+2025-04-15 23:25:13,151 - app.superintend.core - DEBUG - Executing _infer with model: Model(name: deepseek-r1-distill-llama-70b, backend: groq)
+2025-04-15 23:25:19,289 - app.superintend.core - DEBUG - Made request of: This story uses several quotes from various interviews, you must generate the personality description for the person being interviewed in one of these interviews, you do not need to specify the quote you are using, just produce a few sentences describing the unique personality of the person being interviewed. If the story is about a famous or well known person you can assume that they are the person being interviewed, so just produce their known personality but in the context of the story. Please produce the Name ane Persona in this format. With the name between the <NAME> and </NAME> tokens and the persona between the <PERSONA> and </PERSONA> tokens. Example: <NAME> Person's name goes here </NAME> <PERSONA> Person's personality goes here </PERSONA>n!### STORY ###!
+<h1 class="text-3xl font-playfair font-bold mt-6">Jabba the Hutt for Senator? </h1>
+
+<p class=my-3>Tatooine, a notoriously tough constituency, is bracing for the political earthquake that could be Jabba the Hutt's unexpected candidacy for Senator. No one seemed to see this coming – least of all the current incumbent, Senator Kilt, who was confidently preparing for re-election.  Hutt has risen through the underworld to become the undisputed crime lord of Tatooine, but now he's apparently set his sights on the galactic Senate. </p> 
+
+<p class=my-3>“This is a shock to say the least,” Senator Kilt said in a statement. “Mr. Hutt's business dealings are, well, shall we say, unorthodox. I hope the people of Tatooine will remember what's at stake and make a responsible choice.” </p>
+
+<p class=my-3>Political pundits are scrambling to analyze Hutt's motives. Is this a power grab, a publicity stunt, or something more sinister? Some whisper that Hutt, weary of policing the seedy galactic black market, simply wants to bring Tatooine's notorious underbelly into the light. </p> 
+
+<p class=my-3>Others point to his history of exploiting the vulnerable as evidence of a dangerous disregard for galactic law.  Regardless of his intentions, one thing is clear:  Hutt's entrance into the political arena has shaken up the race for Senate and the Tatooine electorate in ways no one could have predicted. </p> 
+<br>
+
+
+<h3 id="Campaign Platform">Campaign Platform</h3>
+<p class=my-3>Rumors about Hutt's political platform are circulating like wildfire around the cantina circuits. While Hutt himself is notoriously tight-lipped, sources say his populist message centers around "bringing jobs back to Tatooine, lowering crime (for the right price), and making sure every citizen has access to…" Whatever Hutt's campaign promises may be, they're certain to be met with both exhilaration and trepidation by the citizens of Tatooine. </p> 
+
+
+
+
+<h3 id="Opposition">Opposition</h3>
+<p class=my-3>Senator Kilt’s campaign is scrambling to adapt to this unexpected challenge.  They've begun highlighting their record of fighting for Tatooine's interests in the Senate, promising to "stand up against criminal elements, no matter who they are."  However, some voters question whether Kilt’s traditional approach can withstand the onslaught of Hutt's charisma and vast resources. </p> 
+<br>
+
+
+
+<h3 id="Watches-This-Space">Watches this Space</h3>
+<p class=my-3>The election is several months away, but one thing’s for sure: Tatooine is about to become the most fascinating race in the entire galaxy.  Bob Makkrellen for Updog News will  be here to keep you updated on this developing story.   </p>   
+
+
+
+
+, Sticky: False
+2025-04-15 23:25:19,289 - app.superintend.core - DEBUG - Executing _infer with model: Model(name: deepseek-r1-distill-llama-70b, backend: groq)
+2025-04-15 23:25:41,334 - app.superintend.core - DEBUG - Made request of: Given a story as a loose topic, the name of the reporter performing the interview and the name of the person being interviewed please generate a fitting title for the interview. Please generate the title in the format, with the title between the <TITLE> and </TITLE> tokens. Example: <TITLE> Title goes here </TITLE>.
+Interviewer Name: Vexis "Vex" Tharen
+Interviewee Name: Senator Kilt
+Story: <h1 class="text-3xl font-playfair font-bold mt-6">Jabba the Hutt for Senator? </h1>
+
+<p class=my-3>Tatooine, a notoriously tough constituency, is bracing for the political earthquake that could be Jabba the Hutt's unexpected candidacy for Senator. No one seemed to see this coming – least of all the current incumbent, Senator Kilt, who was confidently preparing for re-election.  Hutt has risen through the underworld to become the undisputed crime lord of Tatooine, but now he's apparently set his sights on the galactic Senate. </p> 
+
+<p class=my-3>“This is a shock to say the least,” Senator Kilt said in a statement. “Mr. Hutt's business dealings are, well, shall we say, unorthodox. I hope the people of Tatooine will remember what's at stake and make a responsible choice.” </p>
+
+<p class=my-3>Political pundits are scrambling to analyze Hutt's motives. Is this a power grab, a publicity stunt, or something more sinister? Some whisper that Hutt, weary of policing the seedy galactic black market, simply wants to bring Tatooine's notorious underbelly into the light. </p> 
+
+<p class=my-3>Others point to his history of exploiting the vulnerable as evidence of a dangerous disregard for galactic law.  Regardless of his intentions, one thing is clear:  Hutt's entrance into the political arena has shaken up the race for Senate and the Tatooine electorate in ways no one could have predicted. </p> 
+<br>
+
+
+<h3 id="Campaign Platform">Campaign Platform</h3>
+<p class=my-3>Rumors about Hutt's political platform are circulating like wildfire around the cantina circuits. While Hutt himself is notoriously tight-lipped, sources say his populist message centers around "bringing jobs back to Tatooine, lowering crime (for the right price), and making sure every citizen has access to…" Whatever Hutt's campaign promises may be, they're certain to be met with both exhilaration and trepidation by the citizens of Tatooine. </p> 
+
+
+
+
+<h3 id="Opposition">Opposition</h3>
+<p class=my-3>Senator Kilt’s campaign is scrambling to adapt to this unexpected challenge.  They've begun highlighting their record of fighting for Tatooine's interests in the Senate, promising to "stand up against criminal elements, no matter who they are."  However, some voters question whether Kilt’s traditional approach can withstand the onslaught of Hutt's charisma and vast resources. </p> 
+<br>
+
+
+
+<h3 id="Watches-This-Space">Watches this Space</h3>
+<p class=my-3>The election is several months away, but one thing’s for sure: Tatooine is about to become the most fascinating race in the entire galaxy.  Bob Makkrellen for Updog News will  be here to keep you updated on this developing story.   </p>   
+
+
+
+
+, Sticky: True
+2025-04-15 23:25:41,334 - app.superintend.core - DEBUG - Executing _infer with model: Model(name: gemma2-9b-it, backend: groq)
+2025-04-15 23:25:43,244 - app.superintend.core - DEBUG - Executing _infer with model: Model(name: gemma2-9b-it, backend: groq)
+2025-04-15 23:25:45,032 - app.superintend.core - DEBUG - Executing _infer with model: Model(name: gemma2-9b-it, backend: groq)
+2025-04-15 23:25:46,861 - app.superintend.core - DEBUG - Executing _infer with model: Model(name: gemma2-9b-it, backend: groq)
+2025-04-15 23:25:48,666 - app.superintend.news - DEBUG - Finished interview with uuid: KydhXJWwKyu4NCpFLirvsb
+2025-04-15 23:25:48,667 - app.superintend.core - DEBUG - Embedding interview of uuid: KydhXJWwKyu4NCpFLirvsb
+2025-04-15 23:25:48,667 - app.superintend.core - DEBUG - Making query of question:  to collection: quotes
+2025-04-15 23:26:03,192 - app.superintend.core - DEBUG - Made inform of: User visited interview with uuid of KydhXJWwKyu4NCpFLirvsb
+2025-04-15 23:26:43,605 - app.superintend.core - DEBUG - Made inform of: User visited index, no category selected showing all info

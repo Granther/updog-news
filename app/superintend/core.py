@@ -32,6 +32,7 @@ class Core:
     def __init__(self, config: CoreConfig):
         self.config = config
         self.collections = dict()
+        self.sys_prompt = superintend_sys_prompt
         self.max_infer_tries = config.MAX_INFER_TRIES
         self.main = config.CORE_MODEL
         self.quick = config.CORE_QUICK_MODEL
@@ -94,13 +95,16 @@ class Core:
     """ Request an answer, passing quick forks the conscienceness. Sticky meaning wether the request ends up in the core message stream or not
     Basically, is it important or will it clog up superintend?
     """
-    def request(self, request: str, sys_prompt: str=None, quick: bool=False, sticky: bool=True) -> str:
-        sys = (superintend_sys_prompt if not sys_prompt else sys_prompt)
+    def request(self, request: str, sys_prompt: str=None, model: Model=None, quick: bool=False, sticky: bool=True) -> str:
+        if not model:
+            use_model = (self.quick if quick else self.main)
+        else:
+            use_model = model
+        sys = (self.sys_prompt if not sys_prompt else sys_prompt)
         with self.core_messages as msgs:
             msgs.append({"role": "system", "content": sys})
             msgs.append({"role": "user", "content": f"REQUEST: {self._add_timestamp(request)}"})
-            model = (self.quick if quick else self.main)
-            resp = self._submit_task(self._infer, (msgs.read(), model)) # We want to see thinking toks in history
+            resp = self._submit_task(self._infer, (msgs.read(), use_model)) # We want to see thinking toks in history
             msgs.append({"role": "assistant", "content": resp})
             if sticky:
                 self.core_messages.update_timed_msgs(msgs.read_timestamps()) # Update central, merge
@@ -135,10 +139,13 @@ class Core:
         - Expectation that the caller is handling all chats
         - Simply takes completions and completes them
     """
-    def chat(self, messages: list, quick: bool=False) -> str:
+    def chat(self, messages: list, model: Model=None, quick: bool=False) -> str:
         # Uses context of Core, but does not participate, one way so to speak
-        model = (self.quick if quick else self.main)
-        return self._submit_task(self._infer, (messages, model))
+        if not model:
+            use_model = (self.quick if quick else self.main)
+        else:
+            use_model = model
+        return self._submit_task(self._infer, (messages, use_model))
 
     """ Same as chat but returns a generator for the stream """
     def chat_stream(self, messages: list, model: Model=None, quick: bool=False):
