@@ -15,7 +15,7 @@ import shortuuid
 from app.logger import create_logger
 from app.news import get_stories, get_marquee
 from app.config import SuperintendConfig, Model
-from .prompts import ephem_sys_prompt, superintend_sys_prompt, bool_question_prompt, build_rag, build_need_rag_prompt, build_allow_story, build_doc_ret_prompt, build_interviewy_prompt, build_interviewer_prompt, get_interviewy_person, get_interviewer_person, build_quick_fill, get_iview_title, build_fix_schrod_title, build_periodic_sys_prompt
+from .prompts import ephem_sys_prompt, superintend_sys_prompt, bool_question_prompt, build_rag, build_need_rag_prompt, build_allow_story, build_doc_ret_prompt, build_interviewy_prompt, build_interviewer_prompt, get_interviewy_person, get_interviewer_person, build_quick_fill, get_iview_title, build_fix_schrod_title, build_periodic_prompt, periodic_sys_prompt
 from .utils import stringify, postproc_r1, bool_resp, extract_tok_val, pretty_interview
 from app.models import Interview
 from app import db
@@ -40,6 +40,7 @@ class SuperIntend:
     """ Groq for fast, feather for slow but custom """
     def __init__(self, config):
         self.config = config
+        self.dec_toks = 3
         try:
             # Core: Handles internal system management and dishing out jobs. Infer layer
             self.core = Core(config.CORE)
@@ -99,14 +100,53 @@ class SuperIntend:
         # Change size of some stories
         # Make changes according to what Hoodlem reported
             # Remove story
-        self.dec_toks = 3
+
+        def _per():
+            stories = get_stories()
+            sliding_titles = get_marquee()
+            sys = periodic_sys_prompt
+            prompt = build_periodic_prompt(dec_toks=self.dec_toks, temp=72, stories=stories, sliding_titles=sliding_titles)
+            resp = self.core.request(prompt, sys_prompt=sys, sticky=True, quick=False, dimentia=False)
+            if not self._postproc_periodic(resp):
+                return False
+
+        max_fails, fails = 5, 0
+        dec_toks = self.dec_toks
+        for i in range(dec_toks):
+            if fails >= max_fails:
+                return
+            if not _per():
+                fails += 1
+        
+    def _postproc_periodic(self, content: str):
+        try:
+            tok_field = content.split("Decision Token:")[1]
+        except Exception as e:
+            logger.fatal(f"Failed to postprocess periodic for decision token: {e}")
+            return False
+
+        if "<|DECIDE_CREATE|>" in tok_field:
+            print("Got create")
+            return self._dec_create()
+        elif "<|DECIDE_RM|>" in tok_field:
+            print("Got rm")
+            return True
+        elif "<|DECIDE_SLIDING|>" in tok_field:
+            print("Got sliding")
+            return True
+        elif "<|DECIDE_TMP|>" in tok_field:
+            print("Got tmp")
+            return True
+        elif "<|DECIDE_SIZE|>" in tok_field:
+            print("Got size")
+            return True
+        else:
+            return False
+
+    def _dec_create(self) -> bool:
         stories = get_stories()
-        sliding_titles = get_marquee()
         sys = build_periodic_sys_prompt(dec_toks=self.dec_toks, temp=72, stories=stories, sliding_titles=sliding_titles)
-        print(f"\n\n{sys}\n\n")
         resp = self.core.request("", sys_prompt=sys, sticky=True, quick=False, dimentia=False)
-        print(resp)
-        sys.exit(1)
 
 _superintend = SuperIntend(SuperintendConfig())
 print(_superintend.config)
