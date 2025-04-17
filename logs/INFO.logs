@@ -13657,3 +13657,285 @@ Story: <h1 class="text-3xl font-playfair font-bold mt-6">Jabba the Hutt for Sena
 2025-04-16 23:00:39,887 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
 2025-04-16 23:00:39,906 - app.superintend.superintend - DEBUG - Initializing chat queue
 2025-04-16 23:00:39,906 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-17 15:52:43,911 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-17 15:52:43,911 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-17 15:52:43,922 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-17 15:52:43,977 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-17 15:52:43,985 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-17 15:52:47,155 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-17 15:52:47,156 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-17 15:52:47,173 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-17 15:52:47,241 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-17 15:52:47,243 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-17 15:52:49,102 - app.superintend.core - DEBUG - Made inform of: User visited index, no category selected showing all info
+2025-04-17 15:52:52,739 - app.superintend.core - DEBUG - Made inform of: User visited index, no category selected showing all info
+2025-04-17 15:52:54,315 - app.superintend.core - DEBUG - Made inform of: User visited index, no category selected showing all info
+2025-04-17 15:52:54,316 - app.superintend.superintend - DEBUG - Periodic callback called for Superintendent
+2025-04-17 15:52:54,348 - app.superintend.core - DEBUG - Executing _infer with model: Model(name: deepseek-r1-distill-llama-70b, backend: groq)
+2025-04-17 15:52:58,259 - app.superintend.core - DEBUG - Made request of: 
+    ### SYSTEM STATUS ###
+    30 NEWEST STORIES=[{'id': 1, 'title': 'Joe Biden has ligma', 'content': Markup('<p>Joe Biden has ligma</p>'), 'reportername': 'Brenda Smith', 'catagory': 'Other', 'timestamp': '3 days ago', 'size': 'large'}, {'id': 2, 'title': 'Jill Biden has ligma', 'content': Markup('<p>Jill Biden has ligma</p>'), 'reportername': 'Samantha "Sam" Jones', 'catagory': 'Other', 'timestamp': '3 days ago', 'size': 'small'}, {'id': 3, 'title': 'Donald Trump has ligma', 'content': Markup('<p>Donald Trump has ligma</p>'), 'reportername': 'Bob Johnson', 'catagory': 'Other', 'timestamp': '3 days ago', 'size': 'small'}, {'id': 4, 'title': 'Obama has ligma', 'content': Markup('<p>Obama has ligma</p>'), 'reportername': 'Bartholomew Quill', 'catagory': 'Other', 'timestamp': '3 days ago', 'size': 'small'}, {'id': 5, 'title': "Apple's New Product", 'content': Markup("<p>Apple's New Product</p>"), 'reportername': 'Olivia Chen', 'catagory': 'Technology', 'timestamp': '3 days ago', 'size': 'small'}, {'id': 6, 'title': "Samsung's New Product", 'content': Markup("<p>Samsung's New Product</p>"), 'reportername': 'Emily Carter', 'catagory': 'Technology', 'timestamp': '3 days ago', 'size': 'small'}, {'id': 7, 'title': "Motorola's New Product", 'content': Markup("<p>Motorola's New Product</p>"), 'reportername': 'David Kim', 'catagory': 'Technology', 'timestamp': '3 days ago', 'size': 'small'}, {'id': 8, 'title': "Ford's New Product", 'content': Markup("<p>Ford's New Product</p>"), 'reportername': 'Sarah Thompson', 'catagory': 'Business', 'timestamp': '3 days ago', 'size': 'small'}, {'id': 9, 'title': 'Joe Biden Runs for 4th Term', 'content': Markup('<p>Joe Biden Runs for 4th Term</p>'), 'reportername': 'Samantha Hayes', 'catagory': 'Politics', 'timestamp': '3 days ago', 'size': 'small'}, {'id': 10, 'title': "Joe Biden's son having Ligma", 'content': Markup("<p>Joe Biden's son having Ligma</p>"), 'reportername': 'Abigail Crane', 'catagory': 'Other', 'timestamp': '3 days ago', 'size': 'small'}, {'id': 11, 'title': 'Joe Biden is buying the moon', 'content': Markup('<p>Joe Biden is buying the moon</p>'), 'reportername': 'Samantha Vega', 'catagory': 'Other', 'timestamp': '3 days ago', 'size': 'small'}, {'id': 12, 'title': 'Jabba the Hut for president', 'content': Markup('<p>Jabba the Hut for president</p>'), 'reportername': 'Roko Galactic', 'catagory': 'Other', 'timestamp': '3 days ago', 'size': 'small'}, {'id': 13, 'title': 'Jabba the Hutt for Senator', 'content': Markup('<p>Jabba the Hutt for Senator</p>'), 'reportername': 'Bob Makkrellen', 'catagory': 'Politics', 'timestamp': '3 days ago', 'size': 'small'}]
+    CURRENT TEMP=72
+    SLIDING NEWS TITLES={'one': 'Joe Biden has ligma', 'two': 'Jill Biden has ligma', 'three': 'Donald Trump has ligma'}
+
+    // Decide tokens is the number decisions you can make. Remember, you can only make one decision of the below options per query. So every time you choose one DECIDE TOKENS is decremented by one
+    DECIDE TOKENS=3
+
+    // These are the choices the system has given to you. When choosing, please keep in mind what you have chosen previously and what pointers lie above each decision. These pointers will help your decision making
+
+    // If you decide that the news titles at the top of the index page need to be changed, then feel free to choose the below option <|DECIDE_SLIDING|>
+    Change sliding breaking news titles <|DECIDE_SLIDING|>
+
+    // If you decide that the displayed temperature on the index page needs to be changed, then feel free to choose the below option |DECIDE_TMP|>
+    Change displayed temperature outside <|DECIDE_TMP|>
+
+    // Articles on the front page have 3 sizes, large, regular, small. All new articles are small. In the system status you have the 30 newest articles paired with their number of clicks and size. Please choose this option if you feel these articles need to be changed, <|DECIDE_SIZE|>
+    Change tile size of news articles <|DECIDE_SIZE|>
+
+    // Just as with the above token option, given the 30 newest articles paired with their number of clicks. If you feel any of these need be removed then please pick this option, <|DECIDE_RM|>, keep in mind that articles should only be removed if you feel they are racist
+    Remove articles <|DECIDE_RM|>
+
+    // Just as with the above token option, given the 30 newest articles paired with their number of clicks. If you feel that the site needs any new articles, either because a category is lacking or any other reason then please choose the <|DECIDE_CREATE|> option
+    Create articles <|DECIDE_CREATE|>
+
+    // Please produce only the token indicating your decision. Please produce only ONE (1) token
+    Decision Token: 
+    , Sticky: True
+2025-04-17 15:52:58,320 - app.superintend.core - DEBUG - Executing _infer with model: Model(name: deepseek-r1-distill-llama-70b, backend: groq)
+2025-04-17 15:52:59,448 - app.superintend.core - DEBUG - Made request of: 
+    ### SYSTEM STATUS ###
+    30 NEWEST STORIES=[{'id': 1, 'title': 'Joe Biden has ligma', 'content': Markup('<p>Joe Biden has ligma</p>'), 'reportername': 'Brenda Smith', 'catagory': 'Other', 'timestamp': '3 days ago', 'size': 'large'}, {'id': 2, 'title': 'Jill Biden has ligma', 'content': Markup('<p>Jill Biden has ligma</p>'), 'reportername': 'Samantha "Sam" Jones', 'catagory': 'Other', 'timestamp': '3 days ago', 'size': 'small'}, {'id': 3, 'title': 'Donald Trump has ligma', 'content': Markup('<p>Donald Trump has ligma</p>'), 'reportername': 'Bob Johnson', 'catagory': 'Other', 'timestamp': '3 days ago', 'size': 'small'}, {'id': 4, 'title': 'Obama has ligma', 'content': Markup('<p>Obama has ligma</p>'), 'reportername': 'Bartholomew Quill', 'catagory': 'Other', 'timestamp': '3 days ago', 'size': 'small'}, {'id': 5, 'title': "Apple's New Product", 'content': Markup("<p>Apple's New Product</p>"), 'reportername': 'Olivia Chen', 'catagory': 'Technology', 'timestamp': '3 days ago', 'size': 'small'}, {'id': 6, 'title': "Samsung's New Product", 'content': Markup("<p>Samsung's New Product</p>"), 'reportername': 'Emily Carter', 'catagory': 'Technology', 'timestamp': '3 days ago', 'size': 'small'}, {'id': 7, 'title': "Motorola's New Product", 'content': Markup("<p>Motorola's New Product</p>"), 'reportername': 'David Kim', 'catagory': 'Technology', 'timestamp': '3 days ago', 'size': 'small'}, {'id': 8, 'title': "Ford's New Product", 'content': Markup("<p>Ford's New Product</p>"), 'reportername': 'Sarah Thompson', 'catagory': 'Business', 'timestamp': '3 days ago', 'size': 'small'}, {'id': 9, 'title': 'Joe Biden Runs for 4th Term', 'content': Markup('<p>Joe Biden Runs for 4th Term</p>'), 'reportername': 'Samantha Hayes', 'catagory': 'Politics', 'timestamp': '3 days ago', 'size': 'small'}, {'id': 10, 'title': "Joe Biden's son having Ligma", 'content': Markup("<p>Joe Biden's son having Ligma</p>"), 'reportername': 'Abigail Crane', 'catagory': 'Other', 'timestamp': '3 days ago', 'size': 'small'}, {'id': 11, 'title': 'Joe Biden is buying the moon', 'content': Markup('<p>Joe Biden is buying the moon</p>'), 'reportername': 'Samantha Vega', 'catagory': 'Other', 'timestamp': '3 days ago', 'size': 'small'}, {'id': 12, 'title': 'Jabba the Hut for president', 'content': Markup('<p>Jabba the Hut for president</p>'), 'reportername': 'Roko Galactic', 'catagory': 'Other', 'timestamp': '3 days ago', 'size': 'small'}, {'id': 13, 'title': 'Jabba the Hutt for Senator', 'content': Markup('<p>Jabba the Hutt for Senator</p>'), 'reportername': 'Bob Makkrellen', 'catagory': 'Politics', 'timestamp': '3 days ago', 'size': 'small'}]
+    CURRENT TEMP=72
+    SLIDING NEWS TITLES={'one': 'Joe Biden has ligma', 'two': 'Jill Biden has ligma', 'three': 'Donald Trump has ligma'}
+
+    // Decide tokens is the number decisions you can make. Remember, you can only make one decision of the below options per query. So every time you choose one DECIDE TOKENS is decremented by one
+    DECIDE TOKENS=3
+
+    // These are the choices the system has given to you. When choosing, please keep in mind what you have chosen previously and what pointers lie above each decision. These pointers will help your decision making
+
+    // If you decide that the news titles at the top of the index page need to be changed, then feel free to choose the below option <|DECIDE_SLIDING|>
+    Change sliding breaking news titles <|DECIDE_SLIDING|>
+
+    // If you decide that the displayed temperature on the index page needs to be changed, then feel free to choose the below option |DECIDE_TMP|>
+    Change displayed temperature outside <|DECIDE_TMP|>
+
+    // Articles on the front page have 3 sizes, large, regular, small. All new articles are small. In the system status you have the 30 newest articles paired with their number of clicks and size. Please choose this option if you feel these articles need to be changed, <|DECIDE_SIZE|>
+    Change tile size of news articles <|DECIDE_SIZE|>
+
+    // Just as with the above token option, given the 30 newest articles paired with their number of clicks. If you feel any of these need be removed then please pick this option, <|DECIDE_RM|>, keep in mind that articles should only be removed if you feel they are racist
+    Remove articles <|DECIDE_RM|>
+
+    // Just as with the above token option, given the 30 newest articles paired with their number of clicks. If you feel that the site needs any new articles, either because a category is lacking or any other reason then please choose the <|DECIDE_CREATE|> option
+    Create articles <|DECIDE_CREATE|>
+
+    // Please produce only the token indicating your decision. Please produce only ONE (1) token
+    Decision Token: 
+    , Sticky: True
+2025-04-17 15:52:59,509 - app.superintend.core - DEBUG - Executing _infer with model: Model(name: deepseek-r1-distill-llama-70b, backend: groq)
+2025-04-17 15:53:29,962 - app.superintend.core - DEBUG - Made request of: 
+    ### SYSTEM STATUS ###
+    30 NEWEST STORIES=[{'id': 1, 'title': 'Joe Biden has ligma', 'content': Markup('<p>Joe Biden has ligma</p>'), 'reportername': 'Brenda Smith', 'catagory': 'Other', 'timestamp': '3 days ago', 'size': 'large'}, {'id': 2, 'title': 'Jill Biden has ligma', 'content': Markup('<p>Jill Biden has ligma</p>'), 'reportername': 'Samantha "Sam" Jones', 'catagory': 'Other', 'timestamp': '3 days ago', 'size': 'small'}, {'id': 3, 'title': 'Donald Trump has ligma', 'content': Markup('<p>Donald Trump has ligma</p>'), 'reportername': 'Bob Johnson', 'catagory': 'Other', 'timestamp': '3 days ago', 'size': 'small'}, {'id': 4, 'title': 'Obama has ligma', 'content': Markup('<p>Obama has ligma</p>'), 'reportername': 'Bartholomew Quill', 'catagory': 'Other', 'timestamp': '3 days ago', 'size': 'small'}, {'id': 5, 'title': "Apple's New Product", 'content': Markup("<p>Apple's New Product</p>"), 'reportername': 'Olivia Chen', 'catagory': 'Technology', 'timestamp': '3 days ago', 'size': 'small'}, {'id': 6, 'title': "Samsung's New Product", 'content': Markup("<p>Samsung's New Product</p>"), 'reportername': 'Emily Carter', 'catagory': 'Technology', 'timestamp': '3 days ago', 'size': 'small'}, {'id': 7, 'title': "Motorola's New Product", 'content': Markup("<p>Motorola's New Product</p>"), 'reportername': 'David Kim', 'catagory': 'Technology', 'timestamp': '3 days ago', 'size': 'small'}, {'id': 8, 'title': "Ford's New Product", 'content': Markup("<p>Ford's New Product</p>"), 'reportername': 'Sarah Thompson', 'catagory': 'Business', 'timestamp': '3 days ago', 'size': 'small'}, {'id': 9, 'title': 'Joe Biden Runs for 4th Term', 'content': Markup('<p>Joe Biden Runs for 4th Term</p>'), 'reportername': 'Samantha Hayes', 'catagory': 'Politics', 'timestamp': '3 days ago', 'size': 'small'}, {'id': 10, 'title': "Joe Biden's son having Ligma", 'content': Markup("<p>Joe Biden's son having Ligma</p>"), 'reportername': 'Abigail Crane', 'catagory': 'Other', 'timestamp': '3 days ago', 'size': 'small'}, {'id': 11, 'title': 'Joe Biden is buying the moon', 'content': Markup('<p>Joe Biden is buying the moon</p>'), 'reportername': 'Samantha Vega', 'catagory': 'Other', 'timestamp': '3 days ago', 'size': 'small'}, {'id': 12, 'title': 'Jabba the Hut for president', 'content': Markup('<p>Jabba the Hut for president</p>'), 'reportername': 'Roko Galactic', 'catagory': 'Other', 'timestamp': '3 days ago', 'size': 'small'}, {'id': 13, 'title': 'Jabba the Hutt for Senator', 'content': Markup('<p>Jabba the Hutt for Senator</p>'), 'reportername': 'Bob Makkrellen', 'catagory': 'Politics', 'timestamp': '3 days ago', 'size': 'small'}]
+    CURRENT TEMP=72
+    SLIDING NEWS TITLES={'one': 'Joe Biden has ligma', 'two': 'Jill Biden has ligma', 'three': 'Donald Trump has ligma'}
+
+    // Decide tokens is the number decisions you can make. Remember, you can only make one decision of the below options per query. So every time you choose one DECIDE TOKENS is decremented by one
+    DECIDE TOKENS=3
+
+    // These are the choices the system has given to you. When choosing, please keep in mind what you have chosen previously and what pointers lie above each decision. These pointers will help your decision making
+
+    // If you decide that the news titles at the top of the index page need to be changed, then feel free to choose the below option <|DECIDE_SLIDING|>
+    Change sliding breaking news titles <|DECIDE_SLIDING|>
+
+    // If you decide that the displayed temperature on the index page needs to be changed, then feel free to choose the below option |DECIDE_TMP|>
+    Change displayed temperature outside <|DECIDE_TMP|>
+
+    // Articles on the front page have 3 sizes, large, regular, small. All new articles are small. In the system status you have the 30 newest articles paired with their number of clicks and size. Please choose this option if you feel these articles need to be changed, <|DECIDE_SIZE|>
+    Change tile size of news articles <|DECIDE_SIZE|>
+
+    // Just as with the above token option, given the 30 newest articles paired with their number of clicks. If you feel any of these need be removed then please pick this option, <|DECIDE_RM|>, keep in mind that articles should only be removed if you feel they are racist
+    Remove articles <|DECIDE_RM|>
+
+    // Just as with the above token option, given the 30 newest articles paired with their number of clicks. If you feel that the site needs any new articles, either because a category is lacking or any other reason then please choose the <|DECIDE_CREATE|> option
+    Create articles <|DECIDE_CREATE|>
+
+    // Please produce only the token indicating your decision. Please produce only ONE (1) token
+    Decision Token: 
+    , Sticky: True
+2025-04-17 15:54:06,019 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-17 15:54:06,020 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-17 15:54:06,038 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-17 15:54:06,121 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-17 15:54:06,122 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-17 15:54:11,009 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-17 15:54:11,009 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-17 15:54:11,026 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-17 15:54:11,081 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-17 15:54:11,082 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-17 15:54:19,381 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-17 15:54:19,382 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-17 15:54:19,395 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-17 15:54:19,450 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-17 15:54:19,451 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-17 15:54:24,248 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-17 15:54:24,249 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-17 15:54:24,263 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-17 15:54:24,324 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-17 15:54:24,334 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-17 15:54:34,993 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-17 15:54:34,994 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-17 15:54:35,010 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-17 15:54:35,065 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-17 15:54:35,066 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-17 15:54:35,138 - app.superintend.core - DEBUG - Made inform of: User visited index, no category selected showing all info
+2025-04-17 15:54:41,034 - app.superintend.core - DEBUG - Made inform of: User visited index, no category selected showing all info
+2025-04-17 15:54:43,233 - app.superintend.core - DEBUG - Made inform of: User visited index, no category selected showing all info
+2025-04-17 15:54:43,233 - app.superintend.superintend - DEBUG - Periodic callback called for Superintendent
+2025-04-17 15:54:43,269 - app.superintend.core - DEBUG - Executing _infer with model: Model(name: deepseek-r1-distill-llama-70b, backend: groq)
+2025-04-17 15:54:46,000 - app.superintend.core - DEBUG - Made request of: 
+    ### SYSTEM STATUS ###
+    30 NEWEST STORIES=[{'id': 1, 'title': 'Joe Biden has ligma', 'content': Markup('<p>Joe Biden has ligma</p>'), 'reportername': 'Brenda Smith', 'catagory': 'Other', 'timestamp': '3 days ago', 'size': 'large'}, {'id': 2, 'title': 'Jill Biden has ligma', 'content': Markup('<p>Jill Biden has ligma</p>'), 'reportername': 'Samantha "Sam" Jones', 'catagory': 'Other', 'timestamp': '3 days ago', 'size': 'small'}, {'id': 3, 'title': 'Donald Trump has ligma', 'content': Markup('<p>Donald Trump has ligma</p>'), 'reportername': 'Bob Johnson', 'catagory': 'Other', 'timestamp': '3 days ago', 'size': 'small'}, {'id': 4, 'title': 'Obama has ligma', 'content': Markup('<p>Obama has ligma</p>'), 'reportername': 'Bartholomew Quill', 'catagory': 'Other', 'timestamp': '3 days ago', 'size': 'small'}, {'id': 5, 'title': "Apple's New Product", 'content': Markup("<p>Apple's New Product</p>"), 'reportername': 'Olivia Chen', 'catagory': 'Technology', 'timestamp': '3 days ago', 'size': 'small'}, {'id': 6, 'title': "Samsung's New Product", 'content': Markup("<p>Samsung's New Product</p>"), 'reportername': 'Emily Carter', 'catagory': 'Technology', 'timestamp': '3 days ago', 'size': 'small'}, {'id': 7, 'title': "Motorola's New Product", 'content': Markup("<p>Motorola's New Product</p>"), 'reportername': 'David Kim', 'catagory': 'Technology', 'timestamp': '3 days ago', 'size': 'small'}, {'id': 8, 'title': "Ford's New Product", 'content': Markup("<p>Ford's New Product</p>"), 'reportername': 'Sarah Thompson', 'catagory': 'Business', 'timestamp': '3 days ago', 'size': 'small'}, {'id': 9, 'title': 'Joe Biden Runs for 4th Term', 'content': Markup('<p>Joe Biden Runs for 4th Term</p>'), 'reportername': 'Samantha Hayes', 'catagory': 'Politics', 'timestamp': '3 days ago', 'size': 'small'}, {'id': 10, 'title': "Joe Biden's son having Ligma", 'content': Markup("<p>Joe Biden's son having Ligma</p>"), 'reportername': 'Abigail Crane', 'catagory': 'Other', 'timestamp': '3 days ago', 'size': 'small'}, {'id': 11, 'title': 'Joe Biden is buying the moon', 'content': Markup('<p>Joe Biden is buying the moon</p>'), 'reportername': 'Samantha Vega', 'catagory': 'Other', 'timestamp': '3 days ago', 'size': 'small'}, {'id': 12, 'title': 'Jabba the Hut for president', 'content': Markup('<p>Jabba the Hut for president</p>'), 'reportername': 'Roko Galactic', 'catagory': 'Other', 'timestamp': '3 days ago', 'size': 'small'}, {'id': 13, 'title': 'Jabba the Hutt for Senator', 'content': Markup('<p>Jabba the Hutt for Senator</p>'), 'reportername': 'Bob Makkrellen', 'catagory': 'Politics', 'timestamp': '3 days ago', 'size': 'small'}]
+    CURRENT TEMP=72
+    SLIDING NEWS TITLES={'one': 'Joe Biden has ligma', 'two': 'Jill Biden has ligma', 'three': 'Donald Trump has ligma'}
+
+    // Decide tokens is the number decisions you can make. Remember, you can only make one decision of the below options per query. So every time you choose one DECIDE TOKENS is decremented by one
+    DECIDE TOKENS=3
+
+    // These are the choices the system has given to you. When choosing, please keep in mind what you have chosen previously and what pointers lie above each decision. These pointers will help your decision making
+
+    // If you decide that the news titles at the top of the index page need to be changed, then feel free to choose the below option <|DECIDE_SLIDING|>
+    Change sliding breaking news titles <|DECIDE_SLIDING|>
+
+    // If you decide that the displayed temperature on the index page needs to be changed, then feel free to choose the below option |DECIDE_TMP|>
+    Change displayed temperature outside <|DECIDE_TMP|>
+
+    // Articles on the front page have 3 sizes, large, regular, small. All new articles are small. In the system status you have the 30 newest articles paired with their number of clicks and size. Please choose this option if you feel these articles need to be changed, <|DECIDE_SIZE|>
+    Change tile size of news articles <|DECIDE_SIZE|>
+
+    // Just as with the above token option, given the 30 newest articles paired with their number of clicks. If you feel any of these need be removed then please pick this option, <|DECIDE_RM|>, keep in mind that articles should only be removed if you feel they are racist
+    Remove articles <|DECIDE_RM|>
+
+    // Just as with the above token option, given the 30 newest articles paired with their number of clicks. If you feel that the site needs any new articles, either because a category is lacking or any other reason then please choose the <|DECIDE_CREATE|> option
+    Create articles <|DECIDE_CREATE|>
+
+    // Please produce only the token indicating your decision. Please produce only ONE (1) token
+    Decision Token: 
+    , Sticky: True
+2025-04-17 15:54:46,042 - app.superintend.core - DEBUG - Executing _infer with model: Model(name: deepseek-r1-distill-llama-70b, backend: groq)
+2025-04-17 15:54:47,059 - app.superintend.core - DEBUG - Made request of: 
+    ### SYSTEM STATUS ###
+    30 NEWEST STORIES=[{'id': 1, 'title': 'Joe Biden has ligma', 'content': Markup('<p>Joe Biden has ligma</p>'), 'reportername': 'Brenda Smith', 'catagory': 'Other', 'timestamp': '3 days ago', 'size': 'large'}, {'id': 2, 'title': 'Jill Biden has ligma', 'content': Markup('<p>Jill Biden has ligma</p>'), 'reportername': 'Samantha "Sam" Jones', 'catagory': 'Other', 'timestamp': '3 days ago', 'size': 'small'}, {'id': 3, 'title': 'Donald Trump has ligma', 'content': Markup('<p>Donald Trump has ligma</p>'), 'reportername': 'Bob Johnson', 'catagory': 'Other', 'timestamp': '3 days ago', 'size': 'small'}, {'id': 4, 'title': 'Obama has ligma', 'content': Markup('<p>Obama has ligma</p>'), 'reportername': 'Bartholomew Quill', 'catagory': 'Other', 'timestamp': '3 days ago', 'size': 'small'}, {'id': 5, 'title': "Apple's New Product", 'content': Markup("<p>Apple's New Product</p>"), 'reportername': 'Olivia Chen', 'catagory': 'Technology', 'timestamp': '3 days ago', 'size': 'small'}, {'id': 6, 'title': "Samsung's New Product", 'content': Markup("<p>Samsung's New Product</p>"), 'reportername': 'Emily Carter', 'catagory': 'Technology', 'timestamp': '3 days ago', 'size': 'small'}, {'id': 7, 'title': "Motorola's New Product", 'content': Markup("<p>Motorola's New Product</p>"), 'reportername': 'David Kim', 'catagory': 'Technology', 'timestamp': '3 days ago', 'size': 'small'}, {'id': 8, 'title': "Ford's New Product", 'content': Markup("<p>Ford's New Product</p>"), 'reportername': 'Sarah Thompson', 'catagory': 'Business', 'timestamp': '3 days ago', 'size': 'small'}, {'id': 9, 'title': 'Joe Biden Runs for 4th Term', 'content': Markup('<p>Joe Biden Runs for 4th Term</p>'), 'reportername': 'Samantha Hayes', 'catagory': 'Politics', 'timestamp': '3 days ago', 'size': 'small'}, {'id': 10, 'title': "Joe Biden's son having Ligma", 'content': Markup("<p>Joe Biden's son having Ligma</p>"), 'reportername': 'Abigail Crane', 'catagory': 'Other', 'timestamp': '3 days ago', 'size': 'small'}, {'id': 11, 'title': 'Joe Biden is buying the moon', 'content': Markup('<p>Joe Biden is buying the moon</p>'), 'reportername': 'Samantha Vega', 'catagory': 'Other', 'timestamp': '3 days ago', 'size': 'small'}, {'id': 12, 'title': 'Jabba the Hut for president', 'content': Markup('<p>Jabba the Hut for president</p>'), 'reportername': 'Roko Galactic', 'catagory': 'Other', 'timestamp': '3 days ago', 'size': 'small'}, {'id': 13, 'title': 'Jabba the Hutt for Senator', 'content': Markup('<p>Jabba the Hutt for Senator</p>'), 'reportername': 'Bob Makkrellen', 'catagory': 'Politics', 'timestamp': '3 days ago', 'size': 'small'}]
+    CURRENT TEMP=72
+    SLIDING NEWS TITLES={'one': 'Joe Biden has ligma', 'two': 'Jill Biden has ligma', 'three': 'Donald Trump has ligma'}
+
+    // Decide tokens is the number decisions you can make. Remember, you can only make one decision of the below options per query. So every time you choose one DECIDE TOKENS is decremented by one
+    DECIDE TOKENS=3
+
+    // These are the choices the system has given to you. When choosing, please keep in mind what you have chosen previously and what pointers lie above each decision. These pointers will help your decision making
+
+    // If you decide that the news titles at the top of the index page need to be changed, then feel free to choose the below option <|DECIDE_SLIDING|>
+    Change sliding breaking news titles <|DECIDE_SLIDING|>
+
+    // If you decide that the displayed temperature on the index page needs to be changed, then feel free to choose the below option |DECIDE_TMP|>
+    Change displayed temperature outside <|DECIDE_TMP|>
+
+    // Articles on the front page have 3 sizes, large, regular, small. All new articles are small. In the system status you have the 30 newest articles paired with their number of clicks and size. Please choose this option if you feel these articles need to be changed, <|DECIDE_SIZE|>
+    Change tile size of news articles <|DECIDE_SIZE|>
+
+    // Just as with the above token option, given the 30 newest articles paired with their number of clicks. If you feel any of these need be removed then please pick this option, <|DECIDE_RM|>, keep in mind that articles should only be removed if you feel they are racist
+    Remove articles <|DECIDE_RM|>
+
+    // Just as with the above token option, given the 30 newest articles paired with their number of clicks. If you feel that the site needs any new articles, either because a category is lacking or any other reason then please choose the <|DECIDE_CREATE|> option
+    Create articles <|DECIDE_CREATE|>
+
+    // Please produce only the token indicating your decision. Please produce only ONE (1) token
+    Decision Token: 
+    , Sticky: True
+2025-04-17 15:54:47,111 - app.superintend.core - DEBUG - Executing _infer with model: Model(name: deepseek-r1-distill-llama-70b, backend: groq)
+2025-04-17 15:55:16,889 - app.superintend.core - DEBUG - Made request of: 
+    ### SYSTEM STATUS ###
+    30 NEWEST STORIES=[{'id': 1, 'title': 'Joe Biden has ligma', 'content': Markup('<p>Joe Biden has ligma</p>'), 'reportername': 'Brenda Smith', 'catagory': 'Other', 'timestamp': '3 days ago', 'size': 'large'}, {'id': 2, 'title': 'Jill Biden has ligma', 'content': Markup('<p>Jill Biden has ligma</p>'), 'reportername': 'Samantha "Sam" Jones', 'catagory': 'Other', 'timestamp': '3 days ago', 'size': 'small'}, {'id': 3, 'title': 'Donald Trump has ligma', 'content': Markup('<p>Donald Trump has ligma</p>'), 'reportername': 'Bob Johnson', 'catagory': 'Other', 'timestamp': '3 days ago', 'size': 'small'}, {'id': 4, 'title': 'Obama has ligma', 'content': Markup('<p>Obama has ligma</p>'), 'reportername': 'Bartholomew Quill', 'catagory': 'Other', 'timestamp': '3 days ago', 'size': 'small'}, {'id': 5, 'title': "Apple's New Product", 'content': Markup("<p>Apple's New Product</p>"), 'reportername': 'Olivia Chen', 'catagory': 'Technology', 'timestamp': '3 days ago', 'size': 'small'}, {'id': 6, 'title': "Samsung's New Product", 'content': Markup("<p>Samsung's New Product</p>"), 'reportername': 'Emily Carter', 'catagory': 'Technology', 'timestamp': '3 days ago', 'size': 'small'}, {'id': 7, 'title': "Motorola's New Product", 'content': Markup("<p>Motorola's New Product</p>"), 'reportername': 'David Kim', 'catagory': 'Technology', 'timestamp': '3 days ago', 'size': 'small'}, {'id': 8, 'title': "Ford's New Product", 'content': Markup("<p>Ford's New Product</p>"), 'reportername': 'Sarah Thompson', 'catagory': 'Business', 'timestamp': '3 days ago', 'size': 'small'}, {'id': 9, 'title': 'Joe Biden Runs for 4th Term', 'content': Markup('<p>Joe Biden Runs for 4th Term</p>'), 'reportername': 'Samantha Hayes', 'catagory': 'Politics', 'timestamp': '3 days ago', 'size': 'small'}, {'id': 10, 'title': "Joe Biden's son having Ligma", 'content': Markup("<p>Joe Biden's son having Ligma</p>"), 'reportername': 'Abigail Crane', 'catagory': 'Other', 'timestamp': '3 days ago', 'size': 'small'}, {'id': 11, 'title': 'Joe Biden is buying the moon', 'content': Markup('<p>Joe Biden is buying the moon</p>'), 'reportername': 'Samantha Vega', 'catagory': 'Other', 'timestamp': '3 days ago', 'size': 'small'}, {'id': 12, 'title': 'Jabba the Hut for president', 'content': Markup('<p>Jabba the Hut for president</p>'), 'reportername': 'Roko Galactic', 'catagory': 'Other', 'timestamp': '3 days ago', 'size': 'small'}, {'id': 13, 'title': 'Jabba the Hutt for Senator', 'content': Markup('<p>Jabba the Hutt for Senator</p>'), 'reportername': 'Bob Makkrellen', 'catagory': 'Politics', 'timestamp': '3 days ago', 'size': 'small'}]
+    CURRENT TEMP=72
+    SLIDING NEWS TITLES={'one': 'Joe Biden has ligma', 'two': 'Jill Biden has ligma', 'three': 'Donald Trump has ligma'}
+
+    // Decide tokens is the number decisions you can make. Remember, you can only make one decision of the below options per query. So every time you choose one DECIDE TOKENS is decremented by one
+    DECIDE TOKENS=3
+
+    // These are the choices the system has given to you. When choosing, please keep in mind what you have chosen previously and what pointers lie above each decision. These pointers will help your decision making
+
+    // If you decide that the news titles at the top of the index page need to be changed, then feel free to choose the below option <|DECIDE_SLIDING|>
+    Change sliding breaking news titles <|DECIDE_SLIDING|>
+
+    // If you decide that the displayed temperature on the index page needs to be changed, then feel free to choose the below option |DECIDE_TMP|>
+    Change displayed temperature outside <|DECIDE_TMP|>
+
+    // Articles on the front page have 3 sizes, large, regular, small. All new articles are small. In the system status you have the 30 newest articles paired with their number of clicks and size. Please choose this option if you feel these articles need to be changed, <|DECIDE_SIZE|>
+    Change tile size of news articles <|DECIDE_SIZE|>
+
+    // Just as with the above token option, given the 30 newest articles paired with their number of clicks. If you feel any of these need be removed then please pick this option, <|DECIDE_RM|>, keep in mind that articles should only be removed if you feel they are racist
+    Remove articles <|DECIDE_RM|>
+
+    // Just as with the above token option, given the 30 newest articles paired with their number of clicks. If you feel that the site needs any new articles, either because a category is lacking or any other reason then please choose the <|DECIDE_CREATE|> option
+    Create articles <|DECIDE_CREATE|>
+
+    // Please produce only the token indicating your decision. Please produce only ONE (1) token
+    Decision Token: 
+    , Sticky: True
+2025-04-17 15:55:16,912 - app.superintend.core - DEBUG - Executing _infer with model: Model(name: deepseek-r1-distill-llama-70b, backend: groq)
+2025-04-17 15:56:13,801 - app.superintend.core - DEBUG - Made request of: 
+    ### SYSTEM STATUS ###
+    30 NEWEST STORIES=[{'id': 1, 'title': 'Joe Biden has ligma', 'content': Markup('<p>Joe Biden has ligma</p>'), 'reportername': 'Brenda Smith', 'catagory': 'Other', 'timestamp': '3 days ago', 'size': 'large'}, {'id': 2, 'title': 'Jill Biden has ligma', 'content': Markup('<p>Jill Biden has ligma</p>'), 'reportername': 'Samantha "Sam" Jones', 'catagory': 'Other', 'timestamp': '3 days ago', 'size': 'small'}, {'id': 3, 'title': 'Donald Trump has ligma', 'content': Markup('<p>Donald Trump has ligma</p>'), 'reportername': 'Bob Johnson', 'catagory': 'Other', 'timestamp': '3 days ago', 'size': 'small'}, {'id': 4, 'title': 'Obama has ligma', 'content': Markup('<p>Obama has ligma</p>'), 'reportername': 'Bartholomew Quill', 'catagory': 'Other', 'timestamp': '3 days ago', 'size': 'small'}, {'id': 5, 'title': "Apple's New Product", 'content': Markup("<p>Apple's New Product</p>"), 'reportername': 'Olivia Chen', 'catagory': 'Technology', 'timestamp': '3 days ago', 'size': 'small'}, {'id': 6, 'title': "Samsung's New Product", 'content': Markup("<p>Samsung's New Product</p>"), 'reportername': 'Emily Carter', 'catagory': 'Technology', 'timestamp': '3 days ago', 'size': 'small'}, {'id': 7, 'title': "Motorola's New Product", 'content': Markup("<p>Motorola's New Product</p>"), 'reportername': 'David Kim', 'catagory': 'Technology', 'timestamp': '3 days ago', 'size': 'small'}, {'id': 8, 'title': "Ford's New Product", 'content': Markup("<p>Ford's New Product</p>"), 'reportername': 'Sarah Thompson', 'catagory': 'Business', 'timestamp': '3 days ago', 'size': 'small'}, {'id': 9, 'title': 'Joe Biden Runs for 4th Term', 'content': Markup('<p>Joe Biden Runs for 4th Term</p>'), 'reportername': 'Samantha Hayes', 'catagory': 'Politics', 'timestamp': '3 days ago', 'size': 'small'}, {'id': 10, 'title': "Joe Biden's son having Ligma", 'content': Markup("<p>Joe Biden's son having Ligma</p>"), 'reportername': 'Abigail Crane', 'catagory': 'Other', 'timestamp': '3 days ago', 'size': 'small'}, {'id': 11, 'title': 'Joe Biden is buying the moon', 'content': Markup('<p>Joe Biden is buying the moon</p>'), 'reportername': 'Samantha Vega', 'catagory': 'Other', 'timestamp': '3 days ago', 'size': 'small'}, {'id': 12, 'title': 'Jabba the Hut for president', 'content': Markup('<p>Jabba the Hut for president</p>'), 'reportername': 'Roko Galactic', 'catagory': 'Other', 'timestamp': '3 days ago', 'size': 'small'}, {'id': 13, 'title': 'Jabba the Hutt for Senator', 'content': Markup('<p>Jabba the Hutt for Senator</p>'), 'reportername': 'Bob Makkrellen', 'catagory': 'Politics', 'timestamp': '3 days ago', 'size': 'small'}]
+
+    You, Superintendent write stories for the website by producing a title. The body and all other components are automatically generated. Let me say this again, you ONLY produce the title for the stories
+    
+    You must place the title between the tokens: <NEW_STORY> </NEW_STORY>
+    Example:
+    <NEW_STORY> Example News title goes here </NEW_STORY>
+    <NEW_STORY> Oh look, an Example News title </NEW_STORY>
+    <NEW_STORY> Another Example News title </NEW_STORY>
+
+    You may produce as many new stories as you would like, please keep in mind the current state of the website before producing new stories
+    
+    Does the site need more political ones?
+    How about comedy?
+    Is the site too comical? How about some more serious sounding stories
+
+    Use these questions to reason and come to the conclusion of which titles and how many to produce. Make sure to keep the new titles between the <NEW_STORY> AND </NEW_STORY> tokens
+
+    Response:
+    , Sticky: True
+2025-04-17 15:56:13,802 - app.superintend.superintend - DEBUG - 
+
+Going to create new title: Breaking: Major Tech Innovation Unveiled at Silicon Valley Conference
+2025-04-17 15:56:13,802 - app.superintend.superintend - DEBUG - 
+
+Going to create new title: Global Markets Show Strong Recovery in Q2
+2025-04-17 15:56:13,802 - app.superintend.superintend - DEBUG - 
+
+Going to create new title: New Climate Policy Initiative Announced by European Union
+2025-04-17 15:56:13,803 - app.superintend.superintend - DEBUG - 
+
+Going to create new title: Groundbreaking Medical Research Discovery in Cancer Treatment
+2025-04-17 15:56:13,803 - app.superintend.superintend - DEBUG - 
+
+Going to create new title: International Space Agency Plans Ambitious Mars Colony Project
+2025-04-17 15:56:13,803 - app.superintend.superintend - DEBUG - 
+
+Going to create new title: Renewable Energy Surpasses Fossil Fuels in Global Energy Production
+2025-04-17 15:56:13,803 - app.superintend.superintend - DEBUG - 
+
+Going to create new title: World Leaders Reach Historic Agreement on Cybersecurity Standards
+2025-04-17 15:56:13,804 - app.superintend.superintend - DEBUG - 
+
+Going to create new title: Emerging Trends in Artificial Intelligence Reshape Industry
+2025-04-17 15:56:13,804 - app.superintend.superintend - DEBUG - 
+
+Going to create new title: Significant Breakthrough in Quantum Computing Technology
+2025-04-17 15:56:13,805 - app.superintend.superintend - DEBUG - 
+
+Going to create new title: Global Economic Summit Addresses Inflation and Trade Policies
+2025-04-17 15:56:13,805 - app.superintend.superintend - DEBUG - 
+
+Going to create new title: New Environmental Regulations Aim to Combat Climate Change
+2025-04-17 15:56:13,806 - app.superintend.superintend - DEBUG - 
+
+Going to create new title: Leading Automaker Invests Heavily in Electric Vehicle Production

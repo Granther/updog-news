@@ -23,30 +23,34 @@ def postproc_r1(response: str, think_only: bool=False):
 def bool_resp(response: str) -> bool:
     return 'yes' in response.lower()
 
-""" Takes a string of text and a token_core (REPORTER_NAME) where token is <REPORTER_NAME> {name} </REPORTER_NAME> """
-def extract_tok_val(content: str, tok_core: str, default: str=None):
+""" Takes a string of text and a token_core (REPORTER_NAME) where token is <REPORTER_NAME> {name} </REPORTER_NAME>. Returns a list of all vals occuring in all sets"""
+# Now we want to produce a list if there is multiple vals
+def extract_tok_val(content: str, tok_core: str, default: str=None) -> list:
     # Ensure tokens have spaces on both sides and break apart into list
     content = content.replace('\n', ' ').replace('>', '> ').replace('<', ' <').split()
     opening, closing = f"<{tok_core}>", f"</{tok_core}>"
-    val, in_val = "", False
+    val, in_val, vals = "", False, []
     for i, item in enumerate(content):
         if opening in item:
             in_val = True
             continue
         if closing in item:
             in_val = False
-            break
+            # Append val to vals
+            vals.append(val)
+            # Set val to ""
+            val = ""
         if i == len(content)-1: # Last item in list
             in_val = False
-            #return default
+        # If in val we catch the append it to val
         if in_val:
             if closing in content[i+1]: # Closing is next token
                 val += f"{item}" # No space added
             else:
                 val += f"{item} "
-    if val == "":
-        return default
-    return val
+    if not len(vals):
+        return [default]
+    return vals
 
 """ Given a list of QA dicts, returns a prettier html unsafes str """
 def pretty_interview(content: list) -> str:

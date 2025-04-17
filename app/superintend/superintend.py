@@ -15,13 +15,14 @@ import shortuuid
 from app.logger import create_logger
 from app.news import get_stories, get_marquee
 from app.config import SuperintendConfig, Model
-from .prompts import ephem_sys_prompt, superintend_sys_prompt, bool_question_prompt, build_rag, build_need_rag_prompt, build_allow_story, build_doc_ret_prompt, build_interviewy_prompt, build_interviewer_prompt, get_interviewy_person, get_interviewer_person, build_quick_fill, get_iview_title, build_fix_schrod_title, build_periodic_prompt, periodic_sys_prompt
+from .prompts import ephem_sys_prompt, superintend_sys_prompt, bool_question_prompt, build_rag, build_need_rag_prompt, build_allow_story, build_doc_ret_prompt, build_interviewy_prompt, build_interviewer_prompt, get_interviewy_person, get_interviewer_person, build_quick_fill, get_iview_title, build_fix_schrod_title, build_periodic_prompt, periodic_sys_prompt, dec_create_sys_prompt, build_dec_create_prompt
 from .utils import stringify, postproc_r1, bool_resp, extract_tok_val, pretty_interview
 from app.models import Interview
 from app import db
 from .core import Core
 from .chat import HoodChat
 from .news import News
+from .default import def_title
 
 logger = create_logger(__name__)
 
@@ -104,7 +105,7 @@ class SuperIntend:
         def _per():
             stories = get_stories()
             sliding_titles = get_marquee()
-            sys = periodic_sys_prompt
+            sys = periodic_sys_prompt # Remember, sys is ALWAYS forgotten, we want custom prompts to stay
             prompt = build_periodic_prompt(dec_toks=self.dec_toks, temp=72, stories=stories, sliding_titles=sliding_titles)
             resp = self.core.request(prompt, sys_prompt=sys, sticky=True, quick=False, dimentia=False)
             if not self._postproc_periodic(resp):
@@ -144,9 +145,20 @@ class SuperIntend:
             return False
 
     def _dec_create(self) -> bool:
-        stories = get_stories()
-        sys = build_periodic_sys_prompt(dec_toks=self.dec_toks, temp=72, stories=stories, sliding_titles=sliding_titles)
-        resp = self.core.request("", sys_prompt=sys, sticky=True, quick=False, dimentia=False)
+        # should we give the AI stories before asking it to answer
+        try:
+            stories = get_stories()
+            sys = dec_create_sys_prompt
+            prompt = build_dec_create_prompt(stories=stories)
+            resp = self.core.request(prompt, sys_prompt=sys, sticky=True, quick=False, dimentia=False)
+            new_titles = extract_tok_val(resp, "NEW_STORY", def_title)
+
+            for title in new_titles:
+                logger.debug(f"\n\nGoing to create new title: {title}")
+        except Exception as e:
+            logger.fatal(f"Fatal error occured while dec_creat-ing new titles: {e}")
+            return False
+        return True
 
 _superintend = SuperIntend(SuperintendConfig())
 print(_superintend.config)

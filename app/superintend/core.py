@@ -202,7 +202,7 @@ class Core:
         self.event_num_trigger = event_num
 
     def _proc_periodic(self):
-        if self.num_events is 0:
+        if self.num_events == 0:
             self.num_events += 1
             return
         if self.num_events >= self.event_num_trigger:

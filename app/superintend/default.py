@@ -1,0 +1,9 @@
+def_reporter = "Jim Scrimbus"
+def_category = "World"
+def_title = "Joe Biden buys the Moon"
+def_personality = "Just a humble writer at Updog news, hes a little politically incorrect though"
+def_iviewer_name = "Jimothy Honest"
+def_iviewer_persona = "Just a simple Honest guy, he hates kids though, like he cant stop talking about it"
+def_iviewy_name = "Elon Musk"
+def_iviewy_persona = "Hey, its me, Elon Musk, meet my son slkasiaoifhwqoiehfwpoifh"
+allowed_categories = ["World", "Technology", "Business", "Politics", "Other"]

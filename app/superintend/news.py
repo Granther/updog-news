@@ -13,17 +13,9 @@ from app.logger import create_logger
 from app.models import Interview, Story
 from .prompts import ephem_sys_prompt, superintend_sys_prompt, bool_question_prompt, build_rag, build_need_rag_prompt, build_allow_story, build_doc_ret_prompt, build_interviewy_prompt, build_interviewer_prompt, get_interviewy_person, get_interviewer_person, build_quick_fill, get_iview_title, build_fix_schrod_title, gen_news_prompt
 from .utils import stringify, postproc_r1, bool_resp, extract_tok_val, pretty_interview, build_client
+from .default import def_reporter, def_category, def_personality, def_iviewer_name, def_iviewer_persona, def_iviewy_name, def_iviewy_persona, allowed_categories
 
 logger = create_logger(__name__)
-
-def_reporter = "Jim Scrimbus"
-def_category = "World"
-def_personality = "Just a humble writer at Updog news, hes a little politically incorrect though"
-def_iviewer_name = "Jimothy Honest"
-def_iviewer_persona = "Just a simple Honest guy, he hates kids though, like he cant stop talking about it"
-def_iviewy_name = "Elon Musk"
-def_iviewy_persona = "Hey, its me, Elon Musk, meet my son slkasiaoifhwqoiehfwpoifh"
-allowed_categories = ["World", "Technology", "Business", "Politics", "Other"]
 
 class News:
     def __init__(self, config: NewsConfig, core):
