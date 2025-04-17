@@ -13,8 +13,9 @@ from groq import Groq
 import shortuuid
 
 from app.logger import create_logger
+from app.news import get_stories, get_marquee
 from app.config import SuperintendConfig, Model
-from .prompts import ephem_sys_prompt, superintend_sys_prompt, bool_question_prompt, build_rag, build_need_rag_prompt, build_allow_story, build_doc_ret_prompt, build_interviewy_prompt, build_interviewer_prompt, get_interviewy_person, get_interviewer_person, build_quick_fill, get_iview_title, build_fix_schrod_title
+from .prompts import ephem_sys_prompt, superintend_sys_prompt, bool_question_prompt, build_rag, build_need_rag_prompt, build_allow_story, build_doc_ret_prompt, build_interviewy_prompt, build_interviewer_prompt, get_interviewy_person, get_interviewer_person, build_quick_fill, get_iview_title, build_fix_schrod_title, build_periodic_sys_prompt
 from .utils import stringify, postproc_r1, bool_resp, extract_tok_val, pretty_interview
 from app.models import Interview
 from app import db
@@ -47,6 +48,7 @@ class SuperIntend:
             # News: News & interview etc generation and infer management
             self.news = News(config.NEWS, core=self.core)
             self._init_queue()
+            self.core.set_periodic(self.periodic, event_num=config.EVENT_NUM)
         except Exception as e:
             logger.fatal(f"Fatal error occured while instantiating Superintend: {e}")
             sys.exit(1)
@@ -81,14 +83,30 @@ class SuperIntend:
             {"role": "user", "content": question},
         ]
         resp = self.core.chat(messages)
-        #print(resp)
         if 'no' in resp.lower():
             return False
         elif 'yes' in resp.lower():
             return True
         else:
-            return False
             logger.fatal(f"Bool question got answer: {resp}")
+            return False
+
+    """ Gets called when Superintend needs to be active """
+    def periodic(self):
+        logger.debug("Periodic callback called for Superintendent")
+        # Ask superintend a whole bunch of questions?
+        # Change sliding text
+        # Change size of some stories
+        # Make changes according to what Hoodlem reported
+            # Remove story
+        self.dec_toks = 3
+        stories = get_stories()
+        sliding_titles = get_marquee()
+        sys = build_periodic_sys_prompt(dec_toks=self.dec_toks, temp=72, stories=stories, sliding_titles=sliding_titles)
+        print(f"\n\n{sys}\n\n")
+        resp = self.core.request("", sys_prompt=sys, sticky=True, quick=False, dimentia=False)
+        print(resp)
+        sys.exit(1)
 
 _superintend = SuperIntend(SuperintendConfig())
 print(_superintend.config)
@@ -167,3 +185,11 @@ if __name__ == "__main__":
 # yield "event: end\n"
 # yield "data: done\n\n"
 # """
+
+"""
+How should superintend periodically become active
+- Get status of system after X events
+- Schedule
+    - Problem is a decay of the site even if no one is there
+
+"""

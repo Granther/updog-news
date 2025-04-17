@@ -32,6 +32,7 @@ class Core:
     def __init__(self, config: CoreConfig):
         self.config = config
         self.collections = dict()
+        self.num_events = 0
         self.sys_prompt = superintend_sys_prompt
         self.max_infer_tries = config.MAX_INFER_TRIES
         self.main = config.CORE_MODEL
@@ -91,6 +92,7 @@ class Core:
             msgs.append({"role": "user", "content": f"INFORM: {self._add_timestamp(data)}"})
             self.core_messages.update_timed_msgs(msgs.read_timestamps()) # Update central, merge
             logger.debug(f"Made inform of: {data}")
+        self._proc_periodic()
 
     """ Request an answer, passing quick forks the conscienceness. Sticky meaning wether the request ends up in the core message stream or not
     Basically, is it important or will it clog up superintend?
@@ -120,30 +122,6 @@ class Core:
                 self.core_messages.update_timed_msgs(msgs.read_timestamps()) # Update central, merge
             logger.debug(f"Made request of: {request}, Sticky: {sticky}")
             return resp
-
-    def _infer(self, messages: list, model: Model):
-        logger.debug(f"Executing _infer with model: {model}")
-        tries = 0
-        chat_completion = None
-        while tries < self.max_infer_tries:
-            try:
-                chat_completion = model.client.chat.completions.create(
-                    messages=messages,
-                    model=model.name
-                )
-                break
-            except Exception as e:
-                logger.debug(f"_infer got exception: {e}, Trying {self.max_infer_tries-tries} more times...")
-                time.sleep(3) # Give the API a rest :)
-                tries += 1
-
-        if tries >= self.max_infer_tries:
-            raise Exception(f"Max tries of {self.max_infer_tries} exceeded for _infer")
-
-        resp = chat_completion.choices[0].message.content
-        if 'deepseek' in model.name:
-            resp = postproc_r1(resp)
-        return resp
 
     """ Hoodlem func, takes chat completions, already RAGed, returns a chat response 
         - Expectation that the caller is handling all chats
@@ -219,6 +197,23 @@ class Core:
                 self.inform(e)
         threading.Thread(target=_embed, daemon=True).start()
 
+    def set_periodic(self, fn, event_num: int=3):
+        self.periodic_fn = fn
+        self.event_num_trigger = event_num
+
+    def _proc_periodic(self):
+        if self.num_events is 0:
+            self.num_events += 1
+            return
+        if self.num_events >= self.event_num_trigger:
+            try:
+                self.periodic_fn()
+            except Exception as e:
+                logger.fatal(f"Fatal error calling periodic callback: {e}")
+            self.num_events = 0
+        else:
+            self.num_events += 1
+
     """ Gets the core context for superintendent """
     def get_messages(self) -> list:
         return self.core_messages._get_messages()
@@ -244,6 +239,30 @@ class Core:
             logger.fatal(f"Passed collection: {col_name}, but it does not exist in Core")
             return False
         return self.collections[col_name]
+
+    def _infer(self, messages: list, model: Model):
+        logger.debug(f"Executing _infer with model: {model}")
+        tries = 0
+        chat_completion = None
+        while tries < self.max_infer_tries:
+            try:
+                chat_completion = model.client.chat.completions.create(
+                    messages=messages,
+                    model=model.name
+                )
+                break
+            except Exception as e:
+                logger.debug(f"_infer got exception: {e}, Trying {self.max_infer_tries-tries} more times...")
+                time.sleep(3) # Give the API a rest :)
+                tries += 1
+
+        if tries >= self.max_infer_tries:
+            raise Exception(f"Max tries of {self.max_infer_tries} exceeded for _infer")
+
+        resp = chat_completion.choices[0].message.content
+        if 'deepseek' in model.name:
+            resp = postproc_r1(resp)
+        return resp
 
     def _infer_stream(self, messages: list, model: Model): 
         stream = model.client.chat.completions.create(

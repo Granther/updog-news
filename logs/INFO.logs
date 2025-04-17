@@ -13357,3 +13357,277 @@ Story: <h1 class="text-3xl font-playfair font-bold mt-6">Jabba the Hutt for Sena
 2025-04-15 23:25:48,667 - app.superintend.core - DEBUG - Making query of question:  to collection: quotes
 2025-04-15 23:26:03,192 - app.superintend.core - DEBUG - Made inform of: User visited interview with uuid of KydhXJWwKyu4NCpFLirvsb
 2025-04-15 23:26:43,605 - app.superintend.core - DEBUG - Made inform of: User visited index, no category selected showing all info
+2025-04-16 22:04:49,495 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-16 22:04:49,495 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-16 22:04:49,499 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-16 22:04:49,499 - app.superintend.superintend - CRITICAL - Fatal error occured while instantiating Superintend: 'Core' object has no attribute '_proc_periodic'
+2025-04-16 22:05:09,950 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-16 22:05:09,950 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-16 22:05:09,954 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-16 22:05:09,954 - app.superintend.superintend - CRITICAL - Fatal error occured while instantiating Superintend: 'Core' object has no attribute 'event_num_trigger'
+2025-04-16 22:06:01,235 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-16 22:06:01,235 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-16 22:06:01,239 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-16 22:06:01,239 - app.superintend.superintend - CRITICAL - Fatal error occured while instantiating Superintend: 'Core' object has no attribute 'event_num_trigger'
+2025-04-16 22:07:10,024 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-16 22:07:10,024 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-16 22:07:10,028 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-16 22:07:10,043 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-16 22:07:10,044 - app.superintend.superintend - CRITICAL - Fatal error occured while instantiating Superintend: 'SuperintendConfig' object has no attribute 'EVENT_NUM'
+2025-04-16 22:07:57,062 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-16 22:07:57,063 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-16 22:07:57,066 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-16 22:07:57,085 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-16 22:07:57,085 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-16 22:07:58,281 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-16 22:07:58,281 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-16 22:07:58,285 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-16 22:07:58,300 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-16 22:07:58,300 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-16 22:08:15,410 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-16 22:08:15,410 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-16 22:08:15,414 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-16 22:08:15,430 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-16 22:08:15,430 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-16 22:08:19,478 - app.superintend.core - DEBUG - Made inform of: User visited index, no category selected showing all info
+2025-04-16 22:08:21,526 - app.superintend.core - DEBUG - Making query of question: Joe Biden has ligma to collection: titles
+2025-04-16 22:08:21,744 - app.superintend.core - DEBUG - Made inform of: User visited story with title of Joe Biden has ligma
+2025-04-16 22:08:23,802 - app.superintend.core - DEBUG - Making query of question: Joe Biden has ligma to collection: titles
+2025-04-16 22:08:23,825 - app.superintend.core - DEBUG - Made inform of: User visited story with title of Joe Biden has ligma
+2025-04-16 22:08:27,166 - app.superintend.core - DEBUG - Making query of question: Joe Biden has ligma to collection: titles
+2025-04-16 22:08:27,187 - app.superintend.core - DEBUG - Made inform of: User visited story with title of Joe Biden has ligma
+2025-04-16 22:08:55,366 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-16 22:08:55,366 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-16 22:08:55,370 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-16 22:08:55,388 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-16 22:08:55,388 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-16 22:08:56,610 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-16 22:08:56,611 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-16 22:08:56,615 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-16 22:08:56,631 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-16 22:08:56,631 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-16 22:08:58,557 - app.superintend.core - DEBUG - Made inform of: User visited index, no category selected showing all info
+2025-04-16 22:09:00,205 - app.superintend.core - DEBUG - Making query of question: Joe Biden has ligma to collection: titles
+2025-04-16 22:09:00,378 - app.superintend.core - DEBUG - Made inform of: User visited story with title of Joe Biden has ligma
+2025-04-16 22:09:02,808 - app.superintend.core - DEBUG - Made inform of: User visited index, no category selected showing all info
+2025-04-16 22:09:04,291 - app.superintend.core - DEBUG - Making query of question: Joe Biden has ligma to collection: titles
+2025-04-16 22:09:04,313 - app.superintend.core - DEBUG - Made inform of: User visited story with title of Joe Biden has ligma
+2025-04-16 22:09:09,079 - app.superintend.core - DEBUG - Made inform of: User visited index, no category selected showing all info
+2025-04-16 22:09:12,004 - app.superintend.core - DEBUG - Making query of question: Obama has ligma to collection: titles
+2025-04-16 22:09:12,019 - app.superintend.core - DEBUG - Made inform of: User visited story with title of Obama has ligma
+2025-04-16 22:09:39,635 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-16 22:09:39,635 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-16 22:09:39,639 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-16 22:09:39,657 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-16 22:09:39,657 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-16 22:09:40,871 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-16 22:09:40,871 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-16 22:09:40,875 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-16 22:09:40,891 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-16 22:09:40,891 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-16 22:09:40,918 - app.superintend.core - DEBUG - Made inform of: User visited index, no category selected showing all info
+2025-04-16 22:10:02,755 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-16 22:10:02,755 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-16 22:10:02,759 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-16 22:10:02,777 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-16 22:10:02,778 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-16 22:10:04,031 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-16 22:10:04,031 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-16 22:10:04,035 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-16 22:10:04,051 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-16 22:10:04,051 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-16 22:10:04,203 - app.superintend.core - DEBUG - Made inform of: User visited index, no category selected showing all info
+2025-04-16 22:10:05,854 - app.superintend.core - DEBUG - Making query of question: Joe Biden has ligma to collection: titles
+2025-04-16 22:10:06,024 - app.superintend.core - DEBUG - Made inform of: User visited story with title of Joe Biden has ligma
+2025-04-16 22:10:07,774 - app.superintend.core - DEBUG - Made inform of: User visited index, no category selected showing all info
+2025-04-16 22:10:07,785 - app.superintend.core - DEBUG - Made inform of: User visited index, no category selected showing all info
+2025-04-16 22:10:07,797 - app.superintend.core - DEBUG - Made inform of: User visited index, no category selected showing all info
+2025-04-16 22:10:07,807 - app.superintend.core - DEBUG - Made inform of: User visited index, no category selected showing all info
+2025-04-16 22:10:07,818 - app.superintend.core - DEBUG - Made inform of: User visited index, no category selected showing all info
+2025-04-16 22:10:07,829 - app.superintend.core - DEBUG - Made inform of: User visited index, no category selected showing all info
+2025-04-16 22:10:07,840 - app.superintend.core - DEBUG - Made inform of: User visited index, no category selected showing all info
+2025-04-16 22:10:07,851 - app.superintend.core - DEBUG - Made inform of: User visited index, no category selected showing all info
+2025-04-16 22:10:07,862 - app.superintend.core - DEBUG - Made inform of: User visited index, no category selected showing all info
+2025-04-16 22:10:07,873 - app.superintend.core - DEBUG - Made inform of: User visited index, no category selected showing all info
+2025-04-16 22:10:49,992 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-16 22:10:49,992 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-16 22:10:49,996 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-16 22:10:50,011 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-16 22:10:50,011 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-16 22:10:51,216 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-16 22:10:51,216 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-16 22:10:51,220 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-16 22:10:51,240 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-16 22:10:51,240 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-16 22:10:51,264 - app.superintend.core - DEBUG - Made inform of: User visited index, no category selected showing all info
+2025-04-16 22:10:52,905 - app.superintend.core - DEBUG - Making query of question: Joe Biden has ligma to collection: titles
+2025-04-16 22:10:53,083 - app.superintend.core - DEBUG - Made inform of: User visited story with title of Joe Biden has ligma
+2025-04-16 22:10:54,790 - app.superintend.core - DEBUG - Made inform of: User visited index, no category selected showing all info
+2025-04-16 22:10:54,801 - app.superintend.core - DEBUG - Made inform of: User visited index, no category selected showing all info
+2025-04-16 22:10:54,812 - app.superintend.core - DEBUG - Made inform of: User visited index, no category selected showing all info
+2025-04-16 22:10:54,823 - app.superintend.core - DEBUG - Made inform of: User visited index, no category selected showing all info
+2025-04-16 22:10:54,834 - app.superintend.core - DEBUG - Made inform of: User visited index, no category selected showing all info
+2025-04-16 22:10:54,845 - app.superintend.core - DEBUG - Made inform of: User visited index, no category selected showing all info
+2025-04-16 22:10:54,856 - app.superintend.core - DEBUG - Made inform of: User visited index, no category selected showing all info
+2025-04-16 22:10:54,867 - app.superintend.core - DEBUG - Made inform of: User visited index, no category selected showing all info
+2025-04-16 22:10:54,878 - app.superintend.core - DEBUG - Made inform of: User visited index, no category selected showing all info
+2025-04-16 22:10:54,889 - app.superintend.core - DEBUG - Made inform of: User visited index, no category selected showing all info
+2025-04-16 22:11:04,078 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-16 22:11:04,078 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-16 22:11:04,082 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-16 22:11:04,099 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-16 22:11:04,099 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-16 22:11:06,713 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-16 22:11:06,713 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-16 22:11:06,717 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-16 22:11:06,732 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-16 22:11:06,732 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-16 22:11:06,757 - app.superintend.core - DEBUG - Made inform of: User visited index, no category selected showing all info
+2025-04-16 22:11:37,850 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-16 22:11:37,850 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-16 22:11:37,854 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-16 22:11:37,869 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-16 22:11:37,869 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-16 22:11:41,446 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-16 22:11:41,447 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-16 22:11:41,451 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-16 22:11:41,469 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-16 22:11:41,469 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-16 22:11:49,141 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-16 22:11:49,142 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-16 22:11:49,146 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-16 22:11:49,162 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-16 22:11:49,162 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-16 22:12:20,257 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-16 22:12:20,257 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-16 22:12:20,261 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-16 22:12:20,279 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-16 22:12:20,279 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-16 22:12:46,400 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-16 22:12:46,401 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-16 22:12:46,404 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-16 22:12:46,419 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-16 22:12:46,419 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-16 22:13:11,483 - app.superintend.core - DEBUG - Making query of question: Joe Biden has ligma to collection: titles
+2025-04-16 22:13:11,691 - app.superintend.core - DEBUG - Made inform of: User visited story with title of Joe Biden has ligma
+2025-04-16 22:13:20,151 - app.superintend.core - DEBUG - Made inform of: User visited category Other on index
+2025-04-16 22:13:23,552 - app.superintend.core - DEBUG - Making query of question: Joe Biden has ligma to collection: titles
+2025-04-16 22:13:23,574 - app.superintend.core - DEBUG - Made inform of: User visited story with title of Joe Biden has ligma
+2025-04-16 22:13:23,574 - app.superintend.superintend - DEBUG - Periodic callback called for Superintendent
+2025-04-16 22:13:38,337 - app.superintend.core - DEBUG - Made inform of: User visited index, no category selected showing all info
+2025-04-16 22:14:05,205 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-16 22:14:05,205 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-16 22:14:05,210 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-16 22:14:05,228 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-16 22:14:05,228 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-16 22:14:15,926 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-16 22:14:15,926 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-16 22:14:15,930 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-16 22:14:15,948 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-16 22:14:15,949 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-16 22:14:19,539 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-16 22:14:19,539 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-16 22:14:19,543 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-16 22:14:19,562 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-16 22:14:19,562 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-16 22:14:49,651 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-16 22:14:49,651 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-16 22:14:49,655 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-16 22:14:49,674 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-16 22:14:49,674 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-16 22:14:57,333 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-16 22:14:57,333 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-16 22:14:57,337 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-16 22:14:57,353 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-16 22:14:57,353 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-16 22:15:06,974 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-16 22:15:06,974 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-16 22:15:06,978 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-16 22:15:06,996 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-16 22:15:06,997 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-16 22:15:10,619 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-16 22:15:10,620 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-16 22:15:10,623 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-16 22:15:10,641 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-16 22:15:10,642 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-16 22:15:17,186 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-16 22:15:17,186 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-16 22:15:17,190 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-16 22:15:17,208 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-16 22:15:17,208 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-16 22:15:24,773 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-16 22:15:24,773 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-16 22:15:24,777 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-16 22:15:24,793 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-16 22:15:24,793 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-16 22:15:39,559 - app.superintend.core - DEBUG - Making query of question: Jabba the Hutt for Senator to collection: titles
+2025-04-16 22:15:39,768 - app.superintend.core - DEBUG - Made inform of: User visited story with title of Jabba the Hutt for Senator
+2025-04-16 22:15:46,130 - app.superintend.core - DEBUG - Made inform of: User visited index, no category selected showing all info
+2025-04-16 22:16:52,591 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-16 22:16:52,591 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-16 22:16:52,595 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-16 22:16:52,613 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-16 22:16:52,613 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-16 22:43:17,258 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-16 22:43:17,259 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-16 22:43:17,262 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-16 22:43:17,277 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-16 22:43:17,277 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-16 22:43:18,453 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-16 22:43:18,453 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-16 22:43:18,457 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-16 22:43:18,474 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-16 22:43:18,475 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-16 22:43:19,539 - app.superintend.core - DEBUG - Making query of question: Joe Biden has ligma to collection: titles
+2025-04-16 22:43:19,744 - app.superintend.core - DEBUG - Made inform of: User visited story with title of Joe Biden has ligma
+2025-04-16 22:43:22,812 - app.superintend.core - DEBUG - Making query of question: Joe Biden has ligma to collection: titles
+2025-04-16 22:43:22,832 - app.superintend.core - DEBUG - Made inform of: User visited story with title of Joe Biden has ligma
+2025-04-16 22:43:26,966 - app.superintend.core - DEBUG - Making query of question: Joe Biden has ligma to collection: titles
+2025-04-16 22:43:26,982 - app.superintend.core - DEBUG - Made inform of: User visited story with title of Joe Biden has ligma
+2025-04-16 22:43:26,982 - app.superintend.superintend - DEBUG - Periodic callback called for Superintendent
+2025-04-16 22:43:26,989 - app.superintend.core - CRITICAL - Fatal error calling periodic callback: 'SuperIntend' object has no attribute 'dec_toks'
+2025-04-16 22:43:42,761 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-16 22:43:42,761 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-16 22:43:42,765 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-16 22:43:42,781 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-16 22:43:42,781 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-16 22:43:44,500 - app.superintend.core - DEBUG - Made inform of: User visited index, no category selected showing all info
+2025-04-16 22:43:45,736 - app.superintend.core - DEBUG - Making query of question: Joe Biden has ligma to collection: titles
+2025-04-16 22:43:45,906 - app.superintend.core - DEBUG - Made inform of: User visited story with title of Joe Biden has ligma
+2025-04-16 22:43:47,628 - app.superintend.core - DEBUG - Made inform of: User visited index, no category selected showing all info
+2025-04-16 22:43:47,629 - app.superintend.superintend - DEBUG - Periodic callback called for Superintendent
+2025-04-16 22:43:47,632 - app.superintend.core - DEBUG - Executing _infer with model: Model(name: deepseek-r1-distill-llama-70b, backend: groq)
+2025-04-16 22:43:50,393 - app.superintend.core - DEBUG - Made request of: , Sticky: True
+2025-04-16 22:43:50,394 - app.superintend.core - CRITICAL - Fatal error calling periodic callback: 'str' object has no attribute 'exit'
+2025-04-16 22:44:25,048 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-16 22:44:25,048 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-16 22:44:25,052 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-16 22:44:25,067 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-16 22:44:25,067 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-16 22:44:29,870 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-16 22:44:29,870 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-16 22:44:29,874 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-16 22:44:29,890 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-16 22:44:29,890 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-16 22:44:32,570 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-16 22:44:32,570 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-16 22:44:32,574 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-16 22:44:32,590 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-16 22:44:32,590 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-16 22:44:36,214 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-16 22:44:36,214 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-16 22:44:36,218 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-16 22:44:36,233 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-16 22:44:36,233 - app.superintend.superintend - DEBUG - Created Superintendent
+2025-04-16 22:44:40,432 - app.superintend.core - DEBUG - Made inform of: User visited index, no category selected showing all info
+2025-04-16 22:44:42,553 - app.superintend.core - DEBUG - Made inform of: User visited index, no category selected showing all info
+2025-04-16 22:44:44,952 - app.superintend.core - DEBUG - Made inform of: User visited index, no category selected showing all info
+2025-04-16 22:44:44,952 - app.superintend.superintend - DEBUG - Periodic callback called for Superintendent
+2025-04-16 22:44:44,956 - app.superintend.core - DEBUG - Executing _infer with model: Model(name: deepseek-r1-distill-llama-70b, backend: groq)
+2025-04-16 22:44:47,834 - app.superintend.core - DEBUG - Made request of: , Sticky: True
+2025-04-16 22:44:47,834 - app.superintend.core - CRITICAL - Fatal error calling periodic callback: 'str' object has no attribute 'exit'
+2025-04-16 22:45:34,835 - app.superintend.core - DEBUG - Initializing Superintendent thought queue
+2025-04-16 22:45:34,835 - app.superintend.core - DEBUG - Creating 'main', 'chats', and 'quotes' vector collections
+2025-04-16 22:45:34,839 - app.superintend.core - DEBUG - Made inform of: Updog.news Core booting up... Hello Superintendent from init systems :)
+2025-04-16 22:45:34,855 - app.superintend.superintend - DEBUG - Initializing chat queue
+2025-04-16 22:45:34,855 - app.superintend.superintend - DEBUG - Created Superintendent

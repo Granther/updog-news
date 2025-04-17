@@ -11,10 +11,7 @@ from flask import current_app
 
 from app.models import Story, User
 from app.prompts import generate_news_prompt
-from app.superintend import gen_interviews, get_superintend
 from app import db
-
-superintend = get_superintend()
 
 class Infer():
     def __init__(self):
@@ -95,9 +92,6 @@ def write_new_story(app, item: dict):
             content = fix_html_class(content)
             print("Content: ", content)
             story = Story(title=item['title'], content=content, reporter=item['reporter'], catagory=item['catagory'])
-            if not superintend.allow_story(story):
-                raise Exception("Superintendent denied your story")
-            gen_interviews(app, story) # Dispatches new thread in hoodlem
             db.session.add(story)
             db.session.commit()
         except Exception as e:

@@ -89,6 +89,7 @@ class NewsConfig(ModuleConfig):
 class SuperintendConfig:
     try:
         KEYS = Keys()
+        EVENT_NUM = int(os.getenv("EVENT_NUM"))
         DEFAULT_MODEL = Model(os.getenv("DEFAULT_MODEL"))
         CORE = CoreConfig(default_model=DEFAULT_MODEL, keys=KEYS)
         HOODLEM = HoodlemConfig(default_model=DEFAULT_MODEL, keys=KEYS)
