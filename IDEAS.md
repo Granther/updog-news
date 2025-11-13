@@ -11,3 +11,5 @@
 - Article can be creates by doing https://updog.news/Elon bought the moon, this means that every article must be unique
 
 - Generate fake AI ads lol
+
+- Look at popular news articles and use them for inspiration
